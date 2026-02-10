@@ -9,7 +9,7 @@ export default function CoursesPage() {
   const router = useRouter();
 
   const handleCourseSelect = (courseId: string) => {
-    router.push(`/courses/${courseId}/study`);
+    router.push(`/courses/${courseId}`);
   };
 
   return (
