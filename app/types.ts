@@ -1,32 +1,31 @@
-export type Question = {
-  id: string;
-  question: string;
-  answer: string;
-  hint: string | null;
-  tags: string[];
-  courseId: string;
-  chapterId: string;
-  unitId: string;
-  sectionId: string;
-};
-
-export type Group = {
+export type GroupMetaData = {
   id: string;
   title: string;
   description: string;
   number: number;
   type: "course" | "chapter" | "unit" | "section";
+};
+
+export type GroupWithQuestions = GroupMetaData & {
   questions: Question[];
 };
 
-export const groupSubgroupMap = {
-  course: "chapters",
-  chapter: "units",
-  unit: "sections",
-  section: null,
+export type Question = {
+  id: string;
+  question: string;
+  answer: string;
+  hint: string | null;
+  images?: string[];
+  tags: string[];
 };
 
-export type Course = Group & { type: "course"; chapters: Chapter[] };
-export type Chapter = Group & { type: "chapter"; units: Unit[] };
-export type Unit = Group & { type: "unit"; sections: Section[] };
-export type Section = Group & { type: "section" };
+export type Section = GroupWithQuestions & { type: "section" };
+export type Chapter = GroupWithQuestions & {
+  type: "chapter";
+  sections: Section[];
+};
+export type Unit = GroupWithQuestions & {
+  type: "unit";
+  chapters: Chapter[];
+};
+export type Course = GroupMetaData & { type: "course"; units: Unit[] };
