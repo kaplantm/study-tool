@@ -1,7 +1,9 @@
 import { Unit } from "@/app/types";
 
 import { chapter1 } from "./chapters/1/1";
+
 import { chapter2 } from "./chapters/2/2";
+import { chapter3 } from "./chapters/3/3";
 
 export const nutritionUnit1: Unit = {
   id: "unit-1",
@@ -10,6 +12,6 @@ export const nutritionUnit1: Unit = {
     "Covers the basics of nutrition, healthy eating, and the science behind dietary choices.",
   number: 1,
   type: "unit",
-  chapters: [chapter1, chapter2],
+  chapters: [chapter1, chapter2, chapter3],
   questions: [], // Optionally, add unit-level summary or integrative questions here
 };
