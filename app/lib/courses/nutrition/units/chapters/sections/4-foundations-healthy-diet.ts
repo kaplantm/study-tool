@@ -8,18 +8,11 @@ export const nutritionUnit1Chapter1Section4: Section = {
   type: "section",
   questions: [
     {
-      id: "nutrition-u1-c1-s4-q1",
-      question:
-        "Which food was identified as the most nutrient-dense in the notes?",
-      answer: "Grapes.",
-      hint: "It’s a fruit often used in examples.",
-      tags: ["nutrient-density", "foods"],
-    },
-    {
       id: "nutrition-u1-c1-s4-q2",
-      question: "Which of the following is a macronutrient?",
+      question:
+        "Which of the following is a macronutrient: carbohydrates, b12, or iron?",
       answer: "Carbohydrates.",
-      hint: "Think carbs, protein, or fat.",
+      hint: "Think energy-providing nutrients.",
       tags: ["macronutrients", "basics"],
     },
     {

@@ -185,9 +185,7 @@ export default function StudyPage() {
             }
             responses={responses}
             quizQuestions={quizQuestions}
-            onStudyAnother={() =>
-              router.push(`/courses/${selectedCourse.id}/study`)
-            }
+            onStudyAnother={() => router.push(`/courses/${selectedCourse.id}`)}
             onPickNewCourse={handleChangeCourse}
           />
         )}

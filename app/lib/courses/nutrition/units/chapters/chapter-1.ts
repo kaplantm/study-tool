@@ -1,9 +1,9 @@
 import { Chapter } from "@/app/types";
-import { nutritionUnit1Chapter1Section3 } from "./sections/benefits-healthy-eating";
-import { nutritionUnit1Chapter1Section4 } from "./sections/foundations-healthy-diet";
-import { nutritionUnit1Chapter1Section2 } from "./sections/personal-food-choices";
-import { nutritionUnit1Chapter1Section5 } from "./sections/scientific-approach-nutrition";
-import { nutritionUnit1Chapter1Section1 } from "./sections/social-media-misinformation";
+import { nutritionUnit1Chapter1Section1 } from "./sections/1-social-media-misinformation";
+import { nutritionUnit1Chapter1Section2 } from "./sections/2-personal-food-choices";
+import { nutritionUnit1Chapter1Section3 } from "./sections/3-benefits-healthy-eating";
+import { nutritionUnit1Chapter1Section4 } from "./sections/4-foundations-healthy-diet";
+import { nutritionUnit1Chapter1Section5 } from "./sections/5-scientific-approach-nutrition";
 
 export const nutritionUnit1Chapter1: Chapter = {
   id: "nutrition-u1-c1",

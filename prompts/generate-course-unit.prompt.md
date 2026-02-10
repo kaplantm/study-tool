@@ -16,6 +16,6 @@ app/lib/courses/[courseName]/
   -- chapters
   --- [chapterNumber].ts <!-- create/update: one or more files that define a chapter, imports sections, is imported by unit -->
   --- sections
-  ---- [sectionName].ts <!-- create/update: one or more files that define a section, includes questions, is imported by chapter -->
+  ---- [sectionNumber]-[sectionName].ts <!-- create/update: one or more files that define a section, includes questions, is imported by chapter -->
 
 Add image files: public / images / courses / [courseName] / units / [unitName] / [sectionName] / [imageFile]
