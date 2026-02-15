@@ -36,4 +36,7 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
 TODO:
-Store incorrect flashcard ids in local storage. Add option to study failed cards only (per course / per unit / per chapter)
+Add a flag for review button (flag icon) icon. Show "Incorrect" "Flag for Review" and "Correct". Store flagged flashcard ids in local storage. Clicking "incorrect" should also mark a question as flagged in local storage. Quiz summary should display failed cards and flagged cards (both are technically saved as flagged, but in the quiz summary we want to understand why). Add a toggle option to study flagged cards only (per course / per unit / per chapter). During this type of quiz, show an "unflag" button instead - getting a question right does not unflag it, you must click the unflag button.
+
+Add button to get back to course selection from http://localhost:3001/courses/nutrition
+Add button to exit flashcards early (link to http://localhost:3001/courses/ and link to http://localhost:3001/courses/:courseId)

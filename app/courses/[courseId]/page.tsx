@@ -88,9 +88,17 @@ export default function StudyPage() {
     <div className="min-h-screen bg-zinc-50 px-4 py-12 text-zinc-900 dark:bg-black dark:text-zinc-100">
       <main className="mx-auto flex w-full max-w-5xl flex-col gap-10">
         <header className="flex flex-col gap-3">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
-            Flashcard Study
-          </p>
+          <div className="flex items-center justify-between">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
+              Flashcard Study
+            </p>
+            <button
+              onClick={handleChangeCourse}
+              className="rounded-full border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-600 transition hover:border-zinc-500 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500"
+            >
+              ← Back to courses
+            </button>
+          </div>
           <h1 className="text-3xl font-semibold leading-tight sm:text-4xl">
             {selectedCourse.title}
           </h1>
