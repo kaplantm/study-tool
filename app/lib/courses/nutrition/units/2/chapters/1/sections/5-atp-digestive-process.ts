@@ -52,5 +52,43 @@ export const section5AtpDigestiveProcess: Section = {
       hint: null,
       tags: ["B vitamins", "coenzymes", "metabolism"],
     },
+    {
+      id: "2-1-5-7",
+      question: "What is the primary energy currency of the cell?",
+      answer: "ATP (adenosine triphosphate).",
+      hint: null,
+      tags: ["ATP", "energy currency"],
+    },
+    {
+      id: "2-1-5-8",
+      question:
+        "Oxidative phosphorylation is part of the __________ and produces large amounts of ATP.",
+      answer: "Electron transport chain.",
+      hint: null,
+      tags: ["oxidative phosphorylation", "electron transport chain"],
+    },
+    {
+      id: "2-1-5-9",
+      question:
+        "True or false: The Krebs cycle occurs in the mitochondria and produces CO2 as a byproduct.",
+      answer: "True",
+      hint: null,
+      tags: ["Krebs cycle", "mitochondria", "CO2"],
+    },
+    {
+      id: "2-1-5-10",
+      question: "What is the role of oxygen in aerobic respiration?",
+      answer:
+        "It acts as the final electron acceptor in the electron transport chain.",
+      hint: null,
+      tags: ["aerobic respiration", "oxygen", "electron transport chain"],
+    },
+    {
+      id: "2-1-5-11",
+      question: "Which step of cell respiration produces the most ATP?",
+      answer: "electron transport chain",
+      hint: null,
+      tags: ["electron transport chain", "ATP"],
+    },
   ],
 };

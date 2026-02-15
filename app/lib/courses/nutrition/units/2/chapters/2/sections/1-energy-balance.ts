@@ -54,5 +54,13 @@ export const section1EnergyBalance: Section = {
       hint: null,
       tags: ["bomb calorimeter", "calories"],
     },
+    {
+      id: "2-2-1-7",
+      question:
+        "There is a general rule that for every __________ calories eaten in excess, one pound of fat is stored.",
+      answer: "3,500",
+      hint: null,
+      tags: ["calories", "fat storage"],
+    },
   ],
 };

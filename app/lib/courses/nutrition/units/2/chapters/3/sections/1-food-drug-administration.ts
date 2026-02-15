@@ -46,5 +46,13 @@ export const section1FoodDrugAdministration: Section = {
       hint: null,
       tags: ["supplement facts", "labeling"],
     },
+    {
+      id: "2-3-1-6",
+      question:
+        "True or false: Supplements do not require FDA approval to be sold.",
+      answer: "True",
+      hint: null,
+      tags: ["supplements", "FDA approval"],
+    },
   ],
 };

@@ -47,5 +47,20 @@ export const section2Digestion: Section = {
       hint: null,
       tags: ["chemical digestion", "enzymes"],
     },
+    {
+      id: "2-1-2-6",
+      question: "In which organ does fermentation begin to occur?",
+      answer: "In the large intestine.",
+      hint: null,
+      tags: ["fermentation", "large intestine"],
+    },
+    {
+      id: "2-1-2-7",
+      question:
+        "Which macronutrient is the gallbladder primarily responsible for breaking down?",
+      answer: "Fats.",
+      hint: null,
+      tags: ["gallbladder", "fats", "digestion"],
+    },
   ],
 };

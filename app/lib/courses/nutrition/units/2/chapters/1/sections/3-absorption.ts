@@ -48,5 +48,21 @@ export const section3Absorption: Section = {
       hint: null,
       tags: ["jejunum", "duodenum", "ileum"],
     },
+    {
+      id: "2-1-3-6",
+      question:
+        "What components are needed to make simple sugars through photosynthesis?",
+      answer: "Carbon dioxide and sunlight.",
+      hint: null,
+      tags: ["photosynthesis", "simple sugars"],
+    },
+    {
+      id: "2-1-3-7",
+      question: "When does passive transport occur?",
+      answer:
+        "When nutrients are moving from an area of higher concentration to lower concentration.",
+      hint: null,
+      tags: ["passive transport", "diffusion"],
+    },
   ],
 };

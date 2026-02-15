@@ -46,5 +46,12 @@ export const section3ConceptsFitness: Section = {
       hint: null,
       tags: ["cardiorespiratory endurance", "fitness"],
     },
+    {
+      id: "2-2-3-6",
+      question: "Short bouts of energy utilize what energy source?",
+      answer: "Glucose / Carbohydrates.",
+      hint: null,
+      tags: ["carbohydrates", "energy"],
+    },
   ],
 };
