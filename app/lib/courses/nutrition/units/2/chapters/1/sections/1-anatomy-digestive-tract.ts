@@ -1,7 +1,7 @@
 import { Section } from "@/app/types";
 
 export const section1AnatomyDigestiveTract: Section = {
-  id: "1-anatomy-digestive-tract",
+  id: "2-1-anatomy-digestive-tract",
   title: "Anatomy of the Digestive Tract",
   description:
     "Introduces digestion, the digestive tract, and the movement of food through the GI system.",
@@ -9,7 +9,7 @@ export const section1AnatomyDigestiveTract: Section = {
   type: "section",
   questions: [
     {
-      id: "1-1-1",
+      id: "2-1-1-1",
       question:
         "Which of the following is a muscular contraction that helps push the bolus down the digestive tract?",
       answer: "Peristalsis.",
@@ -17,14 +17,14 @@ export const section1AnatomyDigestiveTract: Section = {
       tags: ["peristalsis", "digestion", "GI"],
     },
     {
-      id: "1-1-2",
+      id: "2-1-1-2",
       question: "Which organ in the digestive tract comes after the esophagus?",
       answer: "The stomach.",
       hint: null,
       tags: ["esophagus", "stomach", "digestive tract"],
     },
     {
-      id: "1-1-3",
+      id: "2-1-1-3",
       question:
         "Explain what happens when one takes in more food energy than is used in activity.",
       answer: "Excess energy is stored as fat.",
@@ -32,7 +32,7 @@ export const section1AnatomyDigestiveTract: Section = {
       tags: ["energy balance", "fat storage"],
     },
     {
-      id: "1-1-4",
+      id: "2-1-1-4",
       question: "What is digestion?",
       answer:
         "Digestion is the breakdown of food into smaller components for absorption, using both physical and chemical processes.",
@@ -40,7 +40,7 @@ export const section1AnatomyDigestiveTract: Section = {
       tags: ["digestion", "mechanical", "chemical"],
     },
     {
-      id: "1-1-5",
+      id: "2-1-1-5",
       question: "Which organs are included in the digestive tract?",
       answer:
         "The mouth, pharynx (throat), esophagus, stomach, small intestine, large intestine, rectum, and anus.",

@@ -18,7 +18,8 @@ export const section4FoundationsHealthyDiet: Section = {
     },
     {
       id: "1-4-2",
-      question: "Which of the following is considered a macronutrient?",
+      question:
+        "Which of the following is considered a macronutrient? Carbohydrates, iron, folate, or vitamin C?",
       answer: "Carbohydrates.",
       hint: null,
       tags: ["macronutrient", "carbohydrates"],

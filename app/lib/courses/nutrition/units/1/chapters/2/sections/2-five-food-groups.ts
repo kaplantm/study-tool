@@ -22,7 +22,7 @@ export const section2FiveFoodGroups: Section = {
     {
       id: "2-2-2",
       question:
-        "Which food group should make up at least half of your grain intake?",
+        "Which type of grains should make up at least half of your grain intake?",
       answer: "Whole grains.",
       hint: null,
       tags: ["grains", "whole grains"],

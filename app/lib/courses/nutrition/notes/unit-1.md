@@ -28,8 +28,7 @@ Dietitian Nutritionist
    and Drug Administration (FDA)? The nutrition label
    • Look at citation, sources, and qualifications.
 1. INFORMED CONSUMER
-   • Does the advertisement claim Food and Drug Administration (FDA) approval? It is
-   illegal to suggest FDA approval as a part of any marketing claim. However, all
+   • It is illegal to suggest FDA approval as a part of any marketing claim. However, all
    1
    medical products sold across state lines must be registered with the FDA. Ask for
    the FDA proof of product listing if in doubt.

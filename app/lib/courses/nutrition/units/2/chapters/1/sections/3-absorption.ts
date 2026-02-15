@@ -1,7 +1,7 @@
 import { Section } from "@/app/types";
 
 export const section3Absorption: Section = {
-  id: "3-absorption",
+  id: "2-3-absorption",
   title: "Absorption",
   description:
     "Explains nutrient absorption in the small intestine and key transport mechanisms.",
@@ -9,14 +9,14 @@ export const section3Absorption: Section = {
   type: "section",
   questions: [
     {
-      id: "1-3-1",
+      id: "2-1-3-1",
       question: "The duodenum is responsible for absorbing which mineral?",
       answer: "Iron.",
       hint: null,
       tags: ["duodenum", "iron", "absorption"],
     },
     {
-      id: "1-3-2",
+      id: "2-1-3-2",
       question:
         "Three ways that nutrients are absorbed through the small intestine are facilitated diffusion, simple diffusion and ___.",
       answer: "Active transport.",
@@ -24,7 +24,7 @@ export const section3Absorption: Section = {
       tags: ["absorption", "active transport"],
     },
     {
-      id: "1-3-3",
+      id: "2-1-3-3",
       question:
         "Vitamin B12 is absorbed in which section of the small intestine?",
       answer: "The ileum.",
@@ -32,7 +32,7 @@ export const section3Absorption: Section = {
       tags: ["vitamin B12", "ileum", "absorption"],
     },
     {
-      id: "1-3-4",
+      id: "2-1-3-4",
       question:
         "What is the primary organ for absorption in the digestive system?",
       answer: "The small intestine.",
@@ -40,7 +40,7 @@ export const section3Absorption: Section = {
       tags: ["absorption", "small intestine"],
     },
     {
-      id: "1-3-5",
+      id: "2-1-3-5",
       question:
         "Where does most absorption occur in the small intestine, and which exceptions are noted?",
       answer:

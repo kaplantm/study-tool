@@ -1,7 +1,7 @@
 import { Section } from "@/app/types";
 
 export const section1FoodDrugAdministration: Section = {
-  id: "1-food-drug-administration",
+  id: "2-1-food-drug-administration",
   title: "Food and Drug Administration",
   description:
     "Reviews FDA history and key acts governing nutrition labeling and supplements.",
@@ -9,7 +9,7 @@ export const section1FoodDrugAdministration: Section = {
   type: "section",
   questions: [
     {
-      id: "3-1-1",
+      id: "2-3-1-1",
       question:
         'Under which act were phrases like "low fat" and "light" standardized?',
       answer: "The Nutrition Labeling and Education Act (NLEA).",
@@ -17,7 +17,7 @@ export const section1FoodDrugAdministration: Section = {
       tags: ["NLEA", "labeling"],
     },
     {
-      id: "3-1-2",
+      id: "2-3-1-2",
       question:
         "Which act authorized the FDA to establish regulations for dietary supplements?",
       answer: "The Dietary Supplement Health and Education Act (DSHEA).",
@@ -25,7 +25,7 @@ export const section1FoodDrugAdministration: Section = {
       tags: ["DSHEA", "supplements"],
     },
     {
-      id: "3-1-3",
+      id: "2-3-1-3",
       question:
         "Provisions for monitoring ___ came about in 1950 from the FDA?",
       answer: "Food and color additives.",
@@ -33,14 +33,14 @@ export const section1FoodDrugAdministration: Section = {
       tags: ["FDA", "additives"],
     },
     {
-      id: "3-1-4",
+      id: "2-3-1-4",
       question: "How does DSHEA classify dietary supplements?",
       answer: "As food rather than drugs.",
       hint: null,
       tags: ["DSHEA", "classification"],
     },
     {
-      id: "3-1-5",
+      id: "2-3-1-5",
       question: "What standardized label must dietary supplements include?",
       answer: "A Supplement Facts label.",
       hint: null,

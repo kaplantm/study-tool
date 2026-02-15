@@ -1,7 +1,7 @@
 import { Section } from "@/app/types";
 
 export const section4WeightLossInterventions: Section = {
-  id: "4-weight-loss-interventions",
+  id: "2-4-weight-loss-interventions",
   title: "Weight Loss Interventions",
   description:
     "Covers safe weight-loss strategies and bariatric surgery options.",
@@ -9,7 +9,7 @@ export const section4WeightLossInterventions: Section = {
   type: "section",
   questions: [
     {
-      id: "3-4-1",
+      id: "2-3-4-1",
       question:
         "Which of the following should one avoid when looking for an effective weight loss strategy?",
       answer: "A program that claims you do not have to diet or exercise.",
@@ -17,7 +17,7 @@ export const section4WeightLossInterventions: Section = {
       tags: ["weight loss", "programs"],
     },
     {
-      id: "3-4-2",
+      id: "2-3-4-2",
       question:
         "Which of the following weight loss surgeries is considered riskiest?",
       answer: "Biliopancreatic diversion with duodenal switch.",
@@ -25,7 +25,7 @@ export const section4WeightLossInterventions: Section = {
       tags: ["bariatric surgery", "risk"],
     },
     {
-      id: "3-4-3",
+      id: "2-3-4-3",
       question: "How is the gastric sleeve effective in aiding weight loss?",
       answer:
         "The surgery reduces the amount of food that can fit in the stomach.",
@@ -33,7 +33,7 @@ export const section4WeightLossInterventions: Section = {
       tags: ["gastric sleeve", "weight loss"],
     },
     {
-      id: "3-4-4",
+      id: "2-3-4-4",
       question:
         "What are common features of safe, successful weight-loss programs?",
       answer:
@@ -42,7 +42,7 @@ export const section4WeightLossInterventions: Section = {
       tags: ["weight loss", "programs"],
     },
     {
-      id: "3-4-5",
+      id: "2-3-4-5",
       question:
         "On average, what percentage of starting weight do people lose after bariatric surgery?",
       answer: "About 15% to 35%.",

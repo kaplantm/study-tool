@@ -1,7 +1,7 @@
 import { Section } from "@/app/types";
 
 export const section5AtpDigestiveProcess: Section = {
-  id: "5-atp-digestive-process",
+  id: "2-5-atp-digestive-process",
   title: "ATP and the Digestive Process",
   description:
     "Details glycolysis, anaerobic respiration, and how ATP is produced during digestion and metabolism.",
@@ -9,14 +9,14 @@ export const section5AtpDigestiveProcess: Section = {
   type: "section",
   questions: [
     {
-      id: "1-5-1",
+      id: "2-1-5-1",
       question: "The second phase of glycolysis produces ATP and ___.",
       answer: "NADH.",
       hint: null,
       tags: ["glycolysis", "NADH", "ATP"],
     },
     {
-      id: "1-5-2",
+      id: "2-1-5-2",
       question:
         "Which of the following is an example of anaerobic respiration?",
       answer: "Lactic acid fermentation in muscle cells.",
@@ -24,14 +24,14 @@ export const section5AtpDigestiveProcess: Section = {
       tags: ["anaerobic", "fermentation"],
     },
     {
-      id: "1-5-3",
+      id: "2-1-5-3",
       question: "Pyruvate is the end product of ___.",
       answer: "Glycolysis.",
       hint: null,
       tags: ["pyruvate", "glycolysis"],
     },
     {
-      id: "1-5-4",
+      id: "2-1-5-4",
       question: "What is glycolysis?",
       answer:
         "The first major metabolic pathway of cellular respiration that breaks glucose into pyruvate and produces ATP.",
@@ -39,14 +39,14 @@ export const section5AtpDigestiveProcess: Section = {
       tags: ["glycolysis", "cellular respiration"],
     },
     {
-      id: "1-5-5",
+      id: "2-1-5-5",
       question: "What is the net yield of glycolysis per glucose molecule?",
       answer: "Net 2 pyruvate, 2 ATP, and 2 NADH.",
       hint: null,
       tags: ["glycolysis", "ATP", "NADH"],
     },
     {
-      id: "1-5-6",
+      id: "2-1-5-6",
       question: "Why are B vitamins important for energy metabolism?",
       answer:
         "Many enzymes require coenzymes derived from B vitamins to catalyze metabolic reactions.",

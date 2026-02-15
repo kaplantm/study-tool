@@ -94,6 +94,7 @@ export default function StudyPage() {
     return shuffleEnabled ? shuffleQuestions(questions) : questions;
   }, [courseId, unitId, chapterId, shuffleEnabled, flaggedOnly, flaggedIds]);
 
+  console.log("***Quiz questions:", quizQuestions);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardFlipped, setCardFlipped] = useState(false);
   const [responses, setResponses] = useState<QuizResponse[]>([]);
@@ -133,6 +134,16 @@ export default function StudyPage() {
       ...prev,
       { questionId: currentQuestion.id, userAnswer: "", correct: false },
     ]);
+
+    moveToNextQuestion();
+  };
+
+  const handleToggleFlag = (questionId: string, flag: boolean) => {
+    if (flag) {
+      updateFlaggedIds([...flaggedIds, questionId]);
+    } else {
+      updateFlaggedIds(flaggedIds.filter((id) => id !== questionId));
+    }
 
     moveToNextQuestion();
   };
@@ -229,9 +240,10 @@ export default function StudyPage() {
             onMarkIncorrect={handleMarkIncorrect}
             hintVisible={hintVisible}
             onToggleHint={() => setHintVisible((prev) => !prev)}
-            flaggedOnlyMode={flaggedOnly}
-            flaggedIds={flaggedIds}
-            setFlaggedIds={updateFlaggedIds}
+            isFlagged={flaggedIds.includes(currentQuestion.id)}
+            onClickFlag={(flag: boolean) =>
+              handleToggleFlag(currentQuestion.id, flag)
+            }
           />
         )}
 

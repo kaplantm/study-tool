@@ -35,7 +35,7 @@ export const section1SocialMediaMisinformation: Section = {
     {
       id: "1-1-4",
       question:
-        "Does the advertisement claim Food and Drug Administration (FDA) approval? Is it legal to suggest FDA approval as a part of any marketing claim?",
+        "Is it legal to suggest FDA approval as a part of any marketing claim?",
       answer:
         "It is illegal to suggest FDA approval as a part of any marketing claim. However, all medical products sold across state lines must be registered with the FDA.",
       hint: null,

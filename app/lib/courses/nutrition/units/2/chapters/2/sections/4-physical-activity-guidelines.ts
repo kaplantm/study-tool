@@ -1,7 +1,7 @@
 import { Section } from "@/app/types";
 
 export const section4PhysicalActivityGuidelines: Section = {
-  id: "4-physical-activity-guidelines",
+  id: "2-4-physical-activity-guidelines",
   title: "Physical Activity Guidelines",
   description:
     "Summarizes guidelines for aerobic and muscle-strengthening activity across age groups.",
@@ -9,7 +9,7 @@ export const section4PhysicalActivityGuidelines: Section = {
   type: "section",
   questions: [
     {
-      id: "2-4-1",
+      id: "2-2-4-1",
       question:
         "The Physical Activity Committee suggests Americans get 150 minutes of ___ per week: a) bone strengthening activity b) moderate-intensity aerobic activity c) muscle strengthening activity d) stretching",
       answer: "Moderate-intensity aerobic activity.",
@@ -17,7 +17,7 @@ export const section4PhysicalActivityGuidelines: Section = {
       tags: ["guidelines", "aerobic"],
     },
     {
-      id: "2-4-2",
+      id: "2-2-4-2",
       question:
         "Which is true regarding physical fitness guidelines for youth?",
       answer:
@@ -26,7 +26,7 @@ export const section4PhysicalActivityGuidelines: Section = {
       tags: ["youth", "guidelines"],
     },
     {
-      id: "2-4-3",
+      id: "2-2-4-3",
       question:
         "Which of the following scenarios falls within the adult physical fitness guidelines?",
       answer:
@@ -35,7 +35,7 @@ export const section4PhysicalActivityGuidelines: Section = {
       tags: ["adult", "guidelines"],
     },
     {
-      id: "2-4-4",
+      id: "2-2-4-4",
       question:
         "What additional activity is recommended for older adults in their weekly routine?",
       answer:
@@ -44,7 +44,7 @@ export const section4PhysicalActivityGuidelines: Section = {
       tags: ["older adults", "balance"],
     },
     {
-      id: "2-4-5",
+      id: "2-2-4-5",
       question:
         "How many days per week should adults perform muscle-strengthening activities?",
       answer: "2 or more days per week.",
