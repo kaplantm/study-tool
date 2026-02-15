@@ -24,13 +24,6 @@ export const section3PharmacologicalInterventions: Section = {
       tags: ["orlistat", "OTC"],
     },
     {
-      id: "2-3-3-3",
-      question: "Which statement regarding weight loss drugs is true?",
-      answer: "They are typically very expensive.",
-      hint: null,
-      tags: ["weight loss drugs", "cost"],
-    },
-    {
       id: "2-3-3-4",
       question:
         "Who typically qualifies for pharmacological intervention for weight loss?",

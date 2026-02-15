@@ -17,8 +17,7 @@ export const section5AtpDigestiveProcess: Section = {
     },
     {
       id: "2-1-5-2",
-      question:
-        "Which of the following is an example of anaerobic respiration?",
+      question: "What is an example of anaerobic respiration?",
       answer: "Lactic acid fermentation in muscle cells.",
       hint: null,
       tags: ["anaerobic", "fermentation"],

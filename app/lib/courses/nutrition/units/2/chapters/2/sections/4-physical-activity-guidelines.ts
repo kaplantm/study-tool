@@ -19,9 +19,8 @@ export const section4PhysicalActivityGuidelines: Section = {
     {
       id: "2-2-4-2",
       question:
-        "Which is true regarding physical fitness guidelines for youth?",
-      answer:
-        "They should get at least 60 minutes of physical activity per day.",
+        "According to the physical fitness guidelines for youth, how much physical activity should they get per day?",
+      answer: "At lesat 60",
       hint: null,
       tags: ["youth", "guidelines"],
     },

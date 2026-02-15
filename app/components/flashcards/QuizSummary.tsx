@@ -58,7 +58,7 @@ export default function QuizSummary({
                     if (!question) return null;
                     return (
                       <div
-                        key={response.questionId}
+                        key={`response-${response.questionId}`}
                         className="rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-900 dark:border-rose-500/40 dark:bg-rose-500/10 dark:text-rose-200"
                       >
                         <p className="font-semibold">{question.question}</p>
@@ -87,13 +87,10 @@ export default function QuizSummary({
                     if (!question) return null;
                     return (
                       <div
-                        key={id}
+                        key={`flagged-${id}`}
                         className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900 dark:border-amber-500/40 dark:bg-amber-500/10 dark:text-amber-200"
                       >
                         <p className="font-semibold">{question.question}</p>
-                        <p className="mt-2 text-xs text-amber-700 dark:text-amber-300">
-                          (Flagged for review)
-                        </p>
                       </div>
                     );
                   })}

@@ -87,14 +87,17 @@ export default function StudyPage() {
       questions = collectQuestionsFromCourse(course);
     }
 
+    return shuffleEnabled ? shuffleQuestions(questions) : questions;
+  }, [courseId, unitId, chapterId, shuffleEnabled]);
+
+  const filteredQuizQuestions = useMemo(() => {
     if (flaggedOnly && flaggedIds) {
-      questions = questions.filter((q) => flaggedIds.includes(q.id));
+      return quizQuestions.filter((q) => flaggedIds.includes(q.id));
     }
 
-    return shuffleEnabled ? shuffleQuestions(questions) : questions;
-  }, [courseId, unitId, chapterId, shuffleEnabled, flaggedOnly, flaggedIds]);
+    return quizQuestions;
+  }, [quizQuestions, flaggedOnly, flaggedIds]);
 
-  console.log("***Quiz questions:", quizQuestions);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardFlipped, setCardFlipped] = useState(false);
   const [responses, setResponses] = useState<QuizResponse[]>([]);
@@ -106,8 +109,8 @@ export default function StudyPage() {
     [courseId],
   );
 
-  const currentQuestion = quizQuestions[currentIndex];
-  const totalQuestions = quizQuestions.length;
+  const currentQuestion = filteredQuizQuestions[currentIndex];
+  const totalQuestions = filteredQuizQuestions.length;
 
   // Wait for flaggedIds to load on client before rendering anything that depends on them
   if (flaggedIds === null) return null;
@@ -139,9 +142,10 @@ export default function StudyPage() {
   };
 
   const handleToggleFlag = (questionId: string, flag: boolean) => {
-    if (flag) {
+    const foundIndex = flaggedIds.indexOf(questionId);
+    if (flag && foundIndex === -1) {
       updateFlaggedIds([...flaggedIds, questionId]);
-    } else {
+    } else if (!flag && foundIndex !== -1) {
       updateFlaggedIds(flaggedIds.filter((id) => id !== questionId));
     }
 
@@ -226,7 +230,7 @@ export default function StudyPage() {
             Study flagged cards only
           </label>
         </div>
-        {quizQuestions.length > 0 && !quizComplete && (
+        {filteredQuizQuestions.length > 0 && !quizComplete && (
           <QuizCard
             currentQuestion={currentQuestion}
             currentIndex={currentIndex}
@@ -254,7 +258,7 @@ export default function StudyPage() {
               responses.filter((response) => response.correct).length
             }
             responses={responses}
-            quizQuestions={quizQuestions}
+            quizQuestions={filteredQuizQuestions}
             onStudyAnother={() => router.push(`/courses/${selectedCourse.id}`)}
             onPickNewCourse={handleChangeCourse}
             flaggedIds={flaggedIds}

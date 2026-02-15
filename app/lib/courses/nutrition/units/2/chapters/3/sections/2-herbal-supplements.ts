@@ -28,9 +28,9 @@ export const section2HerbalSupplements: Section = {
       id: "2-3-2-3",
       question:
         "What is the main concern of taking Chinese herbs chuanwu and caowu?",
-      answer: "High blood pressure.",
+      answer: "Highly toxic potentially fatal alkaloids such as aconitine.",
       hint: null,
-      tags: ["chuanwu", "caowu", "risk"],
+      tags: ["chuanwu", "caowu", "risk", "herbal supplements"],
     },
     {
       id: "2-3-2-4",
