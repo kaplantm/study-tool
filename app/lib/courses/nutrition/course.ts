@@ -1,5 +1,6 @@
 import { Course } from "@/app/types";
-import { nutritionUnit1 } from "./units/unit-1";
+import { nutritionUnit1 } from "./units/1/unit";
+import { nutritionUnit2 } from "./units/2/unit";
 
 export const nutritionCourse: Course = {
   id: "nutrition",
@@ -7,5 +8,5 @@ export const nutritionCourse: Course = {
   description: "Learn about the science of nutrition and healthy eating.",
   number: 1,
   type: "course",
-  units: [nutritionUnit1],
+  units: [nutritionUnit1, nutritionUnit2],
 };
