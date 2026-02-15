@@ -6,7 +6,7 @@ import { QuizResponse } from "@/app/components/flashcards/types";
 import { courses } from "@/app/lib/courses/courses";
 import { Chapter, Course, Question, Unit } from "@/app/types";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const collectQuestionsFromChapter = (chapter: Chapter) => [
   ...chapter.questions,
@@ -36,9 +36,30 @@ const shuffleQuestions = (questions: Question[]) => {
 };
 
 export default function StudyPage() {
+  const FLAGGED_KEY = "flaggedFlashcardIds";
+  const [flaggedIds, setFlaggedIds] = useState<string[] | null>(null);
   const router = useRouter();
   const { courseId } = useParams();
   const searchParams = useSearchParams();
+  const [flaggedOnly, setFlaggedOnly] = useState(false);
+
+  // Load flagged IDs from localStorage on mount (client only)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      setFlaggedIds(JSON.parse(localStorage.getItem(FLAGGED_KEY) || "[]"));
+    } catch {
+      setFlaggedIds([]);
+    }
+  }, []);
+
+  // Helper to update flagged IDs in state and localStorage
+  const updateFlaggedIds = (ids: string[]) => {
+    setFlaggedIds(ids);
+    if (typeof window !== "undefined") {
+      localStorage.setItem(FLAGGED_KEY, JSON.stringify(ids));
+    }
+  };
   const shuffleEnabled = searchParams.get("shuffle") === "true";
   const unitId = searchParams.get("unitId");
   const chapterId = searchParams.get("chapterId");
@@ -66,8 +87,12 @@ export default function StudyPage() {
       questions = collectQuestionsFromCourse(course);
     }
 
+    if (flaggedOnly && flaggedIds) {
+      questions = questions.filter((q) => flaggedIds.includes(q.id));
+    }
+
     return shuffleEnabled ? shuffleQuestions(questions) : questions;
-  }, [courseId, unitId, chapterId, shuffleEnabled]);
+  }, [courseId, unitId, chapterId, shuffleEnabled, flaggedOnly, flaggedIds]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardFlipped, setCardFlipped] = useState(false);
@@ -82,6 +107,9 @@ export default function StudyPage() {
 
   const currentQuestion = quizQuestions[currentIndex];
   const totalQuestions = quizQuestions.length;
+
+  // Wait for flaggedIds to load on client before rendering anything that depends on them
+  if (flaggedIds === null) return null;
 
   const handleFlipCard = () => {
     setCardFlipped(true);
@@ -176,6 +204,17 @@ export default function StudyPage() {
           </p>
         </header>
 
+        <div className="flex items-center gap-4 mb-2">
+          <label className="flex items-center gap-2 text-sm font-medium text-amber-700 dark:text-amber-300">
+            <input
+              type="checkbox"
+              checked={flaggedOnly}
+              onChange={(e) => setFlaggedOnly(e.target.checked)}
+              className="h-4 w-4 rounded border-amber-400 text-amber-600 focus:ring-0 dark:border-amber-500"
+            />
+            Study flagged cards only
+          </label>
+        </div>
         {quizQuestions.length > 0 && !quizComplete && (
           <QuizCard
             currentQuestion={currentQuestion}
@@ -190,6 +229,9 @@ export default function StudyPage() {
             onMarkIncorrect={handleMarkIncorrect}
             hintVisible={hintVisible}
             onToggleHint={() => setHintVisible((prev) => !prev)}
+            flaggedOnlyMode={flaggedOnly}
+            flaggedIds={flaggedIds}
+            setFlaggedIds={updateFlaggedIds}
           />
         )}
 
@@ -203,6 +245,7 @@ export default function StudyPage() {
             quizQuestions={quizQuestions}
             onStudyAnother={() => router.push(`/courses/${selectedCourse.id}`)}
             onPickNewCourse={handleChangeCourse}
+            flaggedIds={flaggedIds}
           />
         )}
       </main>
