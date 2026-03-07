@@ -1,0 +1,291 @@
+{
+  "title": "Hydrocarbons and Carbon Prefixes Quiz",
+  "set_type": "quiz",
+  "data": [
+    {
+      "question": "What are hydrocarbons composed entirely of?",
+      "options": [
+        "Hydrogen and Oxygen",
+        "Carbon and Oxygen",
+        "Hydrogen and Carbon",
+        "Carbon and Nitrogen"
+      ],
+      "correct_answer": "Hydrogen and Carbon"
+    },
+    {
+      "question": "How are hydrocarbons mainly classified?",
+      "options": [
+        "By the number of hydrogen atoms",
+        "By the types of bonds between carbon atoms",
+        "By their color",
+        "By their molecular weight only"
+      ],
+      "correct_answer": "By the types of bonds between carbon atoms"
+    },
+    {
+      "question": "Which hydrocarbons contain only single bonds?",
+      "options": ["Alkenes", "Alkynes", "Alkanes", "Aromatics"],
+      "correct_answer": "Alkanes"
+    },
+    {
+      "question": "Alkanes are known as what type of hydrocarbons?",
+      "options": [
+        "Unsaturated hydrocarbons",
+        "Saturated hydrocarbons",
+        "Aromatic hydrocarbons",
+        "Cyclic hydrocarbons"
+      ],
+      "correct_answer": "Saturated hydrocarbons"
+    },
+    {
+      "question": "What is the general formula for alkanes?",
+      "options": ["CnH2n", "CnH2n-2", "CnH2n+2", "CnHn"],
+      "correct_answer": "CnH2n+2"
+    },
+    {
+      "question": "Which of the following is an example of an alkane?",
+      "options": ["Ethene", "Ethyne", "Methane", "Benzene"],
+      "correct_answer": "Methane"
+    },
+    {
+      "question": "Which hydrocarbons contain at least one carbon-carbon double bond?",
+      "options": ["Alkanes", "Alkenes", "Alkynes", "Aromatics"],
+      "correct_answer": "Alkenes"
+    },
+    {
+      "question": "What is the general formula for alkenes?",
+      "options": ["CnH2n", "CnH2n+2", "CnH2n-2", "CnHn"],
+      "correct_answer": "CnH2n"
+    },
+    {
+      "question": "Which bond is present in alkenes?",
+      "options": ["Single bond", "Double bond", "Triple bond", "Ionic bond"],
+      "correct_answer": "Double bond"
+    },
+    {
+      "question": "Which of the following is an example of an alkene?",
+      "options": ["Ethene", "Methane", "Propane", "Benzene"],
+      "correct_answer": "Ethene"
+    },
+    {
+      "question": "Which hydrocarbons contain at least one carbon-carbon triple bond?",
+      "options": ["Alkanes", "Alkenes", "Alkynes", "Aromatics"],
+      "correct_answer": "Alkynes"
+    },
+    {
+      "question": "What is the general formula for alkynes?",
+      "options": ["CnH2n+2", "CnH2n", "CnH2n-2", "CnHn"],
+      "correct_answer": "CnH2n-2"
+    },
+    {
+      "question": "Which bond is characteristic of alkynes?",
+      "options": ["Single bond", "Double bond", "Triple bond", "Hydrogen bond"],
+      "correct_answer": "Triple bond"
+    },
+    {
+      "question": "What is another name for ethyne?",
+      "options": ["Propane", "Acetylene", "Ethane", "Methene"],
+      "correct_answer": "Acetylene"
+    },
+    {
+      "question": "Aromatics commonly contain which ring structure?",
+      "options": [
+        "Methane ring",
+        "Propane ring",
+        "Benzene ring",
+        "Ethane ring"
+      ],
+      "correct_answer": "Benzene ring"
+    },
+    {
+      "question": "What is the molecular formula of benzene?",
+      "options": ["C6H12", "C6H6", "C6H10", "C6H14"],
+      "correct_answer": "C6H6"
+    },
+    {
+      "question": "Aromatic hydrocarbons are known for what type of electrons?",
+      "options": [
+        "Localized electrons",
+        "Delocalized electrons",
+        "Ionic electrons",
+        "Free electrons"
+      ],
+      "correct_answer": "Delocalized electrons"
+    },
+    {
+      "question": "Aromatic compounds are known for their unique stability and what?",
+      "options": [
+        "Bright color",
+        "Distinct odors",
+        "High melting points",
+        "Radioactivity"
+      ],
+      "correct_answer": "Distinct odors"
+    },
+    {
+      "question": "What prefix represents 1 carbon atom?",
+      "options": ["eth-", "meth-", "prop-", "but-"],
+      "correct_answer": "meth-"
+    },
+    {
+      "question": "What prefix represents 2 carbon atoms?",
+      "options": ["eth-", "prop-", "but-", "pent-"],
+      "correct_answer": "eth-"
+    },
+    {
+      "question": "What prefix represents 3 carbon atoms?",
+      "options": ["prop-", "meth-", "hex-", "oct-"],
+      "correct_answer": "prop-"
+    },
+    {
+      "question": "What prefix represents 4 carbon atoms?",
+      "options": ["but-", "prop-", "pent-", "hex-"],
+      "correct_answer": "but-"
+    },
+    {
+      "question": "What prefix represents 5 carbon atoms?",
+      "options": ["pent-", "hex-", "hept-", "oct-"],
+      "correct_answer": "pent-"
+    },
+    {
+      "question": "What prefix represents 6 carbon atoms?",
+      "options": ["hex-", "pent-", "hept-", "oct-"],
+      "correct_answer": "hex-"
+    },
+    {
+      "question": "What prefix represents 7 carbon atoms?",
+      "options": ["hept-", "oct-", "non-", "dec-"],
+      "correct_answer": "hept-"
+    },
+    {
+      "question": "What prefix represents 8 carbon atoms?",
+      "options": ["oct-", "non-", "dec-", "hex-"],
+      "correct_answer": "oct-"
+    },
+    {
+      "question": "What prefix represents 9 carbon atoms?",
+      "options": ["non-", "oct-", "dec-", "hept-"],
+      "correct_answer": "non-"
+    },
+    {
+      "question": "What prefix represents 10 carbon atoms?",
+      "options": ["dec-", "non-", "oct-", "hex-"],
+      "correct_answer": "dec-"
+    },
+    {
+      "question": "What formula corresponds to the prefix 'meth-'?",
+      "options": ["C", "C2", "C3", "C4"],
+      "correct_answer": "C"
+    },
+    {
+      "question": "What formula corresponds to the prefix 'eth-'?",
+      "options": ["C", "C2", "C3", "C4"],
+      "correct_answer": "C2"
+    },
+    {
+      "question": "What formula corresponds to the prefix 'prop-'?",
+      "options": ["C3", "C4", "C5", "C6"],
+      "correct_answer": "C3"
+    },
+    {
+      "question": "What formula corresponds to the prefix 'but-'?",
+      "options": ["C3", "C4", "C5", "C6"],
+      "correct_answer": "C4"
+    },
+    {
+      "question": "What formula corresponds to the prefix 'pent-'?",
+      "options": ["C4", "C5", "C6", "C7"],
+      "correct_answer": "C5"
+    },
+    {
+      "question": "What formula corresponds to the prefix 'hex-'?",
+      "options": ["C5", "C6", "C7", "C8"],
+      "correct_answer": "C6"
+    },
+    {
+      "question": "What formula corresponds to the prefix 'hept-'?",
+      "options": ["C6", "C7", "C8", "C9"],
+      "correct_answer": "C7"
+    },
+    {
+      "question": "What formula corresponds to the prefix 'oct-'?",
+      "options": ["C7", "C8", "C9", "C10"],
+      "correct_answer": "C8"
+    },
+    {
+      "question": "What formula corresponds to the prefix 'non-'?",
+      "options": ["C8", "C9", "C10", "C11"],
+      "correct_answer": "C9"
+    },
+    {
+      "question": "What formula corresponds to the prefix 'dec-'?",
+      "options": ["C9", "C10", "C11", "C12"],
+      "correct_answer": "C10"
+    },
+    {
+      "question": "Which hydrocarbon type is saturated?",
+      "options": ["Alkanes", "Alkenes", "Alkynes", "Aromatics"],
+      "correct_answer": "Alkanes"
+    },
+    {
+      "question": "Which hydrocarbon type is unsaturated and contains double bonds?",
+      "options": ["Alkanes", "Alkenes", "Aromatics", "Cycloalkanes"],
+      "correct_answer": "Alkenes"
+    },
+    {
+      "question": "Which hydrocarbon type contains triple bonds?",
+      "options": ["Alkanes", "Alkenes", "Alkynes", "Aromatics"],
+      "correct_answer": "Alkynes"
+    },
+    {
+      "question": "Which hydrocarbon group includes benzene?",
+      "options": ["Alkanes", "Alkenes", "Alkynes", "Aromatics"],
+      "correct_answer": "Aromatics"
+    },
+    {
+      "question": "What makes aromatic compounds unusually stable?",
+      "options": [
+        "Ionic bonds",
+        "Delocalized electrons",
+        "Extra hydrogen atoms",
+        "Weak bonds"
+      ],
+      "correct_answer": "Delocalized electrons"
+    },
+    {
+      "question": "Which hydrocarbon group contains ethene?",
+      "options": ["Alkanes", "Alkenes", "Alkynes", "Aromatics"],
+      "correct_answer": "Alkenes"
+    },
+    {
+      "question": "Which hydrocarbon group contains ethyne?",
+      "options": ["Alkanes", "Alkenes", "Alkynes", "Aromatics"],
+      "correct_answer": "Alkynes"
+    },
+    {
+      "question": "Prop- indicates how many carbon atoms?",
+      "options": ["2", "3", "4", "5"],
+      "correct_answer": "3"
+    },
+    {
+      "question": "But- indicates how many carbon atoms?",
+      "options": ["3", "4", "5", "6"],
+      "correct_answer": "4"
+    },
+    {
+      "question": "Pent- indicates how many carbon atoms?",
+      "options": ["4", "5", "6", "7"],
+      "correct_answer": "5"
+    },
+    {
+      "question": "Hex- indicates how many carbon atoms?",
+      "options": ["5", "6", "7", "8"],
+      "correct_answer": "6"
+    },
+    {
+      "question": "Hept- indicates how many carbon atoms?",
+      "options": ["6", "7", "8", "9"],
+      "correct_answer": "7"
+    }
+  ]
+}
