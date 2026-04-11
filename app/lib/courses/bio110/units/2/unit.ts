@@ -4,7 +4,7 @@ export const bio110Unit2: Unit = {
   id: "bio110-2",
   title: "Chapter 2",
   description: "Chaper 2",
-  number: 1,
+  number: 2,
   type: "unit",
   chapters: [],
   questions: [

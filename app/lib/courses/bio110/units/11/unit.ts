@@ -4,7 +4,7 @@ export const bio110Unit11: Unit = {
   id: "bio110-11",
   title: "Chapter 11",
   description: "Chaper 11",
-  number: 1,
+  number: 11,
   type: "unit",
   chapters: [],
   questions: [
@@ -207,7 +207,8 @@ export const bio110Unit11: Unit = {
       answer: "Meiosis and Fertilization",
     },
     {
-      push: "What are the unique reproductive cells produced by meiosis called?",
+      question:
+        "What are the unique reproductive cells produced by meiosis called?",
       options: ["Zygotes", "Somatic cells", "Gametes", "Tetrads"],
       answer: "Gametes",
     },
