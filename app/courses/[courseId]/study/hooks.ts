@@ -1,6 +1,8 @@
-import { useEffect, useMemo, useState } from "react";
 import { courses } from "@/app/lib/courses/courses";
-import { Question, Course } from "@/app/types";
+import { Chapter, Course, Question, Section, Unit } from "@/app/types";
+import { useCallback, useEffect, useMemo, useState } from "react";
+
+type QuestionWithId = Question & { id: string };
 
 export function useFlaggedFlashcardIds(key: string) {
   const [flaggedIds, setFlaggedIds] = useState<string[] | null>(null);
@@ -24,23 +26,44 @@ export function useFlaggedFlashcardIds(key: string) {
   return [flaggedIds, updateFlaggedIds] as const;
 }
 
-export function useQuizQuestions({ courseId, unitId, chapterId, shuffleEnabled }: {
-  courseId: string | string[] | undefined,
-  unitId?: string | null,
-  chapterId?: string | null,
-  shuffleEnabled: boolean,
+const withIds = (questions: Question[]) =>
+  questions.map((q) => ({ ...q, id: q.id || q.question }));
+
+export function useQuizQuestions({
+  courseId,
+  unitId,
+  chapterId,
+  shuffleEnabled,
+}: {
+  courseId: string | string[] | undefined;
+  unitId?: string | null;
+  chapterId?: string | null;
+  shuffleEnabled: boolean;
 }) {
-  const collectQuestionsFromChapter = (chapter: any) => [
-    ...chapter.questions,
-    ...chapter.sections.flatMap((section: any) => section.questions),
-  ];
-  const collectQuestionsFromUnit = (unit: any) => [
-    ...unit.questions,
-    ...unit.chapters.flatMap((chapter: any) => collectQuestionsFromChapter(chapter)),
-  ];
-  const collectQuestionsFromCourse = (course: Course) =>
-    course.units.flatMap((unit) => collectQuestionsFromUnit(unit));
-  const shuffleQuestions = (questions: Question[]) => {
+  const collectQuestionsFromChapter = useCallback(
+    (chapter: Chapter): QuestionWithId[] => [
+      ...withIds(chapter.questions),
+      ...chapter.sections.flatMap((section: Section) =>
+        withIds(section.questions),
+      ),
+    ],
+    [],
+  );
+  const collectQuestionsFromUnit = useCallback(
+    (unit: Unit): QuestionWithId[] => [
+      ...withIds(unit.questions),
+      ...unit.chapters.flatMap((chapter: Chapter) =>
+        collectQuestionsFromChapter(chapter),
+      ),
+    ],
+    [collectQuestionsFromChapter],
+  );
+  const collectQuestionsFromCourse = useCallback(
+    (course: Course): QuestionWithId[] =>
+      course.units.flatMap((unit) => collectQuestionsFromUnit(unit)),
+    [collectQuestionsFromUnit],
+  );
+  const shuffleQuestions = useCallback((questions: QuestionWithId[]) => {
     const shuffled = [...questions];
     for (let index = shuffled.length - 1; index > 0; index -= 1) {
       const swapIndex = Math.floor(Math.random() * (index + 1));
@@ -50,12 +73,12 @@ export function useQuizQuestions({ courseId, unitId, chapterId, shuffleEnabled }
       ];
     }
     return shuffled;
-  };
+  }, []);
 
-  return useMemo(() => {
+  return useMemo((): QuestionWithId[] => {
     const course = courses.find((c) => c.id === courseId);
     if (!course) return [];
-    let questions: Question[] = [];
+    let questions: QuestionWithId[] = [];
     if (chapterId) {
       for (const unit of course.units) {
         const chapter = unit.chapters.find((ch) => ch.id === chapterId);
@@ -73,5 +96,14 @@ export function useQuizQuestions({ courseId, unitId, chapterId, shuffleEnabled }
       questions = collectQuestionsFromCourse(course);
     }
     return shuffleEnabled ? shuffleQuestions(questions) : questions;
-  }, [courseId, unitId, chapterId, shuffleEnabled]);
+  }, [
+    courseId,
+    unitId,
+    chapterId,
+    shuffleEnabled,
+    collectQuestionsFromChapter,
+    collectQuestionsFromCourse,
+    collectQuestionsFromUnit,
+    shuffleQuestions,
+  ]);
 }

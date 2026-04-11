@@ -59,7 +59,7 @@ export default function StudyPage() {
   };
 
   const handleChangeCourse = () => {
-    router.push("/courses");
+    router.push("/");
   };
 
   if (!selectedCourse) {

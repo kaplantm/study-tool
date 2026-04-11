@@ -1,15 +1,15 @@
 "use client";
 
-
 import QuizCard from "@/app/components/flashcards/QuizCard";
+import QuizMultipleChoiceCard from "@/app/components/flashcards/QuizMultipleChoice";
 import QuizSummary from "@/app/components/flashcards/QuizSummary";
 import { QuizResponse } from "@/app/components/flashcards/types";
-import { useParams, useRouter, useSearchParams } from "next/navigation";
-import { useState, useMemo } from "react";
 import { courses } from "@/app/lib/courses/courses";
-import StudyHeader from "./components/StudyHeader";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { useMemo, useState } from "react";
 import FlaggedToggle from "./components/FlaggedToggle";
 import NotFoundCourse from "./components/NotFoundCourse";
+import StudyHeader from "./components/StudyHeader";
 import { useFlaggedFlashcardIds, useQuizQuestions } from "./hooks";
 
 export default function StudyPage() {
@@ -22,7 +22,12 @@ export default function StudyPage() {
   const shuffleEnabled = searchParams.get("shuffle") === "true";
   const unitId = searchParams.get("unitId");
   const chapterId = searchParams.get("chapterId");
-  const quizQuestions = useQuizQuestions({ courseId, unitId, chapterId, shuffleEnabled });
+  const quizQuestions = useQuizQuestions({
+    courseId,
+    unitId,
+    chapterId,
+    shuffleEnabled,
+  });
   const filteredQuizQuestions = useMemo(() => {
     if (flaggedOnly && flaggedIds) {
       return quizQuestions.filter((q) => flaggedIds.includes(q.id));
@@ -82,31 +87,66 @@ export default function StudyPage() {
   if (!selectedCourse) {
     return <NotFoundCourse onChangeCourse={handleChangeCourse} />;
   }
+
+  const isMultipleChoiceQuestion = !!currentQuestion.options?.length;
   return (
     <div className="min-h-screen bg-zinc-50 px-4 py-12 text-zinc-900 dark:bg-black dark:text-zinc-100">
       <main className="mx-auto flex w-full max-w-5xl flex-col gap-10">
-        <StudyHeader course={selectedCourse} onChangeCourse={handleChangeCourse} />
-        <FlaggedToggle flaggedOnly={flaggedOnly} setFlaggedOnly={setFlaggedOnly} />
-        {filteredQuizQuestions.length > 0 && !quizComplete && (
-          <QuizCard
-            currentQuestion={currentQuestion}
-            currentIndex={currentIndex}
-            totalQuestions={totalQuestions}
-            correctCount={responses.filter((response) => response.correct).length}
-            cardFlipped={cardFlipped}
-            onFlipCard={handleFlipCard}
-            onMarkCorrect={handleMarkCorrect}
-            onMarkIncorrect={handleMarkIncorrect}
-            hintVisible={hintVisible}
-            onToggleHint={() => setHintVisible((prev) => !prev)}
-            isFlagged={flaggedIds.includes(currentQuestion.id)}
-            onClickFlag={(flag: boolean) => handleToggleFlag(currentQuestion.id, flag)}
-          />
-        )}
+        <StudyHeader
+          course={selectedCourse}
+          onChangeCourse={handleChangeCourse}
+        />
+        <FlaggedToggle
+          flaggedOnly={flaggedOnly}
+          setFlaggedOnly={setFlaggedOnly}
+        />
+        {filteredQuizQuestions.length > 0 &&
+          !quizComplete &&
+          (isMultipleChoiceQuestion ? (
+            <QuizMultipleChoiceCard
+              currentQuestion={currentQuestion}
+              currentIndex={currentIndex}
+              totalQuestions={totalQuestions}
+              correctCount={
+                responses.filter((response) => response.correct).length
+              }
+              isAnswered={cardFlipped}
+              onRevealAnswer={handleFlipCard}
+              onMarkCorrect={handleMarkCorrect}
+              onMarkIncorrect={handleMarkIncorrect}
+              hintVisible={hintVisible}
+              onToggleHint={() => setHintVisible((prev) => !prev)}
+              isFlagged={flaggedIds.includes(currentQuestion.id)}
+              onClickFlag={(flag: boolean) =>
+                handleToggleFlag(currentQuestion.id, flag)
+              }
+            />
+          ) : (
+            <QuizCard
+              currentQuestion={currentQuestion}
+              currentIndex={currentIndex}
+              totalQuestions={totalQuestions}
+              correctCount={
+                responses.filter((response) => response.correct).length
+              }
+              cardFlipped={cardFlipped}
+              onFlipCard={handleFlipCard}
+              onMarkCorrect={handleMarkCorrect}
+              onMarkIncorrect={handleMarkIncorrect}
+              hintVisible={hintVisible}
+              onToggleHint={() => setHintVisible((prev) => !prev)}
+              isFlagged={flaggedIds.includes(currentQuestion.id)}
+              onClickFlag={(flag: boolean) =>
+                handleToggleFlag(currentQuestion.id, flag)
+              }
+            />
+          ))}
         {quizComplete && (
           <QuizSummary
             totalQuestions={totalQuestions}
-            correctCount={responses.filter((response) => response.correct).length}
+            correctCount={
+              responses.filter((response) => response.correct).length
+            }
             responses={responses}
             quizQuestions={filteredQuizQuestions}
             onStudyAnother={() => router.push(`/courses/${selectedCourse.id}`)}

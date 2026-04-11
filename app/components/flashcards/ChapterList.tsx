@@ -19,7 +19,7 @@ export default function ChapterList({
       <div className="grid gap-3 sm:grid-cols-2">
         {options.map((option) => (
           <button
-            key={option.chapter.id}
+            key={`${option.chapter.id}${option.unit.number}`}
             onClick={() => onSelectChapter(option)}
             className={`rounded-2xl border p-4 text-left transition ${
               selectedChapterId === option.chapter.id

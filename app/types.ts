@@ -11,12 +11,13 @@ export type GroupWithQuestions = GroupMetaData & {
 };
 
 export type Question = {
-  id: string;
+  id?: string;
   question: string;
+  options?: string[];
   answer: string;
-  hint: string | null;
+  hint?: string | null;
   images?: string[];
-  tags: string[];
+  tags?: string[];
 };
 
 export type Section = GroupWithQuestions & { type: "section" };
