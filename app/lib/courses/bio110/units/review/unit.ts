@@ -1,6 +1,7 @@
 import { Unit } from "@/app/types";
 import { bio110Bonus1 } from "./chapters/bonus-1/1";
 import { bio110Bonus2 } from "./chapters/bonus-2/1";
+import { bio110Studocu } from "./chapters/bonus-3/1";
 
 export const bio100All: Unit = {
   id: "unit-all",
@@ -8,6 +9,6 @@ export const bio100All: Unit = {
   description: "All Chapters",
   number: 21,
   type: "unit",
-  chapters: [bio110Bonus1, bio110Bonus2],
+  chapters: [bio110Bonus1, bio110Bonus2, bio110Studocu],
   questions: [],
 };

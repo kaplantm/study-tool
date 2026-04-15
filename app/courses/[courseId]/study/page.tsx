@@ -70,7 +70,6 @@ export default function StudyPage() {
     } else if (!flag && foundIndex !== -1) {
       updateFlaggedIds(flaggedIds.filter((id) => id !== questionId));
     }
-    moveToNextQuestion();
   };
   const moveToNextQuestion = () => {
     if (currentIndex + 1 >= totalQuestions) {

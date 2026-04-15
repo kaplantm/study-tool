@@ -2,9 +2,9 @@ import { Chapter } from "@/app/types";
 
 export const bio110Bonus1: Chapter = {
   id: "all-1",
-  title: "bio-100-google-1",
+  title: "Bonus Full Review 1",
   description: "bio110 google v1",
-  number: 20,
+  number: 101,
   type: "chapter",
   sections: [],
   questions: [

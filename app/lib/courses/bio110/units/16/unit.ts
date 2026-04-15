@@ -1,12 +1,19 @@
 import { Unit } from "@/app/types";
+import { ch16_1 } from "./1";
+import { ch16_2 } from "./2";
+import { ch16_3 } from "./3";
+import { ch16_4 } from "./4";
+import { ch16_5 } from "./5";
+import { ch16_6 } from "./6";
+import { ch16_7 } from "./7";
 
 export const bio110Unit16: Unit = {
   id: "bio110-16",
   title: "Chapter 16",
-  description: "Chaper 16",
+  description: "Gene Expression",
   number: 16,
   type: "unit",
-  chapters: [],
+  chapters: [ch16_1, ch16_2, ch16_3, ch16_4, ch16_5, ch16_6, ch16_7],
   questions: [
     {
       question:

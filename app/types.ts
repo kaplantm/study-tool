@@ -7,7 +7,7 @@ export type GroupMetaData = {
 };
 
 export type GroupWithQuestions = GroupMetaData & {
-  questions: Question[];
+  questions: Questions;
 };
 
 export type Question = {
@@ -19,6 +19,7 @@ export type Question = {
   images?: string[];
   tags?: string[];
 };
+export type Questions = Question[];
 
 export type Section = GroupWithQuestions & { type: "section" };
 export type Chapter = GroupWithQuestions & {
