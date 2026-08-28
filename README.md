@@ -59,6 +59,23 @@ For a matching question, omit `options` and use `matches`. Each `left` and `righ
 }
 ```
 
+For a diagram-labeling question, use `diagram`. Target IDs and labels must be unique. The `x` and `y` coordinates position each numbered target as percentages of the image dimensions. Learners select a label and then its numbered target.
+
+```ts
+{
+  id: "heart-labeling",
+  question: "Label the chambers of the heart.",
+  diagram: {
+    imageUrl: "/diagrams/heart.png",
+    alt: "Diagram of a human heart",
+    targets: [
+      { id: "1", label: "Right atrium", x: 36, y: 24 },
+      { id: "2", label: "Left ventricle", x: 64, y: 72 },
+    ],
+  },
+}
+```
+
 Output Example:
 
 ```

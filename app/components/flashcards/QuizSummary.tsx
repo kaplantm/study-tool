@@ -5,6 +5,11 @@ import { Question } from "@/app/types";
 import { QuizResponse } from "./types";
 
 const correctAnswerText = (question: Question) => {
+  if (question.diagram) {
+    return question.diagram.targets
+      .map(({ id, label }) => `${id}: ${label}`)
+      .join(", ");
+  }
   if (question.matches?.length) {
     return question.matches.map(({ left, right }) => `${left} — ${right}`).join(", ");
   }

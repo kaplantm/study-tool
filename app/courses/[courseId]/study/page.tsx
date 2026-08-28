@@ -1,6 +1,7 @@
 "use client";
 
 import QuizCard from "@/app/components/flashcards/QuizCard";
+import QuizDiagramLabelingCard from "@/app/components/flashcards/QuizDiagramLabeling";
 import QuizMatchingCard from "@/app/components/flashcards/QuizMatching";
 import QuizMultipleChoiceCard from "@/app/components/flashcards/QuizMultipleChoice";
 import QuizSummary from "@/app/components/flashcards/QuizSummary";
@@ -90,6 +91,7 @@ export default function StudyPage() {
 
   const isMultipleChoiceQuestion = !!currentQuestion.options?.length;
   const isMatchingQuestion = !!currentQuestion.matches?.length;
+  const isDiagramLabelingQuestion = !!currentQuestion.diagram?.targets.length;
   return (
     <div className="min-h-screen bg-zinc-50 px-4 py-12 text-zinc-900 dark:bg-black dark:text-zinc-100">
       <main className="mx-auto flex w-full max-w-5xl flex-col gap-10">
@@ -103,7 +105,27 @@ export default function StudyPage() {
         />
         {filteredQuizQuestions.length > 0 &&
           !quizComplete &&
-          (isMatchingQuestion ? (
+          (isDiagramLabelingQuestion ? (
+            <QuizDiagramLabelingCard
+              key={currentQuestion.id}
+              currentQuestion={currentQuestion}
+              currentIndex={currentIndex}
+              totalQuestions={totalQuestions}
+              correctCount={responses.filter((response) => response.correct).length}
+              onAnswer={(correct, userAnswer) => {
+                if (!currentQuestion) return;
+                setResponses((prev) => [
+                  ...prev,
+                  { questionId: currentQuestion.id, userAnswer, correct },
+                ]);
+                moveToNextQuestion();
+              }}
+              hintVisible={hintVisible}
+              onToggleHint={() => setHintVisible((prev) => !prev)}
+              isFlagged={flaggedIds.includes(currentQuestion.id)}
+              onClickFlag={(flag: boolean) => handleToggleFlag(currentQuestion.id, flag)}
+            />
+          ) : isMatchingQuestion ? (
             <QuizMatchingCard
               key={currentQuestion.id}
               currentQuestion={currentQuestion}

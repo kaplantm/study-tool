@@ -15,6 +15,21 @@ export type MatchingPair = {
   right: string;
 };
 
+export type DiagramLabelTarget = {
+  id: string;
+  label: string;
+  /** Horizontal position as a percentage of the image width (0–100). */
+  x: number;
+  /** Vertical position as a percentage of the image height (0–100). */
+  y: number;
+};
+
+export type Diagram = {
+  imageUrl: string;
+  alt: string;
+  targets: DiagramLabelTarget[];
+};
+
 export type Question = {
   id?: string;
   question: string;
@@ -23,6 +38,8 @@ export type Question = {
   answer?: string;
   /** Pairs for a matching question. Values must be unique within the question. */
   matches?: MatchingPair[];
+  /** An image with numbered targets that the learner labels. */
+  diagram?: Diagram;
   hint?: string | null;
   images?: string[];
   tags?: string[];
