@@ -43,7 +43,21 @@ Add button to exit flashcards early (link to http://localhost:3001/courses/ and 
 
 ## Generating questions from notes
 
-We want to create a knowledge check quiz based the text provided below. The output should be copy-pastable typescript file. An example is provided below, demonstrating the different types of questions we support:
+We want to create a knowledge check quiz based the text provided below. The output should be copy-pastable typescript file. An example is provided below, demonstrating the different types of questions we support.
+
+For a matching question, omit `options` and use `matches`. Each `left` and `right` value must be unique within the question:
+
+```ts
+{
+  id: "organelle-matching",
+  question: "Match each organelle to its primary function.",
+  matches: [
+    { left: "Mitochondrion", right: "Produces ATP" },
+    { left: "Ribosome", right: "Builds proteins" },
+    { left: "Nucleus", right: "Stores DNA" },
+  ],
+}
+```
 
 Output Example:
 

@@ -10,11 +10,19 @@ export type GroupWithQuestions = GroupMetaData & {
   questions: Questions;
 };
 
+export type MatchingPair = {
+  left: string;
+  right: string;
+};
+
 export type Question = {
   id?: string;
   question: string;
   options?: string[];
-  answer: string;
+  /** The answer for flashcard and multiple-choice questions. */
+  answer?: string;
+  /** Pairs for a matching question. Values must be unique within the question. */
+  matches?: MatchingPair[];
   hint?: string | null;
   images?: string[];
   tags?: string[];

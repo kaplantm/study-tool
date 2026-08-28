@@ -4,6 +4,13 @@ import { Question } from "@/app/types";
 
 import { QuizResponse } from "./types";
 
+const correctAnswerText = (question: Question) => {
+  if (question.matches?.length) {
+    return question.matches.map(({ left, right }) => `${left} — ${right}`).join(", ");
+  }
+  return question.answer;
+};
+
 type QuizSummaryProps = {
   totalQuestions: number;
   correctCount: number;
@@ -66,7 +73,7 @@ export default function QuizSummary({
                           Your answer: {response.userAnswer || "(blank)"}
                         </p>
                         <p className="text-xs text-rose-700 dark:text-rose-300">
-                          Correct answer: {question.answer}
+                          Correct answer: {correctAnswerText(question)}
                         </p>
                       </div>
                     );
