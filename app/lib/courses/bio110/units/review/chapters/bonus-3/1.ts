@@ -90,14 +90,16 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-011",
-      question: "Sister chromatids separate and move toward the poles of the cell.",
+      question:
+        "Sister chromatids separate and move toward the poles of the cell.",
       options: ["Prophase", "Metaphase", "Anaphase", "Telophase"],
       answer: "Anaphase",
       tags: ["BIO 110", "Lab 12", "Mitosis"],
     },
     {
       id: "studocu-012",
-      question: "In plant cells, the location of a new plasma membrane for each daughter cell.",
+      question:
+        "In plant cells, the location of a new plasma membrane for each daughter cell.",
       options: ["Cleavage furrow", "Cell plate", "Centromere", "Cytokinesis"],
       answer: "Cell plate",
       tags: ["BIO 110", "Lab 12", "Plant Cells"],
@@ -111,7 +113,8 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-014",
-      question: "In animal cells, the location of a new plasma membrane for each daughter cell.",
+      question:
+        "In animal cells, the location of a new plasma membrane for each daughter cell.",
       options: ["Cell plate", "Cleavage furrow", "Cytokinesis", "Centromere"],
       answer: "Cleavage furrow",
       tags: ["BIO 110", "Lab 12", "Animal Cells"],
@@ -132,7 +135,8 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-017",
-      question: "Centromeres of duplicated chromosomes are aligned at the middle of the cell.",
+      question:
+        "Centromeres of duplicated chromosomes are aligned at the middle of the cell.",
       options: ["Prophase", "Metaphase", "Anaphase", "Telophase"],
       answer: "Metaphase",
       tags: ["BIO 110", "Lab 12", "Mitosis"],
@@ -146,22 +150,30 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-019",
-      question: "Nucleolus has disappeared and duplicated chromosomes are visible.",
+      question:
+        "Nucleolus has disappeared and duplicated chromosomes are visible.",
       options: ["Prophase", "Metaphase", "Anaphase", "Telophase"],
       answer: "Prophase",
       tags: ["BIO 110", "Lab 12", "Mitosis"],
     },
     {
       id: "studocu-020",
-      question: "Daughter cells form as nuclear envelopes and nucleoli reappear.",
+      question:
+        "Daughter cells form as nuclear envelopes and nucleoli reappear.",
       options: ["Prophase", "Metaphase", "Anaphase", "Telophase"],
       answer: "Telophase",
       tags: ["BIO 110", "Lab 12", "Mitosis"],
     },
     {
       id: "studocu-021",
-      question: "What is the general chemical equation for cellular respiration?",
-      options: ["C6H12O6 + 6 O2 -> 6 CO2 + 6 H2O + 36 ATP", "6 CO2 + 6 H2O + 36 ATP -> C6H12O6 + 6 O2", "C6H12O6 + 6 CO2 -> 6 O2 + 6 H2O + 36 ATP", "C6H12O6 + O2 -> CO2 + H2O + ATP"],
+      question:
+        "What is the general chemical equation for cellular respiration?",
+      options: [
+        "C6H12O6 + 6 O2 -> 6 CO2 + 6 H2O + 36 ATP",
+        "6 CO2 + 6 H2O + 36 ATP -> C6H12O6 + 6 O2",
+        "C6H12O6 + 6 CO2 -> 6 O2 + 6 H2O + 36 ATP",
+        "C6H12O6 + O2 -> CO2 + H2O + ATP",
+      ],
       answer: "C6H12O6 + 6 O2 -> 6 CO2 + 6 H2O + 36 ATP",
       tags: ["biochemistry", "equations"],
     },
@@ -175,7 +187,8 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-023",
-      question: "As respiration increases, the body's demand for which molecule also increases?",
+      question:
+        "As respiration increases, the body's demand for which molecule also increases?",
       options: ["Glucose", "Oxygen", "Carbon Dioxide", "Nitrogen"],
       answer: "Oxygen",
       tags: ["physiology", "respiration"],
@@ -189,16 +202,15 @@ export const bio110Studocu: Chapter = {
       tags: ["energy", "muscles"],
     },
     {
-      id: "studocu-025",
-      question: "In the laboratory investigation, what was the dependent variable?",
-      options: ["Respiration", "Exercise", "Pulse rate", "CO2 production"],
-      answer: "Respiration",
-      tags: ["lab-methods"],
-    },
-    {
       id: "studocu-026",
-      question: "What were the two methods used to measure the dependent variable (respiration)?",
-      options: ["Pulse rate and CO2 production", "Glucose levels and O2 levels", "Temperature and sweat rate", "Muscle mass and ATP"],
+      question:
+        "What were the two methods used to measure the dependent variable (respiration)?",
+      options: [
+        "Pulse rate and CO2 production",
+        "Glucose levels and O2 levels",
+        "Temperature and sweat rate",
+        "Muscle mass and ATP",
+      ],
       answer: "Pulse rate and CO2 production",
       tags: ["lab-methods", "measurement"],
     },
@@ -211,21 +223,29 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-028",
-      question: "According to the experimental results, what happens to pulse rate and CO2 production as respiration increases?",
-      options: ["They decrease", "They stay the same", "They increase", "They fluctuate randomly"],
+      question:
+        "According to the experimental results, what happens to pulse rate and CO2 production as respiration increases?",
+      options: [
+        "They decrease",
+        "They stay the same",
+        "They increase",
+        "They fluctuate randomly",
+      ],
       answer: "They increase",
       tags: ["data-analysis"],
     },
     {
       id: "studocu-029",
-      question: "If you are working with a 20% NaCl solution, what percentage of the solution is water?",
+      question:
+        "If you are working with a 20% NaCl solution, what percentage of the solution is water?",
       options: ["80%", "Dialysis", "They increase", "Diffusion"],
       answer: "80%",
       tags: ["solute", "calculation"],
     },
     {
       id: "studocu-030",
-      question: "The diffusion of two different substances at different rates due to their molecular characteristics.",
+      question:
+        "The diffusion of two different substances at different rates due to their molecular characteristics.",
       options: ["Dialysis", "Diffusion", "Hypertonic", "Hypotonic"],
       answer: "Dialysis",
       tags: ["matching", "diffusion"],
@@ -246,7 +266,8 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-033",
-      question: "A solution that has a lower solute concentration than another.",
+      question:
+        "A solution that has a lower solute concentration than another.",
       options: ["Hypotonic", "Hypertonic", "Isotonic", "Diffusion"],
       answer: "Hypotonic",
       tags: ["matching", "tonicity"],
@@ -267,63 +288,92 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-036",
-      question: "The diffusion of water molecules due to a concentration gradient.",
+      question:
+        "The diffusion of water molecules due to a concentration gradient.",
       options: ["Osmosis", "Osmoregulation", "Plasmolysis", "Isotonic"],
       answer: "Osmosis",
       tags: ["matching"],
     },
     {
       id: "studocu-037",
-      question: "The shriveling of a plant cell caused by water loss and the separation of the plasma membrane from the cell wall.",
+      question:
+        "The shriveling of a plant cell caused by water loss and the separation of the plasma membrane from the cell wall.",
       options: ["Plasmolysis", "Osmosis", "Tonicity", "Osmoregulation"],
       answer: "Plasmolysis",
       tags: ["matching", "plant biology"],
     },
     {
       id: "studocu-038",
-      question: "Compares the concentrations of solutes in two different places.",
+      question:
+        "Compares the concentrations of solutes in two different places.",
       options: ["Tonicity", "Plasmolysis", "Osmosis", "Osmoregulation"],
       answer: "Tonicity",
       tags: ["matching"],
     },
     {
       id: "studocu-039",
-      question: "What is the term for the random motion of particles observed in a carmine suspension?",
-      options: ["Osmosis", "Brownian movement", "Active transport", "Centrifugation"],
+      question:
+        "What is the term for the random motion of particles observed in a carmine suspension?",
+      options: [
+        "Osmosis",
+        "Brownian movement",
+        "Active transport",
+        "Centrifugation",
+      ],
       answer: "Brownian movement",
       tags: ["Particle Motion", "Lab 9"],
     },
     {
       id: "studocu-040",
-      question: "In the carmine suspension experiment, which particles moved faster under magnification?",
-      options: ["The largest particles", "The smallest particles", "The heaviest particles", "All particles moved at the same speed"],
+      question:
+        "In the carmine suspension experiment, which particles moved faster under magnification?",
+      options: [
+        "The largest particles",
+        "The smallest particles",
+        "The heaviest particles",
+        "All particles moved at the same speed",
+      ],
       answer: "The smallest particles",
       tags: ["Particle Motion"],
     },
     {
       id: "studocu-041",
-      question: "What happened to the movement of carmine particles when heated pennies were placed near the slide?",
-      options: ["The particles stopped moving", "The particles moved slower", "The particles moved faster", "The motion became directional"],
+      question:
+        "What happened to the movement of carmine particles when heated pennies were placed near the slide?",
+      options: [
+        "The particles stopped moving",
+        "The particles moved slower",
+        "The particles moved faster",
+        "The motion became directional",
+      ],
       answer: "The particles moved faster",
       tags: ["Temperature", "Kinetic Energy"],
     },
     {
       id: "studocu-042",
-      question: "Which process describes the natural movement of particles from an area of higher concentration to lower concentration?",
+      question:
+        "Which process describes the natural movement of particles from an area of higher concentration to lower concentration?",
       options: ["Diffusion", "Filtration", "Bulk flow", "Phagocytosis"],
       answer: "Diffusion",
       tags: ["Diffusion"],
     },
     {
       id: "studocu-043",
-      question: "What is the term for the difference in concentrations between any two locations?",
-      options: ["Equilibrium", "Concentration gradient", "Osmotic pressure", "Solubility"],
+      question:
+        "What is the term for the difference in concentrations between any two locations?",
+      options: [
+        "Equilibrium",
+        "Concentration gradient",
+        "Osmotic pressure",
+        "Solubility",
+      ],
       answer: "Concentration gradient",
       tags: ["Concentration"],
     },
     {
       id: "studocu-044",
-      question: "Why did Potassium permanganate (MW 158.03) diffuse farther across agar than Methylene Blue (MW 319.87)?",
+      question:
+        "Why did Potassium permanganate (MW 158.03) diffuse farther across agar than Methylene Blue (MW 319.87)?",
       options: [
         "Larger particles diffuse faster",
         "Methylene Blue is more soluble",
@@ -335,55 +385,65 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-045",
-      question: "The cell membrane allows some molecules to pass through but not others. This quality is called:",
-      options: ["Total permeability", "Selective permeability", "Impermeability", "Active diffusion"],
+      question:
+        "The cell membrane allows some molecules to pass through but not others. This quality is called:",
+      options: [
+        "Total permeability",
+        "Selective permeability",
+        "Impermeability",
+        "Active diffusion",
+      ],
       answer: "Selective permeability",
       tags: ["Cell Membrane"],
     },
     {
       id: "studocu-046",
-      question: "In the dialysis bag experiment, the solution inside the bag turned bright pink. What passed into the bag to cause this?",
+      question:
+        "In the dialysis bag experiment, the solution inside the bag turned bright pink. What passed into the bag to cause this?",
       options: ["Starch", "Iodine", "NaOH", "Phenolphthalein"],
       answer: "NaOH",
       hint: "NaOH is a base that reacts with phenolphthalein to turn pink.",
       tags: ["Dialysis", "Permeability"],
     },
     {
-      id: "studocu-047",
-      question: "The solution in the beaker turned pale pink during the dialysis experiment. This indicates that which substance passed into the beaker?",
-      options: ["NaOH", "Phenolphthalein", "Agar", "Water"],
-      answer: "Phenolphthalein",
-      tags: ["Dialysis"],
-    },
-    {
       id: "studocu-048",
-      question: "When a starch solution bag was placed in an iodine beaker, the bag turned black but the beaker color remained unchanged. Why?",
+      question:
+        "When a starch solution bag was placed in an iodine beaker, the bag turned black but the beaker color remained unchanged. Why?",
       options: [
         "Iodine moved into the bag, but starch particles were too large to move out",
         "Starch moved out into the beaker",
         "The iodine and starch neutralized each other",
         "The dialysis tubing was impermeable to iodine",
       ],
-      answer: "Iodine moved into the bag, but starch particles were too large to move out",
+      answer:
+        "Iodine moved into the bag, but starch particles were too large to move out",
       tags: ["Molecular Size", "Dialysis"],
     },
     {
       id: "studocu-049",
-      question: "In the reaction 2H2O2 -> 2H2O + O2, what type of reaction is occurring?",
+      question:
+        "In the reaction 2H2O2 -> 2H2O + O2, what type of reaction is occurring?",
       options: ["Synthesis", "Degradation", "Replacement", "Oxidation"],
       answer: "Degradation",
       tags: ["Enzymes", "Catalase"],
     },
     {
       id: "studocu-050",
-      question: "What are the end products of the reaction involving hydrogen peroxide and catalase?",
-      options: ["Hydrogen and Oxygen", "Water and Carbon Dioxide", "Water and Oxygen", "Hydrogen Peroxide and Water"],
+      question:
+        "What are the end products of the reaction involving hydrogen peroxide and catalase?",
+      options: [
+        "Hydrogen and Oxygen",
+        "Water and Carbon Dioxide",
+        "Water and Oxygen",
+        "Hydrogen Peroxide and Water",
+      ],
       answer: "Water and Oxygen",
       tags: ["Enzymes", "Chemical Reactions"],
     },
     {
       id: "studocu-051",
-      question: "Which substance serves as the substrate in the catalase reaction?",
+      question:
+        "Which substance serves as the substrate in the catalase reaction?",
       options: ["Water", "Oxygen", "Catalase", "Hydrogen peroxide"],
       answer: "Hydrogen peroxide",
       tags: ["Enzymes", "Substrates"],
@@ -402,31 +462,55 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-053",
-      question: "Why would a boiled sample of catalase be less reactive than a warmed sample?",
-      options: ["The temperature was too low", "The enzyme denatured due to high heat", "The substrate was destroyed", "The reaction reached equilibrium too fast"],
+      question:
+        "Why would a boiled sample of catalase be less reactive than a warmed sample?",
+      options: [
+        "The temperature was too low",
+        "The enzyme denatured due to high heat",
+        "The substrate was destroyed",
+        "The reaction reached equilibrium too fast",
+      ],
       answer: "The enzyme denatured due to high heat",
       hint: "High temperatures can change the shape of a protein.",
       tags: ["Temperature", "Denaturation"],
     },
     {
       id: "studocu-054",
-      question: "Which of the following components are required for lipase to successfully digest fat droplets?",
-      options: ["Water and lipase only", "Fat droplets and water only", "Lipase, fat droplets, and NaHCO3", "Lipase and NaHCO3 only"],
+      question:
+        "Which of the following components are required for lipase to successfully digest fat droplets?",
+      options: [
+        "Water and lipase only",
+        "Fat droplets and water only",
+        "Lipase, fat droplets, and NaHCO3",
+        "Lipase and NaHCO3 only",
+      ],
       answer: "Lipase, fat droplets, and NaHCO3",
       hint: "Lipase needs both its substrate and a basic environment.",
       tags: ["Lipase", "Digestion"],
     },
     {
       id: "studocu-055",
-      question: "In a lab experiment, why would a tube containing water, fat droplets, and lipase (Tube D) fail to show digestion?",
-      options: ["There is no substrate", "The enzyme is missing", "There is no NaHCO3 to provide basic conditions", "Fat and water do not mix"],
+      question:
+        "In a lab experiment, why would a tube containing water, fat droplets, and lipase (Tube D) fail to show digestion?",
+      options: [
+        "There is no substrate",
+        "The enzyme is missing",
+        "There is no NaHCO3 to provide basic conditions",
+        "Fat and water do not mix",
+      ],
       answer: "There is no NaHCO3 to provide basic conditions",
       tags: ["Lipase", "pH"],
     },
     {
       id: "studocu-056",
-      question: "What type of microscope is typically used in a standard biology lab as shown in the material?",
-      options: ["Electron microscope", "Compound light microscope", "Dissecting microscope", "Scanning probe microscope"],
+      question:
+        "What type of microscope is typically used in a standard biology lab as shown in the material?",
+      options: [
+        "Electron microscope",
+        "Compound light microscope",
+        "Dissecting microscope",
+        "Scanning probe microscope",
+      ],
       answer: "Compound light microscope",
       tags: ["microscope-types"],
     },
@@ -439,19 +523,27 @@ export const bio110Studocu: Chapter = {
         "Subtracting the objective lens from the ocular lens",
         "Dividing the objective lens by the ocular lens magnification",
       ],
-      answer: "Magnification of the ocular lens times the magnification of the objective lens",
+      answer:
+        "Magnification of the ocular lens times the magnification of the objective lens",
       tags: ["calculations", "magnification"],
     },
     {
       id: "studocu-058",
-      question: "What is the term for the circle visible through the microscope lenses?",
-      options: ["Depth of field", "Focal point", "Field of view", "Resolution circle"],
+      question:
+        "What is the term for the circle visible through the microscope lenses?",
+      options: [
+        "Depth of field",
+        "Focal point",
+        "Field of view",
+        "Resolution circle",
+      ],
       answer: "Field of view",
       tags: ["terminology"],
     },
     {
       id: "studocu-059",
-      question: "If a Euglena is swimming up, which way should you move your slide to keep it in view?",
+      question:
+        "If a Euglena is swimming up, which way should you move your slide to keep it in view?",
       options: ["Up", "Down", "Left", "Right"],
       answer: "Down",
       hint: "Move the slide in the opposite direction of the specimen's movement.",
@@ -459,85 +551,142 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-060",
-      question: "What is a primary advantage of an electron microscope over a light microscope?",
-      options: ["Cheaper to maintain", "Portability", "Better magnification", "Easier to use"],
+      question:
+        "What is a primary advantage of an electron microscope over a light microscope?",
+      options: [
+        "Cheaper to maintain",
+        "Portability",
+        "Better magnification",
+        "Easier to use",
+      ],
       answer: "Better magnification",
       tags: ["microscope-comparison"],
     },
     {
       id: "studocu-061",
-      question: "Why is locating an object more difficult if you start with the high power objective rather than the scanning objective?",
-      options: ["The light is too bright", "The lens is too long", "Field of view is too small at high power", "The image is upside down"],
+      question:
+        "Why is locating an object more difficult if you start with the high power objective rather than the scanning objective?",
+      options: [
+        "The light is too bright",
+        "The lens is too long",
+        "Field of view is too small at high power",
+        "The image is upside down",
+      ],
       answer: "Field of view is too small at high power",
       tags: ["lab-skills", "optics"],
     },
     {
       id: "studocu-062",
-      question: "Large organic molecules form during what type of synthesis, where water is given off as smaller molecules bond?",
-      options: ["Dehydration", "Monomers", "Field of view is too small at high power", "Amino acids"],
+      question:
+        "Large organic molecules form during what type of synthesis, where water is given off as smaller molecules bond?",
+      options: [
+        "Dehydration",
+        "Monomers",
+        "Field of view is too small at high power",
+        "Amino acids",
+      ],
       answer: "Dehydration",
       tags: ["synthesis", "organic molecules"],
     },
     {
       id: "studocu-063",
-      question: "What are the smaller organic molecules called that bond together to form large organic molecules?",
-      options: ["Monomers", "Dehydration", "Amino acids", "Field of view is too small at high power"],
+      question:
+        "What are the smaller organic molecules called that bond together to form large organic molecules?",
+      options: [
+        "Monomers",
+        "Dehydration",
+        "Amino acids",
+        "Field of view is too small at high power",
+      ],
       answer: "Monomers",
       tags: ["structure", "organic molecules"],
     },
     {
       id: "studocu-064",
-      question: "Proteins are formed when which molecules bond together in chains?",
-      options: ["Amino acids", "Peptide", "Enzyme", "Bonds between amino acids"],
+      question:
+        "Proteins are formed when which molecules bond together in chains?",
+      options: [
+        "Amino acids",
+        "Peptide",
+        "Enzyme",
+        "Bonds between amino acids",
+      ],
       answer: "Amino acids",
       tags: ["proteins", "monomers"],
     },
     {
       id: "studocu-065",
-      question: "What is the specific name for the bonds that connect amino acids to form proteins?",
-      options: ["Peptide", "Amino acids", "Enzyme", "Bonds between amino acids"],
+      question:
+        "What is the specific name for the bonds that connect amino acids to form proteins?",
+      options: [
+        "Peptide",
+        "Amino acids",
+        "Enzyme",
+        "Bonds between amino acids",
+      ],
       answer: "Peptide",
       tags: ["proteins", "bonds"],
     },
     {
       id: "studocu-066",
-      question: "What specific kind of protein acts as a catalyst to speed up chemical reactions?",
-      options: ["Enzyme", "Peptide", "Amino acids", "Bonds between amino acids"],
+      question:
+        "What specific kind of protein acts as a catalyst to speed up chemical reactions?",
+      options: [
+        "Enzyme",
+        "Peptide",
+        "Amino acids",
+        "Bonds between amino acids",
+      ],
       answer: "Enzyme",
       tags: ["proteins", "enzymes"],
     },
     {
       id: "studocu-067",
-      question: "Which organic molecules consist of sugars in either single or long chain formations?",
-      options: ["Carbohydrates", "Glucose", "Carbohydrate", "Enzyme"],
+      question:
+        "Which organic molecules consist of sugars in either single or long chain formations?",
+      options: ["Carbohydrates", "Glucose", "Lipids", "Enzyme"],
       answer: "Carbohydrates",
       tags: ["carbohydrates"],
     },
     {
       id: "studocu-068",
-      question: "Which single sugar unit is utilized by all organisms as a primary energy source?",
+      question:
+        "Which single sugar unit is utilized by all organisms as a primary energy source?",
       options: ["Glucose", "Carbohydrates", "Carbohydrate", "Starch"],
       answer: "Glucose",
       tags: ["carbohydrates", "energy"],
     },
     {
       id: "studocu-069",
-      question: "In lab, iodine was used to detect the presence of which plant-based energy storage polysaccharide?",
+      question:
+        "In lab, iodine was used to detect the presence of which plant-based energy storage polysaccharide?",
       options: ["Starch", "Glucose", "Lipids", "Carbohydrates"],
       answer: "Starch",
       tags: ["lab procedure", "polysaccharides"],
     },
     {
       id: "studocu-070",
-      question: "What class of large organic molecules includes fats and oils and is insoluble in water?",
-      options: ["Lipids", "Emulsifier", "Made of saturated fatty acids", "Long hydrocarbons with occasional double bonds"],
+      question:
+        "What class of large organic molecules includes fats and oils and is insoluble in water?",
+      options: [
+        "Lipids",
+        "Emulsifier",
+        "Made of saturated fatty acids",
+        "Long hydrocarbons with occasional double bonds",
+      ],
       answer: "Lipids",
       tags: ["lipids"],
     },
     {
       id: "studocu-071",
-      question: "What substance can be used to cause a fat to disperse in water?",
-      options: ["Emulsifier", "Lipids", "Made of saturated fatty acids", "Long hydrocarbons with occasional double bonds"],
+      question:
+        "What substance can be used to cause a fat to disperse in water?",
+      options: [
+        "Emulsifier",
+        "Lipids",
+        "Made of saturated fatty acids",
+        "Long hydrocarbons with occasional double bonds",
+      ],
       answer: "Emulsifier",
       tags: ["lipids", "solubility"],
     },
@@ -550,12 +699,14 @@ export const bio110Studocu: Chapter = {
         "Polymer of amino acids",
         "Molecule with a carbon-carbon bond",
       ],
-      answer: "Molecule with carbon, hydrogen, amino group, carboxyl group, side group (“R” group)",
+      answer:
+        "Molecule with carbon, hydrogen, amino group, carboxyl group, side group (“R” group)",
       tags: ["biochemistry", "amino acids"],
     },
     {
       id: "studocu-073",
-      question: "Which term describes a molecule containing only carbon, oxygen, and hydrogen?",
+      question:
+        "Which term describes a molecule containing only carbon, oxygen, and hydrogen?",
       options: ["Hydrocarbon", "Organic molecule", "Carbohydrate", "Polar"],
       answer: "Carbohydrate",
       tags: ["biochemistry", "carbohydrates"],
@@ -575,14 +726,24 @@ export const bio110Studocu: Chapter = {
     {
       id: "studocu-075",
       question: "How is a Fat defined in this context?",
-      options: ["Made of saturated fatty acids", "Made of unsaturated fatty acids", "A polymer of amino acids", "A molecule with only hydrogen and carbon"],
+      options: [
+        "Made of saturated fatty acids",
+        "Made of unsaturated fatty acids",
+        "A polymer of amino acids",
+        "A molecule with only hydrogen and carbon",
+      ],
       answer: "Made of saturated fatty acids",
       tags: ["biochemistry", "lipids"],
     },
     {
       id: "studocu-076",
       question: "What is a Hydrocarbon?",
-      options: ["Molecule with carbon, oxygen, and hydrogen", "Molecule with only hydrogen and carbon", "Molecule with a carbon-carbon bond", "Bonds between amino acids"],
+      options: [
+        "Molecule with carbon, oxygen, and hydrogen",
+        "Molecule with only hydrogen and carbon",
+        "Molecule with a carbon-carbon bond",
+        "Bonds between amino acids",
+      ],
       answer: "Molecule with only hydrogen and carbon",
       tags: ["biochemistry", "organic chemistry"],
     },
@@ -601,14 +762,24 @@ export const bio110Studocu: Chapter = {
     {
       id: "studocu-078",
       question: "What is an Organic molecule?",
-      options: ["Molecule with a carbon-carbon bond", "Molecule with only hydrogen and carbon", "Molecule with a positively charged region", "Polymer of amino acids"],
+      options: [
+        "Molecule with a carbon-carbon bond",
+        "Molecule with only hydrogen and carbon",
+        "Molecule with a positively charged region",
+        "Polymer of amino acids",
+      ],
       answer: "Molecule with a carbon-carbon bond",
       tags: ["biochemistry", "organic chemistry"],
     },
     {
       id: "studocu-079",
       question: "In biochemistry, what does the term Peptide refer to?",
-      options: ["The R-group of an amino acid", "Bonds between amino acids", "A complex carbohydrate", "A long hydrocarbon chain"],
+      options: [
+        "The R-group of an amino acid",
+        "Bonds between amino acids",
+        "A complex carbohydrate",
+        "A long hydrocarbon chain",
+      ],
       answer: "Bonds between amino acids",
       tags: ["biochemistry", "proteins"],
     },
@@ -621,26 +792,34 @@ export const bio110Studocu: Chapter = {
         "Molecule with a positively charged region and a negatively charged region",
         "It has a carbon-carbon bond",
       ],
-      answer: "Molecule with a positively charged region and a negatively charged region",
+      answer:
+        "Molecule with a positively charged region and a negatively charged region",
       tags: ["biochemistry", "chemistry"],
     },
     {
       id: "studocu-081",
       question: "What is a Protein?",
-      options: ["Bonds between amino acids", "Made of saturated fatty acids", "Polymer of amino acids", "Complex carbohydrate"],
+      options: [
+        "Bonds between amino acids",
+        "Made of saturated fatty acids",
+        "Polymer of amino acids",
+        "Complex carbohydrate",
+      ],
       answer: "Polymer of amino acids",
       tags: ["biochemistry", "proteins"],
     },
     {
       id: "studocu-082",
-      question: "A substance that CHANGES COLOR in response to a change in pH is called an:",
+      question:
+        "A substance that CHANGES COLOR in response to a change in pH is called an:",
       options: ["Buffer", "Indicator", "Solvent", "Acid"],
       answer: "Indicator",
       tags: ["pH", "Lab Basics"],
     },
     {
       id: "studocu-083",
-      question: "What is the term for substances that resist or LIMIT CHANGE in pH?",
+      question:
+        "What is the term for substances that resist or LIMIT CHANGE in pH?",
       options: ["Catalyst", "Base", "Buffer", "Indicator"],
       answer: "Buffer",
       tags: ["pH", "Buffers"],
@@ -654,7 +833,8 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-085",
-      question: "If the H+ ion concentration of an aqueous solution is 1/10000 (10^-4), what is the pH?",
+      question:
+        "If the H+ ion concentration of an aqueous solution is 1/10000 (10^-4), what is the pH?",
       options: ["10", "4", "1", "14"],
       answer: "4",
       hint: "pH is the negative log of the H+ concentration.",
@@ -676,7 +856,8 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-088",
-      question: "In PURE WATER, the concentration of H+ IONS is _____ the concentration of OH- IONS.",
+      question:
+        "In PURE WATER, the concentration of H+ IONS is _____ the concentration of OH- IONS.",
       options: ["More than", "Less than", "Equal to"],
       answer: "Equal to",
       tags: ["Ions", "Neutrality"],
@@ -690,7 +871,8 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-090",
-      question: "The most acidic solutions would have the HIGHEST CONCENTRATION of which ions?",
+      question:
+        "The most acidic solutions would have the HIGHEST CONCENTRATION of which ions?",
       options: ["H+", "OH-"],
       answer: "H+",
       tags: ["Acidity", "Ions"],
@@ -725,28 +907,37 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-095",
-      question: "What is the term for the smallest particle of an element that retains all its properties?",
+      question:
+        "What is the term for the smallest particle of an element that retains all its properties?",
       options: ["Molecule", "Atom", "Isotope", "Proton"],
       answer: "Atom",
       tags: ["vocabulary", "atomic-structure"],
     },
     {
       id: "studocu-096",
-      question: "The number of protons an atom of an element contains is defined as the:",
-      options: ["Mass number", "Atomic weight", "Atomic number", "Isotope number"],
+      question:
+        "The number of protons an atom of an element contains is defined as the:",
+      options: [
+        "Mass number",
+        "Atomic weight",
+        "Atomic number",
+        "Isotope number",
+      ],
       answer: "Atomic number",
       tags: ["periodic-table", "atomic-structure"],
     },
     {
       id: "studocu-097",
-      question: "A substance that cannot be converted to any simpler substance through chemical reaction is a(n):",
+      question:
+        "A substance that cannot be converted to any simpler substance through chemical reaction is a(n):",
       options: ["Element", "Compound", "Mixture", "Isotope"],
       answer: "Element",
       tags: ["vocabulary"],
     },
     {
       id: "studocu-098",
-      question: "Which term describes atoms with the same atomic number but different mass numbers?",
+      question:
+        "Which term describes atoms with the same atomic number but different mass numbers?",
       options: ["Ions", "Isotopes", "Elements", "Molecules"],
       answer: "Isotopes",
       tags: ["atomic-structure"],
@@ -754,20 +945,32 @@ export const bio110Studocu: Chapter = {
     {
       id: "studocu-099",
       question: "What is the definition of matter?",
-      options: ["Anything that has energy", "Anything that occupies space and has mass", "Anything that can be seen", "The sum of protons and neutrons"],
+      options: [
+        "Anything that has energy",
+        "Anything that occupies space and has mass",
+        "Anything that can be seen",
+        "The sum of protons and neutrons",
+      ],
       answer: "Anything that occupies space and has mass",
       tags: ["physics", "chemistry-basics"],
     },
     {
       id: "studocu-100",
-      question: "The sum of the protons and neutrons in the nucleus is known as the:",
-      options: ["Atomic number", "Electron count", "Mass number", "Chemical symbol"],
+      question:
+        "The sum of the protons and neutrons in the nucleus is known as the:",
+      options: [
+        "Atomic number",
+        "Electron count",
+        "Mass number",
+        "Chemical symbol",
+      ],
       answer: "Mass number",
       tags: ["atomic-structure"],
     },
     {
       id: "studocu-101",
-      question: "Based on the periodic table, how many protons are in an atom of Carbon (C)?",
+      question:
+        "Based on the periodic table, how many protons are in an atom of Carbon (C)?",
       options: ["12", "4", "8", "6"],
       answer: "6",
       hint: "The atomic number of Carbon is 6.",
@@ -789,8 +992,14 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-104",
-      question: "When sketching a Carbon atom, where should the 6 protons and 6 neutrons be located?",
-      options: ["In the electron shells", "Orbiting the atom", "In the nucleus", "Outside the atom"],
+      question:
+        "When sketching a Carbon atom, where should the 6 protons and 6 neutrons be located?",
+      options: [
+        "In the electron shells",
+        "Orbiting the atom",
+        "In the nucleus",
+        "Outside the atom",
+      ],
       answer: "In the nucleus",
       hint: "The center of the atom contains the mass.",
       tags: ["sketching", "atomic-structure"],
@@ -804,7 +1013,8 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-106",
-      question: "When reading a glass graduated cylinder, what is the name of the lowest curved margin of the liquid level?",
+      question:
+        "When reading a glass graduated cylinder, what is the name of the lowest curved margin of the liquid level?",
       options: ["Concave", "Cylinder line", "Meniscus", "Gradient"],
       answer: "Meniscus",
       hint: "You should always read at eye level from this point.",
@@ -812,8 +1022,14 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-107",
-      question: "What is the standard system of measurement used by scientists throughout the world?",
-      options: ["Imperial System", "US Customary System", "Metric System", "Natural Units"],
+      question:
+        "What is the standard system of measurement used by scientists throughout the world?",
+      options: [
+        "Imperial System",
+        "US Customary System",
+        "Metric System",
+        "Natural Units",
+      ],
       answer: "Metric System",
       tags: ["standards"],
     },
@@ -840,7 +1056,8 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-111",
-      question: "Which division of 1/1000 of a gram would be used to weigh very small, light items?",
+      question:
+        "Which division of 1/1000 of a gram would be used to weigh very small, light items?",
       options: ["Centigrams", "Decigrams", "Kilograms", "Milligrams"],
       answer: "Milligrams",
       tags: ["mass", "units"],
@@ -854,7 +1071,8 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-113",
-      question: "What specific unit of volume would you use to express the amount of liquid held in a small glass of juice?",
+      question:
+        "What specific unit of volume would you use to express the amount of liquid held in a small glass of juice?",
       options: ["Milliliters", "Kiloliters", "Meters", "Microliters"],
       answer: "Milliliters",
       tags: ["volume", "practical"],
@@ -862,14 +1080,20 @@ export const bio110Studocu: Chapter = {
     {
       id: "studocu-114",
       question: "If a set of keys weighs 50 grams, how many kilograms is that?",
-      options: ["0.5 kilograms", "0.05 kilograms", "5.0 kilograms", "0.005 kilograms"],
+      options: [
+        "0.5 kilograms",
+        "0.05 kilograms",
+        "5.0 kilograms",
+        "0.005 kilograms",
+      ],
       answer: "0.05 kilograms",
       hint: "Divide the number of grams by 1,000.",
       tags: ["conversion", "mass"],
     },
     {
       id: "studocu-115",
-      question: "If the length of one side of a glass cube is 3 cm, what is the total volume of the cube?",
+      question:
+        "If the length of one side of a glass cube is 3 cm, what is the total volume of the cube?",
       options: ["9 cm³", "12 cm³", "27 cm³", "81 cm³"],
       answer: "27 cm³",
       hint: "Volume = Length x Width x Height",
@@ -877,21 +1101,24 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-116",
-      question: "Variable(s) that is/are held constant during an experiment, to insure only 1 factor is being tested.",
+      question:
+        "Variable(s) that is/are held constant during an experiment, to insure only 1 factor is being tested.",
       options: ["Controlled", "Independent", "Hypothesis", "Dependent"],
       answer: "Controlled",
       tags: ["Vocabulary", "Scientific Method"],
     },
     {
       id: "studocu-117",
-      question: "The factor the investigator tests or changes during an experiment; the factor thought to be affecting what is being measured.",
+      question:
+        "The factor the investigator tests or changes during an experiment; the factor thought to be affecting what is being measured.",
       options: ["Independent", "Controlled", "Hypothesis", "Dependent"],
       answer: "Independent",
       tags: ["Vocabulary", "Scientific Method"],
     },
     {
       id: "studocu-118",
-      question: "A visual representation of data gathered during an experiment.",
+      question:
+        "A visual representation of data gathered during an experiment.",
       options: ["Graph/Table", "Hypothesis", "Independent", "Controlled"],
       answer: "Graph/Table",
       tags: ["Vocabulary"],
@@ -905,85 +1132,123 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-120",
-      question: "What the investigator measures, observes or records during an experiment; this is being influenced by what is being tested.",
+      question:
+        "What the investigator measures, observes or records during an experiment; this is being influenced by what is being tested.",
       options: ["Dependent", "Hypothesis", "Independent", "Controlled"],
       answer: "Dependent",
       tags: ["Vocabulary", "Scientific Method"],
     },
     {
       id: "studocu-121",
-      question: "A step-by-step process of answering a question or solving a problem.",
+      question:
+        "A step-by-step process of answering a question or solving a problem.",
       options: ["Scientific Method", "Dependent", "Hypothesis", "Graph/Table"],
       answer: "Scientific Method",
       tags: ["Vocabulary"],
     },
     {
       id: "studocu-122",
-      question: "In the sunflower experiment (testing fertilizer effects), what is the dependent variable?",
-      options: ["Amount of blooming for sunflowers", "Using fertilizer", "Plant height", "Number of leaves"],
+      question:
+        "In the sunflower experiment (testing fertilizer effects), what is the dependent variable?",
+      options: [
+        "Amount of blooming for sunflowers",
+        "Using fertilizer",
+        "Plant height",
+        "Number of leaves",
+      ],
       answer: "Amount of blooming for sunflowers",
       hint: "It is what you are measuring at the end.",
       tags: ["Application", "Variables"],
     },
     {
       id: "studocu-123",
-      question: "In the sunflower experiment, what is the independent variable?",
-      options: ["Using fertilizer", "Amount of blooming", "Plant height", "Number of leaves"],
+      question:
+        "In the sunflower experiment, what is the independent variable?",
+      options: [
+        "Using fertilizer",
+        "Amount of blooming",
+        "Plant height",
+        "Number of leaves",
+      ],
       answer: "Using fertilizer",
       hint: "It is the factor you are changing.",
       tags: ["Application", "Variables"],
     },
     {
       id: "studocu-124",
-      question: "In the sunflower experiment, what control treatment should be used?",
-      options: ["No fertilizer", "Extra fertilizer", "More sunlight", "Additional water"],
+      question:
+        "In the sunflower experiment, what control treatment should be used?",
+      options: [
+        "No fertilizer",
+        "Extra fertilizer",
+        "More sunlight",
+        "Additional water",
+      ],
       answer: "No fertilizer",
       tags: ["Application", "Experimental Design"],
     },
     {
-      id: "studocu-125",
-      question: "Name 1 variable that should be controlled in the sunflower experiment.",
-      options: ["Type of fertilizer", "Amount of sunlight", "Type of soil", "Amount of water"],
-      answer: "Type of fertilizer",
-      tags: ["Application", "Experimental Design"],
-    },
-    {
       id: "studocu-126",
-      question: "In regard to a baby’s color blindness, a sex-linked recessive trait, which of the following is true?",
+      question:
+        "In regard to a baby’s color blindness, a sex-linked recessive trait, which of the following is true?",
       options: [
         "A son can only inherit it from his father.",
         "A son can inherit color blindness if his mother has the recessive allele.",
         "A daughter cannot be a carrier.",
         "It is passed only through Y chromosomes.",
       ],
-      answer: "A son can inherit color blindness if his mother has the recessive allele.",
+      answer:
+        "A son can inherit color blindness if his mother has the recessive allele.",
       tags: ["genetics", "sex-linked"],
     },
     {
       id: "studocu-127",
-      question: "Which researchers conducted the experiment demonstrating that DNA is the genetic material of bacteriophages?",
-      options: ["Watson and Crick", "Franklin and Wilkins", "Hershey and Chase", "Griffith and Avery"],
+      question:
+        "Which researchers conducted the experiment demonstrating that DNA is the genetic material of bacteriophages?",
+      options: [
+        "Watson and Crick",
+        "Franklin and Wilkins",
+        "Hershey and Chase",
+        "Griffith and Avery",
+      ],
       answer: "Hershey and Chase",
       tags: ["history of science", "DNA"],
     },
     {
       id: "studocu-128",
       question: "What is the term for a virus that infects bacteria?",
-      options: ["Phage", "Only the DNA", "A drug being injected with a hypodermic needle.", "Hershey and Chase"],
+      options: [
+        "Phage",
+        "Only the DNA",
+        "A drug being injected with a hypodermic needle.",
+        "Hershey and Chase",
+      ],
       answer: "Phage",
       tags: ["microbiology", "viruses"],
     },
     {
       id: "studocu-129",
-      question: "When a T2 bacteriophage infects an E. coli cell, what part enters the bacterial cytoplasm?",
-      options: ["The entire virus", "Only the protein coat", "Only the DNA", "The tail fibers"],
+      question:
+        "When a T2 bacteriophage infects an E. coli cell, what part enters the bacterial cytoplasm?",
+      options: [
+        "The entire virus",
+        "Only the protein coat",
+        "Only the DNA",
+        "The tail fibers",
+      ],
       answer: "Only the DNA",
       tags: ["viruses", "DNA"],
     },
     {
       id: "studocu-130",
-      question: "The entry of bacteriophage genetic material into a bacterium is most similar to:",
-      options: ["A drug being injected with a hypodermic needle.", "Only the DNA", "Phage", "Twisted rope ladder."],
+      question:
+        "The entry of bacteriophage genetic material into a bacterium is most similar to:",
+      options: [
+        "A drug being injected with a hypodermic needle.",
+        "Only the DNA",
+        "Phage",
+        "Twisted rope ladder.",
+      ],
       answer: "A drug being injected with a hypodermic needle.",
       tags: ["viruses", "analogy"],
     },
@@ -1002,7 +1267,12 @@ export const bio110Studocu: Chapter = {
     {
       id: "studocu-132",
       question: "Which of the following statements regarding DNA is false?",
-      options: ["DNA uses the sugar deoxyribose.", "DNA is a double helix.", "DNA uses the nitrogenous base uracil.", "DNA contains phosphate groups."],
+      options: [
+        "DNA uses the sugar deoxyribose.",
+        "DNA is a double helix.",
+        "DNA uses the nitrogenous base uracil.",
+        "DNA contains phosphate groups.",
+      ],
       answer: "DNA uses the nitrogenous base uracil.",
       hint: "Uracil is specific to RNA.",
       tags: ["DNA structure"],
@@ -1010,14 +1280,20 @@ export const bio110Studocu: Chapter = {
     {
       id: "studocu-133",
       question: "Which of the following statements regarding RNA is false?",
-      options: ["RNA is usually single-stranded.", "RNA uses the sugar dextrose.", "RNA contains adenine.", "RNA contains uracil."],
+      options: [
+        "RNA is usually single-stranded.",
+        "RNA uses the sugar dextrose.",
+        "RNA contains adenine.",
+        "RNA contains uracil.",
+      ],
       answer: "RNA uses the sugar dextrose.",
       hint: "RNA uses ribose sugar.",
       tags: ["RNA structure"],
     },
     {
       id: "studocu-134",
-      question: "How would the shape of a DNA molecule change if adenine paired with guanine and cytosine paired with thymine?",
+      question:
+        "How would the shape of a DNA molecule change if adenine paired with guanine and cytosine paired with thymine?",
       options: [
         "The DNA molecule would have irregular widths along its length.",
         "False",
@@ -1029,7 +1305,8 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-135",
-      question: "True or False: The sequence of nucleotides along the length of a DNA strand is restricted by base-pairing rules.",
+      question:
+        "True or False: The sequence of nucleotides along the length of a DNA strand is restricted by base-pairing rules.",
       options: ["True", "False"],
       answer: "False",
       hint: "Base-pairing rules apply between strands, not along a single strand's length.",
@@ -1056,7 +1333,8 @@ export const bio110Studocu: Chapter = {
         "False",
         "The DNA molecule would have irregular widths along its length.",
       ],
-      answer: "The amount of adenine is equal to the amount of thymine, and guanine equals cytosine.",
+      answer:
+        "The amount of adenine is equal to the amount of thymine, and guanine equals cytosine.",
       tags: ["DNA structure", "Chargaff's rule"],
     },
     {
@@ -1068,12 +1346,14 @@ export const bio110Studocu: Chapter = {
         "Using a photographic negative to make a positive image.",
         "To shorten the time necessary for DNA replication.",
       ],
-      answer: "It uses each strand of a DNA molecule as a template for the creation of a new strand.",
+      answer:
+        "It uses each strand of a DNA molecule as a template for the creation of a new strand.",
       tags: ["DNA replication"],
     },
     {
       id: "studocu-139",
-      question: "If one strand of DNA is CGGTAC, what is the corresponding strand?",
+      question:
+        "If one strand of DNA is CGGTAC, what is the corresponding strand?",
       options: [
         "GCCATG",
         "It uses each strand of a DNA molecule as a template for the creation of a new strand.",
@@ -1097,7 +1377,8 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-141",
-      question: "When one DNA molecule is copied to make two, the new DNA contains what percentage of the parent DNA?",
+      question:
+        "When one DNA molecule is copied to make two, the new DNA contains what percentage of the parent DNA?",
       options: [
         "50%",
         "To shorten the time necessary for DNA replication.",
@@ -1109,7 +1390,8 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-142",
-      question: "What is the purpose of multiple origins of replication in eukaryotic cells?",
+      question:
+        "What is the purpose of multiple origins of replication in eukaryotic cells?",
       options: [
         "To shorten the time necessary for DNA replication.",
         "DNA polymerase",
@@ -1140,7 +1422,8 @@ export const bio110Studocu: Chapter = {
         "To shorten the time necessary for DNA replication.",
         "Using a photographic negative to make a positive image.",
       ],
-      answer: "Because DNA polymerases can only add nucleotides to the 3’ end of the growing molecule.",
+      answer:
+        "Because DNA polymerases can only add nucleotides to the 3’ end of the growing molecule.",
       tags: ["DNA replication", "biochemistry"],
     },
     {
@@ -1157,8 +1440,14 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-146",
-      question: "What is the transfer of genetic information from DNA to RNA called?",
-      options: ["Transcription", "RNA polymerase", "Initiation of a new RNA molecule", "A terminator"],
+      question:
+        "What is the transfer of genetic information from DNA to RNA called?",
+      options: [
+        "Transcription",
+        "RNA polymerase",
+        "Initiation of a new RNA molecule",
+        "A terminator",
+      ],
       answer: "Transcription",
       tags: ["transcription"],
     },
@@ -1171,7 +1460,8 @@ export const bio110Studocu: Chapter = {
         "Three-nucleotide sequences",
         "Transcription",
       ],
-      answer: "The function of an individual gene is to dictate the production of a specific polypeptide.",
+      answer:
+        "The function of an individual gene is to dictate the production of a specific polypeptide.",
       tags: ["genetics", "theory"],
     },
     {
@@ -1189,13 +1479,19 @@ export const bio110Studocu: Chapter = {
     {
       id: "studocu-149",
       question: "How many nucleotides in an RNA molecule make up a codon?",
-      options: ["3", "Three-nucleotide sequences", "Redundant", "4 amino acids"],
+      options: [
+        "3",
+        "Three-nucleotide sequences",
+        "Redundant",
+        "4 amino acids",
+      ],
       answer: "3",
       tags: ["genetic code", "codons"],
     },
     {
       id: "studocu-150",
-      question: "A 15-nucleotide sequence ending with a stop codon will direct the production of a polypeptide consisting of how many amino acids?",
+      question:
+        "A 15-nucleotide sequence ending with a stop codon will direct the production of a polypeptide consisting of how many amino acids?",
       options: [
         "4 amino acids",
         "Joining to only one specific type of amino acid.",
@@ -1208,36 +1504,65 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-151",
-      question: "In the genetic code, many amino acids are specified by more than one codon. This means the code is:",
-      options: ["Redundant", "Three-nucleotide sequences", "3", "RNA polymerase"],
+      question:
+        "In the genetic code, many amino acids are specified by more than one codon. This means the code is:",
+      options: [
+        "Redundant",
+        "Three-nucleotide sequences",
+        "3",
+        "RNA polymerase",
+      ],
       answer: "Redundant",
       tags: ["genetic code"],
     },
     {
       id: "studocu-152",
-      question: "Which enzyme catalyzes the linking of RNA nucleotides to form RNA?",
-      options: ["RNA polymerase", "Initiation of a new RNA molecule", "A terminator", "Transcription"],
+      question:
+        "Which enzyme catalyzes the linking of RNA nucleotides to form RNA?",
+      options: [
+        "RNA polymerase",
+        "Initiation of a new RNA molecule",
+        "A terminator",
+        "Transcription",
+      ],
       answer: "RNA polymerase",
       tags: ["enzymes", "transcription"],
     },
     {
       id: "studocu-153",
       question: "What occurs when RNA polymerase attaches to the promoter DNA?",
-      options: ["Initiation of a new RNA molecule", "A terminator", "RNA polymerase", "Transcription"],
+      options: [
+        "Initiation of a new RNA molecule",
+        "A terminator",
+        "RNA polymerase",
+        "Transcription",
+      ],
       answer: "Initiation of a new RNA molecule",
       tags: ["transcription"],
     },
     {
       id: "studocu-154",
-      question: "What marks the end of a gene and causes transcription to stop?",
-      options: ["A terminator", "Initiation of a new RNA molecule", "RNA polymerase", "False"],
+      question:
+        "What marks the end of a gene and causes transcription to stop?",
+      options: [
+        "A terminator",
+        "Initiation of a new RNA molecule",
+        "RNA polymerase",
+        "False",
+      ],
       answer: "A terminator",
       tags: ["transcription"],
     },
     {
       id: "studocu-155",
-      question: "Where do transcription and translation occur in prokaryotic cells?",
-      options: ["In the cytoplasm", "False", "A terminator", "Exons are spliced together."],
+      question:
+        "Where do transcription and translation occur in prokaryotic cells?",
+      options: [
+        "In the cytoplasm",
+        "False",
+        "A terminator",
+        "Exons are spliced together.",
+      ],
       answer: "In the cytoplasm",
       tags: ["prokaryotes", "cell biology"],
     },
@@ -1263,7 +1588,8 @@ export const bio110Studocu: Chapter = {
         "Amino acids are broken down into nucleotides.",
         "Proteins are converted directly into RNA.",
       ],
-      answer: "Ribosomes read mRNA and assemble amino acids into a polypeptide.",
+      answer:
+        "Ribosomes read mRNA and assemble amino acids into a polypeptide.",
       tags: ["translation"],
     },
     {
@@ -1280,21 +1606,24 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-159",
-      question: "Which of the following is NOT needed for translation to occur?",
+      question:
+        "Which of the following is NOT needed for translation to occur?",
       options: ["tRNA", "Ribosomes", "DNA template", "Sources of energy"],
       answer: "DNA template",
       tags: ["translation"],
     },
     {
       id: "studocu-160",
-      question: "True or False: The ribosomes of prokaryotes and eukaryotes are identical in structure and function.",
+      question:
+        "True or False: The ribosomes of prokaryotes and eukaryotes are identical in structure and function.",
       options: ["True", "False"],
       answer: "False",
       tags: ["ribosomes", "cell biology"],
     },
     {
       id: "studocu-161",
-      question: "True or False: An mRNA molecule transcribed from DNA is shorter than the genetic message it carries.",
+      question:
+        "True or False: An mRNA molecule transcribed from DNA is shorter than the genetic message it carries.",
       options: ["True", "False"],
       answer: "False",
       tags: ["mRNA", "transcription"],
@@ -1308,7 +1637,8 @@ export const bio110Studocu: Chapter = {
         "Joining to only one specific type of amino acid.",
         "4 amino acids",
       ],
-      answer: "Codon recognition -> peptide bond formation -> translocation -> termination",
+      answer:
+        "Codon recognition -> peptide bond formation -> translocation -> termination",
       tags: ["translation"],
     },
     {
@@ -1327,28 +1657,51 @@ export const bio110Studocu: Chapter = {
     {
       id: "studocu-164",
       question: "Any change in the nucleotide sequence of DNA is called a:",
-      options: ["Mutation", "The doe did not eat.", "The dod idn ote at.", "Mutagen"],
+      options: [
+        "Mutation",
+        "The doe did not eat.",
+        "The dod idn ote at.",
+        "Mutagen",
+      ],
       answer: "Mutation",
       tags: ["mutation"],
     },
     {
       id: "studocu-165",
-      question: "Using the sentence 'The dog did not eat', which variation represents a base substitution mutation?",
-      options: ["The doe did not eat.", "The dod idn ote at.", "Mutation", "Mutagen"],
+      question:
+        "Using the sentence 'The dog did not eat', which variation represents a base substitution mutation?",
+      options: [
+        "The doe did not eat.",
+        "The dod idn ote at.",
+        "Mutation",
+        "Mutagen",
+      ],
       answer: "The doe did not eat.",
       tags: ["mutation", "analogy"],
     },
     {
       id: "studocu-166",
-      question: "Using the sentence 'The dog did not eat', which variation represents a reading frame mutation?",
-      options: ["The dod idn ote at.", "The doe did not eat.", "Mutagen", "Mutation"],
+      question:
+        "Using the sentence 'The dog did not eat', which variation represents a reading frame mutation?",
+      options: [
+        "The dod idn ote at.",
+        "The doe did not eat.",
+        "Mutagen",
+        "Mutation",
+      ],
       answer: "The dod idn ote at.",
       tags: ["mutation", "analogy"],
     },
     {
       id: "studocu-167",
-      question: "A physical or chemical agent that changes the DNA sequence is a:",
-      options: ["Mutagen", "The dod idn ote at.", "The doe did not eat.", "Mutation"],
+      question:
+        "A physical or chemical agent that changes the DNA sequence is a:",
+      options: [
+        "Mutagen",
+        "The dod idn ote at.",
+        "The doe did not eat.",
+        "Mutation",
+      ],
       answer: "Mutagen",
       tags: ["mutation"],
     },
@@ -1366,7 +1719,8 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-169",
-      question: "Which feature characterizes the lytic cycle of a viral infection?",
+      question:
+        "Which feature characterizes the lytic cycle of a viral infection?",
       options: [
         "The cycle typically leads to the lysis of the host cell.",
         "Capsid",
@@ -1378,7 +1732,8 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-170",
-      question: "True or False: The lysogenic cycle typically results in the rapid lysis of all infected cells.",
+      question:
+        "True or False: The lysogenic cycle typically results in the rapid lysis of all infected cells.",
       options: ["True", "False"],
       answer: "False",
       tags: ["viruses", "lysogenic cycle"],
@@ -1421,14 +1776,16 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-174",
-      question: "True or False: There are many successful ways to rid infected plants of a virus.",
+      question:
+        "True or False: There are many successful ways to rid infected plants of a virus.",
       options: ["True", "False"],
       answer: "False",
       tags: ["viruses", "botany"],
     },
     {
       id: "studocu-175",
-      question: "True or False: Few new human diseases originate in animals because genetic differences are too great.",
+      question:
+        "True or False: Few new human diseases originate in animals because genetic differences are too great.",
       options: ["True", "False"],
       answer: "False",
       tags: ["viruses", "evolution"],
@@ -1442,7 +1799,8 @@ export const bio110Studocu: Chapter = {
         "A retrovirus",
         "Herpesviruses reproduce inside the host cell’s mitochondria.",
       ],
-      answer: "Genetic reshuffling of viruses that infect humans, birds, and pigs.",
+      answer:
+        "Genetic reshuffling of viruses that infect humans, birds, and pigs.",
       tags: ["viruses", "evolution"],
     },
     {
@@ -1459,15 +1817,26 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-178",
-      question: "Which enzyme does HIV use to synthesize DNA on an RNA template?",
-      options: ["Reverse transcriptase", "A retrovirus", "White blood cells", "By altering the plants’ growth."],
+      question:
+        "Which enzyme does HIV use to synthesize DNA on an RNA template?",
+      options: [
+        "Reverse transcriptase",
+        "A retrovirus",
+        "White blood cells",
+        "By altering the plants’ growth.",
+      ],
       answer: "Reverse transcriptase",
       tags: ["enzymes", "HIV"],
     },
     {
       id: "studocu-179",
       question: "HIV does the greatest damage to which cells?",
-      options: ["White blood cells", "Reverse transcriptase", "A retrovirus", "By altering the plants’ growth."],
+      options: [
+        "White blood cells",
+        "Reverse transcriptase",
+        "A retrovirus",
+        "By altering the plants’ growth.",
+      ],
       answer: "White blood cells",
       tags: ["HIV", "biology"],
     },
@@ -1497,7 +1866,8 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-182",
-      question: "Frederick Griffith’s 1920s experiment with pneumonia-causing bacteria demonstrated which process?",
+      question:
+        "Frederick Griffith’s 1920s experiment with pneumonia-causing bacteria demonstrated which process?",
       options: [
         "Transformation",
         "Occurs when a phage transfers bacterial DNA from one bacterium to another.",
@@ -1516,7 +1886,8 @@ export const bio110Studocu: Chapter = {
         "Increase their genetic diversity.",
         "Transformation",
       ],
-      answer: "Occurs when a phage transfers bacterial DNA from one bacterium to another.",
+      answer:
+        "Occurs when a phage transfers bacterial DNA from one bacterium to another.",
       tags: ["genetics", "bacteria"],
     },
     {
@@ -1545,32 +1916,47 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-186",
-      question: "Mendel conducted his most memorable experiments on which of the following?",
+      question:
+        "Mendel conducted his most memorable experiments on which of the following?",
       options: ["Peas", "Fruit flies", "Mice", "Moths"],
       answer: "Peas",
       hint: "Think about the garden plants Mendel is famous for studying.",
     },
     {
       id: "studocu-187",
-      question: "Varieties of plants in which self-fertilization produces offspring that are identical to the parents are referred to as?",
+      question:
+        "Varieties of plants in which self-fertilization produces offspring that are identical to the parents are referred to as?",
       options: ["Hybrid", "Heterozygous", "True-breeding", "Cross-pollinated"],
       answer: "True-breeding",
     },
     {
       id: "studocu-188",
-      question: "The law of segregation of genes during gamete formation applies to which group?",
-      options: ["Only pea plants", "All sexually reproducing organisms", "Only animals", "Only humans"],
+      question:
+        "The law of segregation of genes during gamete formation applies to which group?",
+      options: [
+        "Only pea plants",
+        "All sexually reproducing organisms",
+        "Only animals",
+        "Only humans",
+      ],
       answer: "All sexually reproducing organisms",
     },
     {
       id: "studocu-189",
-      question: "Where are the alleles of a gene found on homologous chromosomes?",
-      options: ["At different loci", "On the centromere", "At the same locus", "Only on the X chromosome"],
+      question:
+        "Where are the alleles of a gene found on homologous chromosomes?",
+      options: [
+        "At different loci",
+        "On the centromere",
+        "At the same locus",
+        "Only on the X chromosome",
+      ],
       answer: "At the same locus",
     },
     {
       id: "studocu-190",
-      question: "If A is dominant to a and B is dominant to b, what is the expected phenotypic ratio of the cross: AaBb x AaBb?",
+      question:
+        "If A is dominant to a and B is dominant to b, what is the expected phenotypic ratio of the cross: AaBb x AaBb?",
       options: ["3:1", "1:2:1", "9:3:3:1", "1:1:1:1"],
       answer: "9:3:3:1",
       hint: "This is a classic dihybrid cross ratio.",
@@ -1584,73 +1970,127 @@ export const bio110Studocu: Chapter = {
         "Dominant alleles always mask recessive ones",
         "Genes on the same chromosome always sort together",
       ],
-      answer: "Each pair of alleles segregates independently of other pairs during gamete formation",
+      answer:
+        "Each pair of alleles segregates independently of other pairs during gamete formation",
     },
     {
       id: "studocu-192",
-      question: "A testcross is a mating between an individual of unknown genotype and an individual who is?",
-      options: ["Homozygous dominant", "Heterozygous", "Homozygous recessive", "A carrier"],
+      question:
+        "A testcross is a mating between an individual of unknown genotype and an individual who is?",
+      options: [
+        "Homozygous dominant",
+        "Heterozygous",
+        "Homozygous recessive",
+        "A carrier",
+      ],
       answer: "Homozygous recessive",
     },
     {
       id: "studocu-193",
-      question: "If the probability of having a female is 50% and a male is 50%, what is the probability that the first child is female and the second is male?",
+      question:
+        "If the probability of having a female is 50% and a male is 50%, what is the probability that the first child is female and the second is male?",
       options: ["50%", "100%", "25%", "75%"],
       answer: "25%",
       hint: "Multiply the probability of the first event by the probability of the second.",
     },
     {
       id: "studocu-194",
-      question: "A carrier of a genetic disorder who does not show symptoms is most likely to be?",
-      options: ["Homozygous recessive and unable to transmit it", "Heterozygous and able to transmit it", "Homozygous dominant and able to transmit it", "Heterozygous and unable to transmit it"],
+      question:
+        "A carrier of a genetic disorder who does not show symptoms is most likely to be?",
+      options: [
+        "Homozygous recessive and unable to transmit it",
+        "Heterozygous and able to transmit it",
+        "Homozygous dominant and able to transmit it",
+        "Heterozygous and unable to transmit it",
+      ],
       answer: "Heterozygous and able to transmit it",
     },
     {
       id: "studocu-195",
       question: "Most genetic disorders in humans are caused by?",
-      options: ["Dominant alleles", "Recessive alleles", "Mutations", "Environmental factors"],
+      options: [
+        "Dominant alleles",
+        "Recessive alleles",
+        "Mutations",
+        "Environmental factors",
+      ],
       answer: "Recessive alleles",
     },
     {
       id: "studocu-196",
-      question: "Most people afflicted with recessive disorders are born to parents who were?",
-      options: ["Both affected by the disease", "Not affected at all by the disease", "One affected and one carrier", "Homozygous dominant"],
+      question:
+        "Most people afflicted with recessive disorders are born to parents who were?",
+      options: [
+        "Both affected by the disease",
+        "Not affected at all by the disease",
+        "One affected and one carrier",
+        "Homozygous dominant",
+      ],
       answer: "Not affected at all by the disease",
     },
     {
       id: "studocu-197",
-      question: "Amniocentesis and chorionic villus sampling allow for which two procedures to test a fetus for abnormalities?",
-      options: ["Blood typing and ultrasound", "Karyotyping and biochemical testing", "Gene therapy and surgery", "X-rays and MRI"],
+      question:
+        "Amniocentesis and chorionic villus sampling allow for which two procedures to test a fetus for abnormalities?",
+      options: [
+        "Blood typing and ultrasound",
+        "Karyotyping and biochemical testing",
+        "Gene therapy and surgery",
+        "X-rays and MRI",
+      ],
       answer: "Karyotyping and biochemical testing",
     },
     {
       id: "studocu-198",
-      question: "If all offspring of a red-flowered and white-flowered plant cross have pink flowers, the allele for red is?",
+      question:
+        "If all offspring of a red-flowered and white-flowered plant cross have pink flowers, the allele for red is?",
       options: ["Codominant", "Dominant", "Incompletely dominant", "Recessive"],
       answer: "Incompletely dominant",
     },
     {
       id: "studocu-199",
-      question: "The expression of both alleles for a trait in a heterozygous individual illustrates?",
-      options: ["Incomplete dominance", "Pleiotropy", "Codominance", "Polygenic inheritance"],
+      question:
+        "The expression of both alleles for a trait in a heterozygous individual illustrates?",
+      options: [
+        "Incomplete dominance",
+        "Pleiotropy",
+        "Codominance",
+        "Polygenic inheritance",
+      ],
       answer: "Codominance",
     },
     {
       id: "studocu-200",
       question: "Sickle-cell disease is an example of?",
-      options: ["Polygenic inheritance", "Pleiotropy", "Codominance", "Linked genes"],
+      options: [
+        "Polygenic inheritance",
+        "Pleiotropy",
+        "Codominance",
+        "Linked genes",
+      ],
       answer: "Pleiotropy",
     },
     {
       id: "studocu-201",
-      question: "A situation where a single phenotypic character is determined by the additive effects of two or more genes is?",
-      options: ["Incomplete dominance", "Pleiotropy", "Polygenic inheritance", "Codominance"],
+      question:
+        "A situation where a single phenotypic character is determined by the additive effects of two or more genes is?",
+      options: [
+        "Incomplete dominance",
+        "Pleiotropy",
+        "Polygenic inheritance",
+        "Codominance",
+      ],
       answer: "Polygenic inheritance",
     },
     {
       id: "studocu-202",
       question: "The individual features of all organisms are the result of?",
-      options: ["Genetics only", "Environment only", "Genetics and the environment", "Mutation only"],
+      options: [
+        "Genetics only",
+        "Environment only",
+        "Genetics and the environment",
+        "Mutation only",
+      ],
       answer: "Genetics and the environment",
     },
     {
@@ -1662,30 +2102,45 @@ export const bio110Studocu: Chapter = {
         "Only sex chromosomes determine traits",
         "Chromosomes do not segregate during gamete formation",
       ],
-      answer: "The behavior of chromosomes during meiosis and fertilization accounts for inheritance patterns",
+      answer:
+        "The behavior of chromosomes during meiosis and fertilization accounts for inheritance patterns",
     },
     {
       id: "studocu-204",
-      question: "Genes located close together on the same chromosomes are referred to as?",
-      options: ["Alleles", "Linked genes", "Homologous genes", "Polygenic genes"],
+      question:
+        "Genes located close together on the same chromosomes are referred to as?",
+      options: [
+        "Alleles",
+        "Linked genes",
+        "Homologous genes",
+        "Polygenic genes",
+      ],
       answer: "Linked genes",
     },
     {
       id: "studocu-205",
-      question: "The mechanism that 'breaks' the linkage between linked genes is?",
-      options: ["Independent assortment", "Self-fertilization", "Crossing over", "Mutation"],
+      question:
+        "The mechanism that 'breaks' the linkage between linked genes is?",
+      options: [
+        "Independent assortment",
+        "Self-fertilization",
+        "Crossing over",
+        "Mutation",
+      ],
       answer: "Crossing over",
     },
     {
       id: "studocu-206",
-      question: "Which data can map the relative position of three genes on a chromosome?",
+      question:
+        "Which data can map the relative position of three genes on a chromosome?",
       options: [
         "The age of the organism",
         "The size of the chromosomes",
         "The frequencies with which corresponding traits occur together in offspring",
         "The number of alleles per gene",
       ],
-      answer: "The frequencies with which corresponding traits occur together in offspring",
+      answer:
+        "The frequencies with which corresponding traits occur together in offspring",
     },
     {
       id: "studocu-207",
@@ -1695,19 +2150,31 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-208",
-      question: "What is meant by the statement that 'male bees are fatherless'?",
-      options: ["They have no DNA from a queen", "They develop from unfertilized eggs", "They are clones of the father", "They do not have chromosomes"],
+      question:
+        "What is meant by the statement that 'male bees are fatherless'?",
+      options: [
+        "They have no DNA from a queen",
+        "They develop from unfertilized eggs",
+        "They are clones of the father",
+        "They do not have chromosomes",
+      ],
       answer: "They develop from unfertilized eggs",
     },
     {
       id: "studocu-209",
       question: "Any gene located on a sex chromosome is called a?",
-      options: ["Linked gene", "Recessive gene", "Sex-linked gene", "Dominant gene"],
-      answer: "Linked gene",
+      options: [
+        "Sex gene",
+        "Recessive gene",
+        "Sex-linked gene",
+        "Dominant gene",
+      ],
+      answer: "Sex-linked gene",
     },
     {
       id: "studocu-210",
-      question: "Sex-linked conditions are more common in men than women because?",
+      question:
+        "Sex-linked conditions are more common in men than women because?",
       options: [
         "Men have two X chromosomes",
         "Men need only one copy of the recessive allele for expression",
@@ -1718,7 +2185,8 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-211",
-      question: "Female inheritance patterns cannot be analyzed simply by studying the X chromosome because?",
+      question:
+        "Female inheritance patterns cannot be analyzed simply by studying the X chromosome because?",
       options: [
         "They only have one X chromosome",
         "The X chromosome is obtained from both father and mother",
@@ -1729,58 +2197,82 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-212",
-      question: "A black striped cat (unknown genotype) mated with a brown marbled cat (bbss) produced 3 brown marbled, 2 brown striped, 2 black marbled, and 3 black striped. What is the genotype of the rescued cat?",
+      question:
+        "A black striped cat (unknown genotype) mated with a brown marbled cat (bbss) produced 3 brown marbled, 2 brown striped, 2 black marbled, and 3 black striped. What is the genotype of the rescued cat?",
       options: ["BBSS", "BbSs", "BBss", "bbSs"],
       answer: "BbSs",
     },
     {
       id: "studocu-213",
-      question: "A karyotype shows 22 pairs of equal length and one pair with one chromosome longer than the other. What is the organism's sex?",
+      question:
+        "A karyotype shows 22 pairs of equal length and one pair with one chromosome longer than the other. What is the organism's sex?",
       options: ["Female", "Male", "Hermaphrodite", "Unknown"],
       answer: "Male",
     },
     {
       id: "studocu-214",
-      question: "In a family pedigree, which finding would rule out an X-linked hypothesis for a newborn boy's disorder?",
-      options: ["The father has the disorder", "The mother is a carrier", "Neither parent has the disorder", "The grandmother was affected"],
-      answer: "Neither parent has the disorder",
+      question:
+        "You are trying to determine if a newborn boy has an X-linked genetic disorder by analyzing a family pedigree. Which of these findings would rule out the X-linked hypothesis?",
+      options: [
+        "All the sons of the baby's grandmother have the disorder.  ",
+        "There are no females in the pedigree with the disorder.",
+        "Both brothers and sisters have the disorder, though neither parent does.",
+      ],
+      answer:
+        "Both brothers and sisters have the disorder, though neither parent does.",
     },
     {
       id: "studocu-215",
-      question: "What type of inheritance fits a pedigree where unaffected parents have an affected child?",
-      options: ["Autosomal dominant", "Sex-linked dominant", "Autosomal recessive", "Incomplete dominance"],
+      question:
+        "What type of inheritance fits a pedigree where unaffected parents have an affected child?",
+      options: [
+        "Autosomal dominant",
+        "Sex-linked dominant",
+        "Autosomal recessive",
+        "Incomplete dominance",
+      ],
       answer: "Autosomal recessive",
     },
     {
       id: "studocu-216",
-      question: "Dr. Smith has recessive deafness (dd), but both parents have normal hearing. What are the parents' genotypes?",
+      question:
+        "Dr. Smith has recessive deafness (dd), but both parents have normal hearing. What are the parents' genotypes?",
       options: ["DD and DD", "Dd and Dd", "DD and Dd", "dd and dd"],
       answer: "Dd and Dd",
     },
     {
       id: "studocu-217",
-      question: "Justin (Type A) and Brittany (Type B) both have parents with Type AB blood. What are the chances their son Theodore has Type A blood?",
+      question:
+        "Justin (Type A) and Brittany (Type B) both have parents with Type AB blood. What are the chances their son Theodore has Type A blood?",
       options: ["25%", "50%", "0%", "100%"],
       answer: "0%",
       hint: "Consider the specific alleles Justin and Brittany must have based on their parents.",
     },
     {
       id: "studocu-218",
-      question: "What is the term for the creation of genetically identical offspring by a single parent without sperm and egg?",
-      options: ["Sexual reproduction", "Asexual reproduction", "Binary fission", "Regeneration"],
+      question:
+        "What is the term for the creation of genetically identical offspring by a single parent without sperm and egg?",
+      options: [
+        "Sexual reproduction",
+        "Asexual reproduction",
+        "Binary fission",
+        "Regeneration",
+      ],
       answer: "Asexual reproduction",
       hint: "This process involves only one parent and no gametes.",
     },
     {
       id: "studocu-219",
-      question: "Asexual reproduction requires ____ individual(s), whereas sexual reproduction requires ____ individual(s).",
+      question:
+        "Asexual reproduction requires ____ individual(s), whereas sexual reproduction requires ____ individual(s).",
       options: ["2; 1", "1; 1", "1; 2", "2; 2"],
       answer: "1; 2",
       hint: "Think about the number of parents involved in each process.",
     },
     {
       id: "studocu-220",
-      question: "Why do siblings with the same biological parents typically look similar but not identical?",
+      question:
+        "Why do siblings with the same biological parents typically look similar but not identical?",
       options: [
         "They have identical genes but different environments.",
         "They have a similar but not identical combination of genes.",
@@ -1792,8 +2284,14 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-221",
-      question: "How do eukaryotic chromosomes differ from prokaryotic chromosomes?",
-      options: ["They are circular in shape.", "They are housed in a membrane-enclosed nucleus.", "They lack proteins.", "They are floating freely in the cytoplasm."],
+      question:
+        "How do eukaryotic chromosomes differ from prokaryotic chromosomes?",
+      options: [
+        "They are circular in shape.",
+        "They are housed in a membrane-enclosed nucleus.",
+        "They lack proteins.",
+        "They are floating freely in the cytoplasm.",
+      ],
       answer: "They are housed in a membrane-enclosed nucleus.",
       hint: "Consider the structural defining feature of a eukaryote.",
     },
@@ -1806,7 +2304,8 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-223",
-      question: "In which phase do eukaryotic cells spend most of their cell cycle?",
+      question:
+        "In which phase do eukaryotic cells spend most of their cell cycle?",
       options: ["Prophase", "Metaphase", "Interphase", "Telophase"],
       answer: "Interphase",
       hint: "This is the phase of growth and DNA replication.",
@@ -1814,20 +2313,32 @@ export const bio110Studocu: Chapter = {
     {
       id: "studocu-224",
       question: "Which of the following occurs during interphase?",
-      options: ["Separation of sister chromatids", "Cell growth and duplication of chromosomes", "Formation of the mitotic spindle", "Cytokinesis"],
+      options: [
+        "Separation of sister chromatids",
+        "Cell growth and duplication of chromosomes",
+        "Formation of the mitotic spindle",
+        "Cytokinesis",
+      ],
       answer: "Cell growth and duplication of chromosomes",
       hint: "The cell prepares for division during this time.",
     },
     {
       id: "studocu-225",
-      question: "A cell with a narrow middle separating two bulging ends (looking like a number 8) is likely:",
-      options: ["In prophase", "In S phase", "Undergoing cytokinesis", "In G1 phase"],
+      question:
+        "A cell with a narrow middle separating two bulging ends (looking like a number 8) is likely:",
+      options: [
+        "In prophase",
+        "In S phase",
+        "Undergoing cytokinesis",
+        "In G1 phase",
+      ],
       answer: "Undergoing cytokinesis",
       hint: "This is the physical division of the cytoplasm.",
     },
     {
       id: "studocu-226",
-      question: "During which phase of mitosis does the mitotic spindle begin to form?",
+      question:
+        "During which phase of mitosis does the mitotic spindle begin to form?",
       options: ["Prophase", "Anaphase", "Metaphase", "Telophase"],
       answer: "Prophase",
       hint: "It is the first stage of mitosis.",
@@ -1835,41 +2346,61 @@ export const bio110Studocu: Chapter = {
     {
       id: "studocu-227",
       question: "What happens at the start of mitotic anaphase?",
-      options: ["The nuclear envelope reforms.", "Chromosomes line up at the equator.", "The centromeres of each chromosome come apart.", "DNA starts to replicate."],
+      options: [
+        "The nuclear envelope reforms.",
+        "Chromosomes line up at the equator.",
+        "The centromeres of each chromosome come apart.",
+        "DNA starts to replicate.",
+      ],
       answer: "The centromeres of each chromosome come apart.",
       hint: "Sister chromatids begin to move to opposite poles.",
     },
     {
       id: "studocu-228",
-      question: "During which phase of mitosis does the nuclear envelope re-form?",
+      question:
+        "During which phase of mitosis does the nuclear envelope re-form?",
       options: ["Prophase", "Metaphase", "Anaphase", "Telophase"],
       answer: "Telophase",
       hint: "This is the final stage of mitosis.",
     },
     {
       id: "studocu-229",
-      question: "Which feature accounts for the difference between plant and animal cell cytokinesis?",
+      question:
+        "Which feature accounts for the difference between plant and animal cell cytokinesis?",
       options: ["Centrioles", "Cell walls", "Mitochondria", "Ribosomes"],
       answer: "Cell walls",
       hint: "Plants must build a new barrier between daughter cells.",
     },
     {
       id: "studocu-230",
-      question: "Cells stopping division once they form a single layer in a petri dish is an example of:",
-      options: ["Cleavage furrowing", "Density-dependent inhibition", "Cellular respiration", "Nondisjunction"],
+      question:
+        "Cells stopping division once they form a single layer in a petri dish is an example of:",
+      options: [
+        "Cleavage furrowing",
+        "Density-dependent inhibition",
+        "Cellular respiration",
+        "Nondisjunction",
+      ],
       answer: "Density-dependent inhibition",
       hint: "The physical contact with other cells signals the stop.",
     },
     {
       id: "studocu-231",
-      question: "What is the division status of mature human neurons and muscle cells?",
-      options: ["They divide rapidly.", "They are permanently in a state of nondivision.", "They only divide in petri dishes.", "They bypass interphase."],
+      question:
+        "What is the division status of mature human neurons and muscle cells?",
+      options: [
+        "They divide rapidly.",
+        "They are permanently in a state of nondivision.",
+        "They only divide in petri dishes.",
+        "They bypass interphase.",
+      ],
       answer: "They are permanently in a state of nondivision.",
       hint: "These cells usually enter the G0 phase.",
     },
     {
       id: "studocu-232",
-      question: "If cultured animal cells fail to exhibit density-dependent inhibition, the sample is likely:",
+      question:
+        "If cultured animal cells fail to exhibit density-dependent inhibition, the sample is likely:",
       options: ["Healthy skin", "A muscle fiber", "A cancer", "A plant root"],
       answer: "A cancer",
       hint: "Cancer cells divide uncontrollably regardless of crowding.",
@@ -1877,47 +2408,76 @@ export const bio110Studocu: Chapter = {
     {
       id: "studocu-233",
       question: "How does a benign tumor differ from a malignant tumor?",
-      options: ["It is larger.", "It does not metastasize.", "It contains prokaryotic cells.", "It lacks DNA."],
+      options: [
+        "It is larger.",
+        "It does not metastasize.",
+        "It contains prokaryotic cells.",
+        "It lacks DNA.",
+      ],
       answer: "It does not metastasize.",
       hint: "Benign tumors remain at their original site.",
     },
     {
       id: "studocu-234",
-      question: "Two chromosomes that carry genes controlling the same inherited characteristics are called:",
-      options: ["Sister chromatids", "Homologous chromosomes", "Heterozygous pairs", "Karyotypes"],
+      question:
+        "Two chromosomes that carry genes controlling the same inherited characteristics are called:",
+      options: [
+        "Sister chromatids",
+        "Homologous chromosomes",
+        "Heterozygous pairs",
+        "Karyotypes",
+      ],
       answer: "Homologous chromosomes",
       hint: "One is inherited from each biological parent.",
     },
     {
       id: "studocu-235",
-      question: "Which describes the behavior of a tetrad during anaphase I of meiosis?",
+      question:
+        "Which describes the behavior of a tetrad during anaphase I of meiosis?",
       options: [
         "It stays together at the center.",
         "It splits into two pairs of sister chromatids, and one pair goes to each pole.",
         "It dissolves into the cytoplasm.",
         "It replicates its DNA again.",
       ],
-      answer: "It splits into two pairs of sister chromatids, and one pair goes to each pole.",
+      answer:
+        "It splits into two pairs of sister chromatids, and one pair goes to each pole.",
       hint: "This is when the chromosome number is halved.",
     },
     {
       id: "studocu-236",
-      question: "Independent orientation of chromosomes at metaphase I results in an increase in:",
-      options: ["Mutation rates", "Possible combinations of characteristics", "The size of the nucleus", "The number of ribosomes"],
+      question:
+        "Independent orientation of chromosomes at metaphase I results in an increase in:",
+      options: [
+        "Mutation rates",
+        "Possible combinations of characteristics",
+        "The size of the nucleus",
+        "The number of ribosomes",
+      ],
       answer: "Possible combinations of characteristics",
       hint: "This contributes to genetic variety in offspring.",
     },
     {
       id: "studocu-237",
       question: "What can karyotyping reveal?",
-      options: ["The rate of mitosis", "Alterations in chromosome number", "The specific DNA sequence of a gene", "The cell's metabolism"],
+      options: [
+        "The rate of mitosis",
+        "Alterations in chromosome number",
+        "The specific DNA sequence of a gene",
+        "The cell's metabolism",
+      ],
       answer: "Alterations in chromosome number",
       hint: "It involves a visual display of an individual's chromosomes.",
     },
     {
       id: "studocu-238",
       question: "Nondisjunction occurs when:",
-      options: ["Cells enter interphase.", "Members of a chromosome pair fail to separate.", "DNA replication stops.", "The cell wall breaks down."],
+      options: [
+        "Cells enter interphase.",
+        "Members of a chromosome pair fail to separate.",
+        "DNA replication stops.",
+        "The cell wall breaks down.",
+      ],
       answer: "Members of a chromosome pair fail to separate.",
       hint: "This leads to an abnormal number of chromosomes in gametes.",
     },
@@ -1930,7 +2490,8 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-240",
-      question: "What is the chromosomal abnormality called if a fragment reattaches in the reverse direction?",
+      question:
+        "What is the chromosomal abnormality called if a fragment reattaches in the reverse direction?",
       options: ["Deletion", "Duplication", "Inversion", "Translocation"],
       answer: "Inversion",
       hint: "Think of the orientation being flipped.",
@@ -1949,101 +2510,160 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-242",
-      question: "If one cell becomes four identical cells with the same DNA amount overnight, what happened?",
+      question:
+        "If one cell becomes four identical cells with the same DNA amount overnight, what happened?",
       options: [
         "The cell underwent meiosis.",
         "Sexual reproduction occurred.",
         "The cell divided into two, and those two each divided again via asexual reproduction.",
         "A mutation doubled the cell count.",
       ],
-      answer: "The cell divided into two, and those two each divided again via asexual reproduction.",
+      answer:
+        "The cell divided into two, and those two each divided again via asexual reproduction.",
       hint: "This describes two rounds of mitotic division.",
     },
     {
       id: "studocu-243",
-      question: "A cell with a cell wall forms a cell plate and divides. What are you observing?",
-      options: ["Animal cell in prophase", "Plant cell in telophase and cytokinesis", "Bacteria in binary fission", "Yeast cell in budding"],
+      question:
+        "A cell with a cell wall forms a cell plate and divides. What are you observing?",
+      options: [
+        "Animal cell in prophase",
+        "Plant cell in telophase and cytokinesis",
+        "Bacteria in binary fission",
+        "Yeast cell in budding",
+      ],
       answer: "Plant cell in telophase and cytokinesis",
       hint: "A cell plate is specific to plant cytokinesis.",
     },
     {
       id: "studocu-244",
-      question: "How could you determine if an individual has Jacobsen syndrome (deletion on chromosome 11)?",
-      options: ["Take a blood pressure reading.", "Perform a karyotype using white blood cells.", "Check their heart rate.", "Sequence their entire genome."],
+      question:
+        "How could you determine if an individual has Jacobsen syndrome (deletion on chromosome 11)?",
+      options: [
+        "Take a blood pressure reading.",
+        "Perform a karyotype using white blood cells.",
+        "Check their heart rate.",
+        "Sequence their entire genome.",
+      ],
       answer: "Perform a karyotype using white blood cells.",
       hint: "Karyotypes can show large-scale chromosomal changes like deletions.",
     },
     {
       id: "studocu-245",
-      question: "What is a common technique to determine if a tissue sample is cancerous?",
+      question:
+        "What is a common technique to determine if a tissue sample is cancerous?",
       options: [
         "Check for the presence of a cell wall.",
         "Compare its growth in a culture dish against noncancerous cells.",
         "Count the number of mitochondria.",
         "Measure the cell's volume.",
       ],
-      answer: "Compare its growth in a culture dish against noncancerous cells.",
+      answer:
+        "Compare its growth in a culture dish against noncancerous cells.",
       hint: "Look for a lack of density-dependent inhibition.",
     },
     {
       id: "studocu-246",
-      question: "If a plant cell is shown forming a cell plate, what event follows immediately?",
-      options: ["The cell enters S phase.", "The cell will divide into two plant cells.", "Chromosomes will condense.", "The mitotic spindle will form."],
+      question:
+        "If a plant cell is shown forming a cell plate, what event follows immediately?",
+      options: [
+        "The cell enters S phase.",
+        "The cell will divide into two plant cells.",
+        "Chromosomes will condense.",
+        "The mitotic spindle will form.",
+      ],
       answer: "The cell will divide into two plant cells.",
       hint: "Cytokinesis completes the division process.",
     },
     {
       id: "studocu-247",
-      question: "If a diploid cell (2n=4) divides into four cells with abnormal numbers, what occurred?",
-      options: ["Normal mitosis", "Independent assortment", "Nondisjunction", "Inversion"],
+      question:
+        "If a diploid cell (2n=4) divides into four cells with abnormal numbers, what occurred?",
+      options: [
+        "Normal mitosis",
+        "Independent assortment",
+        "Nondisjunction",
+        "Inversion",
+      ],
       answer: "Nondisjunction",
       hint: "Failure of separation leads to unequal chromosome distribution.",
     },
     {
       id: "studocu-248",
-      question: "A cell with several nuclei most likely experienced a failure in which process?",
+      question:
+        "A cell with several nuclei most likely experienced a failure in which process?",
       options: ["DNA replication", "Mitosis", "Cytokinesis", "Prophase"],
       answer: "Mitosis",
       hint: "The nuclei divided, but the cell body did not.",
     },
     {
       id: "studocu-249",
-      question: "What is the stage if a diploid organism has 7 chromosomes, each with sister chromatids?",
-      options: ["Mitosis metaphase", "Meiosis I anaphase", "Meiosis II prophase", "Meiosis II telophase"],
+      question:
+        "What is the stage if a diploid organism has 7 chromosomes, each with sister chromatids?",
+      options: [
+        "Mitosis metaphase",
+        "Meiosis I anaphase",
+        "Meiosis II prophase",
+        "Meiosis II telophase",
+      ],
       answer: "Meiosis II prophase",
       hint: "The chromosome count is half the original (haploid), but chromatids are still joined.",
     },
     {
       id: "studocu-250",
-      question: "How do cells capture the energy released by cellular respiration?",
-      options: ["By producing ATP", "By breaking down CO2", "By absorbing light", "By creating glucose"],
+      question:
+        "How do cells capture the energy released by cellular respiration?",
+      options: [
+        "By producing ATP",
+        "By breaking down CO2",
+        "By absorbing light",
+        "By creating glucose",
+      ],
       answer: "By producing ATP",
       tags: ["energy capture", "ATP"],
     },
     {
       id: "studocu-251",
-      question: "During the energy conversions of photosynthesis and cellular respiration, what happens to some of the energy?",
-      options: ["It is destroyed", "It is lost in the form of heat", "It is converted into matter", "It is stored as oxygen"],
+      question:
+        "During the energy conversions of photosynthesis and cellular respiration, what happens to some of the energy?",
+      options: [
+        "It is destroyed",
+        "It is lost in the form of heat",
+        "It is converted into matter",
+        "It is stored as oxygen",
+      ],
       answer: "It is lost in the form of heat",
       tags: ["energy conversion", "thermodynamics"],
     },
     {
       id: "studocu-252",
       question: "Which of the following are products of cellular respiration?",
-      options: ["Oxygen and glucose", "Energy to make ATP, carbon dioxide, and water", "Pyruvate and light", "Starch and glycogen"],
+      options: [
+        "Oxygen and glucose",
+        "Energy to make ATP, carbon dioxide, and water",
+        "Pyruvate and light",
+        "Starch and glycogen",
+      ],
       answer: "Energy to make ATP, carbon dioxide, and water",
       tags: ["products", "chemical reactions"],
     },
     {
       id: "studocu-253",
-      question: "What is the overall equation for the cellular respiration of glucose?",
-      options: ["C6H12O6 + 6 O2 -> 6 CO2 + 6 H2O + energy", "6 CO2 + 6 H2O + light -> C6H12O6 + 6 O2", "C6H12O6 + 6 CO2 -> 6 O2 + 6 H2O", "6 O2 + 6 H2O -> C6H12O6 + 6 CO2 + energy"],
+      question:
+        "What is the overall equation for the cellular respiration of glucose?",
+      options: [
+        "C6H12O6 + 6 O2 -> 6 CO2 + 6 H2O + energy",
+        "6 CO2 + 6 H2O + light -> C6H12O6 + 6 O2",
+        "C6H12O6 + 6 CO2 -> 6 O2 + 6 H2O",
+        "6 O2 + 6 H2O -> C6H12O6 + 6 CO2 + energy",
+      ],
       answer: "C6H12O6 + 6 O2 -> 6 CO2 + 6 H2O + energy",
       tags: ["equation", "glucose"],
     },
     {
       id: "studocu-254",
-      question: "About what percentage of daily calories do humans use to maintain brain cells and power life-sustaining activities?",
+      question:
+        "About what percentage of daily calories do humans use to maintain brain cells and power life-sustaining activities?",
       options: ["10%", "25%", "50%", "75%"],
       answer: "75%",
       tags: ["metabolism", "calories"],
@@ -2057,13 +2677,20 @@ export const bio110Studocu: Chapter = {
         "The amount of ATP produced by one glucose molecule",
         "The speed of an electron in the transport chain",
       ],
-      answer: "The quantity of heat needed to raise the temperature of 1 kg of water by 1°C",
+      answer:
+        "The quantity of heat needed to raise the temperature of 1 kg of water by 1°C",
       tags: ["definitions", "kilocalorie"],
     },
     {
       id: "studocu-256",
-      question: "In chemical reactions, oxidation is the ______ and reduction is the ______.",
-      options: ["gain of electrons; loss of electrons", "loss of electrons; gain of electrons", "gain of protons; loss of protons", "loss of oxygen; gain of oxygen"],
+      question:
+        "In chemical reactions, oxidation is the ______ and reduction is the ______.",
+      options: [
+        "gain of electrons; loss of electrons",
+        "loss of electrons; gain of electrons",
+        "gain of protons; loss of protons",
+        "loss of oxygen; gain of oxygen",
+      ],
       answer: "loss of electrons; gain of electrons",
       tags: ["redox", "chemistry"],
     },
@@ -2076,12 +2703,14 @@ export const bio110Studocu: Chapter = {
         "It produces water from oxygen",
         "It oxidizes glucose directly",
       ],
-      answer: "It delivers its electron load to the first electron carrier molecule",
+      answer:
+        "It delivers its electron load to the first electron carrier molecule",
       tags: ["NADH", "electron transport"],
     },
     {
       id: "studocu-258",
-      question: "A drug that creates holes in both mitochondrial membranes would be harmful because it inhibits:",
+      question:
+        "A drug that creates holes in both mitochondrial membranes would be harmful because it inhibits:",
       options: [
         "Glycolysis and fermentation",
         "The citric acid cycle and oxidative phosphorylation",
@@ -2093,8 +2722,14 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-259",
-      question: "Which metabolic pathway is common to both aerobic and anaerobic metabolism?",
-      options: ["The citric acid cycle", "Oxidative phosphorylation", "Glycolysis", "Chemiosmosis"],
+      question:
+        "Which metabolic pathway is common to both aerobic and anaerobic metabolism?",
+      options: [
+        "The citric acid cycle",
+        "Oxidative phosphorylation",
+        "Glycolysis",
+        "Chemiosmosis",
+      ],
       answer: "Glycolysis",
       tags: ["metabolism", "glycolysis"],
     },
@@ -2112,21 +2747,33 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-261",
-      question: "What occurs after glycolysis but before the citric acid cycle?",
-      options: ["Pyruvate is oxidized", "ATP is hydrolyzed", "Oxygen is reduced to water", "Glucose is formed"],
+      question:
+        "What occurs after glycolysis but before the citric acid cycle?",
+      options: [
+        "Pyruvate is oxidized",
+        "ATP is hydrolyzed",
+        "Oxygen is reduced to water",
+        "Glucose is formed",
+      ],
       answer: "Pyruvate is oxidized",
       tags: ["pyruvate", "metabolic steps"],
     },
     {
       id: "studocu-262",
       question: "Where are the enzymes of the citric acid cycle located?",
-      options: ["Cytoplasm", "Matrix and inner mitochondrial membrane", "The stroma of the chloroplast", "The outer mitochondrial membrane"],
+      options: [
+        "Cytoplasm",
+        "Matrix and inner mitochondrial membrane",
+        "The stroma of the chloroplast",
+        "The outer mitochondrial membrane",
+      ],
       answer: "Matrix and inner mitochondrial membrane",
       tags: ["anatomy", "citric acid cycle"],
     },
     {
       id: "studocu-263",
-      question: "The end products of the citric acid cycle include all of the following EXCEPT:",
+      question:
+        "The end products of the citric acid cycle include all of the following EXCEPT:",
       options: ["CO2", "ATP", "FADH2", "Pyruvate"],
       answer: "Pyruvate",
       tags: ["citric acid cycle", "products"],
@@ -2140,7 +2787,8 @@ export const bio110Studocu: Chapter = {
         "Oxygen is used to create CO2",
         "Light energy is captured by chlorophyll",
       ],
-      answer: "ATP is synthesized when H+ ions move through a channel in ATP synthase",
+      answer:
+        "ATP is synthesized when H+ ions move through a channel in ATP synthase",
       tags: ["chemiosmosis", "ATP synthase"],
     },
     {
@@ -2152,12 +2800,14 @@ export const bio110Studocu: Chapter = {
         "Allows the cell to survive without oxygen",
         "Stores glucose for later use",
       ],
-      answer: "Increases the space for more copies of the electron transport chain and ATP synthase",
+      answer:
+        "Increases the space for more copies of the electron transport chain and ATP synthase",
       tags: ["anatomy", "mitochondria"],
     },
     {
       id: "studocu-266",
-      question: "In the electron transport chain, the final electron acceptor is:",
+      question:
+        "In the electron transport chain, the final electron acceptor is:",
       options: ["Carbon dioxide", "Water", "Oxygen", "NAD+"],
       answer: "Oxygen",
       tags: ["ETC", "oxygen"],
@@ -2176,42 +2826,72 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-268",
-      question: "Which process produces the most ATP per molecule of glucose oxidized?",
-      options: ["Lactic acid fermentation", "Alcohol fermentation", "Aerobic respiration", "Anaerobic respiration"],
+      question:
+        "Which process produces the most ATP per molecule of glucose oxidized?",
+      options: [
+        "Lactic acid fermentation",
+        "Alcohol fermentation",
+        "Aerobic respiration",
+        "Anaerobic respiration",
+      ],
       answer: "Aerobic respiration",
       tags: ["ATP yield", "respiration"],
     },
     {
       id: "studocu-269",
       question: "In fermentation, ______ is ______.",
-      options: ["NAD+, reduced", "NADH, oxidized", "Glucose, synthesized", "Pyruvate, oxidized"],
+      options: [
+        "NAD+, reduced",
+        "NADH, oxidized",
+        "Glucose, synthesized",
+        "Pyruvate, oxidized",
+      ],
       answer: "NADH, oxidized",
       tags: ["fermentation", "redox"],
     },
     {
       id: "studocu-270",
-      question: "What is a characteristic of yeast cells in anaerobic conditions?",
-      options: ["They produce lactic acid", "Alcohol is produced after glycolysis", "They die immediately without oxygen", "They produce more ATP than in aerobic conditions"],
+      question:
+        "What is a characteristic of yeast cells in anaerobic conditions?",
+      options: [
+        "They produce lactic acid",
+        "Alcohol is produced after glycolysis",
+        "They die immediately without oxygen",
+        "They produce more ATP than in aerobic conditions",
+      ],
       answer: "Alcohol is produced after glycolysis",
       tags: ["yeast", "fermentation"],
     },
     {
       id: "studocu-271",
-      question: "Bacteria that are unable to survive in the presence of oxygen are called:",
-      options: ["Facultative anaerobes", "Obligate aerobes", "Obligate anaerobes", "Photosynthetic bacteria"],
+      question:
+        "Bacteria that are unable to survive in the presence of oxygen are called:",
+      options: [
+        "Facultative anaerobes",
+        "Obligate aerobes",
+        "Obligate anaerobes",
+        "Photosynthetic bacteria",
+      ],
       answer: "Obligate anaerobes",
       tags: ["bacteria", "anaerobes"],
     },
     {
       id: "studocu-272",
-      question: "To obtain energy from starch and glycogen, the body must first:",
-      options: ["Convert them to fats", "Hydrolyze both starch and glycogen to glucose", "Oxidize them directly in the citric acid cycle", "Ferment them into alcohol"],
+      question:
+        "To obtain energy from starch and glycogen, the body must first:",
+      options: [
+        "Convert them to fats",
+        "Hydrolyze both starch and glycogen to glucose",
+        "Oxidize them directly in the citric acid cycle",
+        "Ferment them into alcohol",
+      ],
       answer: "Hydrolyze both starch and glycogen to glucose",
       tags: ["digestion", "energy"],
     },
     {
       id: "studocu-273",
-      question: "If ATP accumulates in a cell, what happens to cellular respiration?",
+      question:
+        "If ATP accumulates in a cell, what happens to cellular respiration?",
       options: [
         "It speeds up to use the ATP",
         "Feedback inhibition slows down cellular respiration",
@@ -2223,7 +2903,8 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-274",
-      question: "Which of the following is true regarding slow-twitch muscle fibers in marathon runners?",
+      question:
+        "Which of the following is true regarding slow-twitch muscle fibers in marathon runners?",
       options: [
         "They function without mitochondria",
         "They have lots of mitochondria to make ATP aerobically",
@@ -2235,26 +2916,30 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-275",
-      question: "If a child has a disease where mitochondria are missing from skeletal muscle, why do the muscles still function?",
+      question:
+        "If a child has a disease where mitochondria are missing from skeletal muscle, why do the muscles still function?",
       options: [
         "They use light for energy",
         "The muscles contain large amounts of lactate following mild exercise",
         "They use oxygen more efficiently than normal cells",
         "They do not require ATP to move",
       ],
-      answer: "The muscles contain large amounts of lactate following mild exercise",
+      answer:
+        "The muscles contain large amounts of lactate following mild exercise",
       tags: ["pathology", "fermentation"],
     },
     {
       id: "studocu-276",
-      question: "According to the Pasteur Effect, why do yeasts consume glucose at a higher rate under anaerobic conditions?",
+      question:
+        "According to the Pasteur Effect, why do yeasts consume glucose at a higher rate under anaerobic conditions?",
       options: [
         "Glucose is more delicious without oxygen",
         "Less ATP is made under anaerobic conditions, so more glucose must be consumed",
         "Anaerobic conditions speed up enzymes",
         "Yeasts grow much larger without oxygen",
       ],
-      answer: "Less ATP is made under anaerobic conditions, so more glucose must be consumed",
+      answer:
+        "Less ATP is made under anaerobic conditions, so more glucose must be consumed",
       tags: ["Pasteur Effect", "ATP yield"],
     },
     {
@@ -2278,19 +2963,22 @@ export const bio110Studocu: Chapter = {
         "Clearance of the lenses used in the microscope",
         "Total magnification power of the ocular lens",
       ],
-      answer: "Ability of an optical instrument to show two close objects as separate",
+      answer:
+        "Ability of an optical instrument to show two close objects as separate",
       tags: ["microscopy"],
     },
     {
       id: "studocu-279",
-      question: "A scientist wants to examine living respiratory cells using their tiny hairs (cilia) to move mucus. Which instrument is best and why?",
+      question:
+        "A scientist wants to examine living respiratory cells using their tiny hairs (cilia) to move mucus. Which instrument is best and why?",
       options: [
         "Scanning electron microscope for high detail",
         "Transmission electron microscope to see internal organelles",
         "A light microscope, because it allows observations of whole, live cells",
         "A magnifying glass for simple observation",
       ],
-      answer: "A light microscope, because it allows observations of whole, live cells",
+      answer:
+        "A light microscope, because it allows observations of whole, live cells",
       tags: ["microscopy", "cell-function"],
     },
     {
@@ -2302,7 +2990,8 @@ export const bio110Studocu: Chapter = {
         "Cells arise spontaneously from non-living matter",
         "All cells are roughly the same size",
       ],
-      answer: "Living things are composed of cells and all cells come from other cells",
+      answer:
+        "Living things are composed of cells and all cells come from other cells",
       tags: ["cell-theory"],
     },
     {
@@ -2320,14 +3009,16 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-282",
-      question: "Which statement correctly describes phospholipid heads in the plasma membrane?",
+      question:
+        "Which statement correctly describes phospholipid heads in the plasma membrane?",
       options: [
         "They are hydrophobic and face inward",
         "They are hydrophilic and face toward the aqueous solution on both sides",
         "They are located only on the outside of the membrane",
         "They are responsible for protein synthesis",
       ],
-      answer: "They are hydrophilic and face toward the aqueous solution on both sides",
+      answer:
+        "They are hydrophilic and face toward the aqueous solution on both sides",
       tags: ["plasma-membrane"],
     },
     {
@@ -2339,34 +3030,52 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-284",
-      question: "What is the primary benefit of the membranous compartmentalization of a cell?",
+      question:
+        "What is the primary benefit of the membranous compartmentalization of a cell?",
       options: [
         "It allows the cell to grow to an infinite size",
         "It allows different chemical conditions to be maintained in different parts of the cell",
         "It makes the cell more rigid",
         "It prevents the cell from using energy",
       ],
-      answer: "It allows different chemical conditions to be maintained in different parts of the cell",
+      answer:
+        "It allows different chemical conditions to be maintained in different parts of the cell",
       tags: ["organelles"],
     },
     {
       id: "studocu-285",
-      question: "You observe a cell under a microscope and see both cell walls and membrane-bound organelles. You conclude these are:",
-      options: ["Animal cells", "Bacterial cells", "Plant cells", "Prokaryotic cells"],
+      question:
+        "You observe a cell under a microscope and see both cell walls and membrane-bound organelles. You conclude these are:",
+      options: [
+        "Animal cells",
+        "Bacterial cells",
+        "Plant cells",
+        "Prokaryotic cells",
+      ],
       answer: "Plant cells",
       tags: ["cell-types"],
     },
     {
       id: "studocu-286",
       question: "The primary function of the nucleus is to:",
-      options: ["Produce ATP", "Contain DNA", "Store lipids", "Synthesize carbohydrates"],
+      options: [
+        "Produce ATP",
+        "Contain DNA",
+        "Store lipids",
+        "Synthesize carbohydrates",
+      ],
       answer: "Contain DNA",
       tags: ["organelles"],
     },
     {
       id: "studocu-287",
       question: "What is the function of the nucleolus?",
-      options: ["To manufacture polypeptides", "To package proteins for export", "To break down toxins", "To duplicate DNA"],
+      options: [
+        "To manufacture polypeptides",
+        "To package proteins for export",
+        "To break down toxins",
+        "To duplicate DNA",
+      ],
       answer: "To manufacture polypeptides",
       tags: ["organelles"],
     },
@@ -2385,14 +3094,25 @@ export const bio110Studocu: Chapter = {
     {
       id: "studocu-289",
       question: "The endomembrane system includes all of the following EXCEPT:",
-      options: ["Golgi apparatus", "Endoplasmic reticulum", "Peroxisome", "Lysosome"],
+      options: [
+        "Golgi apparatus",
+        "Endoplasmic reticulum",
+        "Peroxisome",
+        "Lysosome",
+      ],
       answer: "Peroxisome",
       tags: ["organelles"],
     },
     {
       id: "studocu-290",
-      question: "A plasma cell that produces thousands of proteins (antibodies) per second would have a very prominent:",
-      options: ["Smooth ER", "Rough endoplasmic reticulum", "Contractile vacuole", "Flagella"],
+      question:
+        "A plasma cell that produces thousands of proteins (antibodies) per second would have a very prominent:",
+      options: [
+        "Smooth ER",
+        "Rough endoplasmic reticulum",
+        "Contractile vacuole",
+        "Flagella",
+      ],
       answer: "Rough endoplasmic reticulum",
       tags: ["organelles", "protein-synthesis"],
     },
@@ -2411,14 +3131,24 @@ export const bio110Studocu: Chapter = {
     {
       id: "studocu-292",
       question: "The Golgi apparatus functions to:",
-      options: ["Store, modify, and package proteins", "Perform cellular respiration", "Digestion of cellular waste", "Synthesize lipids"],
+      options: [
+        "Store, modify, and package proteins",
+        "Perform cellular respiration",
+        "Digestion of cellular waste",
+        "Synthesize lipids",
+      ],
       answer: "Store, modify, and package proteins",
       tags: ["organelles"],
     },
     {
       id: "studocu-293",
       question: "Tay-Sachs disease is characterized by:",
-      options: ["The inability to produce insulin", "An accumulation of lipids in brain cells", "A failure in the mitochondrial respiratory chain", "The overproduction of mucus in the lungs"],
+      options: [
+        "The inability to produce insulin",
+        "An accumulation of lipids in brain cells",
+        "A failure in the mitochondrial respiratory chain",
+        "The overproduction of mucus in the lungs",
+      ],
       answer: "An accumulation of lipids in brain cells",
       tags: ["diseases"],
     },
@@ -2436,27 +3166,39 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-295",
-      question: "Which is the correct order of structures insulin passes through from production to exit?",
+      question:
+        "Which is the correct order of structures insulin passes through from production to exit?",
       options: [
         "Golgi, Rough ER, Vesicle, Membrane",
         "Rough ER, Transport Vesicles, Golgi, Transport Vesicles, Cell Membrane",
         "Nucleus, Ribosome, Golgi, Membrane",
         "Smooth ER, Lysosome, Golgi, Membrane",
       ],
-      answer: "Rough ER, Transport Vesicles, Golgi, Transport Vesicles, Cell Membrane",
+      answer:
+        "Rough ER, Transport Vesicles, Golgi, Transport Vesicles, Cell Membrane",
       tags: ["protein-pathway"],
     },
     {
       id: "studocu-296",
       question: "What is the function of the mitochondria?",
-      options: ["Photosynthesis", "Cellular respiration", "Lipid storage", "Movement"],
+      options: [
+        "Photosynthesis",
+        "Cellular respiration",
+        "Lipid storage",
+        "Movement",
+      ],
       answer: "Cellular respiration",
       tags: ["organelles"],
     },
     {
       id: "studocu-297",
       question: "What is the function of chloroplasts?",
-      options: ["Protein folding", "Photosynthesis", "Waste breakdown", "Cellular division"],
+      options: [
+        "Protein folding",
+        "Photosynthesis",
+        "Waste breakdown",
+        "Cellular division",
+      ],
       answer: "Photosynthesis",
       tags: ["organelles"],
     },
@@ -2481,13 +3223,19 @@ export const bio110Studocu: Chapter = {
         "Microtubules are smaller than microfilaments",
         "Microfilaments are only found in plant cells",
       ],
-      answer: "Microfilaments are composed of actin, microtubules are composed of tubulin",
+      answer:
+        "Microfilaments are composed of actin, microtubules are composed of tubulin",
       tags: ["cytoskeleton"],
     },
     {
       id: "studocu-300",
       question: "Cilia differ from flagella because cilia are usually:",
-      options: ["Longer and fewer in number", "More numerous and shorter than flagella", "Only used for eating", "Found only on bacteria"],
+      options: [
+        "Longer and fewer in number",
+        "More numerous and shorter than flagella",
+        "Only used for eating",
+        "Found only on bacteria",
+      ],
       answer: "More numerous and shorter than flagella",
       tags: ["cytoskeleton"],
     },
@@ -2500,12 +3248,14 @@ export const bio110Studocu: Chapter = {
         "They synthesize proteins in the cytoplasm",
         "They help the cell wall maintain its shape",
       ],
-      answer: "They cause movement in cilia/flagella by pulling at adjacent microtubule doublets",
+      answer:
+        "They cause movement in cilia/flagella by pulling at adjacent microtubule doublets",
       tags: ["cytoskeleton"],
     },
     {
       id: "studocu-302",
-      question: "The extracellular matrix binds to ________ in the plasma membrane via glycoproteins.",
+      question:
+        "The extracellular matrix binds to ________ in the plasma membrane via glycoproteins.",
       options: ["Phospholipids", "Integrins", "Ribosomes", "Cellulose"],
       answer: "Integrins",
       tags: ["plasma-membrane"],
@@ -2513,55 +3263,86 @@ export const bio110Studocu: Chapter = {
     {
       id: "studocu-303",
       question: "Skin cells are fastened into strong sheets by:",
-      options: ["Gap junctions", "Tight junctions", "Plasmodesmata", "Microvilli"],
+      options: [
+        "Gap junctions",
+        "Tight junctions",
+        "Plasmodesmata",
+        "Microvilli",
+      ],
       answer: "Tight junctions",
       tags: ["cell-junctions"],
     },
     {
       id: "studocu-304",
-      question: "Which structures are associated with the breakdown of harmful substances?",
+      question:
+        "Which structures are associated with the breakdown of harmful substances?",
       options: ["Peroxisomes", "Ribosomes", "Nucleoli", "Chloroplasts"],
       answer: "Peroxisomes",
       tags: ["organelles"],
     },
     {
       id: "studocu-305",
-      question: "Which cellular structure makes GPCRs (receptor proteins found in the plasma membrane)?",
-      options: ["Free ribosomes", "Mitochondria", "Golgi apparatus", "Lysosomes"],
+      question:
+        "Which cellular structure makes GPCRs (receptor proteins found in the plasma membrane)?",
+      options: [
+        "Free ribosomes",
+        "Mitochondria",
+        "Golgi apparatus",
+        "Lysosomes",
+      ],
       answer: "Golgi apparatus",
       tags: ["organelles"],
     },
     {
       id: "studocu-306",
-      question: "Which cellular structure makes Hexokinase (an enzyme used in the cytoplasm)?",
+      question:
+        "Which cellular structure makes Hexokinase (an enzyme used in the cytoplasm)?",
       options: ["Free ribosomes", "Rough ER", "Smooth ER", "Nucleolus"],
       answer: "Free ribosomes",
       tags: ["organelles"],
     },
     {
       id: "studocu-307",
-      question: "BONUS: A drug that interferes with microtubule formation would most likely disrupt:",
-      options: ["Protein synthesis", "The movement of sperm cells", "Cell wall construction", "ATP production"],
+      question:
+        "BONUS: A drug that interferes with microtubule formation would most likely disrupt:",
+      options: [
+        "Protein synthesis",
+        "The movement of sperm cells",
+        "Cell wall construction",
+        "ATP production",
+      ],
       answer: "The movement of sperm cells",
       tags: ["bonus"],
     },
     {
       id: "studocu-308",
-      question: "BONUS: If a chemical paralyzes the contractile vacuoles of a protist, what happens to the organism?",
-      options: ["It will shrink and dehydrate", "It will stop producing proteins", "It will gain water and burst", "It will turn into a plant cell"],
+      question:
+        "BONUS: If a chemical paralyzes the contractile vacuoles of a protist, what happens to the organism?",
+      options: [
+        "It will shrink and dehydrate",
+        "It will stop producing proteins",
+        "It will gain water and burst",
+        "It will turn into a plant cell",
+      ],
       answer: "It will gain water and burst",
       tags: ["bonus"],
     },
     {
       id: "studocu-309",
       question: "Lactose intolerance is defined as the inability to:",
-      options: ["Produce lactose", "Digest lactose", "Absorb glucose", "Produce insulin"],
+      options: [
+        "Produce lactose",
+        "Digest lactose",
+        "Absorb glucose",
+        "Produce insulin",
+      ],
       answer: "Digest lactose",
       tags: ["Lactose", "Digestive System"],
     },
     {
       id: "studocu-310",
-      question: "By definition, all organic compounds must contain which element?",
+      question:
+        "By definition, all organic compounds must contain which element?",
       options: ["Nitrogen", "Oxygen", "Carbon", "Phosphorus"],
       answer: "Carbon",
       tags: ["Organic Chemistry"],
@@ -2587,15 +3368,27 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-313",
-      question: "Which molecule contains both a carboxyl group and an amino group?",
-      options: ["Triglycerides", "Amino acids", "Monosaccharides", "Nucleotides"],
+      question:
+        "Which molecule contains both a carboxyl group and an amino group?",
+      options: [
+        "Triglycerides",
+        "Amino acids",
+        "Monosaccharides",
+        "Nucleotides",
+      ],
       answer: "Amino acids",
       tags: ["Amino Acids", "Functional Groups"],
     },
     {
       id: "studocu-314",
-      question: "The results of dehydration reactions can be reversed by which process?",
-      options: ["Hydrogenation", "Polymerization", "Hydrolysis reactions", "Oxidation"],
+      question:
+        "The results of dehydration reactions can be reversed by which process?",
+      options: [
+        "Hydrogenation",
+        "Polymerization",
+        "Hydrolysis reactions",
+        "Oxidation",
+      ],
       answer: "Hydrolysis reactions",
       tags: ["Chemical Reactions"],
     },
@@ -2622,56 +3415,95 @@ export const bio110Studocu: Chapter = {
     {
       id: "studocu-317",
       question: "Which of the following lists contains ONLY polysaccharides?",
-      options: ["Sucrose, starch, and fructose", "Cellulose, starch, and glycogen", "Glucose, glycogen, and cellulose", "Starch, amino acids, and glycogen"],
+      options: [
+        "Sucrose, starch, and fructose",
+        "Cellulose, starch, and glycogen",
+        "Glucose, glycogen, and cellulose",
+        "Starch, amino acids, and glycogen",
+      ],
       answer: "Cellulose, starch, and glycogen",
       tags: ["Carbohydrates"],
     },
     {
       id: "studocu-318",
-      question: "In which forms are carbohydrates stored in animals and plants, respectively?",
-      options: ["Starch, glycogen", "Glycogen, cellulose", "Glycogen, starch", "Cellulose, starch"],
+      question:
+        "In which forms are carbohydrates stored in animals and plants, respectively?",
+      options: [
+        "Starch, glycogen",
+        "Glycogen, cellulose",
+        "Glycogen, starch",
+        "Cellulose, starch",
+      ],
       answer: "Glycogen, starch",
       tags: ["Carbohydrates"],
     },
     {
       id: "studocu-319",
-      question: "How can an oil be converted into a substance that is solid at room temperature?",
-      options: ["Adding hydrogens to decrease double bonds", "Removing hydrogens to increase double bonds", "Adding carbon chains", "Cooling it until it denatures"],
+      question:
+        "How can an oil be converted into a substance that is solid at room temperature?",
+      options: [
+        "Adding hydrogens to decrease double bonds",
+        "Removing hydrogens to increase double bonds",
+        "Adding carbon chains",
+        "Cooling it until it denatures",
+      ],
       answer: "Adding hydrogens to decrease double bonds",
       tags: ["Lipids"],
     },
     {
       id: "studocu-320",
       question: "What specific feature of fats makes them hydrophobic?",
-      options: ["Polar carboxyl groups", "Nonpolar hydrocarbon chains", "The presence of glycerol", "Their solid state at room temperature"],
+      options: [
+        "Polar carboxyl groups",
+        "Nonpolar hydrocarbon chains",
+        "The presence of glycerol",
+        "Their solid state at room temperature",
+      ],
       answer: "Nonpolar hydrocarbon chains",
       tags: ["Lipids"],
     },
     {
       id: "studocu-321",
-      question: "Fatty acids containing double bonds between some of their carbons are:",
+      question:
+        "Fatty acids containing double bonds between some of their carbons are:",
       options: ["Saturated", "Unsaturated", "Hydrogenated", "Phospholipids"],
       answer: "Unsaturated",
       tags: ["Lipids"],
     },
     {
       id: "studocu-322",
-      question: "To lower the risk of atherosclerosis, one should prefer olive oil that is:",
-      options: ["Solid at room temperature", "Liquid at room temperature", "Hydrogenated", "High in trans fats"],
+      question:
+        "To lower the risk of atherosclerosis, one should prefer olive oil that is:",
+      options: [
+        "Solid at room temperature",
+        "Liquid at room temperature",
+        "Hydrogenated",
+        "High in trans fats",
+      ],
       answer: "Liquid at room temperature",
       tags: ["Health", "Lipids"],
     },
     {
       id: "studocu-323",
       question: "The major type of lipid found in cell membranes is:",
-      options: ["Triglycerides", "Cholesterol", "Phospholipids", "Saturated fat"],
+      options: [
+        "Triglycerides",
+        "Cholesterol",
+        "Phospholipids",
+        "Saturated fat",
+      ],
       answer: "Phospholipids",
       tags: ["Lipids", "Cell Biology"],
     },
     {
       id: "studocu-324",
       question: "Amino acids are distinguished from one another by:",
-      options: ["The number of amino groups", "The type of sugar they contain", "The chemical properties of their R groups", "The length of their backbone"],
+      options: [
+        "The number of amino groups",
+        "The type of sugar they contain",
+        "The chemical properties of their R groups",
+        "The length of their backbone",
+      ],
       answer: "The chemical properties of their R groups",
       tags: ["Proteins", "Amino Acids"],
     },
@@ -2704,21 +3536,36 @@ export const bio110Studocu: Chapter = {
     {
       id: "studocu-328",
       question: "Where are structural proteins typically found in the body?",
-      options: ["Muscles and blood", "Hair and tendons", "Enzymes and hormones", "DNA and RNA"],
+      options: [
+        "Muscles and blood",
+        "Hair and tendons",
+        "Enzymes and hormones",
+        "DNA and RNA",
+      ],
       answer: "Hair and tendons",
       tags: ["Proteins"],
     },
     {
       id: "studocu-329",
       question: "The primary structure of a protein is defined as:",
-      options: ["The folding into alpha helices", "The overall three-dimensional shape", "The amino acid sequence of the polypeptide chain", "The bonding of two or more polypeptide chains"],
+      options: [
+        "The folding into alpha helices",
+        "The overall three-dimensional shape",
+        "The amino acid sequence of the polypeptide chain",
+        "The bonding of two or more polypeptide chains",
+      ],
       answer: "The amino acid sequence of the polypeptide chain",
       tags: ["Proteins", "Structure"],
     },
     {
       id: "studocu-330",
       question: "The tertiary structure of a polypeptide refers to:",
-      options: ["The sequence of amino acids", "The overall three-dimensional structure", "Local folding patterns", "The presence of multiple subunits"],
+      options: [
+        "The sequence of amino acids",
+        "The overall three-dimensional structure",
+        "Local folding patterns",
+        "The presence of multiple subunits",
+      ],
       answer: "The overall three-dimensional structure",
       tags: ["Proteins", "Structure"],
     },
@@ -2731,41 +3578,65 @@ export const bio110Studocu: Chapter = {
         "DNA directs the synthesis of an RNA molecule, which is used to build a protein",
         "Amino acids are converted into DNA",
       ],
-      answer: "DNA directs the synthesis of an RNA molecule, which is used to build a protein",
+      answer:
+        "DNA directs the synthesis of an RNA molecule, which is used to build a protein",
       tags: ["Genetics", "Proteins"],
     },
     {
       id: "studocu-332",
       question: "Which option correctly pairs a polymer and its monomer?",
-      options: ["DNA, nucleotides", "Protein, monosaccharides", "Starch, fatty acids", "RNA, amino acids"],
+      options: [
+        "DNA, nucleotides",
+        "Protein, monosaccharides",
+        "Starch, fatty acids",
+        "RNA, amino acids",
+      ],
       answer: "DNA, nucleotides",
       tags: ["Molecules"],
     },
     {
       id: "studocu-333",
       question: "DNA differs from RNA because DNA:",
-      options: ["Is single-stranded", "Contains uracil in place of thymine", "Contains thymine in place of uracil", "Does not contain a phosphate group"],
+      options: [
+        "Is single-stranded",
+        "Contains uracil in place of thymine",
+        "Contains thymine in place of uracil",
+        "Does not contain a phosphate group",
+      ],
       answer: "Contains thymine in place of uracil",
       tags: ["Nucleic Acids"],
     },
     {
       id: "studocu-334",
-      question: "If you followed a 100% vegan diet, which molecule would you never consume?",
+      question:
+        "If you followed a 100% vegan diet, which molecule would you never consume?",
       options: ["Starch", "Cholesterol", "Cellulose", "Phospholipids"],
       answer: "Cholesterol",
       tags: ["Lipids", "Nutrition"],
     },
     {
       id: "studocu-335",
-      question: "Which meal is high in fiber, low in saturated fats, and high in unsaturated fats?",
-      options: ["Steak and baked potato", "Spaghetti noodles with olive oil and broccoli", "Cheese pizza with pepperoni", "Fried chicken and biscuits"],
+      question:
+        "Which meal is high in fiber, low in saturated fats, and high in unsaturated fats?",
+      options: [
+        "Steak and baked potato",
+        "Spaghetti noodles with olive oil and broccoli",
+        "Cheese pizza with pepperoni",
+        "Fried chicken and biscuits",
+      ],
       answer: "Spaghetti noodles with olive oil and broccoli",
       tags: ["Nutrition"],
     },
     {
       id: "studocu-336",
-      question: "Which type of fat is associated with the highest risk of heart disease?",
-      options: ["Saturated fat", "Unsaturated fat", "Trans fat", "Phospholipids"],
+      question:
+        "Which type of fat is associated with the highest risk of heart disease?",
+      options: [
+        "Saturated fat",
+        "Unsaturated fat",
+        "Trans fat",
+        "Phospholipids",
+      ],
       answer: "Trans fat",
       tags: ["Health", "Lipids"],
     },
@@ -2784,14 +3655,25 @@ export const bio110Studocu: Chapter = {
     {
       id: "studocu-338",
       question: "What is the correct flow of information in gene expression?",
-      options: ["RNA -> DNA -> Protein", "Protein -> RNA -> DNA", "DNA -> RNA -> Protein", "DNA -> Protein -> RNA"],
+      options: [
+        "RNA -> DNA -> Protein",
+        "Protein -> RNA -> DNA",
+        "DNA -> RNA -> Protein",
+        "DNA -> Protein -> RNA",
+      ],
       answer: "DNA -> RNA -> Protein",
       tags: ["Genetics"],
     },
     {
       id: "studocu-339",
-      question: "Bonus: What happens if phospholipids are dropped into a cup of vegetable oil?",
-      options: ["They dissolve completely", "They form a sphere with the heads on the outside", "They form a sphere with the heads on the inside", "They form a flat layer on the bottom"],
+      question:
+        "Bonus: What happens if phospholipids are dropped into a cup of vegetable oil?",
+      options: [
+        "They dissolve completely",
+        "They form a sphere with the heads on the outside",
+        "They form a sphere with the heads on the inside",
+        "They form a flat layer on the bottom",
+      ],
       answer: "They form a sphere with the heads on the inside",
       hint: "Think about where the hydrophobic tails would want to be in an oil environment.",
       tags: ["Lipids", "Phospholipids"],
@@ -2799,13 +3681,19 @@ export const bio110Studocu: Chapter = {
     {
       id: "studocu-340",
       question: "Bonus: How are two amino acids attached together?",
-      options: ["Carboxyl group to carboxyl group", "Amino group to amino group", "Amino group to carboxyl group", "R group to R group"],
+      options: [
+        "Carboxyl group to carboxyl group",
+        "Amino group to amino group",
+        "Amino group to carboxyl group",
+        "R group to R group",
+      ],
       answer: "Amino group to carboxyl group",
       tags: ["Proteins", "Amino Acids"],
     },
     {
       id: "studocu-341",
-      question: "Which of the following statements regarding a common cellular activity is FALSE?",
+      question:
+        "Which of the following statements regarding a common cellular activity is FALSE?",
       options: [
         "New cells are derived from cellular components like organelles.",
         "Cells arise from pre-existing cells.",
@@ -2818,20 +3706,23 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-342",
-      question: "Which sequence correctly lists the hierarchy of life from LEAST INCLUSIVE to MOST INCLUSIVE?",
+      question:
+        "Which sequence correctly lists the hierarchy of life from LEAST INCLUSIVE to MOST INCLUSIVE?",
       options: [
         "Organism, population, community, ecosystem, molecule, organelle, cell.",
         "Molecule, organelle, cell, tissue, organ, organ system, organism, population, community, ecosystem.",
         "Ecosystem, community, population, organism, organ system, organ, tissue, cell, organelle, molecule.",
         "Cell, tissue, organ, organism, molecule, organelle, population, community, ecosystem.",
       ],
-      answer: "Molecule, organelle, cell, tissue, organ, organ system, organism, population, community, ecosystem.",
+      answer:
+        "Molecule, organelle, cell, tissue, organ, organ system, organism, population, community, ecosystem.",
       hint: "Start with the smallest chemical level and build up to global systems.",
       tags: ["Biological Hierarchy", "Organization of Life"],
     },
     {
       id: "studocu-343",
-      question: "Which statement BEST describes the relationship between a tissue and an organ system?",
+      question:
+        "Which statement BEST describes the relationship between a tissue and an organ system?",
       options: [
         "An organ system is made of only one type of tissue.",
         "Tissues are larger than organ systems.",
@@ -2844,7 +3735,8 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-344",
-      question: "The tree in your backyard is home to two cardinals, a colony of ants, a wasp’s nest, two squirrels, and millions of bacteria. Together, ALL OF THESE ORGANISMS REPRESENT a?",
+      question:
+        "The tree in your backyard is home to two cardinals, a colony of ants, a wasp’s nest, two squirrels, and millions of bacteria. Together, ALL OF THESE ORGANISMS REPRESENT a?",
       options: ["Population", "Ecosystem", "Biosphere", "Community"],
       answer: "Community",
       hint: "Focus on the collection of different species living in the same area.",
@@ -2852,8 +3744,14 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-345",
-      question: "What levels of organization are represented in a hamburger (ground-up beef muscle)?",
-      options: ["Organism and population", "Organelle, cell, and tissue", "Organ system and organism", "Molecule and organelle only"],
+      question:
+        "What levels of organization are represented in a hamburger (ground-up beef muscle)?",
+      options: [
+        "Organism and population",
+        "Organelle, cell, and tissue",
+        "Organ system and organism",
+        "Molecule and organelle only",
+      ],
       answer: "Organelle, cell, and tissue",
       hint: "Muscle is a specific group of similar cells working together.",
       tags: ["Biological Hierarchy"],
@@ -2893,14 +3791,20 @@ export const bio110Studocu: Chapter = {
         "All organisms have the exact same DNA sequence.",
         "Genetics does not play a role in evolution.",
       ],
-      answer: "Differences among organisms reflect different nucleotide sequences in their DNA.",
+      answer:
+        "Differences among organisms reflect different nucleotide sequences in their DNA.",
       hint: "The 'alphabet' of DNA is the same, but the 'words' differ.",
       tags: ["Genetics", "DNA"],
     },
     {
       id: "studocu-349",
       question: "Which statement about bacteria is TRUE?",
-      options: ["Bacteria belong to the domain Eukarya.", "Bacteria are multicellular organisms.", "Bacteria are in a domain of their own.", "Bacteria do not have DNA."],
+      options: [
+        "Bacteria belong to the domain Eukarya.",
+        "Bacteria are multicellular organisms.",
+        "Bacteria are in a domain of their own.",
+        "Bacteria do not have DNA.",
+      ],
       answer: "Bacteria are in a domain of their own.",
       hint: "Think about the three-domain system of classification.",
       tags: ["Classification", "Bacteria"],
@@ -2908,7 +3812,12 @@ export const bio110Studocu: Chapter = {
     {
       id: "studocu-350",
       question: "Members of the kingdom Animalia?",
-      options: ["Are primarily decomposers.", "Can obtain their food by eating other organisms.", "Are mostly single-celled.", "Perform photosynthesis."],
+      options: [
+        "Are primarily decomposers.",
+        "Can obtain their food by eating other organisms.",
+        "Are mostly single-celled.",
+        "Perform photosynthesis.",
+      ],
       answer: "Can obtain their food by eating other organisms.",
       hint: "Animals are ingestive heterotrophs.",
       tags: ["Classification", "Kingdom Animalia"],
@@ -2922,7 +3831,8 @@ export const bio110Studocu: Chapter = {
         "That are strictly autotrophic.",
         "That belong to the domain Bacteria.",
       ],
-      answer: "That obtain food by decomposing dead organisms and absorbing the nutrients.",
+      answer:
+        "That obtain food by decomposing dead organisms and absorbing the nutrients.",
       hint: "Fungi act as nature's recyclers.",
       tags: ["Classification", "Kingdom Fungi"],
     },
@@ -2937,41 +3847,56 @@ export const bio110Studocu: Chapter = {
     {
       id: "studocu-353",
       question: "Organisms belonging to the kingdom Plantae?",
-      options: ["Are all decomposers.", "Are photosynthetic.", "Are primarily unicellular.", "Lack a cell wall."],
+      options: [
+        "Are all decomposers.",
+        "Are photosynthetic.",
+        "Are primarily unicellular.",
+        "Lack a cell wall.",
+      ],
       answer: "Are photosynthetic.",
       hint: "Plants produce their own food using sunlight.",
       tags: ["Classification", "Kingdom Plantae"],
     },
     {
       id: "studocu-354",
-      question: "The broad teeth of horses for grinding and the pointed teeth of lions for ripping illustrate?",
+      question:
+        "The broad teeth of horses for grinding and the pointed teeth of lions for ripping illustrate?",
       options: [
         "Acquired characteristics during a lifetime.",
         "A lack of evolutionary change.",
         "A result of natural selection as well as the connection between form and function.",
         "Random mutations with no survival benefit.",
       ],
-      answer: "A result of natural selection as well as the connection between form and function.",
+      answer:
+        "A result of natural selection as well as the connection between form and function.",
       hint: "Anatomy often matches the lifestyle of the organism.",
       tags: ["Evolution", "Natural Selection"],
     },
     {
       id: "studocu-355",
-      question: "Which statement is NOT consistent with Darwin’s theory of natural selection?",
+      question:
+        "Which statement is NOT consistent with Darwin’s theory of natural selection?",
       options: [
         "Population size is limited by resources.",
         "Individual organisms experience genetic change during their life spans to better fit their environment.",
         "Individuals with favorable traits are more likely to survive.",
         "Evolution occurs over many generations.",
       ],
-      answer: "Individual organisms experience genetic change during their life spans to better fit their environment.",
+      answer:
+        "Individual organisms experience genetic change during their life spans to better fit their environment.",
       hint: "Evolution happens to populations over time, not to individuals in their lifetime.",
       tags: ["Evolution", "Natural Selection"],
     },
     {
       id: "studocu-356",
-      question: "If an antibiotic kills 99.9% of a bacterial population, you would expect the next generation to be?",
-      options: ["Identical to the previous generation.", "More resistant to that antibiotic.", "Completely wiped out.", "More susceptible to the antibiotic."],
+      question:
+        "If an antibiotic kills 99.9% of a bacterial population, you would expect the next generation to be?",
+      options: [
+        "Identical to the previous generation.",
+        "More resistant to that antibiotic.",
+        "Completely wiped out.",
+        "More susceptible to the antibiotic.",
+      ],
       answer: "More resistant to that antibiotic.",
       hint: "Think about the survivors passing on their traits.",
       tags: ["Evolution", "Natural Selection"],
@@ -2979,7 +3904,12 @@ export const bio110Studocu: Chapter = {
     {
       id: "studocu-357",
       question: "Which statement about evolution is TRUE?",
-      options: ["Evolution is just a guess.", "Evolution can result in adaptation.", "Evolution happens quickly in individuals.", "Evolution has no supporting evidence."],
+      options: [
+        "Evolution is just a guess.",
+        "Evolution can result in adaptation.",
+        "Evolution happens quickly in individuals.",
+        "Evolution has no supporting evidence.",
+      ],
       answer: "Evolution can result in adaptation.",
       hint: "Adaptations are traits that enhance survival in a specific environment.",
       tags: ["Evolution"],
@@ -2999,7 +3929,8 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-359",
-      question: "Thinking that a bookstore recently started selling a new sweatshirt style because you see many students wearing it is an example of a?",
+      question:
+        "Thinking that a bookstore recently started selling a new sweatshirt style because you see many students wearing it is an example of a?",
       options: ["Theory", "Hypothesis", "Control", "Law"],
       answer: "Hypothesis",
       hint: "You are proposing an explanation for what you observed.",
@@ -3014,14 +3945,20 @@ export const bio110Studocu: Chapter = {
         "Hypothesis that has not yet been tested.",
         "Step in the scientific method used only for recording data.",
       ],
-      answer: "Explanation of an idea that is broad in scope and supported by a large body of evidence.",
+      answer:
+        "Explanation of an idea that is broad in scope and supported by a large body of evidence.",
       hint: "Theories are much more comprehensive than hypotheses.",
       tags: ["Scientific Method"],
     },
     {
       id: "studocu-361",
       question: "To be scientifically valid, a hypothesis must be?",
-      options: ["Testable and falsifiable.", "Already proven correct.", "Based on personal opinion.", "Impossible to disprove."],
+      options: [
+        "Testable and falsifiable.",
+        "Already proven correct.",
+        "Based on personal opinion.",
+        "Impossible to disprove.",
+      ],
       answer: "Testable and falsifiable.",
       hint: "You must be able to run an experiment that could potentially prove it wrong.",
       tags: ["Scientific Method"],
@@ -3041,20 +3978,23 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-363",
-      question: "A scientist performs a controlled experiment. This means that?",
+      question:
+        "A scientist performs a controlled experiment. This means that?",
       options: [
         "The scientist controls every single outcome.",
         "Two versions of the experiment are conducted, one differing from the other by only a single variable.",
         "The experiment is done without any variables.",
         "The results are kept secret until the end.",
       ],
-      answer: "Two versions of the experiment are conducted, one differing from the other by only a single variable.",
+      answer:
+        "Two versions of the experiment are conducted, one differing from the other by only a single variable.",
       hint: "Isolating one factor allows you to see its specific effect.",
       tags: ["Scientific Method", "Experimental Design"],
     },
     {
       id: "studocu-364",
-      question: "Which of the following is NOT an accurate pairing of a technology and a discovery?",
+      question:
+        "Which of the following is NOT an accurate pairing of a technology and a discovery?",
       options: [
         "Sequencing DNA and forensic science.",
         "Invention of the microscope and creation of evolutionary trees.",
@@ -3067,20 +4007,23 @@ export const bio110Studocu: Chapter = {
     },
     {
       id: "studocu-365",
-      question: "Which statement is NOT an example of evolution that has resulted from human activity?",
+      question:
+        "Which statement is NOT an example of evolution that has resulted from human activity?",
       options: [
         "Pesticide resistance in insects.",
         "Antibiotic resistance in bacteria.",
         "Because of hunting, organisms such as bears and wolves are fewer in number.",
         "Selective breeding of dogs.",
       ],
-      answer: "Because of hunting, organisms such as bears and wolves are fewer in number.",
+      answer:
+        "Because of hunting, organisms such as bears and wolves are fewer in number.",
       hint: "Decreasing in population size is not the same as an evolutionary change in traits.",
       tags: ["Evolution", "Human Impact"],
     },
     {
       id: "studocu-366",
-      question: "During a discussion, a student says 'Plants eat sunlight.' What is the most accurate response?",
+      question:
+        "During a discussion, a student says 'Plants eat sunlight.' What is the most accurate response?",
       options: [
         "Plants don't eat sunlight; they use sunlight to make sugars.",
         "Plants do eat sunlight through their roots.",
@@ -3100,36 +4043,51 @@ export const bio110Studocu: Chapter = {
         "Chemical nutrients are recycled.",
         "Decomposers break down waste.",
       ],
-      answer: "Energy cycles from organisms through the atmosphere and back to the organisms.",
+      answer:
+        "Energy cycles from organisms through the atmosphere and back to the organisms.",
       hint: "Energy is eventually lost as heat, not recycled back into the start.",
       tags: ["Ecosystems", "Energy Flow"],
     },
     {
       id: "studocu-368",
-      question: "Which sequence is NOT a correct pathway of energy through an ecosystem?",
-      options: ["Sun – grass – cow.", "Bacteria – plants – birds.", "Plants – deer – wolf.", "Algae – small fish – shark."],
+      question:
+        "Which sequence is NOT a correct pathway of energy through an ecosystem?",
+      options: [
+        "Sun – grass – cow.",
+        "Bacteria – plants – birds.",
+        "Plants – deer – wolf.",
+        "Algae – small fish – shark.",
+      ],
       answer: "Bacteria – plants – birds.",
       hint: "Energy generally flows from producers (like plants) upward.",
       tags: ["Ecosystems", "Energy Flow"],
     },
     {
       id: "studocu-369",
-      question: "In a study on cold recovery using a supplement, which was the experimental group?",
-      options: ["Group B (placebo group)", "The researchers", "Group A only (received the supplement)", "Both Group A and Group B"],
+      question:
+        "In a study on cold recovery using a supplement, which was the experimental group?",
+      options: [
+        "Group B (placebo group)",
+        "The researchers",
+        "Group A only (received the supplement)",
+        "Both Group A and Group B",
+      ],
       answer: "Group A only (received the supplement)",
       hint: "This group receives the actual factor being tested.",
       tags: ["Scientific Method", "Experimental Design"],
     },
     {
       id: "studocu-370",
-      question: "Which statement provides the BEST evidence of a common genetic code demonstrating the unity of life?",
+      question:
+        "Which statement provides the BEST evidence of a common genetic code demonstrating the unity of life?",
       options: [
         "All organisms have blood.",
         "Through genetic engineering, a gene from a firefly can be inserted into a bacterium to make it glow.",
         "Every organism has a heart.",
         "All organisms live in the same ecosystem.",
       ],
-      answer: "Through genetic engineering, a gene from a firefly can be inserted into a bacterium to make it glow.",
+      answer:
+        "Through genetic engineering, a gene from a firefly can be inserted into a bacterium to make it glow.",
       hint: "This shows that different species can 'read' each other's DNA instructions.",
       tags: ["Genetics", "Unity of Life"],
     },

@@ -40,3 +40,34 @@ Add a flag for review button (flag icon) icon. Show "Incorrect" "Flag for Review
 
 Add button to get back to course selection from http://localhost:3001/courses/nutrition
 Add button to exit flashcards early (link to http://localhost:3001/courses/ and link to http://localhost:3001/courses/:courseId)
+
+## Generating questions from notes
+
+We want to create a knowledge check quiz based the text provided below. The output should be copy-pastable typescript file. An example is provided below, demonstrating the different types of questions we support:
+
+Output Example:
+
+```
+import { Chapter } from "@/app/types";
+
+export const bio110Studocu: Chapter = {
+  id: "5ae31fb2-7213-4d34-9091-ddfe5c1c8db0",
+  title: "Chapter 6: Mitosis",
+  description: "Introduction to cell division",
+  number: 6,
+  type: "chapter",
+  sections: [],
+  questions: [
+    {
+      id: "c8da7c8d-adf4-4e92-ab4f-af13af776344",
+      question:
+        "Sister chromatids separate and move toward the poles of the cell.",
+      options: ["Prophase", "Metaphase", "Anaphase", "Telophase"],
+      answer: "Anaphase",
+      tags: ["mitosis", "cell division"],
+    },
+  ]
+}
+
+Text:
+```
