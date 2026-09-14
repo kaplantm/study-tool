@@ -15,6 +15,11 @@ export const section35NaturalSelectionAndEvolutionaryForces: Section = {
       answer:
         "Natural selection acts on advantageous phenotypes, leading to more offspring and thereby increasing the frequency of the beneficial alleles in the next generation.",
       hint: null,
+      moreInfo: [
+        "Natural selection is a non-random process.",
+        "It requires variation in traits that are heritable.",
+        "Differential reproductive success is the mechanism.",
+      ],
       tags: ["natural selection", "allele frequencies"],
     },
     {
@@ -24,6 +29,11 @@ export const section35NaturalSelectionAndEvolutionaryForces: Section = {
       answer:
         "Mutations can be beneficial (increasing fitness), harmful (decreasing fitness), or neutral (no effect on fitness).",
       hint: null,
+      moreInfo: [
+        "Mutations are the ultimate source of genetic variation.",
+        "A mutation in a non-coding region might have no effect on phenotype.",
+        "Environmental factors can influence mutation rates.",
+      ],
       tags: ["mutation", "fitness"],
     },
     {
@@ -32,6 +42,11 @@ export const section35NaturalSelectionAndEvolutionaryForces: Section = {
       answer:
         "In small populations, the random sampling of gametes has a larger proportional impact on the gene pool, meaning the loss or fixation of a single allele significantly changes allele frequencies.",
       hint: null,
+      moreInfo: [
+        "Genetic drift is a stochastic (random) process.",
+        "It can lead to the loss of even beneficial alleles in very small populations.",
+        "Unlike natural selection, drift does not necessarily lead to adaptation.",
+      ],
       tags: ["genetic drift", "population size"],
     },
     {
@@ -41,6 +56,11 @@ export const section35NaturalSelectionAndEvolutionaryForces: Section = {
       answer:
         "The bottleneck effect is a sharp reduction in population size due to a random environmental disaster, while the founder effect occurs when a small group splits off to start a new population.",
       hint: null,
+      moreInfo: [
+        "Both are forms of genetic drift.",
+        "Both lead to reduced genetic diversity.",
+        "The bottleneck is often caused by sudden events like fires or floods.",
+      ],
       tags: ["bottleneck effect", "founder effect", "genetic drift"],
     },
     {
@@ -50,6 +70,11 @@ export const section35NaturalSelectionAndEvolutionaryForces: Section = {
       answer:
         "Gene flow, via migration of individuals or gametes, introduces new alleles and tends to reduce genetic differences between populations, opposing divergence.",
       hint: null,
+      moreInfo: [
+        "Gene flow can introduce new genetic variation into a population.",
+        "High levels of gene flow can prevent speciation.",
+        "It acts as a homogenizing force between populations.",
+      ],
       tags: ["gene flow", "migration", "divergence"],
     },
     {
@@ -58,6 +83,11 @@ export const section35NaturalSelectionAndEvolutionaryForces: Section = {
       answer:
         "It is an evolutionary process where the fitness of a trait depends on how common or rare it is in the population. For example, rare morphs may have a survival advantage because predators overlook them.",
       hint: null,
+      moreInfo: [
+        "Negative frequency-dependent selection favors rare phenotypes.",
+        "Positive frequency-dependent selection favors common phenotypes.",
+        "It can maintain genetic polymorphism in a population.",
+      ],
       tags: ["frequency-dependent selection"],
     },
     {
@@ -67,6 +97,11 @@ export const section35NaturalSelectionAndEvolutionaryForces: Section = {
       answer:
         "Stabilizing selection favors average phenotypes; directional selection shifts the population toward an extreme; diversifying selection favors both extremes over the intermediate.",
       hint: null,
+      moreInfo: [
+        "Stabilizing selection reduces variance.",
+        "Directional selection can occur during environmental change.",
+        "Diversifying (disruptive) selection can lead to speciation.",
+      ],
       tags: ["selection types", "stabilizing", "directional", "diversifying"],
     },
     {
@@ -75,6 +110,11 @@ export const section35NaturalSelectionAndEvolutionaryForces: Section = {
       answer:
         "Sexual selection is the evolution of secondary sexual characteristics that provide mating advantages, even if they don't directly increase survival.",
       hint: null,
+      moreInfo: [
+        "Intrasexual selection involves competition between members of the same sex.",
+        "Intersexual selection involves mate choice (e.g., female choice).",
+        "Sexual selection can sometimes conflict with natural selection (e.g., heavy peacock tails).",
+      ],
       tags: ["sexual selection"],
     },
   ],

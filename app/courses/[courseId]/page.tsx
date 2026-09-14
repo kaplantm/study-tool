@@ -2,9 +2,14 @@
 
 import ChapterList from "@/app/components/flashcards/ChapterList";
 import CourseStudyStart from "@/app/components/flashcards/CourseStudyStart";
+import SectionList from "@/app/components/flashcards/SectionList";
 import StudyModeSelector from "@/app/components/flashcards/StudyModeSelector";
 import UnitList from "@/app/components/flashcards/UnitList";
-import { ChapterOption, StudyMode } from "@/app/components/flashcards/types";
+import {
+  ChapterOption,
+  SectionOption,
+  StudyMode,
+} from "@/app/components/flashcards/types";
 import { courses } from "@/app/lib/courses/courses";
 import { useParams, useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
@@ -16,6 +21,9 @@ export default function StudyPage() {
   const [studyMode, setStudyMode] = useState<StudyMode>(null);
   const [selectedUnitId, setSelectedUnitId] = useState<string | null>(null);
   const [selectedChapterId, setSelectedChapterId] = useState<string | null>(
+    null,
+  );
+  const [selectedSectionId, setSelectedSectionId] = useState<string | null>(
     null,
   );
   const [shuffleEnabled, setShuffleEnabled] = useState(true);
@@ -35,23 +43,47 @@ export default function StudyPage() {
     );
   }, [selectedCourse]);
 
+  const sectionOptions = useMemo<SectionOption[]>(() => {
+    if (!selectedCourse) {
+      return [];
+    }
+
+    return selectedCourse.units.flatMap((unit) =>
+      unit.chapters.flatMap((chapter) =>
+        chapter.sections.map((section, sectionIndex) => ({
+          chapter,
+          section,
+          sectionIndex,
+          unit,
+        })),
+      ),
+    );
+  }, [selectedCourse]);
+
   const handleStudyModeSelect = (mode: StudyMode) => {
     setStudyMode(mode);
     setSelectedUnitId(null);
     setSelectedChapterId(null);
+    setSelectedSectionId(null);
   };
 
   const startQuiz = ({
     chapterId,
+    sectionId,
+    sectionIndex,
     unitId,
   }: {
     chapterId?: string;
+    sectionId?: string;
+    sectionIndex?: number;
     unitId?: string;
   } = {}) => {
     if (!selectedCourse) return;
     const params = {
       unitId: unitId ?? "",
       chapterId: chapterId ?? "",
+      sectionId: sectionId ?? "",
+      sectionIndex: sectionIndex?.toString() ?? "",
       shuffle: shuffleEnabled ? "true" : "false",
     };
     const queryString = new URLSearchParams(params).toString();
@@ -131,6 +163,20 @@ export default function StudyPage() {
                 onSelectChapter={(option) => {
                   startQuiz({
                     chapterId: option.chapter.id,
+                  });
+                }}
+              />
+            )}
+
+            {studyMode === "section" && (
+              <SectionList
+                options={sectionOptions}
+                selectedSectionId={selectedSectionId}
+                onSelectSection={(option) => {
+                  startQuiz({
+                    chapterId: option.chapter.id,
+                    sectionId: option.section.id,
+                    sectionIndex: option.sectionIndex,
                   });
                 }}
               />

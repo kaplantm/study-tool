@@ -24,10 +24,14 @@ export default function StudyPage() {
   const shuffleEnabled = searchParams.get("shuffle") === "true";
   const unitId = searchParams.get("unitId");
   const chapterId = searchParams.get("chapterId");
+  const sectionId = searchParams.get("sectionId");
+  const sectionIndex = searchParams.get("sectionIndex");
   const quizQuestions = useQuizQuestions({
     courseId,
     unitId,
     chapterId,
+    sectionId,
+    sectionIndex,
     shuffleEnabled,
   });
   const filteredQuizQuestions = useMemo(() => {

@@ -29,7 +29,7 @@ export default function StudyModeSelector({
           Shuffle questions
         </label>
       </div>
-      <div className="grid gap-3 sm:grid-cols-3">
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <button
           onClick={() => onSelectMode("unit")}
           className={`rounded-2xl border px-4 py-3 text-left transition ${
@@ -41,6 +41,19 @@ export default function StudyModeSelector({
           <p className="text-sm font-semibold">Study by unit</p>
           <p className="text-xs text-zinc-500 dark:text-zinc-400">
             Focus on one unit at a time.
+          </p>
+        </button>
+        <button
+          onClick={() => onSelectMode("section")}
+          className={`rounded-2xl border px-4 py-3 text-left transition ${
+            studyMode === "section"
+              ? "border-zinc-900 bg-zinc-900 text-white dark:border-zinc-100 dark:bg-zinc-100 dark:text-black"
+              : "border-zinc-200 bg-zinc-50 hover:border-zinc-400 dark:border-zinc-800 dark:bg-zinc-900/60"
+          }`}
+        >
+          <p className="text-sm font-semibold">Study by section</p>
+          <p className="text-xs text-zinc-500 dark:text-zinc-400">
+            Focus on one section.
           </p>
         </button>
         <button

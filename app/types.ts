@@ -41,6 +41,7 @@ export type Question = {
   /** An image with numbered targets that the learner labels. */
   diagram?: Diagram;
   hint?: string | null;
+  moreInfo?: string[] | null;
   images?: string[];
   tags?: string[];
 };

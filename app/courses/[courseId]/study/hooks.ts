@@ -33,11 +33,15 @@ export function useQuizQuestions({
   courseId,
   unitId,
   chapterId,
+  sectionId,
+  sectionIndex,
   shuffleEnabled,
 }: {
   courseId: string | string[] | undefined;
   unitId?: string | null;
   chapterId?: string | null;
+  sectionId?: string | null;
+  sectionIndex?: string | null;
   shuffleEnabled: boolean;
 }) {
   const collectQuestionsFromChapter = useCallback(
@@ -79,7 +83,35 @@ export function useQuizQuestions({
     const course = courses.find((c) => c.id === courseId);
     if (!course) return [];
     let questions: QuestionWithId[] = [];
-    if (chapterId) {
+    let sectionFound = false;
+    if (sectionId) {
+      const index = Number(sectionIndex);
+      if (chapterId && Number.isInteger(index) && index >= 0) {
+        for (const unit of course.units) {
+          const chapter = unit.chapters.find((ch) => ch.id === chapterId);
+          const section = chapter?.sections[index];
+          if (section?.id === sectionId) {
+            questions = withIds(section.questions);
+            sectionFound = true;
+            break;
+          }
+        }
+      }
+
+      if (!sectionFound) {
+        for (const unit of course.units) {
+          for (const chapter of unit.chapters) {
+            const section = chapter.sections.find((s) => s.id === sectionId);
+            if (section) {
+              questions = withIds(section.questions);
+              sectionFound = true;
+              break;
+            }
+          }
+          if (sectionFound) break;
+        }
+      }
+    } else if (chapterId) {
       for (const unit of course.units) {
         const chapter = unit.chapters.find((ch) => ch.id === chapterId);
         if (chapter) {
@@ -100,6 +132,8 @@ export function useQuizQuestions({
     courseId,
     unitId,
     chapterId,
+    sectionId,
+    sectionIndex,
     shuffleEnabled,
     collectQuestionsFromChapter,
     collectQuestionsFromCourse,
