@@ -3,6 +3,7 @@ import { section31UnderstandingEvolution } from "./sections/3-1-understanding-ev
 import { section32MechanismsOfEvolution } from "./sections/3-2-mechanisms-of-evolution";
 import { section33AdaptiveEvolution } from "./sections/3-3-adaptive-evolution";
 import { section34CommonMisconceptions } from "./sections/3-4-common-misconceptions";
+import { section35NaturalSelectionAndEvolutionaryForces } from "./sections/3-5-natural-selection-and-evolutionary-forces";
 
 export const bio121Chapter3: Chapter = {
   id: "bio121-3",
@@ -16,6 +17,7 @@ export const bio121Chapter3: Chapter = {
     section32MechanismsOfEvolution,
     section33AdaptiveEvolution,
     section34CommonMisconceptions,
+    section35NaturalSelectionAndEvolutionaryForces,
   ],
   questions: [],
 };

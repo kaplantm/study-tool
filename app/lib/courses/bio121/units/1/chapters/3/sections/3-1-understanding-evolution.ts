@@ -50,5 +50,54 @@ export const section31UnderstandingEvolution: Section = {
       hint: null,
       tags: ["divergent evolution", "convergent evolution"],
     },
+    {
+      id: "bio121-3-1-6",
+      question:
+        "What is required for a variation to be a subject of natural selection?",
+      answer:
+        "For variation to lead to evolutionary change, it must be genetically based (heritable), so that it can be passed from parents to offspring.",
+      hint: null,
+      tags: ["natural selection", "heritability"],
+    },
+    {
+      id: "bio121-3-1-7",
+      question: "Compare homologous and analogous structures.",
+      answer:
+        "Homologous structures share a common ancestral origin (e.g., human arm and whale flipper), whereas analogous structures are similar in function but evolved independently in unrelated lineages (e.g., bat wings and insect wings).",
+      hint: null,
+      tags: ["homologous", "analogous", "evolutionary evidence"],
+    },
+    {
+      id: "bio121-3-1-8",
+      question: "What are vestigial structures?",
+      answer:
+        "Vestigial structures are remnants of organs or structures that had a function in an organism's ancestor but are no longer functional or have reduced function in the current species (e.g., whale hind-leg bones).",
+      hint: null,
+      tags: ["vestigial", "evolutionary evidence"],
+    },
+    {
+      id: "bio121-3-1-9",
+      question: "How does biogeography provide evidence for evolution?",
+      answer:
+        "Biogeography shows that the global distribution of species tracks tectonic plate movements and historical isolation, such as the presence of similar plant groups in South America, Africa, and Australia that evolved after the breakup of Gondwana.",
+      hint: null,
+      tags: ["biogeography", "evolutionary evidence"],
+    },
+    {
+      id: "bio121-3-1-10",
+      question: "How does molecular biology support the theory of evolution?",
+      answer:
+        "Universal DNA and a near-universal genetic code suggest a common ancestor. Furthermore, DNA sequence similarity between different species mirrors their evolutionary relatedness.",
+      hint: null,
+      tags: ["molecular biology", "DNA", "evolutionary evidence"],
+    },
+    {
+      id: "bio121-3-1-11",
+      question: "What does it mean for a species to be endemic?",
+      answer:
+        "An endemic species is one that is found only in one specific geographic location and nowhere else in the world.",
+      hint: null,
+      tags: ["endemic"],
+    },
   ],
 };
