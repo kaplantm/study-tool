@@ -1,10 +1,10 @@
 import { Chapter } from "@/app/types";
 
-export const bio160Chapter1: Chapter = {
-  id: "bio160-1",
-  title: "Chapter 1",
-  description: "Chapter 1 of BIO 160: Pathology.",
-  number: 1,
+export const bio160Chapter3: Chapter = {
+  id: "bio160-3",
+  title: "Chapter 3: Infectious Diseases",
+  description: "Chapter 3: Infectious Diseases",
+  number: 3,
   type: "chapter",
   sections: [],
   questions: [
