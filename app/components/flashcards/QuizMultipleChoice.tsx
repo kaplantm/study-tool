@@ -153,7 +153,7 @@ export default function QuizMultipleChoiceCard({
             disabled={isAnswered}
             onClick={handleGoToNext}
             className={`rounded-full px-5 py-2 text-sm font-semibold transition text-white 
-      disabled:opacity-50 disabled:cursor-not-allowed bg-zinc-900 hover:bg-zinc-700 dark:bg-zinc-100 dark:text-black dark:hover:bg-white`}
+      disabled:opacity-50 disabled:cursor-not-allowed bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:text-black dark:hover:bg-zinc-800`}
           >
             Skip
           </button>
@@ -167,7 +167,7 @@ export default function QuizMultipleChoiceCard({
         ? selectedOption === currentQuestion.answer
           ? "bg-emerald-600 hover:bg-emerald-500"
           : "bg-rose-600 hover:bg-rose-500"
-        : "bg-zinc-800 border border-zinc-700 hover:bg-zinc-700 hover:border-zinc-600 dark:bg-zinc-100 dark:text-black dark:hover:bg-white"
+        : "bg-zinc-800 border border-zinc-700 hover:bg-zinc-800 hover:border-zinc-600 dark:bg-zinc-100 dark:text-black dark:hover:bg-zinc-800"
     }`}
           >
             Next

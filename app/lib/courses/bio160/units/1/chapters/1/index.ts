@@ -102,7 +102,7 @@ export const bio160Chapter1: Chapter = {
     {
       question: "What does auscultation involve?",
       options: [
-        "Listening to sounds from the body",
+        "Listening to the lungs, heart, and intestines, ect. sounds originating in the body",
         "Tapping on the body",
         "Examining the body visually",
         "Scanning the body with x-rays",

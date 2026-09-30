@@ -19,7 +19,7 @@ export default function CourseList({
           <button
             key={course.id}
             onClick={() => onSelectCourse(course.id)}
-            className="flex flex-col gap-2 rounded-2xl border border-zinc-200 bg-zinc-50 p-5 text-left transition hover:border-zinc-400 hover:bg-white dark:border-zinc-800 dark:bg-zinc-900/60 dark:hover:border-zinc-600"
+            className="flex flex-col gap-2 rounded-2xl border border-zinc-200 bg-zinc-50 p-5 text-left transition hover:border-zinc-400 hover:bg-zinc-800 dark:border-zinc-800 dark:bg-zinc-900/60 dark:hover:border-zinc-600"
           >
             <div className="flex items-center justify-between">
               <span className="text-sm font-semibold uppercase text-zinc-500">

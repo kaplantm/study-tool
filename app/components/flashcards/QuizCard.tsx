@@ -40,7 +40,9 @@ export default function QuizCard({
   }
 
   const hasHint = Boolean(currentQuestion.hint);
-  const hasMoreInfo = Array.isArray(currentQuestion.moreInfo) && currentQuestion.moreInfo.length > 0;
+  const hasMoreInfo =
+    Array.isArray(currentQuestion.moreInfo) &&
+    currentQuestion.moreInfo.length > 0;
 
   return (
     <section className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
@@ -80,7 +82,7 @@ export default function QuizCard({
             </p>
             <button
               onClick={onFlipCard}
-              className="rounded-full bg-zinc-900 px-5 py-2 text-sm font-semibold text-white transition hover:bg-zinc-700 dark:bg-zinc-100 dark:text-black dark:hover:bg-white"
+              className="rounded-full bg-zinc-900 px-5 py-2 text-sm font-semibold text-white transition hover:bg-zinc-800 dark:bg-zinc-100 dark:text-black dark:hover:bg-zinc-800"
             >
               Flip card
             </button>

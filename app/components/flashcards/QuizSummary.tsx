@@ -11,7 +11,9 @@ const correctAnswerText = (question: Question) => {
       .join(", ");
   }
   if (question.matches?.length) {
-    return question.matches.map(({ left, right }) => `${left} — ${right}`).join(", ");
+    return question.matches
+      .map(({ left, right }) => `${left} — ${right}`)
+      .join(", ");
   }
   return question.answer;
 };
@@ -115,7 +117,7 @@ export default function QuizSummary({
         <div className="flex flex-wrap gap-3">
           <button
             onClick={onStudyAnother}
-            className="rounded-full bg-zinc-900 px-5 py-2 text-sm font-semibold text-white transition hover:bg-zinc-700 dark:bg-zinc-100 dark:text-black dark:hover:bg-white"
+            className="rounded-full bg-zinc-900 px-5 py-2 text-sm font-semibold text-white transition hover:bg-zinc-800 dark:bg-zinc-100 dark:text-black dark:hover:bg-zinc-800"
           >
             Study another set
           </button>

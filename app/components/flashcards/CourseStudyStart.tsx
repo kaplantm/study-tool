@@ -15,7 +15,7 @@ export default function CourseStudyStart({ onStart }: CourseStudyStartProps) {
       </div>
       <button
         onClick={onStart}
-        className="rounded-full bg-zinc-900 px-5 py-2 text-sm font-semibold text-white transition hover:bg-zinc-700 dark:bg-zinc-100 dark:text-black dark:hover:bg-white"
+        className="rounded-full bg-zinc-900 px-5 py-2 text-sm font-semibold text-white transition hover:bg-zinc-800 dark:bg-zinc-100 dark:text-black dark:hover:bg-zinc-800"
       >
         Start quiz
       </button>
