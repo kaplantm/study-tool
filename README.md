@@ -59,6 +59,15 @@ For a matching question, omit `options` and use `matches`. Each `left` and `righ
 }
 ```
 
+Matching rows can also contain any number of columns by using `values`:
+
+```ts
+matches: [
+  { values: ["Mitochondrion", "Produces ATP", "Cellular respiration"] },
+  { values: ["Ribosome", "Builds proteins", "Translation"] },
+]
+```
+
 For a diagram-labeling question, use `diagram`. Target IDs and labels must be unique. The `x` and `y` coordinates position each numbered target as percentages of the image dimensions. Learners select a label and then its numbered target.
 
 ```ts

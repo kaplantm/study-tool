@@ -7,8 +7,8 @@ import QuizMultipleChoiceCard from "@/app/components/flashcards/QuizMultipleChoi
 import QuizSummary from "@/app/components/flashcards/QuizSummary";
 import { QuizResponse } from "@/app/components/flashcards/types";
 import { courses } from "@/app/lib/courses/courses";
-import { useParams, useRouter, useSearchParams } from "next/navigation";
-import { useMemo, useState } from "react";
+import { useParams, usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
 import FlaggedToggle from "./components/FlaggedToggle";
 import NotFoundCourse from "./components/NotFoundCourse";
 import StudyHeader from "./components/StudyHeader";
@@ -17,6 +17,7 @@ import { useFlaggedFlashcardIds, useQuizQuestions } from "./hooks";
 export default function StudyPage() {
   const FLAGGED_KEY = "flaggedFlashcardIds";
   const router = useRouter();
+  const pathname = usePathname();
   const { courseId } = useParams();
   const searchParams = useSearchParams();
   const [flaggedOnly, setFlaggedOnly] = useState(false);
@@ -40,11 +41,29 @@ export default function StudyPage() {
     }
     return quizQuestions;
   }, [quizQuestions, flaggedOnly, flaggedIds]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const questionId = searchParams.get("questionId");
+  const [currentIndexState, setCurrentIndex] = useState(0);
   const [cardFlipped, setCardFlipped] = useState(false);
   const [responses, setResponses] = useState<QuizResponse[]>([]);
   const [quizComplete, setQuizComplete] = useState(false);
   const [hintVisible, setHintVisible] = useState(false);
+  const urlQuestionIndex = questionId
+    ? filteredQuizQuestions.findIndex((question) => question.id === questionId)
+    : -1;
+  const currentIndex = urlQuestionIndex >= 0
+    ? urlQuestionIndex
+    : Math.min(currentIndexState, Math.max(filteredQuizQuestions.length - 1, 0));
+
+  useEffect(() => {
+    if (filteredQuizQuestions.length === 0) return;
+
+    if (filteredQuizQuestions[currentIndex]?.id !== questionId) {
+      const nextParams = new URLSearchParams(searchParams.toString());
+      nextParams.set("questionId", filteredQuizQuestions[currentIndex].id);
+      router.replace(`${pathname}?${nextParams.toString()}`, { scroll: false });
+    }
+  }, [currentIndex, filteredQuizQuestions, pathname, questionId, router, searchParams]);
+
   const selectedCourse = useMemo(
     () => courses.find((course) => course.id === courseId) ?? null,
     [courseId],
@@ -82,7 +101,13 @@ export default function StudyPage() {
       setQuizComplete(true);
       return;
     }
-    setCurrentIndex((prev) => prev + 1);
+    const nextIndex = currentIndex + 1;
+    setCurrentIndex(nextIndex);
+    if (filteredQuizQuestions[nextIndex]?.id) {
+      const nextParams = new URLSearchParams(searchParams.toString());
+      nextParams.set("questionId", filteredQuizQuestions[nextIndex].id);
+      router.replace(`${pathname}?${nextParams.toString()}`, { scroll: false });
+    }
     setCardFlipped(false);
     setHintVisible(false);
   };
@@ -131,7 +156,7 @@ export default function StudyPage() {
             />
           ) : isMatchingQuestion ? (
             <QuizMatchingCard
-              key={currentQuestion.id}
+              key={`matching-${currentQuestion.id ?? currentIndex}`}
               currentQuestion={currentQuestion}
               currentIndex={currentIndex}
               totalQuestions={totalQuestions}

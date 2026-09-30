@@ -12,7 +12,11 @@ const correctAnswerText = (question: Question) => {
   }
   if (question.matches?.length) {
     return question.matches
-      .map(({ left, right }) => `${left} — ${right}`)
+      .map((match) =>
+        "values" in match
+          ? match.values.join(" — ")
+          : `${match.left} — ${match.right}`,
+      )
       .join(", ");
   }
   return question.answer;

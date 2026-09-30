@@ -15,14 +15,19 @@ export type MatchingPair = {
   right: string;
 };
 
+/** A matching row with any number of columns. */
+export type MatchingGroup = {
+  values: string[];
+};
+
 export type Question = {
   id?: string;
   question: string;
   options?: string[];
   /** The answer for flashcard and multiple-choice questions. */
   answer?: string;
-  /** Pairs for a matching question. Values must be unique within the question. */
-  matches?: MatchingPair[];
+  /** Rows for a matching question. Values must be unique within the question. */
+  matches?: (MatchingPair | MatchingGroup)[];
   /** An image with numbered targets that the learner labels. */
   diagram?: Diagram;
   hint?: string | null;

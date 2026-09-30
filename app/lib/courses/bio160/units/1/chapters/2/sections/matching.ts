@@ -823,6 +823,31 @@ const vocab = {
   ],
 };
 
+const immuneCellMatchingTask: Question = {
+  question: "Match each immune-cell category with its cells and primary role.",
+  matches: [
+    {
+      values: [
+        "Innate",
+        "Macrophages, Neutrophils, Monocytes, Eosinophils, Basophils, NK cells",
+        "Fast + nonspecific",
+      ],
+    },
+    {
+      values: ["B Cells", "B → Plasma + Memory B", "Antibodies"],
+    },
+    {
+      values: ["Helper T", "CD4", "Helps/coordinates"],
+    },
+    {
+      values: ["Cytotoxic T", "CD8", "Kills infected cells"],
+    },
+    {
+      values: ["Memory cells", "Memory B + Memory T", "Remember the antigen"],
+    },
+  ],
+};
+
 export const section21Matching: Section = {
   id: "bio160-2-1",
   title: "Matchin Section",
@@ -831,6 +856,7 @@ export const section21Matching: Section = {
   type: "section",
   questions: [
     vocab,
+    immuneCellMatchingTask,
     ...hypersensitivityMatchingTasks,
     ...immunoglobulinMatchingTasks,
     ...diagnosticsMatchingTasks,
