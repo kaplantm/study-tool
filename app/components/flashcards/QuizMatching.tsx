@@ -29,7 +29,9 @@ const shuffle = <T,>(items: T[]) => {
 
 const generateMatchColor = () => {
   const hue = Math.floor(Math.random() * 360);
-  return `hsl(${hue} 75% 50%)`;
+  const saturation = Math.floor(Math.random() * 90);
+  const luminosity = Math.floor(Math.random() * 80);
+  return `hsl(${hue} ${saturation + 10}% ${luminosity + 20}%)`;
 };
 
 export default function QuizMatchingCard({
@@ -139,13 +141,17 @@ export default function QuizMatchingCard({
               const assigned = assignments[left];
               const correct = assigned === right;
               const isMatched = Boolean(assigned);
+              const isSelected =
+                selected?.side === "left" && selected.value === left;
               const stateClasses = isSubmitted
                 ? correct
                   ? "border-emerald-500 bg-emerald-50 text-emerald-800 dark:bg-emerald-500/10 dark:text-emerald-300"
                   : "border-rose-500 bg-rose-50 text-rose-800 dark:bg-rose-500/10 dark:text-rose-300"
                 : isMatched
-                  ? "border-zinc-200 hover:bg-zinc-50 dark:border-zinc-800 dark:hover:bg-zinc-900 border-r-8"
-                  : selected?.side === "left" && selected.value === left
+                  ? isSelected
+                    ? "border-zinc-200 bg-sky-50 text-sky-800 ring-2 ring-sky-500 dark:border-zinc-800 dark:bg-sky-500/10 dark:text-sky-300 border-r-8"
+                    : "border-zinc-200 bg-zinc-100 text-zinc-500 hover:bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900/60 dark:text-zinc-500 dark:hover:bg-zinc-900/60 border-r-8"
+                  : isSelected
                     ? "border-sky-500 bg-sky-50 dark:bg-sky-500/10"
                     : "border-zinc-200 hover:bg-zinc-50 dark:border-zinc-800 dark:hover:bg-zinc-900";
               return (
@@ -154,7 +160,11 @@ export default function QuizMatchingCard({
                   type="button"
                   disabled={isSubmitted}
                   onClick={() => selectItem("left", left)}
-                  style={isMatched ? { borderRightColor: colorsByLeft[left] } : undefined}
+                  style={
+                    isMatched
+                      ? { borderRightColor: colorsByLeft[left] }
+                      : undefined
+                  }
                   className={`rounded-xl border p-3 text-left text-sm font-medium transition ${stateClasses}`}
                 >
                   <span>{left}</span>
@@ -175,6 +185,8 @@ export default function QuizMatchingCard({
               const matchedLeft = Object.keys(assignments).find(
                 (left) => assignments[left] === right,
               );
+              const isSelected =
+                selected?.side === "right" && selected.value === right;
               const stateClasses = isSubmitted
                 ? matchedLeft &&
                   assignments[matchedLeft] ===
@@ -182,8 +194,10 @@ export default function QuizMatchingCard({
                   ? "border-emerald-500 bg-emerald-50 text-emerald-800 dark:bg-emerald-500/10 dark:text-emerald-300"
                   : "border-rose-500 bg-rose-50 text-rose-800 dark:bg-rose-500/10 dark:text-rose-300"
                 : matchedLeft
-                  ? "border-zinc-200 hover:bg-zinc-50 disabled:cursor-not-allowed disabled:opacity-50 dark:border-zinc-800 dark:hover:bg-zinc-900 border-l-8"
-                  : selected?.side === "right" && selected.value === right
+                  ? isSelected
+                    ? "border-zinc-200 bg-sky-50 text-sky-800 ring-2 ring-sky-500 disabled:cursor-not-allowed dark:border-zinc-800 dark:bg-sky-500/10 dark:text-sky-300 border-l-8"
+                    : "border-zinc-200 bg-zinc-100 text-zinc-500 hover:bg-zinc-100 disabled:cursor-not-allowed dark:border-zinc-800 dark:bg-zinc-900/60 dark:text-zinc-500 dark:hover:bg-zinc-900/60 border-l-8"
+                  : isSelected
                     ? "border-sky-500 bg-sky-50 dark:bg-sky-500/10"
                     : "border-zinc-200 hover:bg-zinc-50 dark:border-zinc-800 dark:hover:bg-zinc-900";
               return (
@@ -192,7 +206,11 @@ export default function QuizMatchingCard({
                   type="button"
                   disabled={isSubmitted}
                   onClick={() => selectItem("right", right)}
-                  style={matchedLeft ? { borderLeftColor: colorsByLeft[matchedLeft] } : undefined}
+                  style={
+                    matchedLeft
+                      ? { borderLeftColor: colorsByLeft[matchedLeft] }
+                      : undefined
+                  }
                   className={`rounded-xl border p-3 text-left text-sm font-medium transition ${stateClasses}`}
                 >
                   {right}

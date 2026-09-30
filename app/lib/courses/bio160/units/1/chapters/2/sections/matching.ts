@@ -123,6 +123,90 @@ export const immunoglobulinMatchingTasks: Question[] = [
   },
 ];
 
+export const conditionSymptomsMatchingTask: Question = {
+  question: "Match each condition with its characteristic symptoms.",
+  matches: [
+    {
+      left: "Systemic lupus erythematosus (SLE)",
+      right:
+        "Fatigue, arthritis, fever, butterfly rash, photosensitivity, mouth/nose ulcers, and secondary Raynaud's phenomenon",
+    },
+    {
+      left: "Cutaneous (discoid) lupus",
+      right:
+        "Scaling, raised red rash that is usually not itchy and often affects the face, neck, scalp, mouth, or nose",
+    },
+    {
+      left: "Drug-induced lupus erythematosus (DILE)",
+      right:
+        "Lupus-like symptoms similar to SLE, generally without major organ involvement",
+    },
+    {
+      left: "Neonatal lupus",
+      right:
+        "Skin rash appearing during the first weeks of life, with possible heart and blood involvement",
+    },
+    {
+      left: "Localized scleroderma",
+      right:
+        "Waxy patches or streaks of hardened skin, often involving limited areas",
+    },
+    {
+      left: "Systemic sclerosis (scleroderma)",
+      right:
+        "Raynaud's phenomenon, thickened and tightened skin, heartburn, difficulty swallowing, shortness of breath, and possible organ dysfunction",
+    },
+    {
+      left: "Limited cutaneous systemic sclerosis",
+      right:
+        "Skin tightening mainly involving the fingers, hands, and areas below the elbows or knees, with possible internal-organ involvement",
+    },
+    {
+      left: "Diffuse cutaneous systemic sclerosis",
+      right:
+        "Extensive skin tightening with internal-organ involvement and greater risk of organ complications",
+    },
+    {
+      left: "Sjögren's syndrome",
+      right:
+        "Dry eyes and dry mouth, with possible lung, kidney, gastrointestinal, blood-vessel, liver, pancreas, and nervous-system involvement",
+    },
+    {
+      left: "Primary Sjögren's syndrome",
+      right: "Dry eyes and mouth occurring as the primary autoimmune condition",
+    },
+    {
+      left: "Secondary Sjögren's syndrome",
+      right:
+        "Dry eyes and mouth occurring along with another autoimmune disease such as lupus, rheumatoid arthritis, or scleroderma",
+    },
+    {
+      left: "Primary HIV infection",
+      right: "Short flu-like illness occurring a few weeks after exposure",
+    },
+    {
+      left: "Symptomatic HIV",
+      right:
+        "Diarrhea, fever, night sweats, fatigue, joint pain, oral infections, enlarged lymph nodes, and skin problems",
+    },
+    {
+      left: "AIDS",
+      right:
+        "Increased susceptibility to opportunistic infections and certain cancers associated with severe CD4-cell reduction",
+    },
+    {
+      left: "Hodgkin's lymphoma",
+      right:
+        "Painless lymph-node swelling, fatigue, fever, night sweats, itching, cough, breathing difficulty, chest pain, and weight loss",
+    },
+    {
+      left: "Non-Hodgkin's lymphoma",
+      right:
+        "Lymph-node swelling, fatigue, pain, fever, night sweats, itching, cough, breathing difficulty, chest or abdominal swelling, and weight loss",
+    },
+  ],
+};
+
 export const diagnosticsMatchingTasks: Question[] = [
   {
     question: "Match each diagnostic technique with its description.",
@@ -161,11 +245,7 @@ export const diagnosticsMatchingTasks: Question[] = [
           "Modified flow cytometer used to count helper T cells when monitoring HIV/AIDS",
       },
       {
-        left: "C-reactive protein test",
-        right: "Measures a general level of inflammation in the body",
-      },
-      {
-        left: "Erythrocyte sedimentation test",
+        left: "C-reactive protein test and Erythrocyte sedimentation test",
         right: "Measures a general level of inflammation in the body",
       },
     ],
@@ -754,5 +834,6 @@ export const section21Matching: Section = {
     ...hypersensitivityMatchingTasks,
     ...immunoglobulinMatchingTasks,
     ...diagnosticsMatchingTasks,
+    conditionSymptomsMatchingTask,
   ],
 };
