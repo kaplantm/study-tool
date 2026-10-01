@@ -301,9 +301,9 @@ export default function DiagramBuilderPage() {
 
             {draft.targets.length > 0 && (
               <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                {draft.targets.map((target, index) => (
+                {[...draft.targets].reverse().map((target, index) => (
                   <div
-                    key={target.id}
+                    key={`${target.id}-${target.label}`}
                     className={`rounded-2xl border p-4 transition ${selectedId === target.id ? "border-sky-400 bg-sky-50/50" : "border-zinc-200 bg-zinc-50"}`}
                   >
                     <div className="mb-3 flex items-center justify-between">
@@ -322,9 +322,9 @@ export default function DiagramBuilderPage() {
                       Answer label
                     </label>
                     <input
-                      value={target.label}
-                      onChange={(event) =>
-                        updateTarget(target.id, { label: event.target.value })
+                      defaultValue={target.label}
+                      onBlur={(event) =>
+                        updateTarget(target.id, { label: event.currentTarget.value })
                       }
                       placeholder={`e.g. ${index === 0 ? "Mitochondrion" : "Cell membrane"}`}
                       className="mt-1 w-full rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm outline-none ring-sky-500 focus:ring-2"

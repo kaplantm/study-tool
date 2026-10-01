@@ -105,8 +105,8 @@ export default function QuizDiagramLabelingCard({
             const isRectangle = width !== undefined && height !== undefined;
             const stateClasses = isSubmitted
               ? correct
-                ? "border-emerald-600 bg-transparent text-emerald-700"
-                : "border-rose-600 bg-transparent text-rose-700"
+                ? "border-emerald-600 bg-white text-emerald-700"
+                : "border-rose-600 bg-white text-rose-700"
               : assigned
                 ? "border-sky-600 bg-white text-sky-700"
                 : "border-zinc-800 bg-white text-zinc-900 hover:bg-zinc-100";
@@ -124,9 +124,15 @@ export default function QuizDiagramLabelingCard({
                     ? { width: `${width}%`, height: `${height}%` }
                     : { transform: "translate(-50%, -50%)" }),
                 }}
-                className={`absolute grid place-items-center border-2 text-sm font-bold shadow-lg transition disabled:cursor-not-allowed disabled:opacity-70 ${isRectangle ? "rounded-md" : "size-9 -translate-x-1/2 -translate-y-1/2 rounded-full"} ${stateClasses}`}
+                className={`absolute grid place-items-center border-2 text-sm font-bold shadow-lg transition disabled:cursor-not-allowed ${isRectangle ? "rounded-md" : "size-9 -translate-x-1/2 -translate-y-1/2 rounded-full"} ${stateClasses}`}
               >
-                {id}
+                {isRectangle ? (
+                  <span className="absolute right-1 top-1 grid size-6 place-items-center rounded-full border border-current bg-white px-1 text-xs leading-none dark:bg-zinc-950">
+                    {id}
+                  </span>
+                ) : (
+                  id
+                )}
               </button>
             );
           })}
