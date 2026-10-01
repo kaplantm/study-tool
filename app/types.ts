@@ -13,10 +13,14 @@ export type GroupWithQuestions = GroupMetaData & {
 export type DiagramLabelTarget = {
   id: string;
   label: string;
-  /** Horizontal position as a percentage of the image width (0–100). */
+  /** Horizontal position of the rectangle's top-left corner as a percentage. */
   x: number;
-  /** Vertical position as a percentage of the image height (0–100). */
+  /** Vertical position of the rectangle's top-left corner as a percentage. */
   y: number;
+  /** Rectangle width as a percentage of the image width (0–100). */
+  width?: number;
+  /** Rectangle height as a percentage of the image height (0–100). */
+  height?: number;
 };
 
 export type Diagram = {

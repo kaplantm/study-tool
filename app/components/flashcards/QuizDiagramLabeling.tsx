@@ -90,7 +90,7 @@ export default function QuizDiagramLabelingCard({
           {currentQuestion.question}
         </div>
         <p className="text-sm text-zinc-600 dark:text-zinc-400">
-          Select a label below, then click its numbered location on the diagram.
+          Select a label below, then click its numbered box on the diagram.
         </p>
 
         <div className="relative mx-auto w-full max-w-3xl overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800">
@@ -99,16 +99,17 @@ export default function QuizDiagramLabelingCard({
             alt={diagram.alt}
             className="block h-auto w-full"
           />
-          {diagram.targets.map(({ id, label, x, y }) => {
+          {diagram.targets.map(({ id, label, x, y, width, height }) => {
             const assigned = assignments[id];
             const correct = assigned === label;
+            const isRectangle = width !== undefined && height !== undefined;
             const stateClasses = isSubmitted
               ? correct
-                ? "border-emerald-600 bg-emerald-600"
-                : "border-rose-600 bg-rose-600"
+                ? "border-emerald-600 bg-transparent text-emerald-700"
+                : "border-rose-600 bg-transparent text-rose-700"
               : assigned
-                ? "border-sky-600 bg-sky-600"
-                : "border-white bg-zinc-900 hover:bg-zinc-800";
+                ? "border-sky-600 bg-white text-sky-700"
+                : "border-zinc-800 bg-white text-zinc-900 hover:bg-zinc-100";
             return (
               <button
                 key={id}
@@ -116,8 +117,14 @@ export default function QuizDiagramLabelingCard({
                 aria-label={`Target ${id}`}
                 disabled={isSubmitted || !selectedLabel}
                 onClick={() => assignLabel(id)}
-                style={{ left: `${x}%`, top: `${y}%` }}
-                className={`absolute grid size-9 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 text-sm font-bold text-white shadow-lg transition disabled:cursor-not-allowed disabled:opacity-70 ${stateClasses}`}
+                style={{
+                  left: `${x}%`,
+                  top: `${y}%`,
+                  ...(isRectangle
+                    ? { width: `${width}%`, height: `${height}%` }
+                    : { transform: "translate(-50%, -50%)" }),
+                }}
+                className={`absolute grid place-items-center border-2 text-sm font-bold shadow-lg transition disabled:cursor-not-allowed disabled:opacity-70 ${isRectangle ? "rounded-md" : "size-9 -translate-x-1/2 -translate-y-1/2 rounded-full"} ${stateClasses}`}
               >
                 {id}
               </button>
