@@ -26,12 +26,28 @@ const shuffle = <T,>(items: T[]) => {
   return shuffled;
 };
 
-const generateMatchColor = () => {
-  const hue = Math.floor(Math.random() * 360);
-  const saturation = Math.floor(Math.random() * 90);
-  const luminosity = Math.floor(Math.random() * 80);
-  return `hsl(${hue} ${saturation + 10}% ${luminosity + 20}%)`;
-};
+const colors: string[] = [
+  "#FF3B30",
+  "#007AFF",
+  "#34C759",
+  "#FFCC00",
+  "#AF52DE",
+  "#FF9500",
+  "#5AC8FA",
+  "#FF2D55",
+  "#4CD964",
+  "#5856D6",
+  "#A2845E",
+  "#E056FD",
+  "#10AC84",
+  "#FF6B6B",
+  "#01CBC6",
+  "#1DD1A1",
+  "#FF9FF3",
+  "#576574",
+  "#222F3E",
+  "#95A5A6",
+];
 
 const isMatchingGroup = (
   match: MatchingPair | MatchingGroup,
@@ -66,7 +82,7 @@ export default function QuizMatchingCard({
     [rows, columnCount],
   );
   const colorsByGroup = useMemo(
-    () => Object.fromEntries(rows.map((_, rowIndex) => [rowIndex, generateMatchColor()])) as Record<number, string>,
+    () => Object.fromEntries(rows.map((_, rowIndex) => [rowIndex, colors[rowIndex % colors.length]])) as Record<number, string>,
     [rows],
   );
   const correctPercent = useMemo(() => {

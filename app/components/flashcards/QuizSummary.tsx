@@ -29,6 +29,7 @@ type QuizSummaryProps = {
   quizQuestions: Question[];
   onStudyAnother: () => void;
   onPickNewCourse: () => void;
+  onRetryFailed: () => void;
   flaggedIds: string[];
 };
 
@@ -39,6 +40,7 @@ export default function QuizSummary({
   quizQuestions,
   onStudyAnother,
   onPickNewCourse,
+  onRetryFailed,
   flaggedIds,
 }: QuizSummaryProps) {
   // Failed = incorrect in this session
@@ -119,6 +121,14 @@ export default function QuizSummary({
         )}
 
         <div className="flex flex-wrap gap-3">
+          {incorrectResponses.length > 0 && (
+            <button
+              onClick={onRetryFailed}
+              className="rounded-full bg-rose-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-rose-700"
+            >
+              Retry failed questions
+            </button>
+          )}
           <button
             onClick={onStudyAnother}
             className="rounded-full bg-zinc-900 px-5 py-2 text-sm font-semibold text-white transition hover:bg-zinc-800 dark:bg-zinc-100 dark:text-black dark:hover:bg-zinc-800"

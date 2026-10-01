@@ -4,6 +4,38 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 
 type QuestionWithId = Question & { id: string };
 
+export type QuestionStats = {
+  correct: number;
+  incorrect: number;
+};
+
+export type QuestionStatsMap = Record<string, QuestionStats>;
+
+export const readQuestionStats = (key: string): QuestionStatsMap => {
+  if (typeof window === "undefined") return {};
+  try {
+    const stored = JSON.parse(localStorage.getItem(key) || "{}");
+    return stored && typeof stored === "object" ? stored : {};
+  } catch {
+    return {};
+  }
+};
+
+export const recordQuestionResult = (
+  key: string,
+  questionId: string,
+  correct: boolean,
+) => {
+  if (typeof window === "undefined") return;
+  const stats = readQuestionStats(key);
+  const previous = stats[questionId] ?? { correct: 0, incorrect: 0 };
+  stats[questionId] = {
+    correct: previous.correct + (correct ? 1 : 0),
+    incorrect: previous.incorrect + (correct ? 0 : 1),
+  };
+  localStorage.setItem(key, JSON.stringify(stats));
+};
+
 export function useFlaggedFlashcardIds(key: string) {
   const [flaggedIds, setFlaggedIds] = useState<string[] | null>(null);
 
