@@ -1,10 +1,10 @@
 import { Chapter } from "@/app/types";
 
 export const bio160Chapter3: Chapter = {
-  id: "bio160-2",
+  id: "bio160-3",
   title: "Chapter 3: Infectious Diseases",
   description: "Week 2, Chapter 3: Infectious Diseases",
-  number: 1,
+  number: 3,
   type: "chapter",
   sections: [],
   questions: [
@@ -694,6 +694,538 @@ export const bio160Chapter3: Chapter = {
         "It prevents all possible diseases permanently",
       ],
       answer: "It prepares the immune system to respond to a future exposure",
+    },
+    {
+      id: "q1",
+      question: "What is a pathogen?",
+      answer: "A microorganism that causes disease and damages tissue.",
+      tags: ["foundations"],
+    },
+    {
+      id: "q2",
+      question: "What is epidemiology?",
+      answer:
+        "The study of disease transmission, occurrence, distribution, and control.",
+      tags: ["foundations"],
+    },
+    {
+      id: "q3",
+      question: "Which term describes the number of new cases in a population?",
+      options: ["Prevalence", "Incidence", "Endemic", "Outbreak"],
+      answer: "Incidence",
+      tags: ["epidemiology"],
+    },
+    {
+      id: "q4",
+      question: "Match each epidemiological term with its definition.",
+      matches: [
+        {
+          left: "Prevalence",
+          right: "Number of existing cases",
+        },
+        {
+          left: "Endemic",
+          right: "Disease occurring at low levels in a population",
+        },
+        {
+          left: "Epidemic",
+          right: "Disease occurring in unusually large numbers",
+        },
+        {
+          left: "Pandemic",
+          right: "Disease spreading across several areas worldwide",
+        },
+        {
+          left: "Outbreak",
+          right: "Unexpected occurrence in large numbers within a limited area",
+        },
+      ],
+      tags: ["epidemiology"],
+    },
+    {
+      id: "q5",
+      question: "What is a reservoir?",
+      answer:
+        "A source of an infectious agent, such as humans, animals, insects, soil, or water.",
+      tags: ["transmission"],
+    },
+    {
+      id: "q6",
+      question: "What is a carrier?",
+      answer: "An individual who harbors a pathogen without showing symptoms.",
+      tags: ["transmission"],
+    },
+    {
+      id: "q7",
+      question: "Which type of transmission occurs from mother to newborn?",
+      options: [
+        "Horizontal transmission",
+        "Direct transmission",
+        "Vertical transmission",
+        "Indirect transmission",
+      ],
+      answer: "Vertical transmission",
+      tags: ["transmission"],
+    },
+    {
+      id: "q8",
+      question: "Match each transmission-related term with its description.",
+      matches: [
+        {
+          left: "Direct transmission",
+          right:
+            "Contact with an infected person or animal, or nearby respiratory droplets",
+        },
+        {
+          left: "Indirect transmission",
+          right:
+            "Transmission involving pathogens that survive in the environment",
+        },
+        {
+          left: "Fomite",
+          right: "A contaminated inanimate object",
+        },
+        {
+          left: "Parenteral route",
+          right: "Entry through a route other than the mouth or rectum",
+        },
+      ],
+      tags: ["transmission"],
+    },
+    {
+      id: "q9",
+      question:
+        "Which is one of the most frequent portals of entry for infectious agents?",
+      options: [
+        "Respiratory tract",
+        "Hair shaft",
+        "Bone marrow",
+        "Sweat glands",
+      ],
+      answer: "Respiratory tract",
+      tags: ["transmission"],
+    },
+    {
+      id: "q10",
+      question: "What is a nosocomial infection?",
+      answer:
+        "An infection acquired in a hospital or other health care setting.",
+      tags: ["infection-control"],
+    },
+    {
+      id: "q11",
+      question: "Which type of nosocomial infection is most common?",
+      options: [
+        "Urinary tract infection",
+        "Bloodstream infection",
+        "Lung infection",
+        "Surgical site infection",
+      ],
+      answer: "Urinary tract infection",
+      tags: ["infection-control"],
+    },
+    {
+      id: "q12",
+      question: "Why can normal flora sometimes become harmful?",
+      answer:
+        "They may cause disease when an opportunity arises, such as a surgical wound or weakened immune system.",
+      tags: ["infection-control"],
+    },
+    {
+      id: "q13",
+      question: "What is the difference between isolation and quarantine?",
+      answer:
+        "Isolation separates infected people from others, while quarantine separates people who may be infected from healthy people during the infectious-risk period.",
+      tags: ["infection-control"],
+    },
+    {
+      id: "q14",
+      question: "Name two important ways to prevent nosocomial infections.",
+      answer:
+        "Hand washing and sterilization. Other acceptable answers include educating staff, using antibiotics only when necessary, and following infection-control procedures.",
+      tags: ["infection-control"],
+    },
+    {
+      id: "q15",
+      question:
+        "Which bloodborne pathogen has an estimated needlestick transmission risk of 6–30%?",
+      options: [
+        "HIV",
+        "Hepatitis B virus",
+        "Hepatitis C virus",
+        "Influenza virus",
+      ],
+      answer: "Hepatitis B virus",
+      tags: ["bloodborne-pathogens"],
+    },
+    {
+      id: "q16",
+      question:
+        "Which bloodborne pathogen has no vaccine and no postexposure prophylaxis?",
+      options: ["HBV", "HCV", "HIV", "Tetanus"],
+      answer: "HCV",
+      tags: ["bloodborne-pathogens"],
+    },
+    {
+      id: "q17",
+      question:
+        "What is the purpose of the OSHA Bloodborne Pathogens Standard?",
+      answer:
+        "To protect health care workers by requiring workplaces to follow bloodborne-pathogen safety precautions.",
+      tags: ["bloodborne-pathogens"],
+    },
+    {
+      id: "q18",
+      question:
+        "Match each microorganism group with its defining characteristic.",
+      matches: [
+        {
+          left: "Viruses",
+          right:
+            "Genetic material enclosed in a protein coat; depend on host cells",
+        },
+        {
+          left: "Bacteria",
+          right:
+            "Single-celled organisms without a nucleus or membrane-bound organelles",
+        },
+        {
+          left: "Protozoa",
+          right: "Single-celled eukaryotic microorganisms",
+        },
+        {
+          left: "Fungi",
+          right: "Organisms with chitin-containing cell walls",
+        },
+        {
+          left: "Helminths",
+          right: "Complex multicellular parasitic worms",
+        },
+        {
+          left: "Prions",
+          right: "Infectious particles composed only of protein",
+        },
+      ],
+      tags: ["microorganisms"],
+    },
+    {
+      id: "q19",
+      question: "What do viral symptoms result from?",
+      answer: "Viral replication, the host immune response, or both.",
+      tags: ["viruses"],
+    },
+    {
+      id: "q20",
+      question: "Match each bacterial shape with its description.",
+      matches: [
+        {
+          left: "Cocci",
+          right: "Spherical",
+        },
+        {
+          left: "Bacilli",
+          right: "Rod-shaped",
+        },
+        {
+          left: "Spirilla",
+          right: "Spiral-shaped",
+        },
+        {
+          left: "Spirochetes",
+          right: "Corkscrew-shaped",
+        },
+        {
+          left: "Vibrios",
+          right: "Comma-shaped",
+        },
+      ],
+      tags: ["bacteria"],
+    },
+    {
+      id: "q21",
+      question: "What does Gram staining distinguish?",
+      answer:
+        "Bacteria with thick cell walls that stain purple from bacteria with thin cell walls that stain pink.",
+      tags: ["bacteria"],
+    },
+    {
+      id: "q22",
+      question: "What is an endotoxin?",
+      answer:
+        "A potent toxin released into tissues when certain gram-negative bacteria die.",
+      tags: ["bacteria"],
+    },
+    {
+      id: "q23",
+      question: "Which protozoan uses pseudopodia for movement?",
+      options: [
+        "Giardia",
+        "Entamoeba histolytica",
+        "Plasmodium",
+        "Trichomonas vaginalis",
+      ],
+      answer: "Entamoeba histolytica",
+      tags: ["protozoa"],
+    },
+    {
+      id: "q24",
+      question: "Which organism causes malaria?",
+      options: [
+        "Candida albicans",
+        "Plasmodium",
+        "Ascaris",
+        "Clostridium tetani",
+      ],
+      answer: "Plasmodium",
+      tags: ["protozoa"],
+    },
+    {
+      id: "q25",
+      question:
+        "What causes candidiasis, and why is it considered opportunistic?",
+      answer:
+        "Candida albicans causes candidiasis; it usually causes disease when host defenses are weakened or tissue is damaged.",
+      tags: ["fungi"],
+    },
+    {
+      id: "q26",
+      question: "How are hookworms transmitted?",
+      answer:
+        "Their larvae penetrate the skin, often from contaminated soil, and migrate to the small intestine.",
+      tags: ["helminths"],
+    },
+    {
+      id: "q27",
+      question: "Which diagnostic method is used for pinworm infection?",
+      options: [
+        "Throat culture",
+        "Graham sticky-tape method",
+        "Lumbar puncture",
+        "Viral isolation",
+      ],
+      answer: "Graham sticky-tape method",
+      tags: ["helminths"],
+    },
+    {
+      id: "q28",
+      question: "Why are prion diseases especially serious?",
+      answer:
+        "They cause abnormal folding of brain proteins, leading to progressive brain damage; they are currently untreatable and fatal.",
+      tags: ["prions"],
+    },
+    {
+      id: "q29",
+      question: "Match each pathogen type with its usual treatment.",
+      matches: [
+        {
+          left: "Bacteria",
+          right: "Antibiotics",
+        },
+        {
+          left: "Viruses",
+          right: "Antivirals",
+        },
+        {
+          left: "Fungi",
+          right: "Antifungals",
+        },
+        {
+          left: "Protozoa",
+          right: "Specific drugs targeting metabolism or protein synthesis",
+        },
+        {
+          left: "Helminths",
+          right: "Drugs that paralyze muscles or interfere with metabolism",
+        },
+      ],
+      tags: ["treatment"],
+    },
+    {
+      id: "q30",
+      question: "Why do antibiotics not work against viruses?",
+      answer:
+        "Viruses lack bacterial cell walls, cell membranes, metabolic machinery, and protein-synthesis machinery targeted by antibiotics.",
+      tags: ["treatment"],
+    },
+    {
+      id: "q31",
+      question: "What is antibiotic resistance?",
+      answer:
+        "The adaptation of microorganisms that allows them to survive antibiotics that previously killed or inhibited them.",
+      tags: ["antibiotic-resistance"],
+    },
+    {
+      id: "q32",
+      question: "What is MRSA?",
+      options: [
+        "Methicillin-resistant Staphylococcus aureus",
+        "Multidrug-resistant Streptococcus pneumoniae",
+        "Methicillin-resistant Salmonella aureus",
+        "Multiple-resistant Staphylococcus anaerobius",
+      ],
+      answer: "Methicillin-resistant Staphylococcus aureus",
+      tags: ["antibiotic-resistance"],
+    },
+    {
+      id: "q33",
+      question: "What is one important way to prevent antibiotic resistance?",
+      answer:
+        "Use antibiotics only for bacterial infections, confirm the diagnosis, follow the prescription, and complete the full course.",
+      tags: ["antibiotic-resistance"],
+    },
+    {
+      id: "q34",
+      question:
+        "What is the difference between an emerging and a reemerging infectious disease?",
+      answer:
+        "An emerging disease is newly recognized or has recently increased significantly, while a reemerging disease is known to have increased again after declining.",
+      tags: ["emerging-diseases"],
+    },
+    {
+      id: "q35",
+      question:
+        "Name three factors that can contribute to the emergence of infectious diseases.",
+      answer:
+        "Examples include human demographics, technology, economic development, travel, microbial adaptation, public health conditions, and climate change.",
+      tags: ["emerging-diseases"],
+    },
+    {
+      id: "q36",
+      question: "Which disease resurged partly because of vaccine hesitancy?",
+      options: ["Measles", "Lyme disease", "SARS", "Tetanus"],
+      answer: "Measles",
+      tags: ["emerging-diseases"],
+    },
+    {
+      id: "q37",
+      question:
+        "Match each childhood disease with its causative agent or vaccine.",
+      matches: [
+        {
+          left: "Measles",
+          right: "Rubeola virus; MMR vaccine",
+        },
+        {
+          left: "Mumps",
+          right: "Paramyxovirus; MMR vaccine",
+        },
+        {
+          left: "Rubella",
+          right: "Rubella virus; MMR vaccine",
+        },
+        {
+          left: "Pertussis",
+          right: "Bordetella pertussis; DTaP vaccine",
+        },
+        {
+          left: "Diphtheria",
+          right: "Corynebacterium diphtheriae; DTaP vaccine",
+        },
+        {
+          left: "Tetanus",
+          right: "Clostridium tetani; DTaP vaccine",
+        },
+        {
+          left: "Chickenpox",
+          right: "Varicella-zoster virus; varicella vaccine",
+        },
+      ],
+      tags: ["childhood-diseases"],
+    },
+    {
+      id: "q38",
+      question: "What is the hallmark sign of mumps?",
+      options: [
+        "Lockjaw",
+        "Parotid gland swelling",
+        "Koplik spots",
+        "Blistering rash",
+      ],
+      answer: "Parotid gland swelling",
+      tags: ["childhood-diseases"],
+    },
+    {
+      id: "q39",
+      question: "Why is rubella especially dangerous during pregnancy?",
+      answer:
+        "Transplacental infection can cause congenital rubella syndrome, fetal damage, miscarriage, lifelong disability, or early death.",
+      tags: ["childhood-diseases"],
+    },
+    {
+      id: "q40",
+      question: "Which disease is caused by Bordetella pertussis?",
+      options: ["Diphtheria", "Whooping cough", "Tetanus", "Polio"],
+      answer: "Whooping cough",
+      tags: ["childhood-diseases"],
+    },
+    {
+      id: "q41",
+      question:
+        "Which disease produces a toxin that coats the airways and can damage the heart, kidneys, and nervous system?",
+      options: ["Tetanus", "Diphtheria", "Hib disease", "Measles"],
+      answer: "Diphtheria",
+      tags: ["childhood-diseases"],
+    },
+    {
+      id: "q42",
+      question: "What are the characteristic symptoms of tetanus?",
+      answer: "Stiff neck, lockjaw, muscle spasms, and difficulty swallowing.",
+      tags: ["childhood-diseases"],
+    },
+    {
+      id: "q43",
+      question: "What are Koplik spots associated with?",
+      options: ["Measles", "Mumps", "Rubella", "Chickenpox"],
+      answer: "Measles",
+      tags: ["childhood-diseases"],
+    },
+    {
+      id: "q44",
+      question:
+        "Which childhood disease is not associated with influenza despite its name?",
+      options: [
+        "Haemophilus influenzae type B",
+        "Pertussis",
+        "Polio",
+        "Rubella",
+      ],
+      answer: "Haemophilus influenzae type B",
+      tags: ["childhood-diseases"],
+    },
+    {
+      id: "q45",
+      question: "What are the two forms of poliomyelitis?",
+      answer: "Nonparalytic and paralytic forms.",
+      tags: ["childhood-diseases"],
+    },
+    {
+      id: "q46",
+      question:
+        "Which disease is asymptomatic in approximately 95% of infections and can rarely cause paralysis?",
+      options: ["Poliomyelitis", "Mumps", "Measles", "Hib disease"],
+      answer: "Poliomyelitis",
+      tags: ["childhood-diseases"],
+    },
+    {
+      id: "q47",
+      question:
+        "Which organism is an opportunistic cause of meningitis and pneumonia and has a vaccine available?",
+      options: [
+        "Streptococcus pneumoniae",
+        "Haemophilus influenzae type b",
+        "Clostridium tetani",
+        "Varicella-zoster virus",
+      ],
+      answer: "Haemophilus influenzae type b",
+      tags: ["childhood-diseases"],
+    },
+    {
+      id: "q48",
+      question:
+        "Which bacterial disease is associated with antibiotic resistance and can be caused by Streptococcus pneumoniae?",
+      options: ["Pneumococcal disease", "Rubella", "Chickenpox", "Measles"],
+      answer: "Pneumococcal disease",
+      tags: ["childhood-diseases"],
     },
   ],
 };
