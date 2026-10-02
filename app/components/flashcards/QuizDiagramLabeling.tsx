@@ -115,9 +115,7 @@ export default function QuizDiagramLabelingCard({
               const isRectangle = width !== undefined && height !== undefined;
               const statusClass = correct ? "bg-emerald-600" : "bg-rose-600";
               const stateClasses = isSubmitted
-                ? correct
-                  ? "border-emerald-600 bg-transparent text-emerald-700"
-                  : "border-rose-600 bg-transparent text-rose-700"
+                ? "border-zinc-800 bg-transparent text-zinc-900 dark:text-zinc-100"
                 : assigned
                   ? "border-sky-600 bg-white text-sky-700"
                   : selectedTargetId === id
@@ -127,7 +125,7 @@ export default function QuizDiagramLabelingCard({
                 <button
                   key={id}
                   type="button"
-                  aria-label={`Target ${id}${isSubmitted ? correct ? ": correct" : assigned ? ": incorrect" : ": missing label" : ""}`}
+                  aria-label={`Target ${id}${isSubmitted ? (correct ? ": correct" : assigned ? ": incorrect" : ": missing label") : ""}`}
                   disabled={isSubmitted}
                   onClick={() => handleTargetClick(id)}
                   style={{
@@ -139,27 +137,20 @@ export default function QuizDiagramLabelingCard({
                   }}
                   className={`absolute grid place-items-center border-2 text-sm font-bold shadow-lg transition disabled:cursor-not-allowed ${isRectangle ? "rounded-md" : "size-9 -translate-x-1/2 -translate-y-1/2 rounded-full"} ${stateClasses}`}
                 >
-                  {isRectangle ? (
-                    <span
-                      className={`absolute -right-2 -top-2 z-10 grid h-5 min-w-5 place-items-center rounded-full border-2 border-white px-1 text-xs font-bold leading-none text-white shadow-sm ${isSubmitted ? statusClass : "bg-sky-600"}`}
-                      title={isSubmitted ? (correct ? "Correct" : assigned ? "Incorrect label" : "Missing label") : undefined}
-                    >
-                      <span aria-hidden="true">{isSubmitted ? (correct ? "✓" : "!") : id}</span>
-                      <span className="sr-only">{isSubmitted ? (correct ? `Target ${id} correct` : assigned ? `Target ${id} incorrect` : `Target ${id} missing label`) : `Target ${id}`}</span>
-                    </span>
-                  ) : (
-                    <>
-                      {id}
-                      {isSubmitted && (
-                        <span
-                          aria-hidden="true"
-                          className={`absolute -right-2 -top-2 grid size-5 place-items-center rounded-full border-2 border-white text-xs leading-none text-white shadow-sm ${statusClass}`}
-                        >
-                          {correct ? "✓" : "!"}
-                        </span>
-                      )}
-                    </>
-                  )}
+                  <span
+                    className={`absolute -right-4 -top-4 z-10 grid h-5 min-w-5 place-items-center rounded-full border-2 border-white px-1 text-xs font-bold leading-none text-white shadow-sm ${isSubmitted ? statusClass : "bg-sky-600"}`}
+                    title={
+                      isSubmitted
+                        ? correct
+                          ? "Correct"
+                          : assigned
+                            ? "Incorrect label"
+                            : "Missing label"
+                        : undefined
+                    }
+                  >
+                    {id}
+                  </span>
                 </button>
               );
             })}
@@ -180,11 +171,19 @@ export default function QuizDiagramLabelingCard({
                   ([, assignedLabel]) => assignedLabel === label,
                 )?.[0];
                 const isUsed = assignedTargetId !== undefined;
+                const isCorrectlyPlaced = diagram.targets.some(
+                  ({ id, label: targetLabel }) =>
+                    id === assignedTargetId && targetLabel === label,
+                );
+                const labelStatusClass = isCorrectlyPlaced
+                  ? "border-emerald-300 bg-emerald-50 text-emerald-800 dark:border-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300"
+                  : "border-rose-300 bg-rose-50 text-rose-800 dark:border-rose-700 dark:bg-rose-500/10 dark:text-rose-300";
                 return (
                   <button
                     key={label}
                     type="button"
                     disabled={isSubmitted}
+                    aria-label={`${label}${isSubmitted && isUsed ? (isCorrectlyPlaced ? ": correct" : ": incorrect") : ""}`}
                     onClick={() => {
                       if (selectedTargetId) {
                         assignLabel(selectedTargetId, label);
@@ -194,11 +193,13 @@ export default function QuizDiagramLabelingCard({
                         );
                       }
                     }}
-                    className={`inline-flex w-full items-center justify-between gap-2 rounded-xl border px-3 py-2 text-left text-sm font-medium transition ${selectedLabel === label ? "border-sky-500 bg-sky-50 text-sky-800 dark:bg-sky-500/10 dark:text-sky-300" : isUsed ? "border-emerald-300 bg-emerald-50 text-emerald-800 dark:border-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300" : "border-zinc-200 bg-white hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-900"}`}
+                    className={`inline-flex w-full items-center justify-between gap-2 rounded-xl border px-3 py-2 text-left text-sm font-medium transition ${selectedLabel === label ? "border-sky-500 bg-sky-50 text-sky-800 dark:bg-sky-500/10 dark:text-sky-300" : isSubmitted && isUsed ? labelStatusClass : isUsed ? "border-emerald-300 bg-emerald-50 text-emerald-800 dark:border-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300" : "border-zinc-200 bg-white hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-900"}`}
                   >
                     <span>{label}</span>
                     {isUsed && (
-                      <span className="grid size-5 shrink-0 place-items-center rounded-full bg-emerald-600 text-xs font-bold text-white">
+                      <span
+                        className={`grid size-5 shrink-0 place-items-center rounded-full text-[10px] font-bold text-white ${isSubmitted && !isCorrectlyPlaced ? "bg-rose-600" : "bg-emerald-600"}`}
+                      >
                         {assignedTargetId}
                       </span>
                     )}
@@ -223,9 +224,14 @@ export default function QuizDiagramLabelingCard({
                   {assignments[id] === label ? "✓" : "!"}
                 </span>
                 <span>
-                  {id}. {assignments[id] ? `You chose: ${assignments[id]}` : "Missing label"}
+                  {id}.{" "}
+                  {assignments[id]
+                    ? `You chose: ${assignments[id]}`
+                    : "Missing label"}
                   {assignments[id] !== label && (
-                    <span className="block text-xs opacity-80">Correct: {label}</span>
+                    <span className="block text-xs opacity-80">
+                      Correct: {label}
+                    </span>
                   )}
                 </span>
               </p>

@@ -45,8 +45,9 @@ const roundCoordinate = (value: number) => Math.round(value * 10) / 10;
 
 export default function DiagramBuilderPage() {
   const [draft, setDraft] = useState<BuilderDraft>(emptyDraft);
-  const [collapsedSections, setCollapsedSections] =
-    useState<CollapsedSections>(defaultCollapsedSections);
+  const [collapsedSections, setCollapsedSections] = useState<CollapsedSections>(
+    defaultCollapsedSections,
+  );
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [firstCorner, setFirstCorner] = useState<Corner | null>(null);
   const [copyState, setCopyState] = useState<"idle" | "copied" | "error">(
@@ -67,7 +68,9 @@ export default function DiagramBuilderPage() {
         COLLAPSED_SECTIONS_STORAGE_KEY,
       );
       if (savedCollapsedSections) {
-        const parsed = JSON.parse(savedCollapsedSections) as Partial<CollapsedSections>;
+        const parsed = JSON.parse(
+          savedCollapsedSections,
+        ) as Partial<CollapsedSections>;
         setCollapsedSections({
           ...defaultCollapsedSections,
           details: parsed.details === true,
@@ -328,166 +331,177 @@ export default function DiagramBuilderPage() {
 
             {!collapsedSections.targets && (
               <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(230px,300px)] lg:items-start">
-              <div>
-                {!draft.imageUrl ? (
-                  <button
-                    type="button"
-                    onClick={() => imageInputRef.current?.click()}
-                    className="flex min-h-[360px] w-full flex-col items-center justify-center rounded-2xl border-2 border-dashed border-zinc-300 bg-zinc-50 px-6 text-center transition hover:border-sky-400 hover:bg-sky-50/40"
-                  >
-                    <span
-                      className="mb-4 grid size-14 place-items-center rounded-2xl bg-white text-2xl shadow-sm"
-                      aria-hidden="true"
+                <div>
+                  {!draft.imageUrl ? (
+                    <button
+                      type="button"
+                      onClick={() => imageInputRef.current?.click()}
+                      className="flex min-h-[360px] w-full flex-col items-center justify-center rounded-2xl border-2 border-dashed border-zinc-300 bg-zinc-50 px-6 text-center transition hover:border-sky-400 hover:bg-sky-50/40"
                     >
-                      ＋
-                    </span>
-                    <span className="font-bold">Upload a diagram</span>
-                    <span className="mt-1 text-sm text-zinc-500">
-                      PNG, JPG, GIF, or WebP from your computer
-                    </span>
-                  </button>
-                ) : (
-                  <div
-                    className="relative mx-auto w-full cursor-crosshair overflow-visible rounded-2xl border border-zinc-200 bg-zinc-100"
-                    onClick={handleImageClick}
-                  >
-                    <img
-                      src={draft.imageUrl}
-                      alt={draft.alt || "Diagram preview"}
-                      className="block h-auto max-h-[680px] w-full rounded-2xl object-contain"
-                    />
-                    {firstCorner && (
                       <span
+                        className="mb-4 grid size-14 place-items-center rounded-2xl bg-white text-2xl shadow-sm"
                         aria-hidden="true"
-                        style={{
-                          left: `${firstCorner.x}%`,
-                          top: `${firstCorner.y}%`,
-                        }}
-                        className="pointer-events-none absolute size-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-sky-600 shadow ring-2 ring-sky-500"
-                      />
-                    )}
-                    {draft.targets.map((target) => (
-                      <button
-                        key={target.id}
-                        type="button"
-                        aria-label={`Target ${target.id}${target.label ? `: ${target.label}` : ": missing label"}`}
-                        onClick={(event) => {
-                          event.stopPropagation();
-                          setSelectedId(target.id);
-                        }}
-                        style={{
-                          left: `${target.x}%`,
-                          top: `${target.y}%`,
-                          width: `${target.width ?? 0}%`,
-                          height: `${target.height ?? 0}%`,
-                        }}
-                        className={`absolute grid place-items-center rounded-md border-2 text-sm font-bold shadow-lg transition ${target.label.trim() ? "border-emerald-600 bg-emerald-100/30 text-emerald-800" : "border-rose-600 bg-rose-100/30 text-rose-800"} ${selectedId === target.id ? "ring-2 ring-sky-500 ring-offset-1" : "hover:bg-sky-50/60"}`}
                       >
-                        <span className="absolute -right-2 -top-2 z-10 grid h-5 min-w-5 place-items-center rounded-full border-2 border-white bg-zinc-900 px-1 text-xs font-bold leading-none text-white shadow-sm">
-                          {target.id}
-                        </span>
+                        ＋
+                      </span>
+                      <span className="font-bold">Upload a diagram</span>
+                      <span className="mt-1 text-sm text-zinc-500">
+                        PNG, JPG, GIF, or WebP from your computer
+                      </span>
+                    </button>
+                  ) : (
+                    <div
+                      className="relative mx-auto w-full cursor-crosshair overflow-visible rounded-2xl border border-zinc-200 bg-zinc-100"
+                      onClick={handleImageClick}
+                    >
+                      <img
+                        src={draft.imageUrl}
+                        alt={draft.alt || "Diagram preview"}
+                        className="block h-auto max-h-[680px] w-full rounded-2xl object-contain"
+                      />
+                      {firstCorner && (
                         <span
                           aria-hidden="true"
-                          className={`absolute -left-2 -top-2 z-10 grid size-5 place-items-center rounded-full border-2 border-white text-xs font-bold leading-none text-white shadow-sm ${target.label.trim() ? "bg-emerald-600" : "bg-rose-600"}`}
+                          style={{
+                            left: `${firstCorner.x}%`,
+                            top: `${firstCorner.y}%`,
+                          }}
+                          className="pointer-events-none absolute size-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-sky-600 shadow ring-2 ring-sky-500"
+                        />
+                      )}
+                      {draft.targets.map((target) => (
+                        <button
+                          key={target.id}
+                          type="button"
+                          aria-label={`Target ${target.id}${target.label ? `: ${target.label}` : ": missing label"}`}
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            setSelectedId(target.id);
+                          }}
+                          style={{
+                            left: `${target.x}%`,
+                            top: `${target.y}%`,
+                            width: `${target.width ?? 0}%`,
+                            height: `${target.height ?? 0}%`,
+                          }}
+                          className={`absolute grid place-items-center rounded-md border-2 border-zinc-800 bg-white/50 text-sm font-bold text-zinc-900 shadow-lg transition ${selectedId === target.id ? "ring-2 ring-sky-500 ring-offset-1" : "hover:bg-sky-50/60"}`}
                         >
-                          {target.label.trim() ? "✓" : "!"}
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                )}
-                <input
-                  ref={imageInputRef}
-                  type="file"
-                  accept="image/*"
-                  onChange={handleImageUpload}
-                  className="hidden"
-                />
-                {draft.imageUrl && (
-                  <button
-                    type="button"
-                    onClick={() => imageInputRef.current?.click()}
-                    className="mt-3 text-sm font-semibold text-sky-700 hover:underline"
-                  >
-                    Replace image
-                  </button>
-                )}
-              </div>
-
-                <aside className="rounded-2xl border border-zinc-200 bg-zinc-50 p-4 lg:sticky lg:top-4 lg:max-h-[680px] lg:overflow-y-auto">
-                <div className="mb-3">
-                  <h3 className="text-sm font-bold">Target labels</h3>
-                  <p className="mt-1 text-xs text-zinc-500">
-                    Add labels here while keeping the diagram in view.
-                  </p>
-                  {draft.targets.length > 0 && (
-                    <p className="mt-2 flex items-center gap-2 text-xs font-semibold">
-                      <span className="text-emerald-700">
-                        {draft.targets.filter((target) => target.label.trim()).length} labeled
-                      </span>
-                      <span className="text-zinc-400">·</span>
-                      <span className="text-rose-700">
-                        {draft.targets.filter((target) => !target.label.trim()).length} missing
-                      </span>
-                    </p>
+                          <span
+                            className={`absolute -right-4 -top-4 z-10 grid h-5 min-w-5 place-items-center rounded-full border-2 border-white px-1 text-[10px] font-bold leading-none text-white shadow-sm ${target.label.trim() ? "bg-emerald-600" : "bg-rose-600"}`}
+                          >
+                            {target.id}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                  <input
+                    ref={imageInputRef}
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageUpload}
+                    className="hidden"
+                  />
+                  {draft.imageUrl && (
+                    <button
+                      type="button"
+                      onClick={() => imageInputRef.current?.click()}
+                      className="mt-3 text-sm font-semibold text-sky-700 hover:underline"
+                    >
+                      Replace image
+                    </button>
                   )}
                 </div>
-                {draft.targets.length === 0 ? (
-                  <p className="rounded-xl border border-dashed border-zinc-300 bg-white p-4 text-center text-sm text-zinc-500">
-                    Draw a box on the diagram to add a target.
-                  </p>
-                ) : (
-                  <div className="grid gap-3">
-                    {[...draft.targets].reverse().map((target, index) => (
-                      <div
-                        key={`${target.id}-${target.label}`}
-                        className={`rounded-2xl border p-4 transition ${target.label.trim() ? "border-emerald-200 bg-emerald-50/30" : "border-rose-200 bg-rose-50/30"} ${selectedId === target.id ? "ring-2 ring-sky-400" : ""}`}
-                      >
-                        <div className="flex items-center justify-between gap-2">
-                          <div className="flex items-center gap-2">
-                            <span className="grid size-7 shrink-0 place-items-center rounded-full bg-zinc-900 text-xs font-bold text-white">
-                              {target.id}
-                            </span>
-                            <span
-                              className={`inline-flex items-center gap-1 text-xs font-bold ${target.label.trim() ? "text-emerald-700" : "text-rose-700"}`}
-                            >
-                              <span aria-hidden="true">{target.label.trim() ? "✓" : "!"}</span>
-                              {target.label.trim() ? "Labeled" : "Missing label"}
-                            </span>
-                          </div>
-                          <button
-                            type="button"
-                            onClick={() => removeTarget(target.id)}
-                            className="shrink-0 text-xs font-semibold text-zinc-400 hover:text-rose-600"
-                          >
-                            Remove
-                          </button>
-                        </div>
-                        <label className="mt-3 block text-xs font-bold uppercase tracking-wide text-zinc-500">
-                          Answer label
-                        </label>
-                        <input
-                          value={target.label}
-                          onChange={(event) =>
-                            updateTarget(target.id, {
-                              label: event.target.value,
-                            })
-                          }
-                          onBlur={(event) =>
-                            updateTarget(target.id, {
-                              label: event.currentTarget.value,
-                            })
-                          }
-                          placeholder={`e.g. ${index === 0 ? "Mitochondrion" : "Cell membrane"}`}
-                          className="mt-1 w-full rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm outline-none ring-sky-500 focus:ring-2"
-                        />
-                        <p className="mt-2 text-xs text-zinc-500">
-                          Box: {target.width}% wide × {target.height}% high
-                        </p>
-                      </div>
-                    ))}
+
+                <aside className="rounded-2xl border border-zinc-200 bg-zinc-50 p-4 lg:sticky lg:top-4 lg:max-h-[680px] lg:overflow-y-auto">
+                  <div className="mb-3">
+                    <h3 className="text-sm font-bold">Target labels</h3>
+                    <p className="mt-1 text-xs text-zinc-500">
+                      Add labels here while keeping the diagram in view.
+                    </p>
+                    {draft.targets.length > 0 && (
+                      <p className="mt-2 flex items-center gap-2 text-xs font-semibold">
+                        <span className="text-emerald-700">
+                          {
+                            draft.targets.filter((target) =>
+                              target.label.trim(),
+                            ).length
+                          }{" "}
+                          labeled
+                        </span>
+                        <span className="text-zinc-400">·</span>
+                        <span className="text-rose-700">
+                          {
+                            draft.targets.filter(
+                              (target) => !target.label.trim(),
+                            ).length
+                          }{" "}
+                          missing
+                        </span>
+                      </p>
+                    )}
                   </div>
-                )}
+                  {draft.targets.length === 0 ? (
+                    <p className="rounded-xl border border-dashed border-zinc-300 bg-white p-4 text-center text-sm text-zinc-500">
+                      Draw a box on the diagram to add a target.
+                    </p>
+                  ) : (
+                    <div className="grid gap-3">
+                      {[...draft.targets].reverse().map((target, index) => (
+                        <div
+                          key={target.id}
+                          className={`rounded-2xl border p-4 transition ${target.label.trim() ? "border-emerald-200 bg-emerald-50/30" : "border-rose-200 bg-rose-50/30"} ${selectedId === target.id ? "ring-2 ring-sky-400" : ""}`}
+                        >
+                          <div className="flex items-center justify-between gap-2">
+                            <div className="flex items-center gap-2">
+                              <span className="grid size-7 shrink-0 place-items-center rounded-full bg-zinc-900 text-xs font-bold text-white">
+                                {target.id}
+                              </span>
+                              <span
+                                className={`inline-flex items-center gap-1 text-xs font-bold ${target.label.trim() ? "text-emerald-700" : "text-rose-700"}`}
+                              >
+                                <span aria-hidden="true">
+                                  {target.label.trim() ? "✓" : "!"}
+                                </span>
+                                {target.label.trim()
+                                  ? "Labeled"
+                                  : "Missing label"}
+                              </span>
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => removeTarget(target.id)}
+                              className="shrink-0 text-xs font-semibold text-zinc-400 hover:text-rose-600"
+                            >
+                              Remove
+                            </button>
+                          </div>
+                          <label className="mt-3 block text-xs font-bold uppercase tracking-wide text-zinc-500">
+                            Answer label
+                          </label>
+                          <input
+                            value={target.label}
+                            onFocus={() => setSelectedId(target.id)}
+                            onChange={(event) =>
+                              updateTarget(target.id, {
+                                label: event.target.value,
+                              })
+                            }
+                            onBlur={(event) =>
+                              updateTarget(target.id, {
+                                label: event.currentTarget.value,
+                              })
+                            }
+                            placeholder={`e.g. ${index === 0 ? "Mitochondrion" : "Cell membrane"}`}
+                            className="mt-1 w-full rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm outline-none ring-sky-500 focus:ring-2"
+                          />
+                          <p className="mt-2 text-xs text-zinc-500">
+                            Box: {target.width}% wide × {target.height}% high
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </aside>
               </div>
             )}
@@ -508,41 +522,47 @@ export default function DiagramBuilderPage() {
                   These fields map directly to your question JSON.
                 </span>
               </button>
-              {!collapsedSections.details && <div className="grid gap-4">
-                <label className="grid gap-1.5 text-sm font-semibold">
-                  Question prompt
-                  <input
-                    value={draft.question}
-                    onChange={(event) =>
-                      updateDraft("question", event.target.value)
-                    }
-                    placeholder="Label the structures in this diagram."
-                    className="rounded-xl border border-zinc-200 px-3.5 py-3 font-normal outline-none ring-sky-500 focus:ring-2"
-                  />
-                </label>
-                <label className="grid gap-1.5 text-sm font-semibold">
-                  Image description (alt text)
-                  <input
-                    value={draft.alt}
-                    onChange={(event) => updateDraft("alt", event.target.value)}
-                    placeholder="Diagram of a eukaryotic cell"
-                    className="rounded-xl border border-zinc-200 px-3.5 py-3 font-normal outline-none ring-sky-500 focus:ring-2"
-                  />
-                </label>
-                <label className="grid gap-1.5 text-sm font-semibold">
-                  Hint{" "}
-                  <span className="font-normal text-zinc-400">(optional)</span>
-                  <textarea
-                    value={draft.hint}
-                    onChange={(event) =>
-                      updateDraft("hint", event.target.value)
-                    }
-                    placeholder="Think about the organelle that produces ATP."
-                    rows={3}
-                    className="resize-y rounded-xl border border-zinc-200 px-3.5 py-3 font-normal outline-none ring-sky-500 focus:ring-2"
-                  />
-                </label>
-              </div>}
+              {!collapsedSections.details && (
+                <div className="grid gap-4">
+                  <label className="grid gap-1.5 text-sm font-semibold">
+                    Question prompt
+                    <input
+                      value={draft.question}
+                      onChange={(event) =>
+                        updateDraft("question", event.target.value)
+                      }
+                      placeholder="Label the structures in this diagram."
+                      className="rounded-xl border border-zinc-200 px-3.5 py-3 font-normal outline-none ring-sky-500 focus:ring-2"
+                    />
+                  </label>
+                  <label className="grid gap-1.5 text-sm font-semibold">
+                    Image description (alt text)
+                    <input
+                      value={draft.alt}
+                      onChange={(event) =>
+                        updateDraft("alt", event.target.value)
+                      }
+                      placeholder="Diagram of a eukaryotic cell"
+                      className="rounded-xl border border-zinc-200 px-3.5 py-3 font-normal outline-none ring-sky-500 focus:ring-2"
+                    />
+                  </label>
+                  <label className="grid gap-1.5 text-sm font-semibold">
+                    Hint{" "}
+                    <span className="font-normal text-zinc-400">
+                      (optional)
+                    </span>
+                    <textarea
+                      value={draft.hint}
+                      onChange={(event) =>
+                        updateDraft("hint", event.target.value)
+                      }
+                      placeholder="Think about the organelle that produces ATP."
+                      rows={3}
+                      className="resize-y rounded-xl border border-zinc-200 px-3.5 py-3 font-normal outline-none ring-sky-500 focus:ring-2"
+                    />
+                  </label>
+                </div>
+              )}
             </section>
 
             <section className="order-3 rounded-3xl border border-zinc-200 bg-zinc-950 p-5 text-zinc-100 shadow-sm sm:p-7">
@@ -574,25 +594,29 @@ export default function DiagramBuilderPage() {
                   manually.
                 </p>
               )}
-              {!collapsedSections.json && <textarea
-                value={isEditingJson ? jsonText : questionJson}
-                onFocus={() => {
-                  if (!isEditingJson) setJsonText(questionJson);
-                  setIsEditingJson(true);
-                  setJsonError(null);
-                }}
-                onChange={(event) => setJsonText(event.target.value)}
-                onBlur={applyJson}
-                spellCheck={false}
-                aria-label="Question JSON"
-                className="min-h-[360px] w-full resize-y rounded-2xl bg-zinc-900 p-4 font-mono text-xs leading-6 text-sky-100 outline-none ring-sky-500 focus:ring-2"
-              />}
+              {!collapsedSections.json && (
+                <textarea
+                  value={isEditingJson ? jsonText : questionJson}
+                  onFocus={() => {
+                    if (!isEditingJson) setJsonText(questionJson);
+                    setIsEditingJson(true);
+                    setJsonError(null);
+                  }}
+                  onChange={(event) => setJsonText(event.target.value)}
+                  onBlur={applyJson}
+                  spellCheck={false}
+                  aria-label="Question JSON"
+                  className="min-h-[360px] w-full resize-y rounded-2xl bg-zinc-900 p-4 font-mono text-xs leading-6 text-sky-100 outline-none ring-sky-500 focus:ring-2"
+                />
+              )}
               {!collapsedSections.json && jsonError && (
                 <p className="mt-3 text-xs text-rose-300">{jsonError}</p>
               )}
-              {!collapsedSections.json && <p className="mt-4 text-xs text-zinc-500">
-                Drafts save automatically in this browser.
-              </p>}
+              {!collapsedSections.json && (
+                <p className="mt-4 text-xs text-zinc-500">
+                  Drafts save automatically in this browser.
+                </p>
+              )}
             </section>
           </div>
         </div>
