@@ -40,6 +40,7 @@ export default function QuizDiagramLabelingCard({
 }: DiagramLabelingCardProps) {
   const diagram = currentQuestion?.diagram;
   const [selectedLabel, setSelectedLabel] = useState<string | null>(null);
+  const [selectedTargetId, setSelectedTargetId] = useState<string | null>(null);
   const [assignments, setAssignments] = useState<Record<string, string>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [labels] = useState(() =>
@@ -53,7 +54,6 @@ export default function QuizDiagramLabelingCard({
 
   if (!currentQuestion || !diagram || diagram.targets.length === 0) return null;
 
-  const isComplete = diagram.targets.every(({ id }) => assignments[id]);
   const isCorrect = diagram.targets.every(
     ({ id, label }) => assignments[id] === label,
   );
@@ -61,18 +61,27 @@ export default function QuizDiagramLabelingCard({
     .map(({ id }) => `${id}: ${assignments[id] ?? "(blank)"}`)
     .join("; ");
 
-  const assignLabel = (targetId: string) => {
-    if (!selectedLabel || isSubmitted) return;
+  const assignLabel = (targetId: string, label: string) => {
+    if (isSubmitted) return;
     setAssignments((previous) => {
       const next = { ...previous };
-      const previousTarget = Object.keys(next).find(
-        (id) => next[id] === selectedLabel,
-      );
+      const previousTarget = Object.keys(next).find((id) => next[id] === label);
       if (previousTarget) delete next[previousTarget];
-      next[targetId] = selectedLabel;
+      delete next[targetId];
+      next[targetId] = label;
       return next;
     });
     setSelectedLabel(null);
+    setSelectedTargetId(null);
+  };
+
+  const handleTargetClick = (targetId: string) => {
+    if (isSubmitted) return;
+    if (selectedLabel) {
+      assignLabel(targetId, selectedLabel);
+      return;
+    }
+    setSelectedTargetId((current) => (current === targetId ? null : targetId));
   };
 
   return (
@@ -90,66 +99,114 @@ export default function QuizDiagramLabelingCard({
           {currentQuestion.question}
         </div>
         <p className="text-sm text-zinc-600 dark:text-zinc-400">
-          Select a label below, then click its numbered box on the diagram.
+          Select a label or numbered box first, then choose its match.
         </p>
 
-        <div className="relative mx-auto w-full max-w-3xl overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800">
-          <img
-            src={diagram.imageUrl}
-            alt={diagram.alt}
-            className="block h-auto w-full"
-          />
-          {diagram.targets.map(({ id, label, x, y, width, height }) => {
-            const assigned = assignments[id];
-            const correct = assigned === label;
-            const isRectangle = width !== undefined && height !== undefined;
-            const stateClasses = isSubmitted
-              ? correct
-                ? "border-emerald-600 bg-white text-emerald-700"
-                : "border-rose-600 bg-white text-rose-700"
-              : assigned
-                ? "border-sky-600 bg-white text-sky-700"
-                : "border-zinc-800 bg-white text-zinc-900 hover:bg-zinc-100";
-            return (
-              <button
-                key={id}
-                type="button"
-                aria-label={`Target ${id}`}
-                disabled={isSubmitted || !selectedLabel}
-                onClick={() => assignLabel(id)}
-                style={{
-                  left: `${x}%`,
-                  top: `${y}%`,
-                  ...(isRectangle
-                    ? { width: `${width}%`, height: `${height}%` }
-                    : { transform: "translate(-50%, -50%)" }),
-                }}
-                className={`absolute grid place-items-center border-2 text-sm font-bold shadow-lg transition disabled:cursor-not-allowed ${isRectangle ? "rounded-md" : "size-9 -translate-x-1/2 -translate-y-1/2 rounded-full"} ${stateClasses}`}
-              >
-                {isRectangle ? (
-                  <span className="absolute right-1 top-1 grid size-6 place-items-center rounded-full border border-current bg-white px-1 text-xs leading-none dark:bg-zinc-950">
-                    {id}
-                  </span>
-                ) : (
-                  id
-                )}
-              </button>
-            );
-          })}
-        </div>
+        <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(220px,280px)] lg:items-start">
+          <div className="relative mx-auto w-full max-w-3xl overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800">
+            <img
+              src={diagram.imageUrl}
+              alt={diagram.alt}
+              className="block h-auto w-full"
+            />
+            {diagram.targets.map(({ id, label, x, y, width, height }) => {
+              const assigned = assignments[id];
+              const correct = assigned === label;
+              const isRectangle = width !== undefined && height !== undefined;
+              const statusClass = correct ? "bg-emerald-600" : "bg-rose-600";
+              const stateClasses = isSubmitted
+                ? correct
+                  ? "border-emerald-600 bg-transparent text-emerald-700"
+                  : "border-rose-600 bg-transparent text-rose-700"
+                : assigned
+                  ? "border-sky-600 bg-white text-sky-700"
+                  : selectedTargetId === id
+                    ? "border-sky-600 bg-sky-100 text-sky-700"
+                    : "border-zinc-800 bg-white text-zinc-900 hover:bg-zinc-100";
+              return (
+                <button
+                  key={id}
+                  type="button"
+                  aria-label={`Target ${id}${isSubmitted ? correct ? ": correct" : assigned ? ": incorrect" : ": missing label" : ""}`}
+                  disabled={isSubmitted}
+                  onClick={() => handleTargetClick(id)}
+                  style={{
+                    left: `${x}%`,
+                    top: `${y}%`,
+                    ...(isRectangle
+                      ? { width: `${width}%`, height: `${height}%` }
+                      : { transform: "translate(-50%, -50%)" }),
+                  }}
+                  className={`absolute grid place-items-center border-2 text-sm font-bold shadow-lg transition disabled:cursor-not-allowed ${isRectangle ? "rounded-md" : "size-9 -translate-x-1/2 -translate-y-1/2 rounded-full"} ${stateClasses}`}
+                >
+                  {isRectangle ? (
+                    <span
+                      className={`absolute -right-2 -top-2 z-10 grid h-5 min-w-5 place-items-center rounded-full border-2 border-white px-1 text-xs font-bold leading-none text-white shadow-sm ${isSubmitted ? statusClass : "bg-sky-600"}`}
+                      title={isSubmitted ? (correct ? "Correct" : assigned ? "Incorrect label" : "Missing label") : undefined}
+                    >
+                      <span aria-hidden="true">{isSubmitted ? (correct ? "✓" : "!") : id}</span>
+                      <span className="sr-only">{isSubmitted ? (correct ? `Target ${id} correct` : assigned ? `Target ${id} incorrect` : `Target ${id} missing label`) : `Target ${id}`}</span>
+                    </span>
+                  ) : (
+                    <>
+                      {id}
+                      {isSubmitted && (
+                        <span
+                          aria-hidden="true"
+                          className={`absolute -right-2 -top-2 grid size-5 place-items-center rounded-full border-2 border-white text-xs leading-none text-white shadow-sm ${statusClass}`}
+                        >
+                          {correct ? "✓" : "!"}
+                        </span>
+                      )}
+                    </>
+                  )}
+                </button>
+              );
+            })}
+          </div>
 
-        <div className="flex flex-wrap gap-2">
-          {labels.map((label) => (
-            <button
-              key={label}
-              type="button"
-              disabled={isSubmitted}
-              onClick={() => setSelectedLabel(label)}
-              className={`rounded-full border px-4 py-2 text-sm font-medium transition ${selectedLabel === label ? "border-sky-500 bg-sky-50 text-sky-800 dark:bg-sky-500/10 dark:text-sky-300" : "border-zinc-200 hover:bg-zinc-50 dark:border-zinc-800 dark:hover:bg-zinc-900"}`}
-            >
-              {label}
-            </button>
-          ))}
+          <aside className="rounded-2xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-900/60 lg:sticky lg:top-4 lg:max-h-[70vh] lg:overflow-y-auto">
+            <div className="mb-3">
+              <h2 className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
+                Available labels
+              </h2>
+              <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
+                Select a label or target first, then choose its match.
+              </p>
+            </div>
+            <div className="flex flex-col gap-2">
+              {labels.map((label) => {
+                const assignedTargetId = Object.entries(assignments).find(
+                  ([, assignedLabel]) => assignedLabel === label,
+                )?.[0];
+                const isUsed = assignedTargetId !== undefined;
+                return (
+                  <button
+                    key={label}
+                    type="button"
+                    disabled={isSubmitted}
+                    onClick={() => {
+                      if (selectedTargetId) {
+                        assignLabel(selectedTargetId, label);
+                      } else {
+                        setSelectedLabel((current) =>
+                          current === label ? null : label,
+                        );
+                      }
+                    }}
+                    className={`inline-flex w-full items-center justify-between gap-2 rounded-xl border px-3 py-2 text-left text-sm font-medium transition ${selectedLabel === label ? "border-sky-500 bg-sky-50 text-sky-800 dark:bg-sky-500/10 dark:text-sky-300" : isUsed ? "border-emerald-300 bg-emerald-50 text-emerald-800 dark:border-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300" : "border-zinc-200 bg-white hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-900"}`}
+                  >
+                    <span>{label}</span>
+                    {isUsed && (
+                      <span className="grid size-5 shrink-0 place-items-center rounded-full bg-emerald-600 text-xs font-bold text-white">
+                        {assignedTargetId}
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </aside>
         </div>
 
         {isSubmitted && (
@@ -157,9 +214,20 @@ export default function QuizDiagramLabelingCard({
             {diagram.targets.map(({ id, label }) => (
               <p
                 key={id}
-                className={`rounded-lg p-2 text-sm ${assignments[id] === label ? "bg-emerald-50 text-emerald-800 dark:bg-emerald-500/10 dark:text-emerald-300" : "bg-rose-50 text-rose-800 dark:bg-rose-500/10 dark:text-rose-300"}`}
+                className={`flex items-center gap-2 rounded-lg p-2 text-sm ${assignments[id] === label ? "bg-emerald-50 text-emerald-800 dark:bg-emerald-500/10 dark:text-emerald-300" : "bg-rose-50 text-rose-800 dark:bg-rose-500/10 dark:text-rose-300"}`}
               >
-                {id}. {label}
+                <span
+                  aria-hidden="true"
+                  className={`grid size-5 shrink-0 place-items-center rounded-full text-xs font-bold text-white ${assignments[id] === label ? "bg-emerald-600" : "bg-rose-600"}`}
+                >
+                  {assignments[id] === label ? "✓" : "!"}
+                </span>
+                <span>
+                  {id}. {assignments[id] ? `You chose: ${assignments[id]}` : "Missing label"}
+                  {assignments[id] !== label && (
+                    <span className="block text-xs opacity-80">Correct: {label}</span>
+                  )}
+                </span>
               </p>
             ))}
           </div>
@@ -192,9 +260,8 @@ export default function QuizDiagramLabelingCard({
             </button>
             <button
               type="button"
-              disabled={!isComplete}
               onClick={() => setIsSubmitted(true)}
-              className="rounded-full bg-sky-600 px-5 py-2 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-40"
+              className="rounded-full bg-sky-600 px-5 py-2 text-sm font-semibold text-white"
             >
               Check labels
             </button>
