@@ -7,7 +7,12 @@ import QuizMultipleChoiceCard from "@/app/components/flashcards/QuizMultipleChoi
 import QuizSummary from "@/app/components/flashcards/QuizSummary";
 import { QuizResponse } from "@/app/components/flashcards/types";
 import { courses } from "@/app/lib/courses/courses";
-import { useParams, usePathname, useRouter, useSearchParams } from "next/navigation";
+import {
+  useParams,
+  usePathname,
+  useRouter,
+  useSearchParams,
+} from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import FlaggedToggle from "./components/FlaggedToggle";
 import NotFoundCourse from "./components/NotFoundCourse";
@@ -35,9 +40,10 @@ export default function StudyPage() {
   const sectionIdsParam = searchParams.get("sectionIds");
   const startFresh = searchParams.get("fresh") === "true";
   const resetToken = searchParams.get("reset");
-  const sectionIds = sectionIdsParam === null
-    ? null
-    : sectionIdsParam.split(",").filter(Boolean);
+  const sectionIds =
+    sectionIdsParam === null
+      ? null
+      : sectionIdsParam.split(",").filter(Boolean);
   const includeChapterQuestions = searchParams.get("includeMain") !== "false";
   const quizQuestions = useQuizQuestions({
     courseId,
@@ -50,30 +56,60 @@ export default function StudyPage() {
     shuffleEnabled,
   });
   const quizStorageKey = useMemo(
-    () => [
-      "quiz-progress", String(courseId), unitId ?? "", chapterId ?? "",
-      sectionId ?? "", sectionIndex ?? "", shuffleEnabled ? "shuffle" : "ordered",
-      sectionIdsParam ?? "", includeChapterQuestions ? "main" : "sections-only",
-      flaggedOnly ? "flagged" : "all",
-    ].join("|"),
-    [courseId, unitId, chapterId, sectionId, sectionIndex, sectionIdsParam, includeChapterQuestions, shuffleEnabled, flaggedOnly],
+    () =>
+      [
+        "quiz-progress",
+        String(courseId),
+        unitId ?? "",
+        chapterId ?? "",
+        sectionId ?? "",
+        sectionIndex ?? "",
+        shuffleEnabled ? "shuffle" : "ordered",
+        sectionIdsParam ?? "",
+        includeChapterQuestions ? "main" : "sections-only",
+        flaggedOnly ? "flagged" : "all",
+      ].join("|"),
+    [
+      courseId,
+      unitId,
+      chapterId,
+      sectionId,
+      sectionIndex,
+      sectionIdsParam,
+      includeChapterQuestions,
+      shuffleEnabled,
+      flaggedOnly,
+    ],
   );
-  const [orderedQuestionIds, setOrderedQuestionIds] = useState<string[] | null>(null);
-  const [retryQuestionIds, setRetryQuestionIds] = useState<string[] | null>(null);
+  const [orderedQuestionIds, setOrderedQuestionIds] = useState<string[] | null>(
+    null,
+  );
+  const [retryQuestionIds, setRetryQuestionIds] = useState<string[] | null>(
+    null,
+  );
   const [restoredKey, setRestoredKey] = useState<string | null>(null);
   const [resetVersion, setResetVersion] = useState(0);
   const orderedQuizQuestions = useMemo(() => {
     if (!orderedQuestionIds) return quizQuestions;
-    const byId = new Map(quizQuestions.map((question) => [question.id, question]));
+    const byId = new Map(
+      quizQuestions.map((question) => [question.id, question]),
+    );
     return [
-      ...orderedQuestionIds.map((id) => byId.get(id)).filter((question): question is NonNullable<typeof question> => Boolean(question)),
-      ...quizQuestions.filter((question) => !orderedQuestionIds.includes(question.id)),
+      ...orderedQuestionIds
+        .map((id) => byId.get(id))
+        .filter((question): question is NonNullable<typeof question> =>
+          Boolean(question),
+        ),
+      ...quizQuestions.filter(
+        (question) => !orderedQuestionIds.includes(question.id),
+      ),
     ];
   }, [orderedQuestionIds, quizQuestions]);
   const filteredQuizQuestions = useMemo(() => {
-    const available = flaggedOnly && flaggedIds
-      ? orderedQuizQuestions.filter((q) => flaggedIds.includes(q.id))
-      : orderedQuizQuestions;
+    const available =
+      flaggedOnly && flaggedIds
+        ? orderedQuizQuestions.filter((q) => flaggedIds.includes(q.id))
+        : orderedQuizQuestions;
     return retryQuestionIds
       ? available.filter((question) => retryQuestionIds.includes(question.id))
       : available;
@@ -84,12 +120,19 @@ export default function StudyPage() {
   const [responses, setResponses] = useState<QuizResponse[]>([]);
   const [quizComplete, setQuizComplete] = useState(false);
   const [hintVisible, setHintVisible] = useState(false);
-  const urlQuestionIndex = !resetToken && questionId
-    ? filteredQuizQuestions.findIndex((question) => question.id === questionId)
-    : -1;
-  const currentIndex = urlQuestionIndex >= 0
-    ? urlQuestionIndex
-    : Math.min(currentIndexState, Math.max(filteredQuizQuestions.length - 1, 0));
+  const urlQuestionIndex =
+    !resetToken && questionId
+      ? filteredQuizQuestions.findIndex(
+          (question) => question.id === questionId,
+        )
+      : -1;
+  const currentIndex =
+    urlQuestionIndex >= 0
+      ? urlQuestionIndex
+      : Math.min(
+          currentIndexState,
+          Math.max(filteredQuizQuestions.length - 1, 0),
+        );
   const isRestored = restoredKey === quizStorageKey;
 
   /* eslint-disable react-hooks/set-state-in-effect -- hydrate the client-only quiz session once. */
@@ -100,10 +143,34 @@ export default function StudyPage() {
         localStorage.removeItem(quizStorageKey);
       }
       const saved = JSON.parse(localStorage.getItem(quizStorageKey) || "null");
-      setOrderedQuestionIds(startFresh ? null : Array.isArray(saved?.questionIds) ? saved.questionIds : null);
-      setRetryQuestionIds(startFresh ? null : Array.isArray(saved?.retryQuestionIds) ? saved.retryQuestionIds : null);
-      setCurrentIndex(startFresh ? 0 : typeof saved?.currentIndex === "number" ? saved.currentIndex : 0);
-      setResponses(startFresh ? [] : Array.isArray(saved?.responses) ? saved.responses : []);
+      setOrderedQuestionIds(
+        startFresh
+          ? null
+          : Array.isArray(saved?.questionIds)
+            ? saved.questionIds
+            : null,
+      );
+      setRetryQuestionIds(
+        startFresh
+          ? null
+          : Array.isArray(saved?.retryQuestionIds)
+            ? saved.retryQuestionIds
+            : null,
+      );
+      setCurrentIndex(
+        startFresh
+          ? 0
+          : typeof saved?.currentIndex === "number"
+            ? saved.currentIndex
+            : 0,
+      );
+      setResponses(
+        startFresh
+          ? []
+          : Array.isArray(saved?.responses)
+            ? saved.responses
+            : [],
+      );
       setQuizComplete(startFresh ? false : saved?.quizComplete === true);
     } catch {
       setOrderedQuestionIds(null);
@@ -116,21 +183,42 @@ export default function StudyPage() {
     if (startFresh) {
       const nextParams = new URLSearchParams(searchParams.toString());
       nextParams.delete("fresh");
-      router.replace(`${pathname}?${nextParams.toString()}`, { scroll: false });
+      router.push(`${pathname}?${nextParams.toString()}`, { scroll: false });
     }
-  }, [pathname, quizStorageKey, quizQuestions.length, router, searchParams, startFresh]);
+  }, [
+    pathname,
+    quizStorageKey,
+    quizQuestions.length,
+    router,
+    searchParams,
+    startFresh,
+  ]);
   /* eslint-enable react-hooks/set-state-in-effect */
 
   useEffect(() => {
     if (!isRestored || filteredQuizQuestions.length === 0) return;
-    localStorage.setItem(quizStorageKey, JSON.stringify({
-      questionIds: orderedQuestionIds ?? quizQuestions.map((question) => question.id),
-      retryQuestionIds,
-      currentIndex,
-      responses,
-      quizComplete,
-    }));
-  }, [isRestored, quizStorageKey, orderedQuestionIds, quizQuestions, retryQuestionIds, currentIndex, responses, quizComplete, filteredQuizQuestions.length]);
+    localStorage.setItem(
+      quizStorageKey,
+      JSON.stringify({
+        questionIds:
+          orderedQuestionIds ?? quizQuestions.map((question) => question.id),
+        retryQuestionIds,
+        currentIndex,
+        responses,
+        quizComplete,
+      }),
+    );
+  }, [
+    isRestored,
+    quizStorageKey,
+    orderedQuestionIds,
+    quizQuestions,
+    retryQuestionIds,
+    currentIndex,
+    responses,
+    quizComplete,
+    filteredQuizQuestions.length,
+  ]);
 
   useEffect(() => {
     if (filteredQuizQuestions.length === 0) return;
@@ -139,16 +227,24 @@ export default function StudyPage() {
       const nextParams = new URLSearchParams(searchParams.toString());
       nextParams.delete("reset");
       nextParams.set("questionId", filteredQuizQuestions[0].id);
-      router.replace(`${pathname}?${nextParams.toString()}`, { scroll: false });
+      router.push(`${pathname}?${nextParams.toString()}`, { scroll: false });
       return;
     }
 
     if (filteredQuizQuestions[currentIndex]?.id !== questionId) {
       const nextParams = new URLSearchParams(searchParams.toString());
       nextParams.set("questionId", filteredQuizQuestions[currentIndex].id);
-      router.replace(`${pathname}?${nextParams.toString()}`, { scroll: false });
+      router.push(`${pathname}?${nextParams.toString()}`, { scroll: false });
     }
-  }, [currentIndex, filteredQuizQuestions, pathname, questionId, resetToken, router, searchParams]);
+  }, [
+    currentIndex,
+    filteredQuizQuestions,
+    pathname,
+    questionId,
+    resetToken,
+    router,
+    searchParams,
+  ]);
 
   const selectedCourse = useMemo(
     () => courses.find((course) => course.id === courseId) ?? null,
@@ -194,7 +290,7 @@ export default function StudyPage() {
     if (filteredQuizQuestions[nextIndex]?.id) {
       const nextParams = new URLSearchParams(searchParams.toString());
       nextParams.set("questionId", filteredQuizQuestions[nextIndex].id);
-      router.replace(`${pathname}?${nextParams.toString()}`, { scroll: false });
+      router.push(`${pathname}?${nextParams.toString()}`, { scroll: false });
     }
     setCardFlipped(false);
     setHintVisible(false);
@@ -218,10 +314,16 @@ export default function StudyPage() {
     const nextParams = new URLSearchParams(searchParams.toString());
     nextParams.delete("questionId");
     nextParams.set("reset", Date.now().toString());
-    router.replace(`${pathname}?${nextParams.toString()}`, { scroll: false });
+    router.push(`${pathname}?${nextParams.toString()}`, { scroll: false });
   };
   const retryFailedQuestions = () => {
-    const failedIds = [...new Set(responses.filter((response) => !response.correct).map((response) => response.questionId))];
+    const failedIds = [
+      ...new Set(
+        responses
+          .filter((response) => !response.correct)
+          .map((response) => response.questionId),
+      ),
+    ];
     if (failedIds.length === 0) return;
     setRetryQuestionIds(failedIds);
     setCurrentIndex(0);
@@ -230,7 +332,7 @@ export default function StudyPage() {
     resetQuestion();
     const nextParams = new URLSearchParams(searchParams.toString());
     nextParams.delete("questionId");
-    router.replace(`${pathname}?${nextParams.toString()}`, { scroll: false });
+    router.push(`${pathname}?${nextParams.toString()}`, { scroll: false });
   };
   if (!selectedCourse) {
     return <NotFoundCourse onChangeCourse={handleChangeCourse} />;
@@ -278,20 +380,28 @@ export default function StudyPage() {
               currentQuestion={currentQuestion}
               currentIndex={currentIndex}
               totalQuestions={totalQuestions}
-              correctCount={responses.filter((response) => response.correct).length}
+              correctCount={
+                responses.filter((response) => response.correct).length
+              }
               onAnswer={(correct, userAnswer) => {
                 if (!currentQuestion) return;
                 setResponses((prev) => [
                   ...prev,
                   { questionId: currentQuestion.id, userAnswer, correct },
                 ]);
-                recordQuestionResult(QUESTION_STATS_KEY, currentQuestion.id, correct);
+                recordQuestionResult(
+                  QUESTION_STATS_KEY,
+                  currentQuestion.id,
+                  correct,
+                );
                 moveToNextQuestion();
               }}
               hintVisible={hintVisible}
               onToggleHint={() => setHintVisible((prev) => !prev)}
               isFlagged={flaggedIds.includes(currentQuestion.id)}
-              onClickFlag={(flag: boolean) => handleToggleFlag(currentQuestion.id, flag)}
+              onClickFlag={(flag: boolean) =>
+                handleToggleFlag(currentQuestion.id, flag)
+              }
             />
           ) : isMatchingQuestion ? (
             <QuizMatchingCard
@@ -299,20 +409,28 @@ export default function StudyPage() {
               currentQuestion={currentQuestion}
               currentIndex={currentIndex}
               totalQuestions={totalQuestions}
-              correctCount={responses.filter((response) => response.correct).length}
+              correctCount={
+                responses.filter((response) => response.correct).length
+              }
               onAnswer={(correct, userAnswer) => {
                 if (!currentQuestion) return;
                 setResponses((prev) => [
                   ...prev,
                   { questionId: currentQuestion.id, userAnswer, correct },
                 ]);
-                recordQuestionResult(QUESTION_STATS_KEY, currentQuestion.id, correct);
+                recordQuestionResult(
+                  QUESTION_STATS_KEY,
+                  currentQuestion.id,
+                  correct,
+                );
                 moveToNextQuestion();
               }}
               hintVisible={hintVisible}
               onToggleHint={() => setHintVisible((prev) => !prev)}
               isFlagged={flaggedIds.includes(currentQuestion.id)}
-              onClickFlag={(flag: boolean) => handleToggleFlag(currentQuestion.id, flag)}
+              onClickFlag={(flag: boolean) =>
+                handleToggleFlag(currentQuestion.id, flag)
+              }
             />
           ) : isMultipleChoiceQuestion ? (
             <QuizMultipleChoiceCard
