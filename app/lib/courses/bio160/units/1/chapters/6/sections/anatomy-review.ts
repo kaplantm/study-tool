@@ -344,8 +344,8 @@ const questions: Questions = [
 
 export const ch6AnatomyReviewSection: Section = {
   id: "bio160-2-1",
-  title: "Matchin Section",
-  description: "e.g. matching questions",
+  title: "Anatomy Review",
+  description: "Anatomy Review",
   number: 1,
   type: "section",
   questions,

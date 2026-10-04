@@ -67,6 +67,8 @@ export function useQuizQuestions({
   chapterId,
   sectionId,
   sectionIndex,
+  sectionIds,
+  includeChapterQuestions,
   shuffleEnabled,
 }: {
   courseId: string | string[] | undefined;
@@ -74,6 +76,8 @@ export function useQuizQuestions({
   chapterId?: string | null;
   sectionId?: string | null;
   sectionIndex?: string | null;
+  sectionIds?: string[] | null;
+  includeChapterQuestions?: boolean;
   shuffleEnabled: boolean;
 }) {
   const collectQuestionsFromChapter = useCallback(
@@ -147,7 +151,16 @@ export function useQuizQuestions({
       for (const unit of course.units) {
         const chapter = unit.chapters.find((ch) => ch.id === chapterId);
         if (chapter) {
-          questions = collectQuestionsFromChapter(chapter);
+          if (sectionIds === null || sectionIds === undefined) {
+            questions = collectQuestionsFromChapter(chapter);
+          } else {
+            questions = [
+              ...(includeChapterQuestions ? withIds(chapter.questions) : []),
+              ...chapter.sections
+                .filter((section) => sectionIds.includes(section.id))
+                .flatMap((section) => withIds(section.questions)),
+            ];
+          }
           break;
         }
       }
@@ -166,6 +179,8 @@ export function useQuizQuestions({
     chapterId,
     sectionId,
     sectionIndex,
+    sectionIds,
+    includeChapterQuestions,
     shuffleEnabled,
     collectQuestionsFromChapter,
     collectQuestionsFromCourse,

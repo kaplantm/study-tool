@@ -23,6 +23,8 @@ export default function StudyPage() {
   const [selectedChapterId, setSelectedChapterId] = useState<string | null>(
     null,
   );
+  const [selectedSectionIds, setSelectedSectionIds] = useState<string[]>([]);
+  const [includeChapterQuestions, setIncludeChapterQuestions] = useState(true);
   const [selectedSectionId, setSelectedSectionId] = useState<string | null>(
     null,
   );
@@ -64,6 +66,8 @@ export default function StudyPage() {
     setStudyMode(mode);
     setSelectedUnitId(null);
     setSelectedChapterId(null);
+    setSelectedSectionIds([]);
+    setIncludeChapterQuestions(true);
     setSelectedSectionId(null);
   };
 
@@ -71,11 +75,15 @@ export default function StudyPage() {
     chapterId,
     sectionId,
     sectionIndex,
+    sectionIds,
+    includeChapterQuestions,
     unitId,
   }: {
     chapterId?: string;
     sectionId?: string;
     sectionIndex?: number;
+    sectionIds?: string[];
+    includeChapterQuestions?: boolean;
     unitId?: string;
   } = {}) => {
     if (!selectedCourse) return;
@@ -84,6 +92,13 @@ export default function StudyPage() {
       chapterId: chapterId ?? "",
       sectionId: sectionId ?? "",
       sectionIndex: sectionIndex?.toString() ?? "",
+      sectionIds: sectionIds?.join(",") ?? "",
+      includeMain: includeChapterQuestions === undefined
+        ? ""
+        : includeChapterQuestions
+          ? "true"
+          : "false",
+      fresh: "true",
       shuffle: shuffleEnabled ? "true" : "false",
     };
     const queryString = new URLSearchParams(params).toString();
@@ -161,8 +176,28 @@ export default function StudyPage() {
                 options={chapterOptions}
                 selectedChapterId={selectedChapterId}
                 onSelectChapter={(option) => {
+                  setSelectedChapterId(option.chapter.id);
+                  setSelectedSectionIds(option.chapter.sections.map((section) => section.id));
+                  setIncludeChapterQuestions(true);
+                }}
+                selectedSectionIds={selectedSectionIds}
+                includeChapterQuestions={includeChapterQuestions}
+                onToggleSection={(sectionId) => {
+                  setSelectedSectionIds((current) =>
+                    current.includes(sectionId)
+                      ? current.filter((id) => id !== sectionId)
+                      : [...current, sectionId],
+                  );
+                }}
+                onToggleChapterQuestions={() =>
+                  setIncludeChapterQuestions((current) => !current)
+                }
+                onStartQuiz={() => {
+                  if (!selectedChapterId) return;
                   startQuiz({
-                    chapterId: option.chapter.id,
+                    chapterId: selectedChapterId,
+                    sectionIds: selectedSectionIds,
+                    includeChapterQuestions,
                   });
                 }}
               />
