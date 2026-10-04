@@ -4,6 +4,8 @@ import { DiagramLabelTarget, Question } from "@/app/types";
 import Link from "next/link";
 import {
   ChangeEvent,
+  memo,
+  useCallback,
   useDeferredValue,
   useEffect,
   useMemo,
@@ -42,6 +44,39 @@ const emptyDraft: BuilderDraft = {
 };
 
 const roundCoordinate = (value: number) => Math.round(value * 10) / 10;
+
+type TargetLabelInputProps = {
+  targetId: string;
+  label: string;
+  placeholder: string;
+  onFocusTarget: (id: string) => void;
+  onCommit: (id: string, label: string) => void;
+};
+
+const TargetLabelInput = memo(function TargetLabelInput({
+  targetId,
+  label,
+  placeholder,
+  onFocusTarget,
+  onCommit,
+}: TargetLabelInputProps) {
+  const [value, setValue] = useState(label);
+
+  useEffect(() => {
+    setValue(label);
+  }, [label]);
+
+  return (
+    <input
+      value={value}
+      onFocus={() => onFocusTarget(targetId)}
+      onChange={(event) => setValue(event.target.value)}
+      onBlur={() => onCommit(targetId, value)}
+      placeholder={placeholder}
+      className="mt-1 w-full rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm outline-none ring-sky-500 focus:ring-2"
+    />
+  );
+});
 
 export default function DiagramBuilderPage() {
   const [draft, setDraft] = useState<BuilderDraft>(emptyDraft);
@@ -191,14 +226,28 @@ export default function DiagramBuilderPage() {
     setFirstCorner(null);
   };
 
-  const updateTarget = (id: string, changes: Partial<DiagramLabelTarget>) => {
-    setDraft((current) => ({
-      ...current,
-      targets: current.targets.map((target) =>
-        target.id === id ? { ...target, ...changes } : target,
-      ),
-    }));
-  };
+  const updateTarget = useCallback(
+    (id: string, changes: Partial<DiagramLabelTarget>) => {
+      setDraft((current) => ({
+        ...current,
+        targets: current.targets.map((target) =>
+          target.id === id ? { ...target, ...changes } : target,
+        ),
+      }));
+    },
+    [],
+  );
+
+  const commitTargetLabel = useCallback(
+    (id: string, label: string) => {
+      updateTarget(id, { label });
+    },
+    [updateTarget],
+  );
+
+  const selectTarget = useCallback((id: string) => {
+    setSelectedId(id);
+  }, []);
 
   const applyJson = () => {
     try {
@@ -351,13 +400,13 @@ export default function DiagramBuilderPage() {
                     </button>
                   ) : (
                     <div
-                      className="relative mx-auto w-full cursor-crosshair overflow-visible rounded-2xl border border-zinc-200 bg-zinc-100"
+                      className="relative mx-auto w-fit max-w-full cursor-crosshair overflow-visible rounded-2xl border border-zinc-200 bg-zinc-100"
                       onClick={handleImageClick}
                     >
                       <img
                         src={draft.imageUrl}
                         alt={draft.alt || "Diagram preview"}
-                        className="block h-auto max-h-[680px] w-full rounded-2xl object-contain"
+                        className="block h-auto max-h-[680px] max-w-full rounded-2xl object-contain"
                       />
                       {firstCorner && (
                         <span
@@ -479,21 +528,12 @@ export default function DiagramBuilderPage() {
                           <label className="mt-3 block text-xs font-bold uppercase tracking-wide text-zinc-500">
                             Answer label
                           </label>
-                          <input
-                            value={target.label}
-                            onFocus={() => setSelectedId(target.id)}
-                            onChange={(event) =>
-                              updateTarget(target.id, {
-                                label: event.target.value,
-                              })
-                            }
-                            onBlur={(event) =>
-                              updateTarget(target.id, {
-                                label: event.currentTarget.value,
-                              })
-                            }
+                          <TargetLabelInput
+                            targetId={target.id}
+                            label={target.label}
+                            onFocusTarget={selectTarget}
+                            onCommit={commitTargetLabel}
                             placeholder={`e.g. ${index === 0 ? "Mitochondrion" : "Cell membrane"}`}
-                            className="mt-1 w-full rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm outline-none ring-sky-500 focus:ring-2"
                           />
                           <p className="mt-2 text-xs text-zinc-500">
                             Box: {target.width}% wide × {target.height}% high

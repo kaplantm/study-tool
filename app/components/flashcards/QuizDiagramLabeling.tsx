@@ -39,12 +39,12 @@ export default function QuizDiagramLabelingCard({
   onClickFlag,
 }: DiagramLabelingCardProps) {
   const diagram = currentQuestion?.diagram;
-  const [selectedLabel, setSelectedLabel] = useState<string | null>(null);
+  const [selectedLabelId, setSelectedLabelId] = useState<string | null>(null);
   const [selectedTargetId, setSelectedTargetId] = useState<string | null>(null);
   const [assignments, setAssignments] = useState<Record<string, string>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [labels] = useState(() =>
-    shuffle(diagram?.targets.map(({ label }) => label) ?? []),
+    shuffle(diagram?.targets.map((el) => el) ?? []),
   );
 
   const correctPercent = useMemo(() => {
@@ -54,31 +54,37 @@ export default function QuizDiagramLabelingCard({
 
   if (!currentQuestion || !diagram || diagram.targets.length === 0) return null;
 
-  const isCorrect = diagram.targets.every(
-    ({ id, label }) => assignments[id] === label,
-  );
+  const isCorrect = diagram.targets.every(({ id }) => assignments[id] === id);
   const answerText = diagram.targets
-    .map(({ id }) => `${id}: ${assignments[id] ?? "(blank)"}`)
+    .map(({ id }) => {
+      const assignedLabelId = assignments[id];
+      const assignedLabel = diagram.targets.find(
+        ({ id: labelId }) => labelId === assignedLabelId,
+      )?.label;
+      return `${id}: ${assignedLabel ?? "(blank)"}`;
+    })
     .join("; ");
 
-  const assignLabel = (targetId: string, label: string) => {
+  const assignLabel = (targetId: string, labelId: string) => {
     if (isSubmitted) return;
     setAssignments((previous) => {
       const next = { ...previous };
-      const previousTarget = Object.keys(next).find((id) => next[id] === label);
+      const previousTarget = Object.keys(next).find(
+        (id) => next[id] === labelId,
+      );
       if (previousTarget) delete next[previousTarget];
       delete next[targetId];
-      next[targetId] = label;
+      next[targetId] = labelId;
       return next;
     });
-    setSelectedLabel(null);
+    setSelectedLabelId(null);
     setSelectedTargetId(null);
   };
 
   const handleTargetClick = (targetId: string) => {
     if (isSubmitted) return;
-    if (selectedLabel) {
-      assignLabel(targetId, selectedLabel);
+    if (selectedLabelId) {
+      assignLabel(targetId, selectedLabelId);
       return;
     }
     setSelectedTargetId((current) => (current === targetId ? null : targetId));
@@ -101,17 +107,16 @@ export default function QuizDiagramLabelingCard({
         <p className="text-sm text-zinc-600 dark:text-zinc-400">
           Select a label or numbered box first, then choose its match.
         </p>
-
-        <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(220px,280px)] lg:items-start">
-          <div className="relative mx-auto w-full max-w-3xl overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800">
+        <div className="flex flex-col gap-5">
+          <div className="relative mx-auto w-fit max-w-full overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800">
             <img
               src={diagram.imageUrl}
               alt={diagram.alt}
-              className="block h-auto w-full"
+              className="block h-auto max-h-[680px] max-w-full rounded-2xl object-contain"
             />
-            {diagram.targets.map(({ id, label, x, y, width, height }) => {
+            {diagram.targets.map(({ id, x, y, width, height }) => {
               const assigned = assignments[id];
-              const correct = assigned === label;
+              const correct = assigned === id;
               const isRectangle = width !== undefined && height !== undefined;
               const statusClass = correct ? "bg-emerald-600" : "bg-rose-600";
               const stateClasses = isSubmitted
@@ -156,7 +161,7 @@ export default function QuizDiagramLabelingCard({
             })}
           </div>
 
-          <aside className="rounded-2xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-900/60 lg:sticky lg:top-4 lg:max-h-[70vh] lg:overflow-y-auto">
+          <aside className="w-full max-h-[400px] overflow-y-auto rounded-2xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-900/60">
             <div className="mb-3">
               <h2 className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
                 Available labels
@@ -166,34 +171,31 @@ export default function QuizDiagramLabelingCard({
               </p>
             </div>
             <div className="flex flex-col gap-2">
-              {labels.map((label) => {
+              {labels.map(({ label, id }) => {
                 const assignedTargetId = Object.entries(assignments).find(
-                  ([, assignedLabel]) => assignedLabel === label,
+                  ([, assignedLabelId]) => assignedLabelId === id,
                 )?.[0];
                 const isUsed = assignedTargetId !== undefined;
-                const isCorrectlyPlaced = diagram.targets.some(
-                  ({ id, label: targetLabel }) =>
-                    id === assignedTargetId && targetLabel === label,
-                );
+                const isCorrectlyPlaced = assignedTargetId === id;
                 const labelStatusClass = isCorrectlyPlaced
                   ? "border-emerald-300 bg-emerald-50 text-emerald-800 dark:border-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300"
                   : "border-rose-300 bg-rose-50 text-rose-800 dark:border-rose-700 dark:bg-rose-500/10 dark:text-rose-300";
                 return (
                   <button
-                    key={label}
+                    key={id}
                     type="button"
                     disabled={isSubmitted}
                     aria-label={`${label}${isSubmitted && isUsed ? (isCorrectlyPlaced ? ": correct" : ": incorrect") : ""}`}
                     onClick={() => {
                       if (selectedTargetId) {
-                        assignLabel(selectedTargetId, label);
+                        assignLabel(selectedTargetId, id);
                       } else {
-                        setSelectedLabel((current) =>
-                          current === label ? null : label,
+                        setSelectedLabelId((current) =>
+                          current === id ? null : id,
                         );
                       }
                     }}
-                    className={`inline-flex w-full items-center justify-between gap-2 rounded-xl border px-3 py-2 text-left text-sm font-medium transition ${selectedLabel === label ? "border-sky-500 bg-sky-50 text-sky-800 dark:bg-sky-500/10 dark:text-sky-300" : isSubmitted && isUsed ? labelStatusClass : isUsed ? "border-emerald-300 bg-emerald-50 text-emerald-800 dark:border-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300" : "border-zinc-200 bg-white hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-900"}`}
+                    className={`inline-flex w-full items-center justify-between gap-2 rounded-xl border px-3 py-2 text-left text-sm font-medium transition ${selectedLabelId === id ? "border-sky-500 bg-sky-50 text-sky-800 dark:bg-sky-500/10 dark:text-sky-300" : isSubmitted && isUsed ? labelStatusClass : isUsed ? "border-emerald-300 bg-emerald-50 text-emerald-800 dark:border-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300" : "border-zinc-200 bg-white hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-900"}`}
                   >
                     <span>{label}</span>
                     {isUsed && (
@@ -215,20 +217,20 @@ export default function QuizDiagramLabelingCard({
             {diagram.targets.map(({ id, label }) => (
               <p
                 key={id}
-                className={`flex items-center gap-2 rounded-lg p-2 text-sm ${assignments[id] === label ? "bg-emerald-50 text-emerald-800 dark:bg-emerald-500/10 dark:text-emerald-300" : "bg-rose-50 text-rose-800 dark:bg-rose-500/10 dark:text-rose-300"}`}
+                className={`flex items-center gap-2 rounded-lg p-2 text-sm ${assignments[id] === id ? "bg-emerald-50 text-emerald-800 dark:bg-emerald-500/10 dark:text-emerald-300" : "bg-rose-50 text-rose-800 dark:bg-rose-500/10 dark:text-rose-300"}`}
               >
                 <span
                   aria-hidden="true"
-                  className={`grid size-5 shrink-0 place-items-center rounded-full text-xs font-bold text-white ${assignments[id] === label ? "bg-emerald-600" : "bg-rose-600"}`}
+                  className={`grid size-5 shrink-0 place-items-center rounded-full text-xs font-bold text-white ${assignments[id] === id ? "bg-emerald-600" : "bg-rose-600"}`}
                 >
-                  {assignments[id] === label ? "✓" : "!"}
+                  {assignments[id] === id ? "✓" : "!"}
                 </span>
                 <span>
                   {id}.{" "}
                   {assignments[id]
-                    ? `You chose: ${assignments[id]}`
+                    ? `You chose: ${diagram.targets.find(({ id: labelId }) => labelId === assignments[id])?.label ?? "Unknown label"}`
                     : "Missing label"}
-                  {assignments[id] !== label && (
+                  {assignments[id] !== id && (
                     <span className="block text-xs opacity-80">
                       Correct: {label}
                     </span>
