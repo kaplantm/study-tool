@@ -9,7 +9,7 @@ const questions: Questions = [
       alt: "Adult Blood Pressure Guidelines",
       targets: [
         {
-          id: "1",
+          id: "s3-1",
           label: "Below 120/80mm Hg",
           x: 47.7,
           y: 40.5,
@@ -17,7 +17,7 @@ const questions: Questions = [
           height: 10.7,
         },
         {
-          id: "2",
+          id: "s3-2",
           label: "120/80 to 139/89 mm Hg",
           x: 48.3,
           y: 54.1,
@@ -25,7 +25,7 @@ const questions: Questions = [
           height: 9.1,
         },
         {
-          id: "3",
+          id: "s3-3",
           label: "140/90 to 159/99 mm Hg",
           x: 48.4,
           y: 67.4,
@@ -33,7 +33,7 @@ const questions: Questions = [
           height: 8.4,
         },
         {
-          id: "4",
+          id: "s3-4",
           label: "160/100 mm Hg",
           x: 48.4,
           y: 79.6,
@@ -46,7 +46,7 @@ const questions: Questions = [
 ];
 
 export const ch6DiagramsSection: Section = {
-  id: "bio160-6-diagrams",
+  id: "s3-bio160-6-diagrams",
   title: "Diagrams",
   description: "eDiagrams",
   number: 1,

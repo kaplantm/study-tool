@@ -445,6 +445,63 @@ export const bio160Chapter6: Chapter = {
       tags: ["hypertension"],
     },
     {
+      id: "ch6-42",
+      question:
+        "Which blood vessel has the ability to change its diameter to dilate and contract in order to alter blood flow to the tissues?",
+      options: ["Venule", "Aorta", "Arteriole", "Capillary"],
+      answer: "Arteriole",
+      tags: ["blood vessels"],
+    },
+    {
+      id: "ch6-43",
+      question: "Which statement is accurate regarding the cardiac cycle?",
+      options: [
+        "Diastole is the refilling of the heart chambers upon contraction.",
+        "The alternating relaxation and contraction of the atria and ventricles comprise the cardiac cycle.",
+        "Systole is the relaxation of the heart chambers.",
+        "One cardiac cycle takes approximately eight seconds.",
+      ],
+      answer:
+        "The alternating relaxation and contraction of the atria and ventricles comprise the cardiac cycle.",
+      tags: ["cardiac cycle"],
+    },
+    {
+      id: "ch6-44",
+      question: "What is the primary symptom of peripheral arterial disease?",
+      options: [
+        "Ulcers on the lower extremities",
+        "Lower leg pulse faint or absent",
+        "Feet are cold to touch",
+        "Intermittent claudication",
+      ],
+      answer: "Intermittent claudication",
+      tags: ["peripheral arterial disease"],
+    },
+    {
+      id: "ch6-45",
+      question: "What are the signs and symptoms of coronary artery disease?",
+      options: [
+        "Dyspnea, orthopnea, weakness, fatigue, ascites, and peripheral edema",
+        "Angina pectoris, palpitations, and myocardial infarction",
+        "Fever, chest pain, shortness of breath, and tachycardia",
+        "Fever, inflammation of the joints, and rash",
+      ],
+      answer: "Angina pectoris, palpitations, and myocardial infarction",
+      tags: ["coronary artery disease"],
+    },
+    {
+      id: "ch6-46",
+      question: "Which disease is asymptomatic?",
+      options: [
+        "Aortic aneurysm",
+        "Varicose veins",
+        "Pulmonary arterial hypertension",
+        "Arterial hypertension",
+      ],
+      answer: "Pulmonary arterial hypertension",
+      tags: ["cardiovascular diseases"],
+    },
+    {
       id: "q1",
       question:
         "What are the two major types of veins in the lower extremities?",
@@ -616,14 +673,14 @@ export const bio160Chapter6: Chapter = {
       tags: ["coronary-artery-disease"],
     },
     {
-      id: "q19",
+      id: "qq19",
       question: "What is angina pectoris?",
       answer:
         "Chest pain or pressure caused by ischemia, or inadequate blood flow to the heart muscle.",
       tags: ["coronary-artery-disease"],
     },
     {
-      id: "q20",
+      id: "qq20",
       question:
         "Which symptom pattern is most associated with myocardial infarction or cardiac arrest?",
       options: [
@@ -637,7 +694,7 @@ export const bio160Chapter6: Chapter = {
       tags: ["coronary-artery-disease", "myocardial-infarction"],
     },
     {
-      id: "q21",
+      id: "qq21",
       question:
         "Match each coronary artery disease procedure with its purpose.",
       matches: [
@@ -655,13 +712,13 @@ export const bio160Chapter6: Chapter = {
       tags: ["coronary-artery-disease", "treatment"],
     },
     {
-      id: "q22",
+      id: "qq22",
       question: "What is myocarditis?",
       answer: "An inflammatory disease of the heart muscle.",
       tags: ["myocarditis"],
     },
     {
-      id: "q23",
+      id: "qq23",
       question:
         "Which infections or diseases can increase the risk of myocarditis?",
       answer:
@@ -669,21 +726,21 @@ export const bio160Chapter6: Chapter = {
       tags: ["myocarditis"],
     },
     {
-      id: "q24",
+      id: "qq24",
       question: "How can myocarditis progress from its early stage?",
       answer:
         "It may begin asymptomatically and progress to flu-like illness, fatigue, fever, chest pain, shortness of breath, and tachycardia.",
       tags: ["myocarditis"],
     },
     {
-      id: "q25",
+      id: "qq25",
       question: "What is cardiomyopathy?",
       answer:
         "A disorder in which the heart becomes weakened and enlarged or rigid.",
       tags: ["cardiomyopathy"],
     },
     {
-      id: "q26",
+      id: "qq26",
       question:
         "Which type of cardiomyopathy is most common and is associated with ventricular dilation and congestive heart failure?",
       options: [
@@ -696,21 +753,21 @@ export const bio160Chapter6: Chapter = {
       tags: ["cardiomyopathy"],
     },
     {
-      id: "q27",
+      id: "qq27",
       question: "What is congestive heart failure?",
       answer:
         "A chronic and progressive reduction in the heart's ability to pump blood.",
       tags: ["cardiomyopathy", "heart-failure"],
     },
     {
-      id: "q28",
+      id: "qq28",
       question:
         "Which type of cardiomyopathy is inherited, causes abnormal thickening of the heart muscle, and is a common cause of sudden cardiac death in young people?",
       answer: "Hypertrophic cardiomyopathy.",
       tags: ["cardiomyopathy"],
     },
     {
-      id: "q29",
+      id: "qq29",
       question: "What characterizes restrictive cardiomyopathy?",
       answer:
         "It is the least common type and is associated with reduced heart filling and ventricular endocardial scarring.",
@@ -724,7 +781,7 @@ export const bio160Chapter6: Chapter = {
       tags: ["cardiomyopathy", "symptoms"],
     },
     {
-      id: "q31",
+      id: "qq31",
       question: "Match each condition with its defining feature.",
       matches: [
         {
@@ -753,364 +810,6 @@ export const bio160Chapter6: Chapter = {
         },
       ],
       tags: ["review"],
-    },
-    {
-      id: "q1",
-      question: "What is endocarditis?",
-      answer: "An infection of the endocardium and heart valves",
-      tags: ["endocarditis"],
-    },
-    {
-      id: "q2",
-      question: "Which factors increase the risk of endocarditis?",
-      options: [
-        "Rheumatic, degenerative, or congenital heart disease; valve disorders; and IV drug abuse",
-        "Only hypertension and diabetes",
-        "Only viral respiratory infections",
-        "Low-salt diet and regular exercise",
-      ],
-      answer:
-        "Rheumatic, degenerative, or congenital heart disease; valve disorders; and IV drug abuse",
-      tags: ["endocarditis"],
-    },
-    {
-      id: "q3",
-      question: "What forms the vegetative lesions seen in endocarditis?",
-      answer: "Infectious organisms and cellular debris within a fibrous clot",
-      tags: ["endocarditis"],
-    },
-    {
-      id: "q4",
-      question:
-        "What complications can occur when fragments of endocardial vegetations break off?",
-      answer: "Emboli can damage organs or rupture blood vessels",
-      tags: ["endocarditis"],
-    },
-    {
-      id: "q5",
-      question:
-        "Which test definitively identifies the organism causing endocarditis?",
-      options: [
-        "Blood culture",
-        "ECG",
-        "Chest X-ray",
-        "Cardiac catheterization",
-      ],
-      answer: "Blood culture",
-      tags: ["endocarditis", "diagnosis"],
-    },
-    {
-      id: "q6",
-      question: "How is endocarditis treated and prevented?",
-      answer:
-        "It is treated with antibiotics and, if needed, surgical valve repair; prevention includes managing heart or valve disease and avoiding IV drug use",
-      tags: ["endocarditis"],
-    },
-    {
-      id: "q7",
-      question: "What is rheumatic fever?",
-      answer:
-        "A rare autoimmune disease of heart tissue and valves, primarily affecting children ages 5–15",
-      tags: ["rheumatic fever"],
-    },
-    {
-      id: "q8",
-      question:
-        "Rheumatic fever usually begins how long after a group A streptococcal infection?",
-      options: [
-        "About 2 weeks",
-        "Within 1 hour",
-        "After 6 months",
-        "Only after adulthood",
-      ],
-      answer: "About 2 weeks",
-      tags: ["rheumatic fever"],
-    },
-    {
-      id: "q9",
-      question:
-        "Which valve is frequently permanently damaged by rheumatic fever?",
-      answer: "The mitral valve",
-      tags: ["rheumatic fever"],
-    },
-    {
-      id: "q10",
-      question: "How can rheumatic fever be prevented?",
-      answer: "By promptly treating streptococcal infections with antibiotics",
-      tags: ["rheumatic fever"],
-    },
-    {
-      id: "q11",
-      question: "Match each valve disorder with its description.",
-      matches: [
-        {
-          left: "Stenosis",
-          right: "Narrowing or failure of a valve to open normally",
-        },
-        {
-          left: "Insufficiency/regurgitation",
-          right: "Backward flow of blood through a valve",
-        },
-      ],
-      tags: ["heart valves"],
-    },
-    {
-      id: "q12",
-      question: "What is the primary function of the heart valves?",
-      answer: "To maintain unidirectional blood flow through the heart",
-      tags: ["heart valves"],
-    },
-    {
-      id: "q13",
-      question: "What can occur in advanced heart valve disease?",
-      options: [
-        "Muscle hypertrophy, weakness, shortness of breath, cyanosis, and congestive heart failure",
-        "Improved cardiac output and lower blood pressure",
-        "Only digestive symptoms",
-        "Permanent immunity to arrhythmias",
-      ],
-      answer:
-        "Muscle hypertrophy, weakness, shortness of breath, cyanosis, and congestive heart failure",
-      tags: ["heart valves"],
-    },
-    {
-      id: "q14",
-      question: "What is a cardiac arrhythmia?",
-      answer:
-        "An abnormal heart rhythm caused by irregular impulse generation or conduction",
-      tags: ["arrhythmias"],
-    },
-    {
-      id: "q15",
-      question: "Where do supraventricular arrhythmias originate?",
-      answer: "In the SA node, atria, AV node, or junctional tissue",
-      tags: ["arrhythmias"],
-    },
-    {
-      id: "q16",
-      question: "Why are ventricular arrhythmias especially dangerous?",
-      answer:
-        "They originate in the ventricular conduction system or ventricles, which pump blood from the heart, and may be life-threatening",
-      tags: ["arrhythmias"],
-    },
-    {
-      id: "q17",
-      question: "Match each rhythm disorder with its definition.",
-      matches: [
-        {
-          left: "Tachycardia",
-          right: "Sustained heart rate above 100 beats per minute",
-        },
-        {
-          left: "Bradycardia",
-          right: "Abnormally low heart rate below 50 beats per minute",
-        },
-        {
-          left: "Atrial fibrillation",
-          right: "Disorganized, uncoordinated atrial contraction",
-        },
-        {
-          left: "Ventricular fibrillation",
-          right: "Disorganized, uncoordinated ventricular contraction",
-        },
-        {
-          left: "Heart block",
-          right: "Atria and ventricles contract independently",
-        },
-      ],
-      tags: ["arrhythmias"],
-    },
-    {
-      id: "q18",
-      question:
-        "Which rhythm disorder is the most common, and which is a life-threatening emergency?",
-      answer:
-        "Atrial fibrillation is the most common; ventricular fibrillation is a life-threatening emergency that can cause cardiac arrest",
-      tags: ["arrhythmias"],
-    },
-    {
-      id: "q19",
-      question:
-        "What symptoms may indicate a cardiac conduction disorder or arrhythmia?",
-      answer: "Syncope or lightheadedness, edema, and shortness of breath",
-      tags: ["arrhythmias"],
-    },
-    {
-      id: "q20",
-      question: "What does catheter ablation accomplish?",
-      answer:
-        "It uses energy delivered through a catheter to sever abnormal rhythm pathways",
-      tags: ["arrhythmias"],
-    },
-    {
-      id: "q21",
-      question: "What is congestive heart failure?",
-      answer:
-        "A chronic, progressive reduction in the heart's ability to pump blood",
-      tags: ["CHF"],
-    },
-    {
-      id: "q22",
-      question:
-        "Which symptom pattern suggests progression from mild to severe congestive heart failure?",
-      options: [
-        "Ankle swelling and exertional shortness of breath progressing to shortness of breath at rest, fatigue, neck vein swelling, rales, pulmonary edema, and cyanosis",
-        "Fever progressing to rash only",
-        "Joint pain progressing to uncontrolled hand movements",
-        "Cold legs progressing to clubbing only",
-      ],
-      answer:
-        "Ankle swelling and exertional shortness of breath progressing to shortness of breath at rest, fatigue, neck vein swelling, rales, pulmonary edema, and cyanosis",
-      tags: ["CHF"],
-    },
-    {
-      id: "q23",
-      question: "Can congestive heart failure be cured or reversed?",
-      answer:
-        "No. Treatment focuses on relieving symptoms and reducing stress on the heart",
-      tags: ["CHF"],
-    },
-    {
-      id: "q24",
-      question:
-        "What lifestyle and medication measures are used to manage congestive heart failure?",
-      answer:
-        "Salt and water restriction, lifestyle modification, treatment of underlying causes, diuretics, cardiac output enhancers, antihypertensives, antiarrhythmics, and heart-rate slowers",
-      tags: ["CHF"],
-    },
-    {
-      id: "q25",
-      question: "What is shock?",
-      answer:
-        "A life-threatening drop in blood pressure that causes inadequate cellular blood supply and rapid, irreversible cell death",
-      tags: ["shock"],
-    },
-    {
-      id: "q26",
-      question: "Match each type of shock with its underlying cause.",
-      matches: [
-        {
-          left: "Cardiogenic shock",
-          right: "Cardiac arrhythmias or myocardial infarction",
-        },
-        {
-          left: "Hypovolemic shock",
-          right: "Hemorrhage, trauma, surgery, or extensive burns",
-        },
-        {
-          left: "Anaphylactic shock",
-          right: "Severe allergic reaction",
-        },
-        {
-          left: "Septic shock",
-          right: "Toxins released by a bacterial infection",
-        },
-        {
-          left: "Neurogenic shock",
-          right: "Damage to the central nervous system",
-        },
-      ],
-      tags: ["shock"],
-    },
-    {
-      id: "q27",
-      question:
-        "What changes occur during the transition from fetal to postnatal circulation?",
-      answer:
-        "The first breath expands the lungs; cord clamping removes placental circulation and raises left ventricular pressure; the foramen ovale closes as right atrial pressure falls and left atrial pressure rises; and the ductus arteriosus closes as blood flow shifts to the lungs",
-      tags: ["fetal circulation"],
-    },
-    {
-      id: "q28",
-      question: "What are the four abnormalities in tetralogy of Fallot?",
-      answer:
-        "Ventricular septal defect, pulmonary valve stenosis, a misplaced aorta, and right ventricular hypertrophy",
-      tags: ["congenital heart disease"],
-    },
-    {
-      id: "q29",
-      question: "Which findings are characteristic of tetralogy of Fallot?",
-      answer:
-        "Cyanosis that worsens during crying or feeding, poor weight gain, clubbing, and squatting",
-      tags: ["congenital heart disease"],
-    },
-    {
-      id: "q30",
-      question:
-        "What is abnormal about the great arteries in transposition of the great arteries?",
-      answer:
-        "The aorta connects to the right ventricle and the pulmonary artery connects to the left ventricle, creating independent blood loops",
-      tags: ["congenital heart disease"],
-    },
-    {
-      id: "q31",
-      question:
-        "Why are prostaglandins used in transposition of the great arteries?",
-      answer:
-        "To keep the ductus arteriosus open so blood can mix until corrective surgery is performed",
-      tags: ["congenital heart disease"],
-    },
-    {
-      id: "q32",
-      question:
-        "What is the difference between an atrial septal defect and a ventricular septal defect?",
-      answer:
-        "An atrial septal defect is an opening between the atria, while a ventricular septal defect is an opening between the ventricles",
-      tags: ["congenital heart disease"],
-    },
-    {
-      id: "q33",
-      question: "What happens in patent ductus arteriosus?",
-      answer:
-        "The ductus arteriosus fails to close, allowing blood to recirculate from the aorta into the lungs and increasing the risk of heart failure",
-      tags: ["congenital heart disease"],
-    },
-    {
-      id: "q34",
-      question: "What is coarctation of the aorta?",
-      answer:
-        "A congenital narrowing of the aorta, usually near the ductus arteriosus, that increases resistance against the left ventricle",
-      tags: ["congenital heart disease"],
-    },
-    {
-      id: "q35",
-      question: "Which symptoms may occur with coarctation of the aorta?",
-      answer: "Dizziness, cold legs, shortness of breath, and heart murmurs",
-      tags: ["congenital heart disease"],
-    },
-    {
-      id: "q36",
-      question: "What are important risk factors for congenital heart disease?",
-      answer:
-        "Family history, chromosomal abnormalities such as Down syndrome or Turner syndrome, maternal diabetes, congenital rubella, and maternal drug or alcohol abuse",
-      tags: ["congenital heart disease"],
-    },
-    {
-      id: "q37",
-      question: "Which cardiovascular changes are associated with aging?",
-      answer:
-        "Increased systolic blood pressure, increased left ventricular mass, arterial thickening, vascular stiffness, decreased ventricular filling, lower heart rate and cardiac output, reduced exercise capacity, and reduced stress responsiveness",
-      tags: ["aging"],
-    },
-    {
-      id: "q38",
-      question: "What is the impact of cardiovascular disease in older adults?",
-      answer:
-        "It is the leading cause of death in people age 65 and older, and hypertension affects approximately 50–66% of this group",
-      tags: ["aging"],
-    },
-    {
-      id: "q2-1",
-      question:
-        "A 59-year-old man develops severe chest pain while playing golf. Which heart or vascular diseases should be considered?",
-      options: [
-        "Atherosclerosis, coronary heart disease, and myocarditis",
-        "Chronic venous insufficiency and cardiomyopathy only",
-        "Mitral stenosis and rheumatic fever only",
-        "Ventricular fibrillation only",
-      ],
-      answer: "Atherosclerosis, coronary heart disease, and myocarditis",
-      tags: ["cardiovascular disease", "clinical scenarios"],
     },
     {
       id: "q2-2",
@@ -1408,6 +1107,364 @@ export const bio160Chapter6: Chapter = {
         },
       ],
       tags: ["matching", "heart disease"],
+    },
+    {
+      id: "q3-1",
+      question: "What is endocarditis?",
+      answer: "An infection of the endocardium and heart valves",
+      tags: ["endocarditis"],
+    },
+    {
+      id: "q3-2",
+      question: "Which factors increase the risk of endocarditis?",
+      options: [
+        "Rheumatic, degenerative, or congenital heart disease; valve disorders; and IV drug abuse",
+        "Only hypertension and diabetes",
+        "Only viral respiratory infections",
+        "Low-salt diet and regular exercise",
+      ],
+      answer:
+        "Rheumatic, degenerative, or congenital heart disease; valve disorders; and IV drug abuse",
+      tags: ["endocarditis"],
+    },
+    {
+      id: "q3-3",
+      question: "What forms the vegetative lesions seen in endocarditis?",
+      answer: "Infectious organisms and cellular debris within a fibrous clot",
+      tags: ["endocarditis"],
+    },
+    {
+      id: "q3-4",
+      question:
+        "What complications can occur when fragments of endocardial vegetations break off?",
+      answer: "Emboli can damage organs or rupture blood vessels",
+      tags: ["endocarditis"],
+    },
+    {
+      id: "q3-5",
+      question:
+        "Which test definitively identifies the organism causing endocarditis?",
+      options: [
+        "Blood culture",
+        "ECG",
+        "Chest X-ray",
+        "Cardiac catheterization",
+      ],
+      answer: "Blood culture",
+      tags: ["endocarditis", "diagnosis"],
+    },
+    {
+      id: "q3-6",
+      question: "How is endocarditis treated and prevented?",
+      answer:
+        "It is treated with antibiotics and, if needed, surgical valve repair; prevention includes managing heart or valve disease and avoiding IV drug use",
+      tags: ["endocarditis"],
+    },
+    {
+      id: "q3-7",
+      question: "What is rheumatic fever?",
+      answer:
+        "A rare autoimmune disease of heart tissue and valves, primarily affecting children ages 5–15",
+      tags: ["rheumatic fever"],
+    },
+    {
+      id: "q3-8",
+      question:
+        "Rheumatic fever usually begins how long after a group A streptococcal infection?",
+      options: [
+        "About 2 weeks",
+        "Within 1 hour",
+        "After 6 months",
+        "Only after adulthood",
+      ],
+      answer: "About 2 weeks",
+      tags: ["rheumatic fever"],
+    },
+    {
+      id: "q3-9",
+      question:
+        "Which valve is frequently permanently damaged by rheumatic fever?",
+      answer: "The mitral valve",
+      tags: ["rheumatic fever"],
+    },
+    {
+      id: "q3-10",
+      question: "How can rheumatic fever be prevented?",
+      answer: "By promptly treating streptococcal infections with antibiotics",
+      tags: ["rheumatic fever"],
+    },
+    {
+      id: "q3-11",
+      question: "Match each valve disorder with its description.",
+      matches: [
+        {
+          left: "Stenosis",
+          right: "Narrowing or failure of a valve to open normally",
+        },
+        {
+          left: "Insufficiency/regurgitation",
+          right: "Backward flow of blood through a valve",
+        },
+      ],
+      tags: ["heart valves"],
+    },
+    {
+      id: "q3-12",
+      question: "What is the primary function of the heart valves?",
+      answer: "To maintain unidirectional blood flow through the heart",
+      tags: ["heart valves"],
+    },
+    {
+      id: "q3-13",
+      question: "What can occur in advanced heart valve disease?",
+      options: [
+        "Muscle hypertrophy, weakness, shortness of breath, cyanosis, and congestive heart failure",
+        "Improved cardiac output and lower blood pressure",
+        "Only digestive symptoms",
+        "Permanent immunity to arrhythmias",
+      ],
+      answer:
+        "Muscle hypertrophy, weakness, shortness of breath, cyanosis, and congestive heart failure",
+      tags: ["heart valves"],
+    },
+    {
+      id: "q3-14",
+      question: "What is a cardiac arrhythmia?",
+      answer:
+        "An abnormal heart rhythm caused by irregular impulse generation or conduction",
+      tags: ["arrhythmias"],
+    },
+    {
+      id: "q3-15",
+      question: "Where do supraventricular arrhythmias originate?",
+      answer: "In the SA node, atria, AV node, or junctional tissue",
+      tags: ["arrhythmias"],
+    },
+    {
+      id: "q3-16",
+      question: "Why are ventricular arrhythmias especially dangerous?",
+      answer:
+        "They originate in the ventricular conduction system or ventricles, which pump blood from the heart, and may be life-threatening",
+      tags: ["arrhythmias"],
+    },
+    {
+      id: "q3-17",
+      question: "Match each rhythm disorder with its definition.",
+      matches: [
+        {
+          left: "Tachycardia",
+          right: "Sustained heart rate above 100 beats per minute",
+        },
+        {
+          left: "Bradycardia",
+          right: "Abnormally low heart rate below 50 beats per minute",
+        },
+        {
+          left: "Atrial fibrillation",
+          right: "Disorganized, uncoordinated atrial contraction",
+        },
+        {
+          left: "Ventricular fibrillation",
+          right: "Disorganized, uncoordinated ventricular contraction",
+        },
+        {
+          left: "Heart block",
+          right: "Atria and ventricles contract independently",
+        },
+      ],
+      tags: ["arrhythmias"],
+    },
+    {
+      id: "q3-18",
+      question:
+        "Which rhythm disorder is the most common, and which is a life-threatening emergency?",
+      answer:
+        "Atrial fibrillation is the most common; ventricular fibrillation is a life-threatening emergency that can cause cardiac arrest",
+      tags: ["arrhythmias"],
+    },
+    {
+      id: "q3-19",
+      question:
+        "What symptoms may indicate a cardiac conduction disorder or arrhythmia?",
+      answer: "Syncope or lightheadedness, edema, and shortness of breath",
+      tags: ["arrhythmias"],
+    },
+    {
+      id: "q3-20",
+      question: "What does catheter ablation accomplish?",
+      answer:
+        "It uses energy delivered through a catheter to sever abnormal rhythm pathways",
+      tags: ["arrhythmias"],
+    },
+    {
+      id: "q3-21",
+      question: "What is congestive heart failure?",
+      answer:
+        "A chronic, progressive reduction in the heart's ability to pump blood",
+      tags: ["CHF"],
+    },
+    {
+      id: "q3-22",
+      question:
+        "Which symptom pattern suggests progression from mild to severe congestive heart failure?",
+      options: [
+        "Ankle swelling and exertional shortness of breath progressing to shortness of breath at rest, fatigue, neck vein swelling, rales, pulmonary edema, and cyanosis",
+        "Fever progressing to rash only",
+        "Joint pain progressing to uncontrolled hand movements",
+        "Cold legs progressing to clubbing only",
+      ],
+      answer:
+        "Ankle swelling and exertional shortness of breath progressing to shortness of breath at rest, fatigue, neck vein swelling, rales, pulmonary edema, and cyanosis",
+      tags: ["CHF"],
+    },
+    {
+      id: "q3-23",
+      question: "Can congestive heart failure be cured or reversed?",
+      answer:
+        "No. Treatment focuses on relieving symptoms and reducing stress on the heart",
+      tags: ["CHF"],
+    },
+    {
+      id: "q3-24",
+      question:
+        "What lifestyle and medication measures are used to manage congestive heart failure?",
+      answer:
+        "Salt and water restriction, lifestyle modification, treatment of underlying causes, diuretics, cardiac output enhancers, antihypertensives, antiarrhythmics, and heart-rate slowers",
+      tags: ["CHF"],
+    },
+    {
+      id: "q3-25",
+      question: "What is shock?",
+      answer:
+        "A life-threatening drop in blood pressure that causes inadequate cellular blood supply and rapid, irreversible cell death",
+      tags: ["shock"],
+    },
+    {
+      id: "q3-26",
+      question: "Match each type of shock with its underlying cause.",
+      matches: [
+        {
+          left: "Cardiogenic shock",
+          right: "Cardiac arrhythmias or myocardial infarction",
+        },
+        {
+          left: "Hypovolemic shock",
+          right: "Hemorrhage, trauma, surgery, or extensive burns",
+        },
+        {
+          left: "Anaphylactic shock",
+          right: "Severe allergic reaction",
+        },
+        {
+          left: "Septic shock",
+          right: "Toxins released by a bacterial infection",
+        },
+        {
+          left: "Neurogenic shock",
+          right: "Damage to the central nervous system",
+        },
+      ],
+      tags: ["shock"],
+    },
+    {
+      id: "q3-27",
+      question:
+        "What changes occur during the transition from fetal to postnatal circulation?",
+      answer:
+        "The first breath expands the lungs; cord clamping removes placental circulation and raises left ventricular pressure; the foramen ovale closes as right atrial pressure falls and left atrial pressure rises; and the ductus arteriosus closes as blood flow shifts to the lungs",
+      tags: ["fetal circulation"],
+    },
+    {
+      id: "q3-28",
+      question: "What are the four abnormalities in tetralogy of Fallot?",
+      answer:
+        "Ventricular septal defect, pulmonary valve stenosis, a misplaced aorta, and right ventricular hypertrophy",
+      tags: ["congenital heart disease"],
+    },
+    {
+      id: "q3-29",
+      question: "Which findings are characteristic of tetralogy of Fallot?",
+      answer:
+        "Cyanosis that worsens during crying or feeding, poor weight gain, clubbing, and squatting",
+      tags: ["congenital heart disease"],
+    },
+    {
+      id: "q3-30",
+      question:
+        "What is abnormal about the great arteries in transposition of the great arteries?",
+      answer:
+        "The aorta connects to the right ventricle and the pulmonary artery connects to the left ventricle, creating independent blood loops",
+      tags: ["congenital heart disease"],
+    },
+    {
+      id: "q3-31",
+      question:
+        "Why are prostaglandins used in transposition of the great arteries?",
+      answer:
+        "To keep the ductus arteriosus open so blood can mix until corrective surgery is performed",
+      tags: ["congenital heart disease"],
+    },
+    {
+      id: "q3-32",
+      question:
+        "What is the difference between an atrial septal defect and a ventricular septal defect?",
+      answer:
+        "An atrial septal defect is an opening between the atria, while a ventricular septal defect is an opening between the ventricles",
+      tags: ["congenital heart disease"],
+    },
+    {
+      id: "q3-33",
+      question: "What happens in patent ductus arteriosus?",
+      answer:
+        "The ductus arteriosus fails to close, allowing blood to recirculate from the aorta into the lungs and increasing the risk of heart failure",
+      tags: ["congenital heart disease"],
+    },
+    {
+      id: "q3-34",
+      question: "What is coarctation of the aorta?",
+      answer:
+        "A congenital narrowing of the aorta, usually near the ductus arteriosus, that increases resistance against the left ventricle",
+      tags: ["congenital heart disease"],
+    },
+    {
+      id: "q3-35",
+      question: "Which symptoms may occur with coarctation of the aorta?",
+      answer: "Dizziness, cold legs, shortness of breath, and heart murmurs",
+      tags: ["congenital heart disease"],
+    },
+    {
+      id: "q3-36",
+      question: "What are important risk factors for congenital heart disease?",
+      answer:
+        "Family history, chromosomal abnormalities such as Down syndrome or Turner syndrome, maternal diabetes, congenital rubella, and maternal drug or alcohol abuse",
+      tags: ["congenital heart disease"],
+    },
+    {
+      id: "q3-37",
+      question: "Which cardiovascular changes are associated with aging?",
+      answer:
+        "Increased systolic blood pressure, increased left ventricular mass, arterial thickening, vascular stiffness, decreased ventricular filling, lower heart rate and cardiac output, reduced exercise capacity, and reduced stress responsiveness",
+      tags: ["aging"],
+    },
+    {
+      id: "q3-38",
+      question: "What is the impact of cardiovascular disease in older adults?",
+      answer:
+        "It is the leading cause of death in people age 65 and older, and hypertension affects approximately 50–66% of this group",
+      tags: ["aging"],
+    },
+    {
+      id: "q3-2-1",
+      question:
+        "A 59-year-old man develops severe chest pain while playing golf. Which heart or vascular diseases should be considered?",
+      options: [
+        "Atherosclerosis, coronary heart disease, and myocarditis",
+        "Chronic venous insufficiency and cardiomyopathy only",
+        "Mitral stenosis and rheumatic fever only",
+        "Ventricular fibrillation only",
+      ],
+      answer: "Atherosclerosis, coronary heart disease, and myocarditis",
+      tags: ["cardiovascular disease", "clinical scenarios"],
     },
   ],
 };

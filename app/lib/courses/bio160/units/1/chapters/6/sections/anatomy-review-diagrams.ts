@@ -9,7 +9,7 @@ const questions: Questions = [
       alt: "Heart Diagram - Blood flow through the heart.",
       targets: [
         {
-          id: "1",
+          id: "s1-1",
           label: "Superior vena cava (from head and arms)",
           x: 1,
           y: 9,
@@ -17,7 +17,7 @@ const questions: Questions = [
           height: 7,
         },
         {
-          id: "2",
+          id: "s1-2",
           label: "Right pulmonary artery (to lung)",
           x: 3,
           y: 19,
@@ -25,7 +25,7 @@ const questions: Questions = [
           height: 9,
         },
         {
-          id: "3",
+          id: "s1-3",
           label: "Right pulmonary veins (from lung)",
           x: 3,
           y: 32,
@@ -33,7 +33,7 @@ const questions: Questions = [
           height: 12,
         },
         {
-          id: "4",
+          id: "s1-4",
           label: "Right atrium",
           x: 3,
           y: 48.5,
@@ -41,7 +41,7 @@ const questions: Questions = [
           height: 5,
         },
         {
-          id: "5",
+          id: "s1-5",
           label: "Tricuspid valve",
           x: 2,
           y: 59,
@@ -49,7 +49,7 @@ const questions: Questions = [
           height: 5,
         },
         {
-          id: "6",
+          id: "s1-6",
           label: "Chordae tendineae",
           x: 2,
           y: 67,
@@ -57,7 +57,7 @@ const questions: Questions = [
           height: 4,
         },
         {
-          id: "7",
+          id: "s1-7",
           label: "Inferior vena cava (from trunk and legs)",
           x: 2,
           y: 77,
@@ -65,7 +65,7 @@ const questions: Questions = [
           height: 6,
         },
         {
-          id: "8",
+          id: "s1-8",
           label: "Aorta",
           x: 65,
           y: 12,
@@ -73,7 +73,7 @@ const questions: Questions = [
           height: 2.7,
         },
         {
-          id: "9",
+          id: "s1-9",
           label: "Left pulmonary artery (to lung)",
           x: 78,
           y: 16.2,
@@ -81,7 +81,7 @@ const questions: Questions = [
           height: 5.7,
         },
         {
-          id: "10",
+          id: "s1-10",
           label: "Pulmonary semilunal valve",
           x: 78.4,
           y: 23.1,
@@ -89,7 +89,7 @@ const questions: Questions = [
           height: 4.2,
         },
         {
-          id: "11",
+          id: "s1-11",
           label: "left pulmondary veins (from lungs)",
           x: 78.5,
           y: 30,
@@ -97,7 +97,7 @@ const questions: Questions = [
           height: 6,
         },
         {
-          id: "12",
+          id: "s1-12",
           label: "Left atrium",
           x: 78.5,
           y: 42.4,
@@ -105,7 +105,7 @@ const questions: Questions = [
           height: 2.7,
         },
         {
-          id: "13",
+          id: "s1-13",
           label: "Bicupid (mitral) valve",
           x: 78,
           y: 53,
@@ -113,7 +113,7 @@ const questions: Questions = [
           height: 4,
         },
         {
-          id: "14",
+          id: "s1-14",
           label: "Aortic Valve",
           x: 77.9,
           y: 65.5,
@@ -121,7 +121,7 @@ const questions: Questions = [
           height: 3,
         },
         {
-          id: "15",
+          id: "s1-15",
           label: "Left ventricle",
           x: 77,
           y: 75,
@@ -129,7 +129,7 @@ const questions: Questions = [
           height: 4,
         },
         {
-          id: "16",
+          id: "s1-16",
           label: "Right ventricle",
           x: 78,
           y: 81.5,
@@ -148,7 +148,7 @@ const questions: Questions = [
       alt: "Coronary arteries and major vessels (A) anterior (B) posterior.",
       targets: [
         {
-          id: "1",
+          id: "s1-1",
           label: "Aortic arch",
           x: 32.2,
           y: 4,
@@ -156,7 +156,7 @@ const questions: Questions = [
           height: 6.2,
         },
         {
-          id: "2",
+          id: "s1-2",
           label: "Right coronary artery",
           x: 1.5,
           y: 20.7,
@@ -164,7 +164,7 @@ const questions: Questions = [
           height: 14.4,
         },
         {
-          id: "3",
+          id: "s1-3",
           label: "Small cardiac vein",
           x: 2.4,
           y: 35.3,
@@ -172,7 +172,7 @@ const questions: Questions = [
           height: 13.3,
         },
         {
-          id: "4",
+          id: "s1-4",
           label: "Pulmonary trunk",
           x: 38.2,
           y: 19.8,
@@ -180,7 +180,7 @@ const questions: Questions = [
           height: 9,
         },
         {
-          id: "5",
+          id: "s1-5",
           label: "Left coronary artery",
           x: 38.9,
           y: 35.3,
@@ -188,7 +188,7 @@ const questions: Questions = [
           height: 9.3,
         },
         {
-          id: "6",
+          id: "s1-6",
           label: "Great cardiac vein",
           x: 39,
           y: 46.5,
@@ -196,7 +196,7 @@ const questions: Questions = [
           height: 9.9,
         },
         {
-          id: "7",
+          id: "s1-7",
           label: "Anterior interventricular artery (decending branch)",
           x: 39.5,
           y: 57.2,
@@ -204,7 +204,7 @@ const questions: Questions = [
           height: 21.2,
         },
         {
-          id: "8",
+          id: "s1-8",
           label: "Great cardiac vein",
           x: 66.1,
           y: 14.4,
@@ -212,7 +212,7 @@ const questions: Questions = [
           height: 13.5,
         },
         {
-          id: "9",
+          id: "s1-9",
           label: "Circumflex branch",
           x: 58.4,
           y: 27.1,
@@ -220,7 +220,7 @@ const questions: Questions = [
           height: 10.1,
         },
         {
-          id: "10",
+          id: "s1-10",
           label: "Coronary sinus",
           x: 55.7,
           y: 35.5,
@@ -228,7 +228,7 @@ const questions: Questions = [
           height: 9.6,
         },
         {
-          id: "11",
+          id: "s1-11",
           label: "Posterior cardiac vein",
           x: 53.7,
           y: 47.7,
@@ -236,7 +236,7 @@ const questions: Questions = [
           height: 14.1,
         },
         {
-          id: "12",
+          id: "s1-12",
           label: "Right coronary artery",
           x: 91.5,
           y: 36.9,
@@ -244,7 +244,7 @@ const questions: Questions = [
           height: 13.9,
         },
         {
-          id: "13",
+          id: "s1-13",
           label: "Small cardiac vein",
           x: 90.8,
           y: 51,
@@ -252,7 +252,7 @@ const questions: Questions = [
           height: 12.7,
         },
         {
-          id: "14",
+          id: "s1-14",
           label: "Marginal branch",
           x: 87.9,
           y: 66.6,
@@ -260,7 +260,7 @@ const questions: Questions = [
           height: 10.7,
         },
         {
-          id: "15",
+          id: "s1-15",
           label: "Posterior interventriular artery (descending branch)",
           x: 77.6,
           y: 77,
@@ -268,7 +268,7 @@ const questions: Questions = [
           height: 15.2,
         },
         {
-          id: "16",
+          id: "s1-16",
           label: "Middle cardiac vein",
           x: 70.5,
           y: 78.4,
@@ -276,7 +276,7 @@ const questions: Questions = [
           height: 14.4,
         },
         {
-          id: "17",
+          id: "s1-17",
           label: "Anterior cardiac veins",
           x: 1.7,
           y: 82.6,
@@ -284,7 +284,7 @@ const questions: Questions = [
           height: 6.3,
         },
         {
-          id: "18",
+          id: "s1-18",
           label: "Marginal Branch",
           x: 6.8,
           y: 93.4,
@@ -302,7 +302,7 @@ const questions: Questions = [
       alt: "Conducting system of the heart.",
       targets: [
         {
-          id: "1",
+          id: "s1-1",
           label: "Cardiac nerves (cardioaccelerator)",
           x: 1.3,
           y: 7.8,
@@ -310,7 +310,7 @@ const questions: Questions = [
           height: 9.4,
         },
         {
-          id: "2",
+          id: "s1-2",
           label: "Vagus nerve (cardioinhibitor)",
           x: 68.8,
           y: 8,
@@ -318,7 +318,7 @@ const questions: Questions = [
           height: 9.4,
         },
         {
-          id: "3",
+          id: "s1-3",
           label: "Left bundle branch",
           x: 76.7,
           y: 65.6,
@@ -326,7 +326,7 @@ const questions: Questions = [
           height: 5.9,
         },
         {
-          id: "4",
+          id: "s1-4",
           label: "Purkinje fibers",
           x: 76.6,
           y: 78,
@@ -334,7 +334,7 @@ const questions: Questions = [
           height: 5.7,
         },
         {
-          id: "5",
+          id: "s1-5",
           label: "Sinoatrial node",
           x: 1.3,
           y: 48.7,
@@ -342,7 +342,7 @@ const questions: Questions = [
           height: 9,
         },
         {
-          id: "6",
+          id: "s1-6",
           label: "Antrioventricular node",
           x: 1,
           y: 59.7,
@@ -350,7 +350,7 @@ const questions: Questions = [
           height: 8.7,
         },
         {
-          id: "7",
+          id: "s1-7",
           label: "Bundle of His",
           x: 1.3,
           y: 71.5,
@@ -358,7 +358,7 @@ const questions: Questions = [
           height: 5.7,
         },
         {
-          id: "8",
+          id: "s1-8",
           label: "Right Bundle Branch",
           x: 8,
           y: 82.6,
@@ -376,7 +376,7 @@ const questions: Questions = [
       alt: "Venous return to the heart and blood flow to the lungs.",
       targets: [
         {
-          id: "1",
+          id: "s1-1",
           label: "Right lung",
           x: 10.1,
           y: 0.3,
@@ -384,7 +384,7 @@ const questions: Questions = [
           height: 3.4,
         },
         {
-          id: "2",
+          id: "s1-2",
           label: "CO2 leaves blood",
           x: 63.7,
           y: 13.8,
@@ -392,7 +392,7 @@ const questions: Questions = [
           height: 3.9,
         },
         {
-          id: "3",
+          id: "s1-3",
           label: "Pulmonary arteries",
           x: 30.5,
           y: 2.1,
@@ -400,7 +400,7 @@ const questions: Questions = [
           height: 4.7,
         },
         {
-          id: "4",
+          id: "s1-4",
           label: "Right branch",
           x: 24.7,
           y: 8.4,
@@ -408,7 +408,7 @@ const questions: Questions = [
           height: 3.8,
         },
         {
-          id: "5",
+          id: "s1-5",
           label: "Left branch",
           x: 45.4,
           y: 13.1,
@@ -416,7 +416,7 @@ const questions: Questions = [
           height: 3.8,
         },
         {
-          id: "6",
+          id: "s1-6",
           label: "Vena cava",
           x: 24.5,
           y: 16.2,
@@ -424,7 +424,7 @@ const questions: Questions = [
           height: 2.8,
         },
         {
-          id: "7",
+          id: "s1-7",
           label: "Right atrium",
           x: 5.6,
           y: 33.8,
@@ -432,7 +432,7 @@ const questions: Questions = [
           height: 3.7,
         },
         {
-          id: "8",
+          id: "s1-8",
           label: "Right ventricle",
           x: 4.9,
           y: 38.3,
@@ -440,7 +440,7 @@ const questions: Questions = [
           height: 3.7,
         },
         {
-          id: "9",
+          id: "s1-9",
           label: "Enlargement of pulmonary capillary",
           x: 73.3,
           y: 29.8,
@@ -448,7 +448,7 @@ const questions: Questions = [
           height: 10.4,
         },
         {
-          id: "10",
+          id: "s1-10",
           label: "O2 enters blood",
           x: 79,
           y: 21.5,
@@ -456,7 +456,7 @@ const questions: Questions = [
           height: 3.6,
         },
         {
-          id: "11",
+          id: "s1-11",
           label: "Systemic capillaries",
           x: 35.7,
           y: 75.1,
@@ -464,7 +464,7 @@ const questions: Questions = [
           height: 6.2,
         },
         {
-          id: "12",
+          id: "s1-12",
           label: "O2 leaves blood",
           x: 49.7,
           y: 72.1,
@@ -472,7 +472,7 @@ const questions: Questions = [
           height: 8.6,
         },
         {
-          id: "13",
+          id: "s1-13",
           label: "CO2 enters blood from tissues",
           x: 18.3,
           y: 92.9,
@@ -485,7 +485,7 @@ const questions: Questions = [
 ];
 
 export const ch6AnatomyReviewDiagramsSection: Section = {
-  id: "bio160-6-anatomy-diagrams",
+  id: "s1-bio160-6-anatomy-diagrams",
   title: "Anatomy Diagrams",
   description: "Anatomy review diagrams: Heart",
   number: 1,

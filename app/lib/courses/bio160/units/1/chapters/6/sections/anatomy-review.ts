@@ -2,13 +2,13 @@ import { Questions, Section } from "@/app/types";
 
 const questions: Questions = [
   {
-    id: "q1",
+    id: "s2-q1",
     question: "What are the three main components of the circulatory system?",
     answer: "The heart, blood vessels, and blood.",
     tags: ["circulatory-system"],
   },
   {
-    id: "q2",
+    id: "s2-q2",
     question: "What is the primary function of arteries?",
     options: [
       "Carry blood toward the heart",
@@ -20,26 +20,26 @@ const questions: Questions = [
     tags: ["blood-vessels"],
   },
   {
-    id: "q3",
+    id: "s2-q3",
     question: "Which heart chambers receive blood?",
     answer: "The atria.",
     tags: ["heart-structure"],
   },
   {
-    id: "q4",
+    id: "s2-q4",
     question: "Which heart chambers pump blood out of the heart?",
     options: ["Atria", "Ventricles", "Septums", "Nodes"],
     answer: "Ventricles",
     tags: ["heart-structure"],
   },
   {
-    id: "q5",
+    id: "s2-q5",
     question: "What is the myocardium?",
     answer: "The cardiac muscle layer of the heart.",
     tags: ["heart-structure"],
   },
   {
-    id: "q6",
+    id: "s2-q6",
     question:
       "Which valve is located between the right atrium and right ventricle?",
     options: [
@@ -52,33 +52,33 @@ const questions: Questions = [
     tags: ["heart-valves"],
   },
   {
-    id: "q7",
+    id: "s2-q7",
     question: "What happens during diastole?",
     answer: "The heart chambers relax and fill with blood.",
     tags: ["cardiac-cycle"],
   },
   {
-    id: "q8",
+    id: "s2-q8",
     question: "What happens during systole?",
     answer: "The heart chambers contract and pump blood.",
     tags: ["cardiac-cycle"],
   },
   {
-    id: "q9",
+    id: "s2-q9",
     question: "What is the function of the SA node?",
     answer:
       "It acts as the heart’s natural pacemaker and starts the heartbeat.",
     tags: ["heart-conduction"],
   },
   {
-    id: "q10",
+    id: "s2-q10",
     question: "Which nerve slows the heart rate during rest and sleep?",
     options: ["Vagus nerve", "Optic nerve", "Phrenic nerve", "Spinal nerve"],
     answer: "Vagus nerve",
     tags: ["heart-regulation"],
   },
   {
-    id: "q11",
+    id: "s2-q11",
     question:
       "Which circulation carries blood from the right ventricle to the lungs?",
     options: [
@@ -91,20 +91,20 @@ const questions: Questions = [
     tags: ["circulation"],
   },
   {
-    id: "q12",
+    id: "s2-q12",
     question:
       "Which circulation delivers oxygenated blood from the left ventricle to the body?",
     answer: "Systemic circulation.",
     tags: ["circulation"],
   },
   {
-    id: "q13",
+    id: "s2-q13",
     question: "What is exchanged between blood and tissues in the capillaries?",
     answer: "Oxygen, nutrients, carbon dioxide, and other wastes.",
     tags: ["capillaries"],
   },
   {
-    id: "q14",
+    id: "s2-q14",
     question: "Match each structure with its description.",
     matches: [
       {
@@ -127,7 +127,7 @@ const questions: Questions = [
     tags: ["heart-structures"],
   },
   {
-    id: "q15",
+    id: "s2-q15",
     question:
       "Place the blood vessels in order from largest arteries to larger veins.",
     matches: [
@@ -150,53 +150,53 @@ const questions: Questions = [
     tags: ["blood-vessels"],
   },
   {
-    id: "q16",
+    id: "s2-q16",
     question: "Where is the heart located?",
     answer: "In the center of the chest.",
     tags: ["heart-structure"],
   },
   {
-    id: "q17",
+    id: "s2-q17",
     question: "What is the function of the endocardium?",
     answer: "It forms the smooth inner lining of the heart chambers.",
     tags: ["heart-structure"],
   },
   {
-    id: "q18",
+    id: "s2-q18",
     question:
       "Which valve controls blood flow from the left ventricle into the aorta?",
     answer: "The aortic semilunar valve.",
     tags: ["heart-valves"],
   },
   {
-    id: "q19",
+    id: "s2-q19",
     question:
       "Which valve controls blood flow from the right ventricle into the pulmonary artery?",
     answer: "The pulmonary semilunar valve.",
     tags: ["heart-valves"],
   },
   {
-    id: "q20",
+    id: "s2-q20",
     question: "How long does one cardiac cycle take?",
     options: ["0.2 seconds", "0.5 seconds", "0.8 seconds", "2 seconds"],
     answer: "0.8 seconds",
     tags: ["cardiac-cycle"],
   },
   {
-    id: "q21",
+    id: "s2-q21",
     question: "What is the role of the AV node?",
     answer:
       "It passes the electrical impulse from the atria to the ventricles.",
     tags: ["heart-conduction"],
   },
   {
-    id: "q22",
+    id: "s2-q22",
     question: "Where do Purkinje fibers carry electrical impulses?",
     answer: "Throughout the walls of the ventricles.",
     tags: ["heart-conduction"],
   },
   {
-    id: "q23",
+    id: "s2-q23",
     question: "Which hormones increase heart rate?",
     options: [
       "Insulin and glucagon",
@@ -208,20 +208,20 @@ const questions: Questions = [
     tags: ["heart-regulation"],
   },
   {
-    id: "q24",
+    id: "s2-q24",
     question: "Which artery supplies blood to the heart muscle?",
     answer: "The coronary arteries.",
     tags: ["coronary-circulation"],
   },
   {
-    id: "q25",
+    id: "s2-q25",
     question: "What does the left coronary artery branch into?",
     answer:
       "The anterior interventricular coronary artery and the circumflex artery.",
     tags: ["coronary-circulation"],
   },
   {
-    id: "q26",
+    id: "s2-q26",
     question: "Where does systemic circulation begin?",
     options: [
       "Right atrium",
@@ -233,13 +233,13 @@ const questions: Questions = [
     tags: ["circulation"],
   },
   {
-    id: "q27",
+    id: "s2-q27",
     question: "Where does pulmonary circulation begin?",
     answer: "The right ventricle.",
     tags: ["circulation"],
   },
   {
-    id: "q28",
+    id: "s2-q28",
     question: "Which chamber receives deoxygenated blood from the body?",
     options: [
       "Right atrium",
@@ -251,19 +251,19 @@ const questions: Questions = [
     tags: ["blood-flow"],
   },
   {
-    id: "q29",
+    id: "s2-q29",
     question: "Which chamber receives oxygenated blood from the lungs?",
     answer: "The left atrium.",
     tags: ["blood-flow"],
   },
   {
-    id: "q30",
+    id: "s2-q30",
     question: "What is the function of the septa?",
     answer: "They separate oxygenated blood from deoxygenated blood.",
     tags: ["heart-structure"],
   },
   {
-    id: "q31",
+    id: "s2-q31",
     question:
       "Which vessels carry blood from the lower body to the right atrium?",
     options: [
@@ -276,26 +276,26 @@ const questions: Questions = [
     tags: ["blood-vessels"],
   },
   {
-    id: "q32",
+    id: "s2-q32",
     question:
       "Which vessel returns blood from the upper body to the right atrium?",
     answer: "The superior vena cava.",
     tags: ["blood-vessels"],
   },
   {
-    id: "q33",
+    id: "s2-q33",
     question: "What are arterioles?",
     answer: "The smallest arteries that lead into capillaries.",
     tags: ["blood-vessels"],
   },
   {
-    id: "q34",
+    id: "s2-q34",
     question: "What are venules?",
     answer: "The smallest veins that receive blood from capillaries.",
     tags: ["blood-vessels"],
   },
   {
-    id: "q35",
+    id: "s2-q35",
     question: "Match each structure with its function.",
     matches: [
       {
@@ -318,7 +318,7 @@ const questions: Questions = [
     tags: ["heart-structure", "blood-vessels"],
   },
   {
-    id: "q36",
+    id: "s2-q36",
     question: "Match each vessel with the blood flow direction.",
     matches: [
       {
@@ -343,7 +343,7 @@ const questions: Questions = [
 ];
 
 export const ch6AnatomyReviewSection: Section = {
-  id: "bio160-2-1",
+  id: "s2-bio160-2-1",
   title: "Anatomy Review",
   description: "Anatomy Review",
   number: 1,
