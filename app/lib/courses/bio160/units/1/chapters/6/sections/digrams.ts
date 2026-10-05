@@ -49,7 +49,7 @@ export const ch6DiagramsSection: Section = {
   id: "s3-bio160-6-diagrams",
   title: "Diagrams",
   description: "eDiagrams",
-  number: 1,
+  number: 3,
   type: "section",
   questions,
 };

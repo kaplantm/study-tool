@@ -185,7 +185,7 @@ export default function QuizDiagramLabelingCard({
                         : "#dc2626"
                       : "#2563eb",
                     borderRadius: isRectangle ? 6 : "50%",
-                    background: selected ? "#dbeafe" : "rgba(255,255,255,.9)",
+                    background: selected ? "#dbeafe" : "rgba(255,255,255)",
                     color: isSubmitted
                       ? correct
                         ? "#15803d"

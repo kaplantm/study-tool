@@ -346,7 +346,7 @@ export const ch6AnatomyReviewSection: Section = {
   id: "s2-bio160-2-1",
   title: "Anatomy Review",
   description: "Anatomy Review",
-  number: 1,
+  number: 2,
   type: "section",
   questions,
 };
