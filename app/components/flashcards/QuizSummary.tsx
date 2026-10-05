@@ -2,8 +2,8 @@
 
 import { Question } from "@/app/types";
 
-import { QuizResponse } from "./types";
 import { Alert, Box, Button, Paper, Stack, Typography } from "@mui/material";
+import { QuizResponse } from "./types";
 
 const correctAnswerText = (question: Question) => {
   if (question.diagram) {
@@ -51,7 +51,7 @@ export default function QuizSummary({
   const flaggedOnlyIds = flaggedIds.filter((id) => !failedIds.has(id));
 
   return (
-    <Paper component="section" sx={{ p: 3, borderRadius: 3 }}>
+    <Paper component="section" sx={{ p: 3 }}>
       <Stack spacing={3}>
         <Box>
           <Typography variant="h5">Session summary</Typography>
@@ -68,7 +68,11 @@ export default function QuizSummary({
           <Stack spacing={2}>
             {incorrectResponses.length > 0 && (
               <Stack spacing={1}>
-                <Typography variant="subtitle1" color="error.main" sx={{ fontWeight: 700 }}>
+                <Typography
+                  variant="subtitle1"
+                  color="error.main"
+                  sx={{ fontWeight: 700 }}
+                >
                   Failed this session
                 </Typography>
                 <Stack spacing={1}>
@@ -82,7 +86,9 @@ export default function QuizSummary({
                         key={`response-${response.questionId}`}
                         severity="error"
                       >
-                        <Typography sx={{ fontWeight: 600 }}>{question.question}</Typography>
+                        <Typography sx={{ fontWeight: 600 }}>
+                          {question.question}
+                        </Typography>
                         <Typography variant="caption" sx={{ display: "block" }}>
                           Your answer: {response.userAnswer || "(blank)"}
                         </Typography>
@@ -97,7 +103,11 @@ export default function QuizSummary({
             )}
             {flaggedOnlyIds.length > 0 && (
               <Stack spacing={1}>
-                <Typography variant="subtitle1" color="warning.main" sx={{ fontWeight: 700 }}>
+                <Typography
+                  variant="subtitle1"
+                  color="warning.main"
+                  sx={{ fontWeight: 700 }}
+                >
                   Flagged for Review
                 </Typography>
                 <Stack spacing={1}>
@@ -107,10 +117,7 @@ export default function QuizSummary({
                     );
                     if (!question) return null;
                     return (
-                      <Alert
-                        key={`flagged-${id}`}
-                        severity="warning"
-                      >
+                      <Alert key={`flagged-${id}`} severity="warning">
                         <Typography>{question.question}</Typography>
                       </Alert>
                     );
@@ -123,20 +130,14 @@ export default function QuizSummary({
 
         <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
           {incorrectResponses.length > 0 && (
-            <Button variant="contained" color="error"
-              onClick={onRetryFailed}
-            >
+            <Button variant="contained" color="error" onClick={onRetryFailed}>
               Retry failed questions
             </Button>
           )}
-          <Button variant="outlined"
-            onClick={onStudyAnother}
-          >
+          <Button variant="outlined" onClick={onStudyAnother}>
             Study another set
           </Button>
-          <Button variant="outlined"
-            onClick={onPickNewCourse}
-          >
+          <Button variant="outlined" onClick={onPickNewCourse}>
             Pick a new course
           </Button>
         </Box>

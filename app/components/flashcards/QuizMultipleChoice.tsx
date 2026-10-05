@@ -1,9 +1,9 @@
 "use client";
 
 import { Question } from "@/app/types";
-import MoreInfo from "./MoreInfo";
-import { useEffect, useMemo, useState } from "react";
 import { Alert, Box, Button, Paper, Stack, Typography } from "@mui/material";
+import { useEffect, useMemo, useState } from "react";
+import MoreInfo from "./MoreInfo";
 
 type MultipleChoiceCardProps = {
   currentQuestion: Question | undefined;
@@ -74,7 +74,7 @@ export default function QuizMultipleChoiceCard({
   };
 
   return (
-    <Paper component="section" sx={{ p: 3, borderRadius: 3 }}>
+    <Paper component="section" sx={{ p: 3 }}>
       <Stack spacing={3}>
         <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2 }}>
           <Typography variant="body2" color="text.secondary">
@@ -85,7 +85,15 @@ export default function QuizMultipleChoiceCard({
           </Typography>
         </Box>
 
-        <Paper variant="outlined" sx={{ p: 2.5, bgcolor: "action.hover", fontWeight: 700, fontSize: "1.1rem" }}>
+        <Paper
+          variant="outlined"
+          sx={{
+            p: 2.5,
+            bgcolor: "action.hover",
+            fontWeight: 700,
+            fontSize: "1.1rem",
+          }}
+        >
           <Typography sx={{ fontWeight: 700, fontSize: "1.1rem" }}>
             {currentQuestion.question}
           </Typography>
@@ -103,8 +111,19 @@ export default function QuizMultipleChoiceCard({
                 disabled={isAnswered}
                 onClick={() => handleOptionClick(option)}
                 variant="outlined"
-                color={isAnswered && isCorrect ? "success" : isAnswered && isSelected ? "error" : "inherit"}
-                sx={{ justifyContent: "flex-start", textAlign: "left", p: 1.5, opacity: isAnswered && !isCorrect && !isSelected ? 0.5 : 1 }}
+                color={
+                  isAnswered && isCorrect
+                    ? "success"
+                    : isAnswered && isSelected
+                      ? "error"
+                      : "inherit"
+                }
+                sx={{
+                  justifyContent: "flex-start",
+                  textAlign: "left",
+                  p: 1.5,
+                  opacity: isAnswered && !isCorrect && !isSelected ? 0.5 : 1,
+                }}
               >
                 {option}
               </Button>
@@ -115,7 +134,12 @@ export default function QuizMultipleChoiceCard({
         {/* Hint Section */}
         {currentQuestion.hint && !isAnswered && (
           <Stack spacing={1}>
-            <Button variant="text" size="small" onClick={onToggleHint} sx={{ alignSelf: "flex-start" }}>
+            <Button
+              variant="text"
+              size="small"
+              onClick={onToggleHint}
+              sx={{ alignSelf: "flex-start" }}
+            >
               {hintVisible ? "Hide hint" : "Need a hint?"}
             </Button>
             {hintVisible && (
@@ -129,13 +153,15 @@ export default function QuizMultipleChoiceCard({
         {isAnswered && <MoreInfo items={currentQuestion.moreInfo} />}
 
         <Box sx={{ display: "flex", justifyContent: "center", gap: 1 }}>
-          <Button variant="outlined"
+          <Button
+            variant="outlined"
             disabled={isAnswered}
             onClick={handleGoToNext}
           >
             Skip
           </Button>
-          <Button variant="contained"
+          <Button
+            variant="contained"
             disabled={!isAnswered}
             onClick={handleGoToNext}
           >
@@ -143,7 +169,9 @@ export default function QuizMultipleChoiceCard({
           </Button>
         </Box>
       </Stack>
-      <Button variant="text" color={isFlagged ? "warning" : "inherit"}
+      <Button
+        variant="text"
+        color={isFlagged ? "warning" : "inherit"}
         onClick={() => onClickFlag(!isFlagged)}
       >
         {isFlagged ? "🚩 Remove Flag" : "🚩 Flag for Review"}

@@ -1,9 +1,8 @@
 "use client";
 
 import { Question } from "@/app/types";
+import { Alert, Box, Button, Paper, Stack, Typography } from "@mui/material";
 import MoreInfo from "./MoreInfo";
-import { Paper, Stack } from "@mui/material";
-import { Alert, Box, Button, Typography } from "@mui/material";
 
 type QuizCardProps = {
   currentQuestion: Question | undefined;
@@ -40,16 +39,30 @@ export default function QuizCard({
 
   const hasHint = Boolean(currentQuestion.hint);
   return (
-    <Paper component="section" sx={{ p: 3, borderRadius: 3 }}>
+    <Paper component="section" sx={{ p: 3 }}>
       <Stack spacing={3}>
-        <Box sx={{ display: "flex", justifyContent: "space-between", color: "text.secondary" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            color: "text.secondary",
+          }}
+        >
           <Typography variant="body2">
             Question {currentIndex + 1} of {totalQuestions}
           </Typography>
           <Typography variant="body2">{correctCount} correct</Typography>
         </Box>
 
-        <Paper variant="outlined" sx={{ p: 2.5, bgcolor: "action.hover", fontWeight: 700, fontSize: "1.1rem" }}>
+        <Paper
+          variant="outlined"
+          sx={{
+            p: 2.5,
+            bgcolor: "action.hover",
+            fontWeight: 700,
+            fontSize: "1.1rem",
+          }}
+        >
           <Typography sx={{ fontWeight: 700, fontSize: "1.1rem" }}>
             {currentQuestion.question}
           </Typography>
@@ -57,7 +70,12 @@ export default function QuizCard({
 
         {hasHint && !cardFlipped && (
           <Stack spacing={1}>
-            <Button variant="text" size="small" onClick={onToggleHint} sx={{ alignSelf: "flex-start" }}>
+            <Button
+              variant="text"
+              size="small"
+              onClick={onToggleHint}
+              sx={{ alignSelf: "flex-start" }}
+            >
               {hintVisible ? "Hide hint" : "Show hint"}
             </Button>
             {hintVisible && (
@@ -79,17 +97,41 @@ export default function QuizCard({
           </Stack>
         ) : (
           <Stack spacing={2}>
-            <Alert severity="success"><Typography variant="subtitle2">Answer</Typography><Typography>{currentQuestion.answer}</Typography></Alert>
+            <Alert severity="success">
+              <Typography variant="subtitle2">Answer</Typography>
+              <Typography>{currentQuestion.answer}</Typography>
+            </Alert>
             <Stack spacing={1}>
-              <Typography sx={{ fontWeight: 600 }}>Did you get it right?</Typography>
+              <Typography sx={{ fontWeight: 600 }}>
+                Did you get it right?
+              </Typography>
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
-                <Button color="error" variant="contained" onClick={() => { onClickFlag(true); onMarkIncorrect(); }}>
+                <Button
+                  color="error"
+                  variant="contained"
+                  onClick={() => {
+                    onClickFlag(true);
+                    onMarkIncorrect();
+                  }}
+                >
                   ✗ Incorrect
                 </Button>
-                <Button color="warning" variant="outlined" onClick={() => onClickFlag(true)}>
-                  {isFlagged ? "🚩 Keep Flagged for Review" : "🚩 Flag for Review"}
+                <Button
+                  color="warning"
+                  variant="outlined"
+                  onClick={() => onClickFlag(true)}
+                >
+                  {isFlagged
+                    ? "🚩 Keep Flagged for Review"
+                    : "🚩 Flag for Review"}
                 </Button>
-                <Button color="success" variant="contained" onClick={onMarkCorrect}>✓ Correct</Button>
+                <Button
+                  color="success"
+                  variant="contained"
+                  onClick={onMarkCorrect}
+                >
+                  ✓ Correct
+                </Button>
               </Box>
             </Stack>
             <MoreInfo items={currentQuestion.moreInfo} />

@@ -1,9 +1,9 @@
 "use client";
 
 import { MatchingGroup, MatchingPair, Question } from "@/app/types";
+import { Alert, Box, Button, Paper, Stack, Typography } from "@mui/material";
 import { useMemo, useState } from "react";
 import MoreInfo from "./MoreInfo";
-import { Alert, Box, Button, Paper, Stack, Typography } from "@mui/material";
 
 type MatchingCardProps = {
   currentQuestion: Question | undefined;
@@ -114,9 +114,7 @@ export default function QuizMatchingCard({
   const groupItems = (group: number) =>
     Object.entries(assignments)
       .filter(([, assignedGroup]) => assignedGroup === group)
-      .map(([id]) =>
-        optionsByColumn.flat().find((option) => option.id === id),
-      )
+      .map(([id]) => optionsByColumn.flat().find((option) => option.id === id))
       .filter((option): option is MatchingOption => option !== undefined);
   const assignedGroups = [...new Set(Object.values(assignments))];
   const isSameGroupAsRow = (group: number, row: string[]) => {
@@ -257,17 +255,28 @@ export default function QuizMatchingCard({
     percent >= 80 ? "#2ecc71" : percent >= 50 ? "#f1c40f" : "#e74c3c";
 
   return (
-    <Paper component="section" sx={{ p: 3, borderRadius: 3 }}>
+    <Paper component="section" sx={{ p: 3 }}>
       <Stack spacing={3}>
         <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2 }}>
           <Typography variant="body2" color="text.secondary">
             Question {currentIndex + 1} of {totalQuestions}
           </Typography>
-          <Typography variant="body2" sx={{ color: colorForPercent(correctPercent) }}>
+          <Typography
+            variant="body2"
+            sx={{ color: colorForPercent(correctPercent) }}
+          >
             {correctCount} correct ({correctPercent}%)
           </Typography>
         </Box>
-        <Paper variant="outlined" sx={{ p: 2.5, bgcolor: "action.hover", fontWeight: 700, fontSize: "1.1rem" }}>
+        <Paper
+          variant="outlined"
+          sx={{
+            p: 2.5,
+            bgcolor: "action.hover",
+            fontWeight: 700,
+            fontSize: "1.1rem",
+          }}
+        >
           <Typography sx={{ fontWeight: 700, fontSize: "1.1rem" }}>
             {currentQuestion.question}
           </Typography>
@@ -287,8 +296,13 @@ export default function QuizMatchingCard({
           >
             {optionsByColumn.map((options, column) => (
               <Stack key={column} spacing={1}>
-                <Typography variant="overline" color="text.secondary" sx={{ fontWeight: 700 }}>
-                  {currentQuestion.columnLabels?.[column] ?? `Column ${column + 1}`}
+                <Typography
+                  variant="overline"
+                  color="text.secondary"
+                  sx={{ fontWeight: 700 }}
+                >
+                  {currentQuestion.columnLabels?.[column] ??
+                    `Column ${column + 1}`}
                 </Typography>
                 {options.map((option) => {
                   const assignedGroup = assignments[option.id];
@@ -304,8 +318,30 @@ export default function QuizMatchingCard({
                       disabled={isSubmitted}
                       onClick={() => selectItem(option)}
                       sx={{
-                        display: "block", width: "100%", padding: "12px", borderRadius: 10, border: "1px solid", textAlign: "left", fontWeight: 600, color: isSubmitted ? (correct ? "#15803d" : "#b91c1c") : "inherit", background: isSelected ? "#eff6ff" : isMatched ? "#f8fafc" : "#fff", cursor: isSubmitted ? "default" : "pointer",
-                        ...(isMatched ? { boxShadow: `inset 4px 0 0 ${colorsByGroup[assignedGroup]}` } : {}),
+                        display: "block",
+                        width: "100%",
+                        padding: "12px",
+                        borderRadius: 10,
+                        border: "1px solid",
+                        textAlign: "left",
+                        fontWeight: 600,
+                        color: isSubmitted
+                          ? correct
+                            ? "success.main"
+                            : "error.main"
+                          : "text.primary",
+                        backgroundColor: isSelected
+                          ? "action.selected"
+                          : isMatched
+                            ? "action.hover"
+                            : "background.paper",
+                        borderColor: "divider",
+                        cursor: isSubmitted ? "default" : "pointer",
+                        ...(isMatched
+                          ? {
+                              boxShadow: `inset 4px 0 0 ${colorsByGroup[assignedGroup]}`,
+                            }
+                          : {}),
                       }}
                     >
                       {option.value}
@@ -318,7 +354,12 @@ export default function QuizMatchingCard({
         </Box>
         {currentQuestion.hint && !isSubmitted && (
           <Stack spacing={1}>
-            <Button variant="text" size="small" onClick={onToggleHint} sx={{ alignSelf: "flex-start" }}>
+            <Button
+              variant="text"
+              size="small"
+              onClick={onToggleHint}
+              sx={{ alignSelf: "flex-start" }}
+            >
               {hintVisible ? "Hide hint" : "Need a hint?"}
             </Button>
             {hintVisible && (
@@ -331,21 +372,45 @@ export default function QuizMatchingCard({
         {isSubmitted && <MoreInfo items={currentQuestion.moreInfo} />}
         {!isSubmitted ? (
           <Box sx={{ display: "flex", justifyContent: "center", gap: 1 }}>
-            <Button variant="outlined" onClick={() => onAnswer(false, answerText)}>Skip</Button>
-            <Button variant="contained" disabled={!isComplete} onClick={() => setIsSubmitted(true)}>Check matches</Button>
+            <Button
+              variant="outlined"
+              onClick={() => onAnswer(false, answerText)}
+            >
+              Skip
+            </Button>
+            <Button
+              variant="contained"
+              disabled={!isComplete}
+              onClick={() => setIsSubmitted(true)}
+            >
+              Check matches
+            </Button>
           </Box>
         ) : (
           <Stack spacing={1.5} sx={{ alignItems: "center" }}>
-            <Typography color={isCorrect ? "success.main" : "error.main"} sx={{ fontWeight: 700 }}>
+            <Typography
+              color={isCorrect ? "success.main" : "error.main"}
+              sx={{ fontWeight: 700 }}
+            >
               {isCorrect
                 ? "All matches are correct."
                 : "Some matches need review."}
             </Typography>
-            <Button variant="contained" color={isCorrect ? "success" : "error"} onClick={() => onAnswer(isCorrect, answerText)}>Next</Button>
+            <Button
+              variant="contained"
+              color={isCorrect ? "success" : "error"}
+              onClick={() => onAnswer(isCorrect, answerText)}
+            >
+              Next
+            </Button>
           </Stack>
         )}
       </Stack>
-      <Button variant="text" color={isFlagged ? "warning" : "inherit"} onClick={() => onClickFlag(!isFlagged)}>
+      <Button
+        variant="text"
+        color={isFlagged ? "warning" : "inherit"}
+        onClick={() => onClickFlag(!isFlagged)}
+      >
         {isFlagged ? "🚩 Remove Flag" : "🚩 Flag for Review"}
       </Button>
     </Paper>

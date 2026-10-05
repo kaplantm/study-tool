@@ -98,7 +98,7 @@ export default function QuizDiagramLabelingCard({
   };
 
   return (
-    <Paper component="section" sx={{ p: { xs: 2, sm: 3 }, borderRadius: 3 }}>
+    <Paper component="section" sx={{ p: { xs: 2, sm: 3 } }}>
       <Stack spacing={3}>
         <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2 }}>
           <Typography variant="body2" color="text.secondary">

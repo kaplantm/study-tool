@@ -15,15 +15,45 @@ export default function CourseList({
   return (
     <Stack spacing={3}>
       <Typography variant="h5">Available courses</Typography>
-      <Box sx={{ display: "grid", gap: 2, gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)" } }}>
+      <Box
+        sx={{
+          display: "grid",
+          gap: 2,
+          gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)" },
+        }}
+      >
         {courses.map((course) => (
           <ButtonBase
             key={course.id}
             onClick={() => onSelectCourse(course.id)}
-            sx={{ display: "flex", flexDirection: "column", alignItems: "stretch", gap: 1, p: 2.5, border: 1, borderColor: "divider", borderRadius: 3, textAlign: "left", bgcolor: "action.hover", "&:hover": { borderColor: "text.secondary", bgcolor: "action.selected" } }}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "stretch",
+              gap: 1,
+              p: 2.5,
+              border: 1,
+              borderColor: "divider",
+              textAlign: "left",
+              bgcolor: "action.hover",
+              "&:hover": {
+                borderColor: "text.secondary",
+                bgcolor: "action.selected",
+              },
+            }}
           >
-            <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <Typography variant="caption" sx={{ fontWeight: 700, textTransform: "uppercase" }} color="text.secondary">
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <Typography
+                variant="caption"
+                sx={{ fontWeight: 700, textTransform: "uppercase" }}
+                color="text.secondary"
+              >
                 Course {course.number}
               </Typography>
               <Chip size="small" label={`${course.units.length} units`} />
