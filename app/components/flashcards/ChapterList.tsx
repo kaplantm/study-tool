@@ -2,7 +2,16 @@
 
 import { ChapterOption } from "./types";
 import { useEffect, useRef } from "react";
-import { Box, Button, Checkbox, FormControlLabel, Paper, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  ButtonBase,
+  Checkbox,
+  FormControlLabel,
+  Paper,
+  Stack,
+  Typography,
+} from "@mui/material";
 
 type ChapterListProps = {
   options: ChapterOption[];
@@ -48,21 +57,56 @@ export default function ChapterList({
       <Box sx={{ display: "grid", gap: 3, gridTemplateColumns: { xs: "1fr", lg: "minmax(0, 1fr) 320px" }, alignItems: "start" }}>
         <Box sx={{ display: "grid", gap: 1.5, gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)" } }}>
           {options.map((option) => (
-            <Button
+            <ButtonBase
               key={`${option.chapter.id}${option.unit.number}`}
               onClick={() => onSelectChapter(option)}
-              variant={selectedChapterId === option.chapter.id ? "contained" : "outlined"}
-              color={selectedChapterId === option.chapter.id ? "primary" : "inherit"}
-              sx={{ display: "block", p: 2, textAlign: "left" }}
+              sx={{
+                display: "block",
+                p: 2,
+                border: 1,
+                textAlign: "left",
+                borderColor:
+                  selectedChapterId === option.chapter.id
+                    ? "primary.main"
+                    : "divider",
+                bgcolor:
+                  selectedChapterId === option.chapter.id
+                    ? "primary.main"
+                    : "action.hover",
+                color:
+                  selectedChapterId === option.chapter.id
+                    ? "primary.contrastText"
+                    : "text.primary",
+                "&:hover": { borderColor: "text.secondary" },
+              }}
             >
-              <Typography variant="caption" sx={{ display: "block", fontWeight: 700 }}>
+              <Typography
+                variant="caption"
+                sx={{
+                  display: "block",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                }}
+                color={
+                  selectedChapterId === option.chapter.id
+                    ? "inherit"
+                    : "text.secondary"
+                }
+              >
                 Unit {option.unit.number} · Chapter {option.chapter.number}
               </Typography>
-              <Typography sx={{ fontWeight: 700 }}>{option.chapter.title}</Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="h6">{option.chapter.title}</Typography>
+              <Typography
+                variant="body2"
+                color={
+                  selectedChapterId === option.chapter.id
+                    ? "inherit"
+                    : "text.secondary"
+                }
+              >
                 {option.chapter.description}
               </Typography>
-            </Button>
+            </ButtonBase>
           ))}
         </Box>
 
