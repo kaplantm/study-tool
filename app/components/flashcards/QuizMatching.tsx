@@ -2,7 +2,7 @@
 
 import { MatchingGroup, MatchingPair, Question } from "@/app/types";
 import { Alert, Box, Button, Paper, Stack, Typography } from "@mui/material";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import MoreInfo from "./MoreInfo";
 
 type MatchingCardProps = {
@@ -73,6 +73,12 @@ export default function QuizMatchingCard({
   const [selected, setSelected] = useState<Selection[]>([]);
   const [assignments, setAssignments] = useState<Record<string, number>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [removedGroups, setRemovedGroups] = useState<Set<number>>(new Set());
+  const removalTimers = useRef<Record<number, ReturnType<typeof setTimeout>>>({});
+  const assignmentsRef = useRef(assignments);
+  useEffect(() => {
+    assignmentsRef.current = assignments;
+  }, [assignments]);
 
   const rows = useMemo(
     () =>
@@ -151,6 +157,7 @@ export default function QuizMatchingCard({
   const isComplete =
     assignedGroups.length === rows.length &&
     assignedGroups.every((group) => isGroupComplete(group));
+  const removeCorrectItems = rows.length > 10;
   const correctGroups = new Set(
     assignedGroups.filter((group) =>
       rows.some((row) => isSameGroupAsRow(group, row)),
@@ -240,6 +247,36 @@ export default function QuizMatchingCard({
 
     setAssignments(next);
     setIsSubmitted(nextIsComplete);
+
+    if (removeCorrectItems) {
+      nextGroups
+        .filter(
+          (group) =>
+            isGroupComplete(group, next) &&
+            rows.some((row) => isSameGroupAsRow(group, row, next)),
+        )
+        .forEach((group) => {
+          if (removalTimers.current[group]) {
+            clearTimeout(removalTimers.current[group]);
+          }
+          removalTimers.current[group] = setTimeout(() => {
+            const currentAssignments = assignmentsRef.current;
+            if (
+              isGroupComplete(group, currentAssignments) &&
+              rows.some((row) =>
+                isSameGroupAsRow(group, row, currentAssignments),
+              )
+            ) {
+              setRemovedGroups((previous) => {
+                const nextRemoved = new Set(previous);
+                nextRemoved.add(group);
+                return nextRemoved;
+              });
+            }
+            delete removalTimers.current[group];
+          }, 1000);
+        });
+    }
     setSelected([]);
   };
 
@@ -329,6 +366,11 @@ export default function QuizMatchingCard({
                   const isComplete =
                     isMatched && isGroupComplete(assignedGroup);
                   const correct = isComplete && correctGroups.has(assignedGroup);
+
+                  if (removeCorrectItems && correct && removedGroups.has(assignedGroup)) {
+                    return null;
+                  }
+
                   return (
                     <Button
                       key={option.id}
