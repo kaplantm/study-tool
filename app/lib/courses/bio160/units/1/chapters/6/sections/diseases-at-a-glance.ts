@@ -476,7 +476,7 @@ const questions: Questions = [
           "Unknown",
           "Increased pressure in the left ventricle; symptoms of heart failure in severe narrowing.",
           "ECG, blood pressure check, echocardiography, cardiac catheterization, Doppler ultrasound",
-          "Surgical correction.",
+          "Corrective surgery.",
           "Unknown",
         ],
       },

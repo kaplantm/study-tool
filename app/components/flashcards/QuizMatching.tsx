@@ -111,14 +111,21 @@ export default function QuizMatchingCard({
 
   if (!currentQuestion || rows.length === 0 || columnCount < 2) return null;
 
-  const groupItems = (group: number) =>
-    Object.entries(assignments)
+  const groupItems = (
+    sourceAssignments: Record<string, number>,
+    group: number,
+  ) =>
+    Object.entries(sourceAssignments)
       .filter(([, assignedGroup]) => assignedGroup === group)
       .map(([id]) => optionsByColumn.flat().find((option) => option.id === id))
       .filter((option): option is MatchingOption => option !== undefined);
   const assignedGroups = [...new Set(Object.values(assignments))];
-  const isSameGroupAsRow = (group: number, row: string[]) => {
-    const assignedValues = groupItems(group);
+  const isSameGroupAsRow = (
+    group: number,
+    row: string[],
+    sourceAssignments: Record<string, number> = assignments,
+  ) => {
+    const assignedValues = groupItems(sourceAssignments, group);
     return (
       assignedValues.length === row.length &&
       row.every((value) => {
@@ -131,8 +138,11 @@ export default function QuizMatchingCard({
       })
     );
   };
-  const isGroupComplete = (group: number) => {
-    const items = groupItems(group);
+  const isGroupComplete = (
+    group: number,
+    sourceAssignments: Record<string, number> = assignments,
+  ) => {
+    const items = groupItems(sourceAssignments, group);
     return (
       items.length === columnCount &&
       new Set(items.map((item) => item.column)).size === columnCount
@@ -140,7 +150,7 @@ export default function QuizMatchingCard({
   };
   const isComplete =
     assignedGroups.length === rows.length &&
-    assignedGroups.every(isGroupComplete);
+    assignedGroups.every((group) => isGroupComplete(group));
   const correctGroups = new Set(
     assignedGroups.filter((group) =>
       rows.some((row) => isSameGroupAsRow(group, row)),
@@ -156,74 +166,80 @@ export default function QuizMatchingCard({
       Array.from(
         { length: columnCount },
         (_, column) =>
-          groupItems(group).find((item) => item.column === column)?.value ??
+          groupItems(assignments, group).find((item) => item.column === column)
+            ?.value ??
           "(blank)",
       ).join(" → "),
     )
     .join("; ");
 
   const assignMatch = (selections: Selection[]) => {
-    setAssignments((previous) => {
-      const next = { ...previous };
-      const selectedGroups = selections
-        .map(({ id }) => next[id])
-        .filter((group): group is number => group !== undefined);
-      const targetGroup =
-        selectedGroups[0] ??
-        rows.findIndex((_, index) => !Object.values(next).includes(index));
-      const sourceGroups = new Set(
-        selectedGroups.filter((group) => group !== targetGroup),
-      );
+    const previous = assignments;
+    const next = { ...previous };
+    const selectedGroups = selections
+      .map(({ id }) => next[id])
+      .filter((group): group is number => group !== undefined);
+    const targetGroup =
+      selectedGroups[0] ??
+      rows.findIndex((_, index) => !Object.values(next).includes(index));
+    const sourceGroups = new Set(
+      selectedGroups.filter((group) => group !== targetGroup),
+    );
 
-      if (sourceGroups.size > 0) {
-        Object.keys(next).forEach((value) => {
-          if (sourceGroups.has(next[value])) next[value] = targetGroup;
-        });
-      }
-
-      // A group can contain only one item from each column. Keep the items
-      // explicitly selected for this merge, then remove any other conflicts.
-      const preferredByColumn = new Map(
-        selections.map(({ column, id }) => [column, id]),
-      );
-      const keptColumns = new Set<number>();
-      Object.keys(next)
-        .filter((item) => next[item] === targetGroup)
-        .sort(
-          (left, right) =>
-            Number(
-              preferredByColumn.has(
-                optionsByColumn.flat().find((option) => option.id === right)
-                  ?.column ?? -1,
-              ),
-            ) -
-            Number(
-              preferredByColumn.has(
-                optionsByColumn.flat().find((option) => option.id === left)
-                  ?.column ?? -1,
-              ),
-            ),
-        )
-        .forEach((item) => {
-          if (next[item] !== targetGroup) return;
-          const option = optionsByColumn
-            .flat()
-            .find((candidate) => candidate.id === item);
-          if (!option) return;
-          const preferred = preferredByColumn.get(option.column);
-          if (preferred && item !== preferred) {
-            delete next[item];
-          } else if (keptColumns.has(option.column)) {
-            delete next[item];
-          } else {
-            keptColumns.add(option.column);
-          }
-        });
-      selections.forEach(({ id }) => {
-        next[id] = targetGroup;
+    if (sourceGroups.size > 0) {
+      Object.keys(next).forEach((value) => {
+        if (sourceGroups.has(next[value])) next[value] = targetGroup;
       });
-      return next;
+    }
+
+    // A group can contain only one item from each column. Keep the items
+    // explicitly selected for this merge, then remove any other conflicts.
+    const preferredByColumn = new Map(
+      selections.map(({ column, id }) => [column, id]),
+    );
+    const keptColumns = new Set<number>();
+    Object.keys(next)
+      .filter((item) => next[item] === targetGroup)
+      .sort(
+        (left, right) =>
+          Number(
+            preferredByColumn.has(
+              optionsByColumn.flat().find((option) => option.id === right)
+                ?.column ?? -1,
+            ),
+          ) -
+          Number(
+            preferredByColumn.has(
+              optionsByColumn.flat().find((option) => option.id === left)
+                ?.column ?? -1,
+            ),
+          ),
+      )
+      .forEach((item) => {
+        if (next[item] !== targetGroup) return;
+        const option = optionsByColumn
+          .flat()
+          .find((candidate) => candidate.id === item);
+        if (!option) return;
+        const preferred = preferredByColumn.get(option.column);
+        if (preferred && item !== preferred) {
+          delete next[item];
+        } else if (keptColumns.has(option.column)) {
+          delete next[item];
+        } else {
+          keptColumns.add(option.column);
+        }
+      });
+    selections.forEach(({ id }) => {
+      next[id] = targetGroup;
     });
+    const nextGroups = [...new Set(Object.values(next))];
+    const nextIsComplete =
+      nextGroups.length === rows.length &&
+      nextGroups.every((group) => isGroupComplete(group, next));
+
+    setAssignments(next);
+    setIsSubmitted(nextIsComplete);
     setSelected([]);
   };
 
@@ -292,10 +308,10 @@ export default function QuizMatchingCard({
                   ? `repeat(${columnCount}, minmax(0, 1fr))`
                   : `repeat(${columnCount}, 14rem)`,
             }}
-            sx={{ display: "grid", gap: 2, pb: 1 }}
+            sx={{ display: "grid", gap: 5, pb: 1 }}
           >
             {optionsByColumn.map((options, column) => (
-              <Stack key={column} spacing={1}>
+              <Stack key={column} spacing={2}>
                 <Typography
                   variant="overline"
                   color="text.secondary"
@@ -310,7 +326,9 @@ export default function QuizMatchingCard({
                   const isSelected = selected.some(
                     (item) => item.id === option.id,
                   );
-                  const correct = isMatched && correctGroups.has(assignedGroup);
+                  const isComplete =
+                    isMatched && isGroupComplete(assignedGroup);
+                  const correct = isComplete && correctGroups.has(assignedGroup);
                   return (
                     <Button
                       key={option.id}
@@ -321,11 +339,11 @@ export default function QuizMatchingCard({
                         display: "block",
                         width: "100%",
                         padding: "12px",
-                        borderRadius: 10,
                         border: "1px solid",
                         textAlign: "left",
+                        textTransform: "none",
                         fontWeight: 600,
-                        color: isSubmitted
+                        color: isComplete
                           ? correct
                             ? "success.main"
                             : "error.main"
@@ -352,6 +370,25 @@ export default function QuizMatchingCard({
             ))}
           </Box>
         </Box>
+        {assignedGroups.some((group) => isGroupComplete(group)) && (
+          <Stack spacing={1}>
+            {assignedGroups
+              .filter((group) => isGroupComplete(group))
+              .sort((left, right) => left - right)
+              .map((group) => {
+                const correct = correctGroups.has(group);
+                return (
+                  <Alert
+                    key={group}
+                    severity={correct ? "success" : "error"}
+                    sx={{ py: 0.25 }}
+                  >
+                    Match {group + 1} {correct ? "is correct." : "needs review."}
+                  </Alert>
+                );
+              })}
+          </Stack>
+        )}
         {currentQuestion.hint && !isSubmitted && (
           <Stack spacing={1}>
             <Button
@@ -377,13 +414,6 @@ export default function QuizMatchingCard({
               onClick={() => onAnswer(false, answerText)}
             >
               Skip
-            </Button>
-            <Button
-              variant="contained"
-              disabled={!isComplete}
-              onClick={() => setIsSubmitted(true)}
-            >
-              Check matches
             </Button>
           </Box>
         ) : (

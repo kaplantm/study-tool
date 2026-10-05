@@ -108,7 +108,8 @@ export default function QuizMultipleChoiceCard({
             return (
               <Button
                 key={option}
-                disabled={isAnswered}
+                aria-disabled={isAnswered}
+                tabIndex={isAnswered ? -1 : undefined}
                 onClick={() => handleOptionClick(option)}
                 variant="outlined"
                 color={
@@ -121,8 +122,9 @@ export default function QuizMultipleChoiceCard({
                 sx={{
                   justifyContent: "flex-start",
                   textAlign: "left",
+                  textTransform: "none",
                   p: 1.5,
-                  opacity: isAnswered && !isCorrect && !isSelected ? 0.5 : 1,
+                  bgcolor: "background.paper",
                 }}
               >
                 {option}
