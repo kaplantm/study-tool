@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
-
 import { Question } from "@/app/types";
+import MoreInfo from "./MoreInfo";
 
 type QuizCardProps = {
   currentQuestion: Question | undefined;
@@ -33,17 +32,11 @@ export default function QuizCard({
   isFlagged,
   onClickFlag,
 }: QuizCardProps) {
-  const [showMoreInfo, setShowMoreInfo] = useState(false);
-
   if (!currentQuestion) {
     return null;
   }
 
   const hasHint = Boolean(currentQuestion.hint);
-  const hasMoreInfo =
-    Array.isArray(currentQuestion.moreInfo) &&
-    currentQuestion.moreInfo.length > 0;
-
   return (
     <section className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
       <div className="flex flex-col gap-6">
@@ -129,32 +122,7 @@ export default function QuizCard({
               </div>
             </div>
 
-            {hasMoreInfo && (
-              <div className="mt-4 flex flex-col gap-3 border-t border-zinc-100 pt-4 dark:border-zinc-800">
-                {!showMoreInfo ? (
-                  <button
-                    onClick={() => setShowMoreInfo(true)}
-                    className="self-start rounded-full border border-zinc-300 px-4 py-1 text-xs font-semibold text-zinc-600 transition hover:border-zinc-500 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500"
-                  >
-                    💡 More Info
-                  </button>
-                ) : (
-                  <div className="rounded-xl border border-blue-200 bg-blue-50 px-4 py-3 text-sm text-blue-900 dark:border-blue-500/40 dark:bg-blue-500/10 dark:text-blue-100">
-                    <ul className="list-disc list-inside space-y-1">
-                      {currentQuestion.moreInfo?.map((info, idx) => (
-                        <li key={idx}>{info}</li>
-                      ))}
-                    </ul>
-                    <button
-                      onClick={() => setShowMoreInfo(false)}
-                      className="mt-2 text-xs font-semibold underline text-blue-700 dark:text-blue-300"
-                    >
-                      Hide info
-                    </button>
-                  </div>
-                )}
-              </div>
-            )}
+            <MoreInfo items={currentQuestion.moreInfo} />
           </div>
         )}
       </div>

@@ -2,6 +2,7 @@
 
 import { Question } from "@/app/types";
 import { useMemo, useState } from "react";
+import MoreInfo from "./MoreInfo";
 
 type DiagramLabelingCardProps = {
   currentQuestion: Question | undefined;
@@ -256,6 +257,8 @@ export default function QuizDiagramLabelingCard({
             )}
           </div>
         )}
+
+        {isSubmitted && <MoreInfo items={currentQuestion.moreInfo} />}
 
         {!isSubmitted ? (
           <div className="flex justify-center gap-2">

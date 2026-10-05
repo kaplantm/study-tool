@@ -39,7 +39,7 @@ TODO:
 Add a flag for review button (flag icon) icon. Show "Incorrect" "Flag for Review" and "Correct". Store flagged flashcard ids in local storage. Clicking "incorrect" should also mark a question as flagged in local storage. Quiz summary should display failed cards and flagged cards (both are technically saved as flagged, but in the quiz summary we want to understand why). Add a toggle option to study flagged cards only (per course / per unit / per chapter). During this type of quiz, show an "unflag" button instead - getting a question right does not unflag it, you must click the unflag button.
 
 Add button to get back to course selection from http://localhost:3001/courses/nutrition
-Add button to exit flashcards early (link to http://localhost:3001/courses/ and link to http://localhost:3001/courses/:courseId)
+Add button to exit flashcards early (link to http://localhost:3001/ and link to http://localhost:3001/courses/:courseId)
 
 ## Generating questions from notes
 
@@ -65,7 +65,7 @@ Matching rows can also contain any number of columns by using `values`:
 matches: [
   { values: ["Mitochondrion", "Produces ATP", "Cellular respiration"] },
   { values: ["Ribosome", "Builds proteins", "Translation"] },
-]
+];
 ```
 
 For a diagram-labeling question, use `diagram`. Target IDs and labels must be unique. The `x` and `y` coordinates position each numbered target as percentages of the image dimensions. Learners select a label and then its numbered target.

@@ -296,7 +296,7 @@ export default function StudyPage() {
     setHintVisible(false);
   };
   const handleChangeCourse = () => {
-    router.push("/courses");
+    router.push("/");
   };
   const resetQuestion = () => {
     setCardFlipped(false);

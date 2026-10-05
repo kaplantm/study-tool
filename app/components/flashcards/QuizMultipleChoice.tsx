@@ -1,6 +1,7 @@
 "use client";
 
 import { Question } from "@/app/types";
+import MoreInfo from "./MoreInfo";
 import { useEffect, useMemo, useState } from "react";
 
 type MultipleChoiceCardProps = {
@@ -147,6 +148,8 @@ export default function QuizMultipleChoiceCard({
             )}
           </div>
         )}
+
+        {isAnswered && <MoreInfo items={currentQuestion.moreInfo} />}
 
         <div className="mt-2 flex justify-center gap-2 text-center animate-in fade-in slide-in-from-top-1">
           <button

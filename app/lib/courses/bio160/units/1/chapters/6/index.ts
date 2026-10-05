@@ -2,6 +2,8 @@ import { Chapter } from "@/app/types";
 import { ch6AnatomyReviewSection } from "./sections/anatomy-review";
 import { ch6AnatomyReviewDiagramsSection } from "./sections/anatomy-review-diagrams";
 import { ch6DiagramsSection } from "./sections/digrams";
+import { ch6DiseaseAtAGlance } from "./sections/diseases-at-a-glance";
+import { ch6PracticeTest } from "./sections/practice-test";
 
 export const bio160Chapter6: Chapter = {
   id: "bio160-6",
@@ -13,6 +15,8 @@ export const bio160Chapter6: Chapter = {
     ch6AnatomyReviewSection,
     ch6AnatomyReviewDiagramsSection,
     ch6DiagramsSection,
+    ch6PracticeTest,
+    ch6DiseaseAtAGlance,
   ],
   questions: [
     {

@@ -45,8 +45,10 @@ export type Question = {
   options?: string[];
   /** The answer for flashcard and multiple-choice questions. */
   answer?: string;
-  /** Rows for a matching question. Values must be unique within the question. */
+  /** Rows for a matching question. */
   matches?: (MatchingPair | MatchingGroup)[];
+  /** Optional labels displayed above each matching-question column. */
+  columnLabels?: string[];
   /** An image with numbered targets that the learner labels. */
   diagram?: Diagram;
   hint?: string | null;
