@@ -3,6 +3,7 @@
 import { Question } from "@/app/types";
 import MoreInfo from "./MoreInfo";
 import { useEffect, useMemo, useState } from "react";
+import { Alert, Box, Button, Paper, Stack, Typography } from "@mui/material";
 
 type MultipleChoiceCardProps = {
   currentQuestion: Question | undefined;
@@ -38,6 +39,7 @@ export default function QuizMultipleChoiceCard({
 
   // Reset local selection when question changes
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSelectedOption(null);
   }, [currentQuestion?.id, currentIndex]);
 
@@ -65,10 +67,6 @@ export default function QuizMultipleChoiceCard({
     }
   };
 
-  const manyOptions = Boolean(
-    currentQuestion.options?.length && currentQuestion.options.length > 6,
-  );
-
   const getColor = (percent: number) => {
     if (percent >= 80) return "#2ecc71"; // Green
     if (percent >= 50) return "#f1c40f"; // Yellow
@@ -76,113 +74,80 @@ export default function QuizMultipleChoiceCard({
   };
 
   return (
-    <section className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
-      <div className="flex flex-col gap-6">
-        <div className="flex items-center justify-between text-sm text-zinc-500 dark:text-zinc-400">
-          <span>
+    <Paper component="section" sx={{ p: 3, borderRadius: 3 }}>
+      <Stack spacing={3}>
+        <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2 }}>
+          <Typography variant="body2" color="text.secondary">
             Question {currentIndex + 1} of {totalQuestions}
-          </span>
-          <span style={{ color: getColor(correctPercent) }}>
+          </Typography>
+          <Typography variant="body2" sx={{ color: getColor(correctPercent) }}>
             {correctCount} correct ({correctPercent}%)
-          </span>
-        </div>
+          </Typography>
+        </Box>
 
-        <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5 text-lg font-semibold text-zinc-900 dark:border-zinc-800 dark:bg-zinc-900/60 dark:text-zinc-100">
-          {currentQuestion.question}
-        </div>
+        <Paper variant="outlined" sx={{ p: 2.5, bgcolor: "action.hover", fontWeight: 700, fontSize: "1.1rem" }}>
+          <Typography sx={{ fontWeight: 700, fontSize: "1.1rem" }}>
+            {currentQuestion.question}
+          </Typography>
+        </Paper>
 
         {/* Options List */}
-        <div
-          className={`grid gap-3 ${
-            manyOptions
-              ? "grid-cols-[repeat(auto-fill,minmax(200px,1fr))]"
-              : "grid-cols-1"
-          }`}
-        >
+        <Stack spacing={1.5}>
           {currentQuestion.options?.map((option) => {
             const isCorrect = option === currentQuestion.answer;
             const isSelected = option === selectedOption;
 
-            let variantClasses =
-              "border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900";
-
-            if (isAnswered) {
-              if (isCorrect) {
-                variantClasses =
-                  "border-emerald-500 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400";
-              } else if (isSelected && !isCorrect) {
-                variantClasses =
-                  "border-rose-500 bg-rose-50 dark:bg-rose-500/10 text-rose-700 dark:text-rose-400";
-              } else {
-                variantClasses =
-                  "opacity-50 border-zinc-200 dark:border-zinc-800";
-              }
-            }
-
             return (
-              <button
+              <Button
                 key={option}
                 disabled={isAnswered}
                 onClick={() => handleOptionClick(option)}
-                className={`w-full rounded-xl border p-4 text-left text-sm font-medium transition-all ${variantClasses}`}
+                variant="outlined"
+                color={isAnswered && isCorrect ? "success" : isAnswered && isSelected ? "error" : "inherit"}
+                sx={{ justifyContent: "flex-start", textAlign: "left", p: 1.5, opacity: isAnswered && !isCorrect && !isSelected ? 0.5 : 1 }}
               >
                 {option}
-              </button>
+              </Button>
             );
           })}
-        </div>
+        </Stack>
 
         {/* Hint Section */}
         {currentQuestion.hint && !isAnswered && (
-          <div className="flex flex-col gap-2">
-            <button
-              onClick={onToggleHint}
-              className="self-start text-xs font-semibold text-zinc-500 underline underline-offset-4"
-            >
+          <Stack spacing={1}>
+            <Button variant="text" size="small" onClick={onToggleHint} sx={{ alignSelf: "flex-start" }}>
               {hintVisible ? "Hide hint" : "Need a hint?"}
-            </button>
+            </Button>
             {hintVisible && (
-              <div className="rounded-xl bg-amber-50 p-3 text-sm text-amber-900 dark:bg-amber-500/10 dark:text-amber-100">
-                {currentQuestion.hint}
-              </div>
+              <Alert severity="warning">
+                <Typography>{currentQuestion.hint}</Typography>
+              </Alert>
             )}
-          </div>
+          </Stack>
         )}
 
         {isAnswered && <MoreInfo items={currentQuestion.moreInfo} />}
 
-        <div className="mt-2 flex justify-center gap-2 text-center animate-in fade-in slide-in-from-top-1">
-          <button
+        <Box sx={{ display: "flex", justifyContent: "center", gap: 1 }}>
+          <Button variant="outlined"
             disabled={isAnswered}
             onClick={handleGoToNext}
-            className={`rounded-full px-5 py-2 text-sm font-semibold transition text-white 
-      disabled:opacity-50 disabled:cursor-not-allowed bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:text-black dark:hover:bg-zinc-800`}
           >
             Skip
-          </button>
-          <button
+          </Button>
+          <Button variant="contained"
             disabled={!isAnswered}
             onClick={handleGoToNext}
-            className={`rounded-full px-5 py-2 text-sm font-semibold transition text-white 
-    disabled:opacity-40 disabled:cursor-not-allowed
-    ${
-      isAnswered
-        ? selectedOption === currentQuestion.answer
-          ? "bg-emerald-600 hover:bg-emerald-500"
-          : "bg-rose-600 hover:bg-rose-500"
-        : "bg-zinc-800 border border-zinc-700 hover:bg-zinc-800 hover:border-zinc-600 dark:bg-zinc-100 dark:text-black dark:hover:bg-zinc-800"
-    }`}
           >
             Next
-          </button>
-        </div>
-      </div>
-      <button
+          </Button>
+        </Box>
+      </Stack>
+      <Button variant="text" color={isFlagged ? "warning" : "inherit"}
         onClick={() => onClickFlag(!isFlagged)}
-        className="mt-5 flex-1 rounded-full bg-amber-500 px-5 py-2 text-sm font-semibold text-white transition hover:bg-amber-600 dark:bg-amber-400 dark:hover:bg-amber-500"
       >
         {isFlagged ? "🚩 Remove Flag" : "🚩 Flag for Review"}
-      </button>
-    </section>
+      </Button>
+    </Paper>
   );
 }

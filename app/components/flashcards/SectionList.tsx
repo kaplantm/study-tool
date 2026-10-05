@@ -1,6 +1,7 @@
 "use client";
 
 import { SectionOption } from "./types";
+import { Box, ButtonBase, Stack, Typography } from "@mui/material";
 
 type SectionListProps = {
   options: SectionOption[];
@@ -14,29 +15,25 @@ export default function SectionList({
   onSelectSection,
 }: SectionListProps) {
   return (
-    <div className="flex flex-col gap-4">
-      <h4 className="text-base font-semibold">Select a section</h4>
-      <div className="grid gap-3 sm:grid-cols-2">
+    <Stack spacing={2}>
+      <Typography variant="h6">Select a section</Typography>
+      <Box sx={{ display: "grid", gap: 1.5, gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)" } }}>
         {options.map((option) => (
-          <button
+          <ButtonBase
             key={`${option.unit.id}${option.chapter.id}${option.sectionIndex}`}
             onClick={() => onSelectSection(option)}
-            className={`rounded-2xl border p-4 text-left transition ${
-              selectedSectionId === option.section.id
-                ? "border-zinc-900 bg-zinc-900 text-white dark:border-zinc-100 dark:bg-zinc-100 dark:text-black"
-                : "border-zinc-200 bg-zinc-50 hover:border-zinc-400 dark:border-zinc-800 dark:bg-zinc-900/60"
-            }`}
+            sx={{ display: "block", p: 2, border: 1, borderRadius: 3, textAlign: "left", borderColor: selectedSectionId === option.section.id ? "text.primary" : "divider", bgcolor: selectedSectionId === option.section.id ? "text.primary" : "action.hover", color: selectedSectionId === option.section.id ? "common.white" : "text.primary", "&:hover": { borderColor: "text.secondary" } }}
           >
-            <p className="text-xs font-semibold uppercase text-zinc-500 dark:text-zinc-400">
+            <Typography variant="caption" sx={{ display: "block", fontWeight: 700, textTransform: "uppercase" }} color={selectedSectionId === option.section.id ? "inherit" : "text.secondary"}>
               Unit {option.unit.number} · Chapter {option.chapter.number} · Section {option.section.number}
-            </p>
-            <p className="text-lg font-semibold">{option.section.title}</p>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">
+            </Typography>
+            <Typography variant="h6">{option.section.title}</Typography>
+            <Typography variant="body2" color={selectedSectionId === option.section.id ? "inherit" : "text.secondary"}>
               {option.section.description}
-            </p>
-          </button>
+            </Typography>
+          </ButtonBase>
         ))}
-      </div>
-    </div>
+      </Box>
+    </Stack>
   );
 }

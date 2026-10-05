@@ -1,6 +1,7 @@
 "use client";
 
 import { Course } from "@/app/types";
+import { Box, ButtonBase, Chip, Stack, Typography } from "@mui/material";
 
 type CourseListProps = {
   courses: Course[];
@@ -12,33 +13,31 @@ export default function CourseList({
   onSelectCourse,
 }: CourseListProps) {
   return (
-    <div className="flex flex-col gap-6">
-      <h2 className="text-xl font-semibold">Available courses</h2>
-      <div className="grid gap-4 sm:grid-cols-2">
+    <Stack spacing={3}>
+      <Typography variant="h5">Available courses</Typography>
+      <Box sx={{ display: "grid", gap: 2, gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)" } }}>
         {courses.map((course) => (
-          <button
+          <ButtonBase
             key={course.id}
             onClick={() => onSelectCourse(course.id)}
-            className="flex flex-col gap-2 rounded-2xl border border-zinc-200 bg-zinc-50 p-5 text-left transition hover:border-zinc-400 hover:bg-zinc-800 dark:border-zinc-800 dark:bg-zinc-900/60 dark:hover:border-zinc-600"
+            sx={{ display: "flex", flexDirection: "column", alignItems: "stretch", gap: 1, p: 2.5, border: 1, borderColor: "divider", borderRadius: 3, textAlign: "left", bgcolor: "action.hover", "&:hover": { borderColor: "text.secondary", bgcolor: "action.selected" } }}
           >
-            <div className="flex items-center justify-between">
-              <span className="text-sm font-semibold uppercase text-zinc-500">
+            <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <Typography variant="caption" sx={{ fontWeight: 700, textTransform: "uppercase" }} color="text.secondary">
                 Course {course.number}
-              </span>
-              <span className="rounded-full bg-zinc-200 px-3 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
-                {course.units.length} units
-              </span>
-            </div>
-            <h3 className="text-lg font-semibold">{course.title}</h3>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">
+              </Typography>
+              <Chip size="small" label={`${course.units.length} units`} />
+            </Box>
+            <Typography variant="h6">{course.title}</Typography>
+            <Typography variant="body2" color="text.secondary">
               {course.description}
-            </p>
-            <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+            </Typography>
+            <Typography variant="body2" sx={{ fontWeight: 600 }}>
               Start studying →
-            </span>
-          </button>
+            </Typography>
+          </ButtonBase>
         ))}
-      </div>
-    </div>
+      </Box>
+    </Stack>
   );
 }

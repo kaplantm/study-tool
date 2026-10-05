@@ -1,35 +1,34 @@
 import { Course } from "@/app/types";
 import { useRouter } from "next/navigation";
+import { Box, Button, Stack, Typography } from "@mui/material";
 
 export default function StudyHeader({ course, onChangeCourse }: { course: Course, onChangeCourse: () => void }) {
   const router = useRouter();
   return (
-    <header className="flex flex-col gap-3">
-      <div className="flex items-center justify-between">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
+    <Stack spacing={1.5}>
+      <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 2 }}>
+        <Typography variant="overline" color="text.secondary" sx={{ letterSpacing: "0.2em", fontWeight: 700 }}>
           Flashcard Study
-        </p>
-        <div className="flex gap-2">
-          <button
+        </Typography>
+        <Box sx={{ display: "flex", gap: 1 }}>
+          <Button
             onClick={() => router.push(`/courses/${course.id}`)}
-            className="rounded-full border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-600 transition hover:border-zinc-500 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500"
+            variant="outlined" size="small"
           >
             ← Back to {course.title}
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={onChangeCourse}
-            className="rounded-full border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-600 transition hover:border-zinc-500 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500"
+            variant="outlined" size="small"
           >
             All courses
-          </button>
-        </div>
-      </div>
-      <h1 className="text-3xl font-semibold leading-tight sm:text-4xl">
-        {course.title}
-      </h1>
-      <p className="max-w-2xl text-base text-zinc-600 dark:text-zinc-400">
+          </Button>
+        </Box>
+      </Box>
+      <Typography variant="h3" sx={{ fontWeight: 600 }}>{course.title}</Typography>
+      <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 720 }}>
         {course.description}
-      </p>
-    </header>
+      </Typography>
+    </Stack>
   );
 }

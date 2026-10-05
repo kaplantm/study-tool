@@ -1,10 +1,20 @@
 "use client";
 
 import { Question } from "@/app/types";
+import {
+  Alert,
+  Box,
+  Button,
+  Chip,
+  Divider,
+  Paper,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { useMemo, useState } from "react";
 import MoreInfo from "./MoreInfo";
 
-type DiagramLabelingCardProps = {
+type Props = {
   currentQuestion: Question | undefined;
   currentIndex: number;
   totalQuestions: number;
@@ -17,15 +27,12 @@ type DiagramLabelingCardProps = {
 };
 
 const shuffle = <T,>(items: T[]) => {
-  const shuffled = [...items];
-  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+  const result = [...items];
+  for (let index = result.length - 1; index > 0; index -= 1) {
     const swapIndex = Math.floor(Math.random() * (index + 1));
-    [shuffled[index], shuffled[swapIndex]] = [
-      shuffled[swapIndex],
-      shuffled[index],
-    ];
+    [result[index], result[swapIndex]] = [result[swapIndex], result[index]];
   }
-  return shuffled;
+  return result;
 };
 
 export default function QuizDiagramLabelingCard({
@@ -38,31 +45,33 @@ export default function QuizDiagramLabelingCard({
   onToggleHint,
   isFlagged,
   onClickFlag,
-}: DiagramLabelingCardProps) {
+}: Props) {
   const diagram = currentQuestion?.diagram;
   const [selectedLabelId, setSelectedLabelId] = useState<string | null>(null);
   const [selectedTargetId, setSelectedTargetId] = useState<string | null>(null);
   const [assignments, setAssignments] = useState<Record<string, string>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [labels] = useState(() =>
-    shuffle(diagram?.targets.map((el) => el) ?? []),
+    shuffle(diagram?.targets.map((target) => target) ?? []),
   );
 
-  const correctPercent = useMemo(() => {
-    if (currentIndex === 0) return 0;
-    return Math.round((correctCount / currentIndex) * 1000) / 10;
-  }, [correctCount, currentIndex]);
-
+  const correctPercent = useMemo(
+    () =>
+      currentIndex === 0
+        ? 0
+        : Math.round((correctCount / currentIndex) * 1000) / 10,
+    [correctCount, currentIndex],
+  );
   if (!currentQuestion || !diagram || diagram.targets.length === 0) return null;
 
   const isCorrect = diagram.targets.every(({ id }) => assignments[id] === id);
   const answerText = diagram.targets
     .map(({ id }) => {
-      const assignedLabelId = assignments[id];
-      const assignedLabel = diagram.targets.find(
-        ({ id: labelId }) => labelId === assignedLabelId,
+      const assigned = assignments[id];
+      const label = diagram.targets.find(
+        ({ id: labelId }) => labelId === assigned,
       )?.label;
-      return `${id}: ${assignedLabel ?? "(blank)"}`;
+      return `${id}: ${label ?? "(blank)"}`;
     })
     .join("; ");
 
@@ -84,224 +93,272 @@ export default function QuizDiagramLabelingCard({
 
   const handleTargetClick = (targetId: string) => {
     if (isSubmitted) return;
-    if (selectedLabelId) {
-      assignLabel(targetId, selectedLabelId);
-      return;
-    }
+    if (selectedLabelId) return assignLabel(targetId, selectedLabelId);
     setSelectedTargetId((current) => (current === targetId ? null : targetId));
   };
 
   return (
-    <section className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
-      <div className="flex flex-col gap-6">
-        <div className="flex items-center justify-between text-sm text-zinc-500 dark:text-zinc-400">
-          <span>
+    <Paper component="section" sx={{ p: { xs: 2, sm: 3 }, borderRadius: 3 }}>
+      <Stack spacing={3}>
+        <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2 }}>
+          <Typography variant="body2" color="text.secondary">
             Question {currentIndex + 1} of {totalQuestions}
-          </span>
-          <span>
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
             {correctCount} correct ({correctPercent}%)
-          </span>
-        </div>
-        <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5 text-lg font-semibold dark:border-zinc-800 dark:bg-zinc-900/60">
-          {currentQuestion.question}
-        </div>
-        <p className="text-sm text-zinc-600 dark:text-zinc-400">
+          </Typography>
+        </Box>
+
+        <Paper
+          variant="outlined"
+          sx={{
+            p: 2.5,
+            bgcolor: "action.hover",
+            fontWeight: 700,
+            fontSize: "1.1rem",
+          }}
+        >
+          <Typography sx={{ fontWeight: 700, fontSize: "1.1rem" }}>
+            {currentQuestion.question}
+          </Typography>
+        </Paper>
+        <Typography variant="body2" color="text.secondary">
           Select a label or numbered box first, then choose its match.
-        </p>
-        <div className="flex flex-col gap-5">
-          <div className="relative mx-auto w-fit max-w-full overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800">
+        </Typography>
+
+        <Box
+          sx={{
+            display: "grid",
+            gap: 3,
+            gridTemplateColumns: { xs: "1fr", lg: "minmax(0, 1fr) 300px" },
+            alignItems: "start",
+          }}
+        >
+          <Box
+            sx={{
+              position: "relative",
+              width: "fit-content",
+              maxWidth: "100%",
+              mx: "auto",
+              overflow: "hidden",
+              border: 1,
+              borderColor: "divider",
+              borderRadius: 2,
+            }}
+          >
             <img
               src={diagram.imageUrl}
               alt={diagram.alt}
-              className="block h-auto max-h-[680px] max-w-full rounded-2xl object-contain"
+              style={{
+                display: "block",
+                maxWidth: "100%",
+                maxHeight: 680,
+                height: "auto",
+                objectFit: "contain",
+              }}
             />
             {diagram.targets.map(({ id, x, y, width, height }) => {
               const assigned = assignments[id];
               const correct = assigned === id;
               const isRectangle = width !== undefined && height !== undefined;
-              const statusClass = correct ? "bg-emerald-600" : "bg-rose-600";
-              const stateClasses = isSubmitted
-                ? "border-zinc-800 bg-transparent text-zinc-900 dark:text-zinc-100"
-                : assigned
-                  ? "border-sky-600 bg-white text-sky-700"
-                  : selectedTargetId === id
-                    ? "border-sky-600 bg-sky-100 text-sky-700"
-                    : "border-zinc-800 bg-white text-zinc-900 hover:bg-zinc-100";
+              const selected = selectedTargetId === id;
               return (
-                <button
+                <Button
                   key={id}
                   type="button"
                   aria-label={`Target ${id}${isSubmitted ? (correct ? ": correct" : assigned ? ": incorrect" : ": missing label") : ""}`}
                   disabled={isSubmitted}
                   onClick={() => handleTargetClick(id)}
-                  style={{
+                  sx={{
+                    position: "absolute",
                     left: `${x}%`,
                     top: `${y}%`,
                     ...(isRectangle
                       ? { width: `${width}%`, height: `${height}%` }
                       : { transform: "translate(-50%, -50%)" }),
+                    minWidth: isRectangle ? undefined : 36,
+                    minHeight: isRectangle ? undefined : 36,
+                    border: "2px solid",
+                    borderColor: isSubmitted
+                      ? correct
+                        ? "#16a34a"
+                        : "#dc2626"
+                      : "#2563eb",
+                    borderRadius: isRectangle ? 6 : "50%",
+                    background: selected ? "#dbeafe" : "rgba(255,255,255,.9)",
+                    color: isSubmitted
+                      ? correct
+                        ? "#15803d"
+                        : "#b91c1c"
+                      : "#1d4ed8",
+                    fontWeight: 700,
+                    cursor: isSubmitted ? "default" : "pointer",
+                    boxShadow: "0 3px 8px rgba(0,0,0,.18)",
                   }}
-                  className={`absolute grid place-items-center border-2 text-sm font-bold shadow-lg transition disabled:cursor-not-allowed ${isRectangle ? "rounded-md" : "size-9 -translate-x-1/2 -translate-y-1/2 rounded-full"} ${stateClasses}`}
                 >
-                  <span
-                    className={`absolute -right-4 -top-4 z-10 grid h-5 min-w-5 place-items-center rounded-full border-2 border-white px-1 text-xs font-bold leading-none text-white shadow-sm ${isSubmitted ? statusClass : "bg-sky-600"}`}
-                    title={
-                      isSubmitted
-                        ? correct
-                          ? "Correct"
-                          : assigned
-                            ? "Incorrect label"
-                            : "Missing label"
-                        : undefined
-                    }
-                  >
-                    {id}
-                  </span>
-                </button>
+                  {id}
+                </Button>
               );
             })}
-          </div>
+          </Box>
 
-          <aside className="w-full max-h-[400px] overflow-y-auto rounded-2xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-900/60">
-            <div className="mb-3">
-              <h2 className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
-                Available labels
-              </h2>
-              <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
-                Select a label or target first, then choose its match.
-              </p>
-            </div>
-            <div className="flex flex-col gap-2">
-              {labels.map(({ label, id }) => {
-                const assignedTargetId = Object.entries(assignments).find(
-                  ([, assignedLabelId]) => assignedLabelId === id,
-                )?.[0];
-                const isUsed = assignedTargetId !== undefined;
-                const isCorrectlyPlaced = assignedTargetId === id;
-                const labelStatusClass = isCorrectlyPlaced
-                  ? "border-emerald-300 bg-emerald-50 text-emerald-800 dark:border-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300"
-                  : "border-rose-300 bg-rose-50 text-rose-800 dark:border-rose-700 dark:bg-rose-500/10 dark:text-rose-300";
-                return (
-                  <button
-                    key={id}
-                    type="button"
-                    disabled={isSubmitted}
-                    aria-label={`${label}${isSubmitted && isUsed ? (isCorrectlyPlaced ? ": correct" : ": incorrect") : ""}`}
-                    onClick={() => {
-                      if (selectedTargetId) {
-                        assignLabel(selectedTargetId, id);
-                      } else {
-                        setSelectedLabelId((current) =>
-                          current === id ? null : id,
-                        );
+          <Paper
+            component="aside"
+            variant="outlined"
+            sx={{
+              p: 2,
+              bgcolor: "action.hover",
+              maxHeight: 420,
+              overflowY: "auto",
+            }}
+          >
+            <Stack spacing={1.5}>
+              <Box>
+                <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+                  Available labels
+                </Typography>
+                <Typography variant="caption" color="text.secondary">
+                  Select a label or target first, then choose its match.
+                </Typography>
+              </Box>
+              <Stack spacing={1}>
+                {labels.map(({ label, id }) => {
+                  const assignedTargetId = Object.entries(assignments).find(
+                    ([, assignedLabelId]) => assignedLabelId === id,
+                  )?.[0];
+                  const isUsed = assignedTargetId !== undefined;
+                  const isCorrectlyPlaced = assignedTargetId === id;
+                  return (
+                    <Button
+                      key={id}
+                      type="button"
+                      disabled={isSubmitted}
+                      onClick={() =>
+                        selectedTargetId
+                          ? assignLabel(selectedTargetId, id)
+                          : setSelectedLabelId((current) =>
+                              current === id ? null : id,
+                            )
                       }
-                    }}
-                    className={`inline-flex w-full items-center justify-between gap-2 rounded-xl border px-3 py-2 text-left text-sm font-medium transition ${selectedLabelId === id ? "border-sky-500 bg-sky-50 text-sky-800 dark:bg-sky-500/10 dark:text-sky-300" : isSubmitted && isUsed ? labelStatusClass : isUsed ? "border-emerald-300 bg-emerald-50 text-emerald-800 dark:border-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300" : "border-zinc-200 bg-white hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-900"}`}
-                  >
-                    <span>{label}</span>
-                    {isUsed && (
-                      <span
-                        className={`grid size-5 shrink-0 place-items-center rounded-full text-[10px] font-bold text-white ${isSubmitted && !isCorrectlyPlaced ? "bg-rose-600" : "bg-emerald-600"}`}
-                      >
-                        {assignedTargetId}
-                      </span>
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-          </aside>
-        </div>
+                      variant="outlined"
+                      color={
+                        isUsed
+                          ? isCorrectlyPlaced
+                            ? "success"
+                            : "error"
+                          : selectedLabelId === id
+                            ? "primary"
+                            : "inherit"
+                      }
+                      sx={{
+                        justifyContent: "space-between",
+                        textAlign: "left",
+                        bgcolor:
+                          selectedLabelId === id
+                            ? "primary.50"
+                            : "background.paper",
+                      }}
+                    >
+                      <span>{label}</span>
+                      {isUsed && (
+                        <Chip
+                          size="small"
+                          label={assignedTargetId}
+                          color={isCorrectlyPlaced ? "success" : "error"}
+                        />
+                      )}
+                    </Button>
+                  );
+                })}
+              </Stack>
+            </Stack>
+          </Paper>
+        </Box>
 
         {isSubmitted && (
-          <div className="grid gap-2 sm:grid-cols-2">
+          <Stack spacing={1}>
             {diagram.targets.map(({ id, label }) => (
-              <p
+              <Alert
                 key={id}
-                className={`flex items-center gap-2 rounded-lg p-2 text-sm ${assignments[id] === id ? "bg-emerald-50 text-emerald-800 dark:bg-emerald-500/10 dark:text-emerald-300" : "bg-rose-50 text-rose-800 dark:bg-rose-500/10 dark:text-rose-300"}`}
+                severity={assignments[id] === id ? "success" : "error"}
               >
-                <span
-                  aria-hidden="true"
-                  className={`grid size-5 shrink-0 place-items-center rounded-full text-xs font-bold text-white ${assignments[id] === id ? "bg-emerald-600" : "bg-rose-600"}`}
-                >
-                  {assignments[id] === id ? "✓" : "!"}
-                </span>
-                <span>
-                  {id}.{" "}
-                  {assignments[id]
-                    ? `You chose: ${diagram.targets.find(({ id: labelId }) => labelId === assignments[id])?.label ?? "Unknown label"}`
-                    : "Missing label"}
+                <Box>
+                  <Typography>
+                    {id}.{" "}
+                    {assignments[id]
+                      ? `You chose: ${diagram.targets.find(({ id: labelId }) => labelId === assignments[id])?.label ?? "Unknown label"}`
+                      : "Missing label"}
+                  </Typography>
                   {assignments[id] !== id && (
-                    <span className="block text-xs opacity-80">
+                    <Typography variant="caption" sx={{ display: "block" }}>
                       Correct: {label}
-                    </span>
+                    </Typography>
                   )}
-                </span>
-              </p>
+                </Box>
+              </Alert>
             ))}
-          </div>
+          </Stack>
         )}
 
         {currentQuestion.hint && !isSubmitted && (
-          <div className="flex flex-col gap-2">
-            <button
+          <Stack spacing={1}>
+            <Button
+              variant="text"
+              size="small"
               onClick={onToggleHint}
-              className="self-start text-xs font-semibold text-zinc-500 underline underline-offset-4"
+              sx={{ alignSelf: "flex-start" }}
             >
               {hintVisible ? "Hide hint" : "Need a hint?"}
-            </button>
+            </Button>
             {hintVisible && (
-              <div className="rounded-xl bg-amber-50 p-3 text-sm text-amber-900 dark:bg-amber-500/10 dark:text-amber-100">
-                {currentQuestion.hint}
-              </div>
+              <Alert severity="warning">
+                <Typography>{currentQuestion.hint}</Typography>
+              </Alert>
             )}
-          </div>
+          </Stack>
         )}
 
         {isSubmitted && <MoreInfo items={currentQuestion.moreInfo} />}
-
         {!isSubmitted ? (
-          <div className="flex justify-center gap-2">
-            <button
-              type="button"
+          <Box sx={{ display: "flex", justifyContent: "center", gap: 1 }}>
+            <Button
+              variant="outlined"
               onClick={() => onAnswer(false, answerText)}
-              className="rounded-full bg-zinc-900 px-5 py-2 text-sm font-semibold text-white dark:bg-zinc-100 dark:text-black"
             >
               Skip
-            </button>
-            <button
-              type="button"
-              onClick={() => setIsSubmitted(true)}
-              className="rounded-full bg-sky-600 px-5 py-2 text-sm font-semibold text-white"
-            >
+            </Button>
+            <Button variant="contained" onClick={() => setIsSubmitted(true)}>
               Check labels
-            </button>
-          </div>
+            </Button>
+          </Box>
         ) : (
-          <div className="flex flex-col items-center gap-3">
-            <p
-              className={`text-sm font-semibold ${isCorrect ? "text-emerald-600" : "text-rose-600"}`}
+          <Stack spacing={1.5} sx={{ alignItems: "center" }}>
+            <Typography
+              color={isCorrect ? "success.main" : "error.main"}
+              sx={{ fontWeight: 700 }}
             >
               {isCorrect
                 ? "All labels are correct."
                 : "Some labels need review."}
-            </p>
-            <button
-              type="button"
+            </Typography>
+            <Button
+              variant="contained"
+              color={isCorrect ? "success" : "error"}
               onClick={() => onAnswer(isCorrect, answerText)}
-              className={`rounded-full px-5 py-2 text-sm font-semibold text-white ${isCorrect ? "bg-emerald-600" : "bg-rose-600"}`}
             >
               Next
-            </button>
-          </div>
+            </Button>
+          </Stack>
         )}
-      </div>
-      <button
+      </Stack>
+      <Divider sx={{ my: 2 }} />
+      <Button
+        variant="text"
+        color={isFlagged ? "warning" : "inherit"}
         onClick={() => onClickFlag(!isFlagged)}
-        className="mt-5 rounded-full bg-amber-500 px-5 py-2 text-sm font-semibold text-white transition hover:bg-amber-600"
       >
         {isFlagged ? "🚩 Remove Flag" : "🚩 Flag for Review"}
-      </button>
-    </section>
+      </Button>
+    </Paper>
   );
 }

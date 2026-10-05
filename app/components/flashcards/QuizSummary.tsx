@@ -3,6 +3,7 @@
 import { Question } from "@/app/types";
 
 import { QuizResponse } from "./types";
+import { Alert, Box, Button, Paper, Stack, Typography } from "@mui/material";
 
 const correctAnswerText = (question: Question) => {
   if (question.diagram) {
@@ -50,99 +51,96 @@ export default function QuizSummary({
   const flaggedOnlyIds = flaggedIds.filter((id) => !failedIds.has(id));
 
   return (
-    <section className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
-      <div className="flex flex-col gap-6">
-        <div>
-          <h2 className="text-2xl font-semibold">Session summary</h2>
-          <p className="text-sm text-zinc-600 dark:text-zinc-400">
+    <Paper component="section" sx={{ p: 3, borderRadius: 3 }}>
+      <Stack spacing={3}>
+        <Box>
+          <Typography variant="h5">Session summary</Typography>
+          <Typography color="text.secondary">
             You answered {correctCount} out of {totalQuestions} correctly.
-          </p>
-        </div>
+          </Typography>
+        </Box>
 
         {incorrectResponses.length === 0 && flaggedOnlyIds.length === 0 ? (
-          <div className="rounded-2xl bg-emerald-100 p-4 text-sm font-medium text-emerald-800 dark:bg-emerald-500/20 dark:text-emerald-200">
-            Perfect score! You’re ready to move on.
-          </div>
+          <Alert severity="success">
+            <Typography>Perfect score! You’re ready to move on.</Typography>
+          </Alert>
         ) : (
-          <div className="flex flex-col gap-6">
+          <Stack spacing={2}>
             {incorrectResponses.length > 0 && (
-              <div className="flex flex-col gap-3">
-                <h3 className="text-sm font-semibold uppercase text-zinc-500 dark:text-zinc-400">
+              <Stack spacing={1}>
+                <Typography variant="subtitle1" color="error.main" sx={{ fontWeight: 700 }}>
                   Failed this session
-                </h3>
-                <div className="flex flex-col gap-3">
+                </Typography>
+                <Stack spacing={1}>
                   {incorrectResponses.map((response) => {
                     const question = quizQuestions.find(
                       (item) => item.id === response.questionId,
                     );
                     if (!question) return null;
                     return (
-                      <div
+                      <Alert
                         key={`response-${response.questionId}`}
-                        className="rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-900 dark:border-rose-500/40 dark:bg-rose-500/10 dark:text-rose-200"
+                        severity="error"
                       >
-                        <p className="font-semibold">{question.question}</p>
-                        <p className="mt-2 text-xs text-rose-700 dark:text-rose-300">
+                        <Typography sx={{ fontWeight: 600 }}>{question.question}</Typography>
+                        <Typography variant="caption" sx={{ display: "block" }}>
                           Your answer: {response.userAnswer || "(blank)"}
-                        </p>
-                        <p className="text-xs text-rose-700 dark:text-rose-300">
+                        </Typography>
+                        <Typography variant="caption" sx={{ display: "block" }}>
                           Correct answer: {correctAnswerText(question)}
-                        </p>
-                      </div>
+                        </Typography>
+                      </Alert>
                     );
                   })}
-                </div>
-              </div>
+                </Stack>
+              </Stack>
             )}
             {flaggedOnlyIds.length > 0 && (
-              <div className="flex flex-col gap-3">
-                <h3 className="text-sm font-semibold uppercase text-amber-600 dark:text-amber-300">
+              <Stack spacing={1}>
+                <Typography variant="subtitle1" color="warning.main" sx={{ fontWeight: 700 }}>
                   Flagged for Review
-                </h3>
-                <div className="flex flex-col gap-3">
+                </Typography>
+                <Stack spacing={1}>
                   {flaggedOnlyIds.map((id) => {
                     const question = quizQuestions.find(
                       (item) => item.id === id,
                     );
                     if (!question) return null;
                     return (
-                      <div
+                      <Alert
                         key={`flagged-${id}`}
-                        className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900 dark:border-amber-500/40 dark:bg-amber-500/10 dark:text-amber-200"
+                        severity="warning"
                       >
-                        <p className="font-semibold">{question.question}</p>
-                      </div>
+                        <Typography>{question.question}</Typography>
+                      </Alert>
                     );
                   })}
-                </div>
-              </div>
+                </Stack>
+              </Stack>
             )}
-          </div>
+          </Stack>
         )}
 
-        <div className="flex flex-wrap gap-3">
+        <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
           {incorrectResponses.length > 0 && (
-            <button
+            <Button variant="contained" color="error"
               onClick={onRetryFailed}
-              className="rounded-full bg-rose-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-rose-700"
             >
               Retry failed questions
-            </button>
+            </Button>
           )}
-          <button
+          <Button variant="outlined"
             onClick={onStudyAnother}
-            className="rounded-full bg-zinc-900 px-5 py-2 text-sm font-semibold text-white transition hover:bg-zinc-800 dark:bg-zinc-100 dark:text-black dark:hover:bg-zinc-800"
           >
             Study another set
-          </button>
-          <button
+          </Button>
+          <Button variant="outlined"
             onClick={onPickNewCourse}
-            className="rounded-full border border-zinc-300 px-5 py-2 text-sm font-semibold text-zinc-700 transition hover:border-zinc-500 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-zinc-500"
           >
             Pick a new course
-          </button>
-        </div>
-      </div>
-    </section>
+          </Button>
+        </Box>
+      </Stack>
+    </Paper>
   );
 }

@@ -3,6 +3,7 @@
 import { MatchingGroup, MatchingPair, Question } from "@/app/types";
 import { useMemo, useState } from "react";
 import MoreInfo from "./MoreInfo";
+import { Alert, Box, Button, Paper, Stack, Typography } from "@mui/material";
 
 type MatchingCardProps = {
   currentQuestion: Question | undefined;
@@ -256,37 +257,39 @@ export default function QuizMatchingCard({
     percent >= 80 ? "#2ecc71" : percent >= 50 ? "#f1c40f" : "#e74c3c";
 
   return (
-    <section className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
-      <div className="flex flex-col gap-6">
-        <div className="flex items-center justify-between text-sm text-zinc-500 dark:text-zinc-400">
-          <span>
+    <Paper component="section" sx={{ p: 3, borderRadius: 3 }}>
+      <Stack spacing={3}>
+        <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2 }}>
+          <Typography variant="body2" color="text.secondary">
             Question {currentIndex + 1} of {totalQuestions}
-          </span>
-          <span style={{ color: colorForPercent(correctPercent) }}>
+          </Typography>
+          <Typography variant="body2" sx={{ color: colorForPercent(correctPercent) }}>
             {correctCount} correct ({correctPercent}%)
-          </span>
-        </div>
-        <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5 text-lg font-semibold dark:border-zinc-800 dark:bg-zinc-900/60">
-          {currentQuestion.question}
-        </div>
-        <p className="text-sm text-zinc-600 dark:text-zinc-400">
+          </Typography>
+        </Box>
+        <Paper variant="outlined" sx={{ p: 2.5, bgcolor: "action.hover", fontWeight: 700, fontSize: "1.1rem" }}>
+          <Typography sx={{ fontWeight: 700, fontSize: "1.1rem" }}>
+            {currentQuestion.question}
+          </Typography>
+        </Paper>
+        <Typography variant="body2" color="text.secondary">
           Select one item from each column to create a match.
-        </p>
-        <div className="min-w-0 overflow-x-auto pb-2">
-          <div
-            className={`grid gap-4 ${columnCount <= 3 ? "w-full" : "min-w-max"}`}
+        </Typography>
+        <Box sx={{ overflowX: "auto" }}>
+          <Box
             style={{
               gridTemplateColumns:
                 columnCount <= 3
                   ? `repeat(${columnCount}, minmax(0, 1fr))`
                   : `repeat(${columnCount}, 14rem)`,
             }}
+            sx={{ display: "grid", gap: 2, pb: 1 }}
           >
             {optionsByColumn.map((options, column) => (
-              <div className="flex min-w-0 flex-col gap-2" key={column}>
-                <h2 className="text-xs font-semibold uppercase tracking-wide text-zinc-500">
+              <Stack key={column} spacing={1}>
+                <Typography variant="overline" color="text.secondary" sx={{ fontWeight: 700 }}>
                   {currentQuestion.columnLabels?.[column] ?? `Column ${column + 1}`}
-                </h2>
+                </Typography>
                 {options.map((option) => {
                   const assignedGroup = assignments[option.id];
                   const isMatched = assignedGroup !== undefined;
@@ -294,99 +297,57 @@ export default function QuizMatchingCard({
                     (item) => item.id === option.id,
                   );
                   const correct = isMatched && correctGroups.has(assignedGroup);
-                  const stateClasses = isSubmitted
-                    ? correct
-                      ? "border-emerald-500 bg-emerald-50 text-emerald-800 dark:bg-emerald-500/10 dark:text-emerald-300"
-                      : "border-rose-500 bg-rose-50 text-rose-800 dark:bg-rose-500/10 dark:text-rose-300"
-                    : isMatched
-                      ? isSelected
-                        ? "border-zinc-200 bg-sky-50 text-sky-800 ring-2 ring-sky-500 dark:border-zinc-800 dark:bg-sky-500/10 dark:text-sky-300"
-                        : "border-zinc-200 bg-zinc-100 text-zinc-500 dark:border-zinc-800 dark:bg-zinc-900/60 dark:text-zinc-500"
-                      : isSelected
-                        ? "border-sky-500 bg-sky-50 dark:bg-sky-500/10"
-                        : "border-zinc-200 hover:bg-zinc-50 dark:border-zinc-800 dark:hover:bg-zinc-900";
                   return (
-                    <button
+                    <Button
                       key={option.id}
                       type="button"
                       disabled={isSubmitted}
                       onClick={() => selectItem(option)}
-                      style={
-                        isMatched
-                          ? {
-                              boxShadow: `inset 4px 0 0 ${colorsByGroup[assignedGroup]}`,
-                            }
-                          : undefined
-                      }
-                      className={`rounded-xl border p-3 text-left text-sm font-medium transition ${stateClasses}`}
+                      sx={{
+                        display: "block", width: "100%", padding: "12px", borderRadius: 10, border: "1px solid", textAlign: "left", fontWeight: 600, color: isSubmitted ? (correct ? "#15803d" : "#b91c1c") : "inherit", background: isSelected ? "#eff6ff" : isMatched ? "#f8fafc" : "#fff", cursor: isSubmitted ? "default" : "pointer",
+                        ...(isMatched ? { boxShadow: `inset 4px 0 0 ${colorsByGroup[assignedGroup]}` } : {}),
+                      }}
                     >
                       {option.value}
-                    </button>
+                    </Button>
                   );
                 })}
-              </div>
+              </Stack>
             ))}
-          </div>
-        </div>
+          </Box>
+        </Box>
         {currentQuestion.hint && !isSubmitted && (
-          <div className="flex flex-col gap-2">
-            <button
-              onClick={onToggleHint}
-              className="self-start text-xs font-semibold text-zinc-500 underline underline-offset-4"
-            >
+          <Stack spacing={1}>
+            <Button variant="text" size="small" onClick={onToggleHint} sx={{ alignSelf: "flex-start" }}>
               {hintVisible ? "Hide hint" : "Need a hint?"}
-            </button>
+            </Button>
             {hintVisible && (
-              <div className="rounded-xl bg-amber-50 p-3 text-sm text-amber-900 dark:bg-amber-500/10 dark:text-amber-100">
-                {currentQuestion.hint}
-              </div>
+              <Alert severity="warning">
+                <Typography>{currentQuestion.hint}</Typography>
+              </Alert>
             )}
-          </div>
+          </Stack>
         )}
         {isSubmitted && <MoreInfo items={currentQuestion.moreInfo} />}
         {!isSubmitted ? (
-          <div className="flex justify-center gap-2">
-            <button
-              type="button"
-              onClick={() => onAnswer(false, answerText)}
-              className="rounded-full bg-zinc-900 px-5 py-2 text-sm font-semibold text-white dark:bg-zinc-100 dark:text-black"
-            >
-              Skip
-            </button>
-            <button
-              type="button"
-              disabled={!isComplete}
-              onClick={() => setIsSubmitted(true)}
-              className="rounded-full bg-sky-600 px-5 py-2 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-40"
-            >
-              Check matches
-            </button>
-          </div>
+          <Box sx={{ display: "flex", justifyContent: "center", gap: 1 }}>
+            <Button variant="outlined" onClick={() => onAnswer(false, answerText)}>Skip</Button>
+            <Button variant="contained" disabled={!isComplete} onClick={() => setIsSubmitted(true)}>Check matches</Button>
+          </Box>
         ) : (
-          <div className="flex flex-col items-center gap-3">
-            <p
-              className={`text-sm font-semibold ${isCorrect ? "text-emerald-600" : "text-rose-600"}`}
-            >
+          <Stack spacing={1.5} sx={{ alignItems: "center" }}>
+            <Typography color={isCorrect ? "success.main" : "error.main"} sx={{ fontWeight: 700 }}>
               {isCorrect
                 ? "All matches are correct."
                 : "Some matches need review."}
-            </p>
-            <button
-              type="button"
-              onClick={() => onAnswer(isCorrect, answerText)}
-              className={`rounded-full px-5 py-2 text-sm font-semibold text-white ${isCorrect ? "bg-emerald-600" : "bg-rose-600"}`}
-            >
-              Next
-            </button>
-          </div>
+            </Typography>
+            <Button variant="contained" color={isCorrect ? "success" : "error"} onClick={() => onAnswer(isCorrect, answerText)}>Next</Button>
+          </Stack>
         )}
-      </div>
-      <button
-        onClick={() => onClickFlag(!isFlagged)}
-        className="mt-5 rounded-full bg-amber-500 px-5 py-2 text-sm font-semibold text-white transition hover:bg-amber-600"
-      >
+      </Stack>
+      <Button variant="text" color={isFlagged ? "warning" : "inherit"} onClick={() => onClickFlag(!isFlagged)}>
         {isFlagged ? "🚩 Remove Flag" : "🚩 Flag for Review"}
-      </button>
-    </section>
+      </Button>
+    </Paper>
   );
 }

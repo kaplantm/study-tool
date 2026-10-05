@@ -2,6 +2,8 @@
 
 import { Question } from "@/app/types";
 import MoreInfo from "./MoreInfo";
+import { Paper, Stack } from "@mui/material";
+import { Alert, Box, Button, Typography } from "@mui/material";
 
 type QuizCardProps = {
   currentQuestion: Question | undefined;
@@ -38,94 +40,62 @@ export default function QuizCard({
 
   const hasHint = Boolean(currentQuestion.hint);
   return (
-    <section className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
-      <div className="flex flex-col gap-6">
-        <div className="flex items-center justify-between text-sm text-zinc-500 dark:text-zinc-400">
-          <span>
+    <Paper component="section" sx={{ p: 3, borderRadius: 3 }}>
+      <Stack spacing={3}>
+        <Box sx={{ display: "flex", justifyContent: "space-between", color: "text.secondary" }}>
+          <Typography variant="body2">
             Question {currentIndex + 1} of {totalQuestions}
-          </span>
-          <span>{correctCount} correct</span>
-        </div>
+          </Typography>
+          <Typography variant="body2">{correctCount} correct</Typography>
+        </Box>
 
-        <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5 text-lg font-semibold text-zinc-900 dark:border-zinc-800 dark:bg-zinc-900/60 dark:text-zinc-100">
-          {currentQuestion.question}
-        </div>
+        <Paper variant="outlined" sx={{ p: 2.5, bgcolor: "action.hover", fontWeight: 700, fontSize: "1.1rem" }}>
+          <Typography sx={{ fontWeight: 700, fontSize: "1.1rem" }}>
+            {currentQuestion.question}
+          </Typography>
+        </Paper>
 
         {hasHint && !cardFlipped && (
-          <div className="flex flex-col gap-2">
-            <button
-              type="button"
-              onClick={onToggleHint}
-              className="self-start rounded-full border border-zinc-300 px-4 py-1 text-xs font-semibold text-zinc-600 transition hover:border-zinc-500 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500"
-            >
+          <Stack spacing={1}>
+            <Button variant="text" size="small" onClick={onToggleHint} sx={{ alignSelf: "flex-start" }}>
               {hintVisible ? "Hide hint" : "Show hint"}
-            </button>
+            </Button>
             {hintVisible && (
-              <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900 dark:border-amber-500/40 dark:bg-amber-500/10 dark:text-amber-100">
-                {currentQuestion.hint}
-              </div>
+              <Alert severity="warning">
+                <Typography>{currentQuestion.hint}</Typography>
+              </Alert>
             )}
-          </div>
+          </Stack>
         )}
 
         {!cardFlipped ? (
-          <div className="flex flex-col gap-3">
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">
+          <Stack spacing={1.5} sx={{ alignItems: "center" }}>
+            <Typography color="text.secondary">
               Think of your answer, then flip the card to check.
-            </p>
-            <button
-              onClick={onFlipCard}
-              className="rounded-full bg-zinc-900 px-5 py-2 text-sm font-semibold text-white transition hover:bg-zinc-800 dark:bg-zinc-100 dark:text-black dark:hover:bg-zinc-800"
-            >
+            </Typography>
+            <Button variant="contained" onClick={onFlipCard}>
               Flip card
-            </button>
-          </div>
+            </Button>
+          </Stack>
         ) : (
-          <div className="flex flex-col gap-4">
-            <div className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 dark:border-emerald-500/40 dark:bg-emerald-500/10">
-              <p className="text-xs font-semibold uppercase text-emerald-700 dark:text-emerald-300">
-                Answer
-              </p>
-              <p className="mt-1 text-base font-medium text-emerald-900 dark:text-emerald-100">
-                {currentQuestion.answer}
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <p className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-                Did you get it right?
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <button
-                  onClick={() => {
-                    onClickFlag(true);
-                    onMarkIncorrect();
-                  }}
-                  className="flex-1 rounded-full bg-rose-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-rose-700 dark:bg-rose-500 dark:hover:bg-rose-600"
-                >
+          <Stack spacing={2}>
+            <Alert severity="success"><Typography variant="subtitle2">Answer</Typography><Typography>{currentQuestion.answer}</Typography></Alert>
+            <Stack spacing={1}>
+              <Typography sx={{ fontWeight: 600 }}>Did you get it right?</Typography>
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+                <Button color="error" variant="contained" onClick={() => { onClickFlag(true); onMarkIncorrect(); }}>
                   ✗ Incorrect
-                </button>
-                <button
-                  onClick={() => onClickFlag(true)}
-                  className="flex-1 rounded-full bg-amber-500 px-5 py-2 text-sm font-semibold text-white transition hover:bg-amber-600 dark:bg-amber-400 dark:hover:bg-amber-500"
-                >
-                  {isFlagged
-                    ? "🚩 Keep Flagged for Review"
-                    : "🚩 Flag for Review"}
-                </button>
-                <button
-                  onClick={onMarkCorrect}
-                  className="flex-1 rounded-full bg-emerald-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600"
-                >
-                  ✓ Correct
-                </button>
-              </div>
-            </div>
-
+                </Button>
+                <Button color="warning" variant="outlined" onClick={() => onClickFlag(true)}>
+                  {isFlagged ? "🚩 Keep Flagged for Review" : "🚩 Flag for Review"}
+                </Button>
+                <Button color="success" variant="contained" onClick={onMarkCorrect}>✓ Correct</Button>
+              </Box>
+            </Stack>
             <MoreInfo items={currentQuestion.moreInfo} />
-          </div>
+          </Stack>
         )}
-      </div>
-    </section>
+      </Stack>
+    </Paper>
   );
 }

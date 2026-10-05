@@ -42,6 +42,7 @@ export function useFlaggedFlashcardIds(key: string) {
   useEffect(() => {
     if (typeof window === "undefined") return;
     try {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFlaggedIds(JSON.parse(localStorage.getItem(key) || "[]"));
     } catch {
       setFlaggedIds([]);

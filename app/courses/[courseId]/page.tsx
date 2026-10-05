@@ -13,6 +13,7 @@ import {
 import { courses } from "@/app/lib/courses/courses";
 import { useParams, useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
+import { Box, Button, Container, Paper, Stack, Typography } from "@mui/material";
 
 export default function StudyPage() {
   const router = useRouter();
@@ -111,51 +112,41 @@ export default function StudyPage() {
 
   if (!selectedCourse) {
     return (
-      <div className="min-h-screen bg-zinc-50 px-4 py-12 text-zinc-900 dark:bg-black dark:text-zinc-100">
-        <main className="mx-auto flex w-full max-w-5xl flex-col gap-10">
-          <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
-            <p className="text-center text-zinc-600 dark:text-zinc-400">
+      <Box sx={{ minHeight: "100vh", py: 6 }}><Container maxWidth="lg">
+          <Paper sx={{ p: 3, textAlign: "center" }}>
+            <Typography color="text.secondary">
               Course not found
-            </p>
-            <div className="mt-4 flex justify-center">
-              <button
+            </Typography>
+            <Box sx={{ mt: 2 }}><Button
                 onClick={handleChangeCourse}
-                className="rounded-full border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-600 transition hover:border-zinc-500 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500"
-              >
+                variant="outlined">
                 Back to courses
-              </button>
-            </div>
-          </div>
-        </main>
-      </div>
+            </Button></Box>
+          </Paper>
+      </Container></Box>
     );
   }
 
   return (
-    <div className="min-h-screen bg-zinc-50 px-4 py-12 text-zinc-900 dark:bg-black dark:text-zinc-100">
-      <main className="mx-auto flex w-full max-w-5xl flex-col gap-10">
-        <header className="flex flex-col gap-3">
-          <div className="flex items-center justify-between">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
+    <Box sx={{ minHeight: "100vh", py: 6 }}><Container maxWidth="lg" sx={{ display: "flex", flexDirection: "column", gap: 5 }}>
+        <Stack spacing={1.5} component="header">
+          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 2 }}>
+            <Typography variant="overline" color="text.secondary" sx={{ letterSpacing: "0.2em", fontWeight: 700 }}>
               Flashcard Study
-            </p>
-            <button
+            </Typography>
+            <Button
               onClick={handleChangeCourse}
-              className="rounded-full border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-600 transition hover:border-zinc-500 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500"
-            >
+              variant="outlined" size="small">
               ← Back to courses
-            </button>
-          </div>
-          <h1 className="text-3xl font-semibold leading-tight sm:text-4xl">
-            {selectedCourse.title}
-          </h1>
-          <p className="max-w-2xl text-base text-zinc-600 dark:text-zinc-400">
+            </Button>
+          </Box>
+          <Typography variant="h3" sx={{ fontWeight: 600 }}>{selectedCourse.title}</Typography>
+          <Typography color="text.secondary" sx={{ maxWidth: 720 }}>
             {selectedCourse.description}
-          </p>
-        </header>
+          </Typography>
+        </Stack>
 
-        <section className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
-          <div className="flex flex-col gap-8">
+        <Paper sx={{ p: 3 }}><Stack spacing={4}>
             <StudyModeSelector
               studyMode={studyMode}
               onSelectMode={handleStudyModeSelect}
@@ -220,9 +211,7 @@ export default function StudyPage() {
             {studyMode === "course" && (
               <CourseStudyStart onStart={() => startQuiz()} />
             )}
-          </div>
-        </section>
-      </main>
-    </div>
+        </Stack></Paper>
+      </Container></Box>
   );
 }

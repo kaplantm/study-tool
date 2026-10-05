@@ -7,6 +7,7 @@ import QuizMultipleChoiceCard from "@/app/components/flashcards/QuizMultipleChoi
 import QuizSummary from "@/app/components/flashcards/QuizSummary";
 import { QuizResponse } from "@/app/components/flashcards/types";
 import { courses } from "@/app/lib/courses/courses";
+import { Button, Stack } from "@mui/material";
 import {
   useParams,
   usePathname,
@@ -342,8 +343,8 @@ export default function StudyPage() {
   const isMatchingQuestion = !!currentQuestion.matches?.length;
   const isDiagramLabelingQuestion = !!currentQuestion.diagram?.targets.length;
   return (
-    <div className="min-h-screen bg-zinc-50 px-4 py-12 text-zinc-900 dark:bg-black dark:text-zinc-100">
-      <main className="mx-auto flex w-full max-w-5xl flex-col gap-10">
+    <div>
+      <Stack component="main" spacing={1}>
         <StudyHeader
           course={selectedCourse}
           onChangeCourse={handleChangeCourse}
@@ -353,24 +354,16 @@ export default function StudyPage() {
           setFlaggedOnly={setFlaggedOnly}
         />
         {filteredQuizQuestions.length > 0 && (
-          <div className="flex flex-wrap gap-3">
+          <Stack spacing={1} direction="row">
             {!quizComplete && (
-              <button
-                type="button"
-                onClick={resetQuestion}
-                className="rounded-full border border-zinc-300 px-4 py-2 text-sm font-semibold text-zinc-700 transition hover:border-zinc-500 dark:border-zinc-700 dark:text-zinc-200"
-              >
+              <Button variant="outlined" type="button" onClick={resetQuestion}>
                 Reset question
-              </button>
+              </Button>
             )}
-            <button
-              type="button"
-              onClick={resetQuiz}
-              className="rounded-full border border-rose-300 px-4 py-2 text-sm font-semibold text-rose-700 transition hover:border-rose-500 dark:border-rose-500/60 dark:text-rose-300"
-            >
+            <Button variant="outlined" type="button" onClick={resetQuiz}>
               Reset quiz
-            </button>
-          </div>
+            </Button>
+          </Stack>
         )}
         {filteredQuizQuestions.length > 0 &&
           !quizComplete &&
@@ -487,7 +480,7 @@ export default function StudyPage() {
             onRetryFailed={retryFailedQuestions}
           />
         )}
-      </main>
+      </Stack>
     </div>
   );
 }

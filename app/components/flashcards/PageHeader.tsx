@@ -1,11 +1,12 @@
 "use client";
+import { Typography } from "@mui/material";
 
 export default function PageHeader() {
   return (
-    <header className="flex flex-col gap-3">
-      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
+    <header>
+      <Typography variant="overline" color="text.secondary" sx={{ letterSpacing: "0.2em", fontWeight: 700 }}>
         Flashcard Study
-      </p>
+      </Typography>
     </header>
   );
 }

@@ -2,6 +2,7 @@
 
 import { ChapterOption } from "./types";
 import { useEffect, useRef } from "react";
+import { Box, Button, Checkbox, FormControlLabel, Paper, Stack, Typography } from "@mui/material";
 
 type ChapterListProps = {
   options: ChapterOption[];
@@ -42,94 +43,73 @@ export default function ChapterList({
   }, [selectedChapterId]);
 
   return (
-    <div className="flex flex-col gap-4">
-      <h4 className="text-base font-semibold">Select a chapter</h4>
-      <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.8fr)]">
-        <div className="grid gap-3 sm:grid-cols-2">
+    <Stack spacing={2}>
+      <Typography variant="h6">Select a chapter</Typography>
+      <Box sx={{ display: "grid", gap: 3, gridTemplateColumns: { xs: "1fr", lg: "minmax(0, 1fr) 320px" }, alignItems: "start" }}>
+        <Box sx={{ display: "grid", gap: 1.5, gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)" } }}>
           {options.map((option) => (
-            <button
+            <Button
               key={`${option.chapter.id}${option.unit.number}`}
               onClick={() => onSelectChapter(option)}
-              className={`rounded-2xl border p-4 text-left transition ${
-                selectedChapterId === option.chapter.id
-                  ? "border-zinc-900 bg-zinc-900 text-white dark:border-zinc-100 dark:bg-zinc-100 dark:text-black"
-                  : "border-zinc-200 bg-zinc-50 hover:border-zinc-400 dark:border-zinc-800 dark:bg-zinc-900/60"
-              }`}
+              variant={selectedChapterId === option.chapter.id ? "contained" : "outlined"}
+              color={selectedChapterId === option.chapter.id ? "primary" : "inherit"}
+              sx={{ display: "block", p: 2, textAlign: "left" }}
             >
-              <p className="text-xs font-semibold uppercase text-zinc-500 dark:text-zinc-400">
+              <Typography variant="caption" sx={{ display: "block", fontWeight: 700 }}>
                 Unit {option.unit.number} · Chapter {option.chapter.number}
-              </p>
-              <p className="text-lg font-semibold">{option.chapter.title}</p>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400">
+              </Typography>
+              <Typography sx={{ fontWeight: 700 }}>{option.chapter.title}</Typography>
+              <Typography variant="body2" color="text.secondary">
                 {option.chapter.description}
-              </p>
-            </button>
+              </Typography>
+            </Button>
           ))}
-        </div>
+        </Box>
 
       {selectedOption && (
-        <div
+        <Paper
           ref={selectionPanelRef}
-          className="rounded-2xl border border-zinc-200 bg-zinc-50 p-4 lg:sticky lg:top-4 dark:border-zinc-800 dark:bg-zinc-900/60"
+          sx={{ p: 2, position: { lg: "sticky" }, top: { lg: 16 } }}
         >
-          <div className="flex flex-col gap-3">
-            <div>
-              <p className="font-semibold">Choose what to study</p>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400">
+          <Stack spacing={1.5}>
+            <Box>
+              <Typography sx={{ fontWeight: 700 }}>Choose what to study</Typography>
+              <Typography variant="body2" color="text.secondary">
                 Select one or more sections, or include the chapter&apos;s main questions.
-              </p>
-            </div>
+              </Typography>
+            </Box>
 
-            <label className="group flex cursor-pointer items-center gap-3 rounded-xl border border-zinc-200 bg-white p-3 dark:border-zinc-700 dark:bg-zinc-950">
-              <input
-                type="checkbox"
+            <FormControlLabel control={<Checkbox
                 checked={includeChapterQuestions}
                 onChange={onToggleChapterQuestions}
-                className="peer sr-only"
-              />
-              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-zinc-400 bg-white text-transparent transition peer-checked:border-zinc-900 peer-checked:bg-zinc-900 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-zinc-500 dark:border-zinc-500 dark:bg-zinc-900 dark:peer-checked:border-zinc-100 dark:peer-checked:bg-zinc-100 dark:peer-checked:text-black" aria-hidden="true">✓</span>
-              <span className="text-sm font-medium">Main chapter questions</span>
-              <span className="ml-auto text-xs text-zinc-500">
-                {selectedOption.chapter.questions.length}
-              </span>
-            </label>
+              />} label={`Main chapter questions (${selectedOption.chapter.questions.length})`} />
 
             {selectedOption.chapter.sections.map((section) => (
-              <label
+              <FormControlLabel
                 key={section.id}
-                className="group flex cursor-pointer items-center gap-3 rounded-xl border border-zinc-200 bg-white p-3 dark:border-zinc-700 dark:bg-zinc-950"
-              >
-                <input
-                  type="checkbox"
+                control={<Checkbox
                   checked={selectedSectionIds.includes(section.id)}
                   onChange={() => onToggleSection(section.id)}
-                  className="peer sr-only"
-                />
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-zinc-400 bg-white text-transparent transition peer-checked:border-zinc-900 peer-checked:bg-zinc-900 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-zinc-500 dark:border-zinc-500 dark:bg-zinc-900 dark:peer-checked:border-zinc-100 dark:peer-checked:bg-zinc-100 dark:peer-checked:text-black" aria-hidden="true">✓</span>
-                <span className="flex-1 text-sm font-medium">
-                  Section {section.number}: {section.title}
-                </span>
-                <span className="text-xs text-zinc-500">{section.questions.length}</span>
-              </label>
+                />} label={`Section ${section.number}: ${section.title} (${section.questions.length})`} />
             ))}
 
-            <div className="flex items-center justify-between border-t border-zinc-200 pt-3 text-sm dark:border-zinc-700">
-              <span className="font-semibold">Selected questions</span>
-              <span className="font-semibold tabular-nums">{selectedQuestionCount}</span>
-            </div>
+            <Box sx={{ display: "flex", justifyContent: "space-between", borderTop: 1, borderColor: "divider", pt: 1 }}>
+              <Typography sx={{ fontWeight: 700 }}>Selected questions</Typography>
+              <Typography sx={{ fontWeight: 700 }}>{selectedQuestionCount}</Typography>
+            </Box>
 
-            <button
+            <Button
               type="button"
               onClick={onStartQuiz}
               disabled={!hasSelection}
-              className="mt-2 rounded-full bg-zinc-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-zinc-700 disabled:cursor-not-allowed disabled:opacity-40 dark:bg-zinc-100 dark:text-black dark:hover:bg-zinc-300"
+              variant="contained"
             >
               Start quiz
-            </button>
-          </div>
-        </div>
+            </Button>
+          </Stack>
+        </Paper>
       )}
-      </div>
-    </div>
+      </Box>
+    </Stack>
   );
 }

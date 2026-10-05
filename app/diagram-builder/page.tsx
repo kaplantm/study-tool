@@ -1,6 +1,7 @@
 "use client";
 
 import { DiagramLabelTarget, Question } from "@/app/types";
+import { Button } from "@mui/material";
 import Link from "next/link";
 import {
   ChangeEvent,
@@ -73,7 +74,6 @@ const TargetLabelInput = memo(function TargetLabelInput({
       onChange={(event) => setValue(event.target.value)}
       onBlur={() => onCommit(targetId, value)}
       placeholder={placeholder}
-      className="mt-1 w-full rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm outline-none ring-sky-500 focus:ring-2"
     />
   );
 });
@@ -324,89 +324,82 @@ export default function DiagramBuilderPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#f6f7fb] px-4 py-8 text-zinc-950 sm:px-8">
-      <div className="mx-auto max-w-7xl">
-        <header className="mb-8 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+    <main>
+      <div>
+        <header>
           <div>
             <Link
               href="/"
-              className="mb-4 inline-flex items-center gap-2 text-sm font-semibold text-zinc-500 transition hover:text-zinc-900"
             >
               <span aria-hidden="true">←</span> Back to courses
             </Link>
-            <p className="mb-2 text-sm font-bold uppercase tracking-[0.18em] text-sky-600">
+            <p>
               Question tools
             </p>
-            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h1>
               Diagram question builder
             </h1>
-            <p className="mt-2 max-w-2xl text-zinc-600">
+            <p>
               Upload a diagram, place targets, and copy a ready-to-paste
               question object.
             </p>
           </div>
-          <button
+          <Button
             type="button"
             onClick={resetDraft}
-            className="rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-600 shadow-sm transition hover:border-rose-200 hover:text-rose-600"
           >
             Start over
-          </button>
+          </Button>
         </header>
 
-        <div className="flex flex-col gap-6">
-          <section className="order-2 rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm sm:p-7">
-            <div className="mb-6 flex items-center justify-between gap-4">
-              <button
+        <div>
+          <section>
+            <div>
+              <Button
                 type="button"
                 onClick={() => toggleSection("targets")}
                 aria-expanded={!collapsedSections.targets}
-                className="min-w-0 text-left"
               >
-                <span className="block text-lg font-bold">
+                <span>
                   2. Place target boxes
                 </span>
-                <span className="block text-sm text-zinc-500">
+                <span>
                   {firstCorner
                     ? "Now click the bottom-right corner."
                     : "Click the top-left, then bottom-right corner of each label."}
                 </span>
-              </button>
-              <span className="rounded-full bg-sky-50 px-3 py-1 text-sm font-bold text-sky-700">
+              </Button>
+              <span>
                 {draft.targets.length} target
                 {draft.targets.length === 1 ? "" : "s"}
               </span>
             </div>
 
             {!collapsedSections.targets && (
-              <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(230px,300px)] lg:items-start">
+              <div>
                 <div>
                   {!draft.imageUrl ? (
-                    <button
+                    <Button
                       type="button"
                       onClick={() => imageInputRef.current?.click()}
-                      className="flex min-h-[360px] w-full flex-col items-center justify-center rounded-2xl border-2 border-dashed border-zinc-300 bg-zinc-50 px-6 text-center transition hover:border-sky-400 hover:bg-sky-50/40"
                     >
                       <span
-                        className="mb-4 grid size-14 place-items-center rounded-2xl bg-white text-2xl shadow-sm"
                         aria-hidden="true"
                       >
                         ＋
                       </span>
-                      <span className="font-bold">Upload a diagram</span>
-                      <span className="mt-1 text-sm text-zinc-500">
+                      <span>Upload a diagram</span>
+                      <span>
                         PNG, JPG, GIF, or WebP from your computer
                       </span>
-                    </button>
+                    </Button>
                   ) : (
                     <div
-                      className="relative mx-auto w-fit max-w-full cursor-crosshair overflow-visible rounded-2xl border border-zinc-200 bg-zinc-100"
                       onClick={handleImageClick}
                     >
                       <img
                         src={draft.imageUrl}
                         alt={draft.alt || "Diagram preview"}
-                        className="block h-auto max-h-[680px] max-w-full rounded-2xl object-contain"
                       />
                       {firstCorner && (
                         <span
@@ -415,11 +408,10 @@ export default function DiagramBuilderPage() {
                             left: `${firstCorner.x}%`,
                             top: `${firstCorner.y}%`,
                           }}
-                          className="pointer-events-none absolute size-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-sky-600 shadow ring-2 ring-sky-500"
                         />
                       )}
                       {draft.targets.map((target) => (
-                        <button
+                        <Button
                           key={target.id}
                           type="button"
                           aria-label={`Target ${target.id}${target.label ? `: ${target.label}` : ": missing label"}`}
@@ -433,14 +425,12 @@ export default function DiagramBuilderPage() {
                             width: `${target.width ?? 0}%`,
                             height: `${target.height ?? 0}%`,
                           }}
-                          className={`absolute grid place-items-center rounded-md border-2 border-zinc-800 bg-white/50 text-sm font-bold text-zinc-900 shadow-lg transition ${selectedId === target.id ? "ring-2 ring-sky-500 ring-offset-1" : "hover:bg-sky-50/60"}`}
                         >
                           <span
-                            className={`absolute -right-4 -top-4 z-10 grid h-5 min-w-5 place-items-center rounded-full border-2 border-white px-1 text-[10px] font-bold leading-none text-white shadow-sm ${target.label.trim() ? "bg-emerald-600" : "bg-rose-600"}`}
                           >
                             {target.id}
                           </span>
-                        </button>
+                        </Button>
                       ))}
                     </div>
                   )}
@@ -449,28 +439,26 @@ export default function DiagramBuilderPage() {
                     type="file"
                     accept="image/*"
                     onChange={handleImageUpload}
-                    className="hidden"
                   />
                   {draft.imageUrl && (
-                    <button
+                    <Button
                       type="button"
                       onClick={() => imageInputRef.current?.click()}
-                      className="mt-3 text-sm font-semibold text-sky-700 hover:underline"
                     >
                       Replace image
-                    </button>
+                    </Button>
                   )}
                 </div>
 
-                <aside className="rounded-2xl border border-zinc-200 bg-zinc-50 p-4 lg:sticky lg:top-4 lg:max-h-[680px] lg:overflow-y-auto">
-                  <div className="mb-3">
-                    <h3 className="text-sm font-bold">Target labels</h3>
-                    <p className="mt-1 text-xs text-zinc-500">
+                <aside>
+                  <div>
+                    <h3>Target labels</h3>
+                    <p>
                       Add labels here while keeping the diagram in view.
                     </p>
                     {draft.targets.length > 0 && (
-                      <p className="mt-2 flex items-center gap-2 text-xs font-semibold">
-                        <span className="text-emerald-700">
+                      <p>
+                        <span>
                           {
                             draft.targets.filter((target) =>
                               target.label.trim(),
@@ -478,8 +466,8 @@ export default function DiagramBuilderPage() {
                           }{" "}
                           labeled
                         </span>
-                        <span className="text-zinc-400">·</span>
-                        <span className="text-rose-700">
+                        <span>·</span>
+                        <span>
                           {
                             draft.targets.filter(
                               (target) => !target.label.trim(),
@@ -491,23 +479,21 @@ export default function DiagramBuilderPage() {
                     )}
                   </div>
                   {draft.targets.length === 0 ? (
-                    <p className="rounded-xl border border-dashed border-zinc-300 bg-white p-4 text-center text-sm text-zinc-500">
+                    <p>
                       Draw a box on the diagram to add a target.
                     </p>
                   ) : (
-                    <div className="grid gap-3">
+                    <div>
                       {[...draft.targets].reverse().map((target, index) => (
                         <div
                           key={target.id}
-                          className={`rounded-2xl border p-4 transition ${target.label.trim() ? "border-emerald-200 bg-emerald-50/30" : "border-rose-200 bg-rose-50/30"} ${selectedId === target.id ? "ring-2 ring-sky-400" : ""}`}
                         >
-                          <div className="flex items-center justify-between gap-2">
-                            <div className="flex items-center gap-2">
-                              <span className="grid size-7 shrink-0 place-items-center rounded-full bg-zinc-900 text-xs font-bold text-white">
+                          <div>
+                            <div>
+                              <span>
                                 {target.id}
                               </span>
                               <span
-                                className={`inline-flex items-center gap-1 text-xs font-bold ${target.label.trim() ? "text-emerald-700" : "text-rose-700"}`}
                               >
                                 <span aria-hidden="true">
                                   {target.label.trim() ? "✓" : "!"}
@@ -517,15 +503,14 @@ export default function DiagramBuilderPage() {
                                   : "Missing label"}
                               </span>
                             </div>
-                            <button
+                            <Button
                               type="button"
                               onClick={() => removeTarget(target.id)}
-                              className="shrink-0 text-xs font-semibold text-zinc-400 hover:text-rose-600"
                             >
                               Remove
-                            </button>
+                            </Button>
                           </div>
-                          <label className="mt-3 block text-xs font-bold uppercase tracking-wide text-zinc-500">
+                          <label>
                             Answer label
                           </label>
                           <TargetLabelInput
@@ -535,7 +520,7 @@ export default function DiagramBuilderPage() {
                             onCommit={commitTargetLabel}
                             placeholder={`e.g. ${index === 0 ? "Mitochondrion" : "Cell membrane"}`}
                           />
-                          <p className="mt-2 text-xs text-zinc-500">
+                          <p>
                             Box: {target.width}% wide × {target.height}% high
                           </p>
                         </div>
@@ -547,24 +532,23 @@ export default function DiagramBuilderPage() {
             )}
           </section>
 
-          <div className="contents">
-            <section className="order-1 rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm sm:p-7">
-              <button
+          <div>
+            <section>
+              <Button
                 type="button"
                 onClick={() => toggleSection("details")}
                 aria-expanded={!collapsedSections.details}
-                className="mb-5 text-left"
               >
-                <span className="block text-lg font-bold">
+                <span>
                   1. Add question details
                 </span>
-                <span className="block text-sm text-zinc-500">
+                <span>
                   These fields map directly to your question JSON.
                 </span>
-              </button>
+              </Button>
               {!collapsedSections.details && (
-                <div className="grid gap-4">
-                  <label className="grid gap-1.5 text-sm font-semibold">
+                <div>
+                  <label>
                     Question prompt
                     <input
                       value={draft.question}
@@ -572,10 +556,9 @@ export default function DiagramBuilderPage() {
                         updateDraft("question", event.target.value)
                       }
                       placeholder="Label the structures in this diagram."
-                      className="rounded-xl border border-zinc-200 px-3.5 py-3 font-normal outline-none ring-sky-500 focus:ring-2"
                     />
                   </label>
-                  <label className="grid gap-1.5 text-sm font-semibold">
+                  <label>
                     Image description (alt text)
                     <input
                       value={draft.alt}
@@ -583,12 +566,11 @@ export default function DiagramBuilderPage() {
                         updateDraft("alt", event.target.value)
                       }
                       placeholder="Diagram of a eukaryotic cell"
-                      className="rounded-xl border border-zinc-200 px-3.5 py-3 font-normal outline-none ring-sky-500 focus:ring-2"
                     />
                   </label>
-                  <label className="grid gap-1.5 text-sm font-semibold">
+                  <label>
                     Hint{" "}
-                    <span className="font-normal text-zinc-400">
+                    <span>
                       (optional)
                     </span>
                     <textarea
@@ -598,38 +580,35 @@ export default function DiagramBuilderPage() {
                       }
                       placeholder="Think about the organelle that produces ATP."
                       rows={3}
-                      className="resize-y rounded-xl border border-zinc-200 px-3.5 py-3 font-normal outline-none ring-sky-500 focus:ring-2"
                     />
                   </label>
                 </div>
               )}
             </section>
 
-            <section className="order-3 rounded-3xl border border-zinc-200 bg-zinc-950 p-5 text-zinc-100 shadow-sm sm:p-7">
-              <div className="mb-4 flex items-start justify-between gap-4">
-                <button
+            <section>
+              <div>
+                <Button
                   type="button"
                   onClick={() => toggleSection("json")}
                   aria-expanded={!collapsedSections.json}
-                  className="text-left"
                 >
-                  <span className="block text-lg font-bold">
+                  <span>
                     3. Copy question JSON
                   </span>
-                  <span className="block text-sm text-zinc-400">
+                  <span>
                     Paste this into a section&apos;s questions array.
                   </span>
-                </button>
-                <button
+                </Button>
+                <Button
                   type="button"
                   onClick={copyJson}
-                  className="shrink-0 rounded-xl bg-white px-3.5 py-2 text-sm font-bold text-zinc-900 transition hover:bg-sky-100"
                 >
                   {copyState === "copied" ? "Copied!" : "Copy JSON"}
-                </button>
+                </Button>
               </div>
               {!collapsedSections.json && copyState === "error" && (
-                <p className="mb-3 text-xs text-rose-300">
+                <p>
                   Clipboard access was blocked. Select and copy the JSON
                   manually.
                 </p>
@@ -646,14 +625,13 @@ export default function DiagramBuilderPage() {
                   onBlur={applyJson}
                   spellCheck={false}
                   aria-label="Question JSON"
-                  className="min-h-[360px] w-full resize-y rounded-2xl bg-zinc-900 p-4 font-mono text-xs leading-6 text-sky-100 outline-none ring-sky-500 focus:ring-2"
                 />
               )}
               {!collapsedSections.json && jsonError && (
-                <p className="mt-3 text-xs text-rose-300">{jsonError}</p>
+                <p>{jsonError}</p>
               )}
               {!collapsedSections.json && (
-                <p className="mt-4 text-xs text-zinc-500">
+                <p>
                   Drafts save automatically in this browser.
                 </p>
               )}

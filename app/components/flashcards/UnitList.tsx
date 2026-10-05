@@ -1,6 +1,7 @@
 "use client";
 
 import { Unit } from "@/app/types";
+import { Box, ButtonBase, Stack, Typography } from "@mui/material";
 
 type UnitListProps = {
   units: Unit[];
@@ -14,29 +15,25 @@ export default function UnitList({
   onSelectUnit,
 }: UnitListProps) {
   return (
-    <div className="flex flex-col gap-4">
-      <h4 className="text-base font-semibold">Select a unit</h4>
-      <div className="grid gap-3 sm:grid-cols-2">
+    <Stack spacing={2}>
+      <Typography variant="h6">Select a unit</Typography>
+      <Box sx={{ display: "grid", gap: 1.5, gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)" } }}>
         {units.map((unit) => (
-          <button
+          <ButtonBase
             key={unit.id}
             onClick={() => onSelectUnit(unit)}
-            className={`rounded-2xl border p-4 text-left transition ${
-              selectedUnitId === unit.id
-                ? "border-zinc-900 bg-zinc-900 text-white dark:border-zinc-100 dark:bg-zinc-100 dark:text-black"
-                : "border-zinc-200 bg-zinc-50 hover:border-zinc-400 dark:border-zinc-800 dark:bg-zinc-900/60"
-            }`}
+            sx={{ display: "block", p: 2, border: 1, borderRadius: 3, textAlign: "left", borderColor: selectedUnitId === unit.id ? "text.primary" : "divider", bgcolor: selectedUnitId === unit.id ? "text.primary" : "action.hover", color: selectedUnitId === unit.id ? "common.white" : "text.primary", "&:hover": { borderColor: "text.secondary" } }}
           >
-            <p className="text-xs font-semibold uppercase text-zinc-500 dark:text-zinc-400">
+            <Typography variant="caption" sx={{ display: "block", fontWeight: 700, textTransform: "uppercase" }} color={selectedUnitId === unit.id ? "inherit" : "text.secondary"}>
               Unit {unit.number}
-            </p>
-            <p className="text-lg font-semibold">{unit.title}</p>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">
+            </Typography>
+            <Typography variant="h6">{unit.title}</Typography>
+            <Typography variant="body2" color={selectedUnitId === unit.id ? "inherit" : "text.secondary"}>
               {unit.description}
-            </p>
-          </button>
+            </Typography>
+          </ButtonBase>
         ))}
-      </div>
-    </div>
+      </Box>
+    </Stack>
   );
 }
