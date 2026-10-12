@@ -337,7 +337,7 @@ export const ch9DiseaseAtAGlance: Section = {
   id: "bio160-9-diseases-at-a-glance",
   title: "Diseases At a Glance",
   description: "Diseases At a Glance",
-  number: 1,
+  number: 2,
   type: "section",
   questions,
 };
