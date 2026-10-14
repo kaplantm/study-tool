@@ -1,5 +1,6 @@
 import { Chapter } from "@/app/types";
 import { section21Matching } from "./sections/matching";
+import { ch2PracticeTest } from "./sections/practice-test";
 
 export const bio160Chapter2: Chapter = {
   id: "bio160-2",
@@ -7,7 +8,7 @@ export const bio160Chapter2: Chapter = {
   description: "Week 2, Chapter 2: Immunity and Disease",
   number: 2,
   type: "chapter",
-  sections: [section21Matching],
+  sections: [section21Matching, ch2PracticeTest],
   questions: [
     {
       question: "What is immunity?",
