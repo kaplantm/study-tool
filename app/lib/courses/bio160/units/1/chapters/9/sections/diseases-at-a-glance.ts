@@ -2,7 +2,7 @@ import { Section } from "@/app/types";
 
 const questions = [
   {
-    id: "q1",
+    id: "qq1",
     question: "What is the primary etiology and treatment for Stomatitis?",
     options: [
       "Bacteria, viruses, fungi / Antibiotics, antivirals, or antifungals",
@@ -15,7 +15,7 @@ const questions = [
     tags: ["Stomatitis", "Etiology", "Treatment"],
   },
   {
-    id: "q2",
+    id: "qq2",
     question:
       "Which disease is characterized by burning chest pain (heartburn) caused by acid reflux due to an incompetent cardiac sphincter?",
     options: ["Gastritis", "Esophagitis", "Hiatal hernia", "Peptic ulcer"],
@@ -23,7 +23,7 @@ const questions = [
     tags: ["Esophagitis", "Signs and Symptoms", "Etiology"],
   },
   {
-    id: "q3",
+    id: "qq3",
     question:
       "Match each digestive disease with its characteristic sign or symptom.",
     matches: [
@@ -49,7 +49,7 @@ const questions = [
     tags: ["Matching", "Signs and Symptoms"],
   },
   {
-    id: "q4",
+    id: "qq4",
     question:
       "What is the primary diagnosis method for Cancer of the esophagus?",
     options: [
@@ -62,7 +62,7 @@ const questions = [
     tags: ["Cancer of the esophagus", "Diagnosis"],
   },
   {
-    id: "q5",
+    id: "qq5",
     question:
       "Which form of viral hepatitis is a rare bloodborne or sexually transmitted co-infection with hepatitis B virus?",
     options: ["Hepatitis A", "Hepatitis B", "Hepatitis C", "Hepatitis D"],
@@ -70,7 +70,7 @@ const questions = [
     tags: ["Hepatitis D", "Etiology"],
   },
   {
-    id: "q6",
+    id: "qq6",
     question:
       "Match each Hepatitis virus with its primary transmission mode / etiology.",
     matches: [
@@ -97,7 +97,7 @@ const questions = [
     tags: ["Hepatitis", "Etiology", "Matching"],
   },
   {
-    id: "q7",
+    id: "qq7",
     question:
       "What is the specific etiology and prevention method for Peptic ulcer?",
     options: [
@@ -110,7 +110,7 @@ const questions = [
     tags: ["Peptic ulcer", "Etiology", "Prevention"],
   },
   {
-    id: "q8",
+    id: "qq8",
     question:
       "Which condition results from degeneration of stomach mucosa leading to no HCl secretion and no intrinsic factor secretion?",
     options: [
@@ -123,7 +123,7 @@ const questions = [
     tags: ["Chronic atrophic gastritis", "Etiology"],
   },
   {
-    id: "q9",
+    id: "qq9",
     question: "What is the standard treatment for Cholecystitis?",
     options: [
       "Cholecystectomy",
@@ -135,7 +135,7 @@ const questions = [
     tags: ["Cholecystitis", "Treatment"],
   },
   {
-    id: "q10",
+    id: "qq10",
     question:
       "Match each intestinal or bowel disorder with its typical treatment or prevention strategy.",
     matches: [
@@ -161,7 +161,7 @@ const questions = [
     tags: ["Treatment", "Matching"],
   },
   {
-    id: "q11",
+    id: "qq11",
     question: "What is the etiology of Cancer of the mouth?",
     options: [
       "Use of tobacco products, especially in conjunction with consuming alcohol",
@@ -174,7 +174,7 @@ const questions = [
     tags: ["Cancer of the mouth", "Etiology"],
   },
   {
-    id: "q12",
+    id: "qq12",
     question: "Match each condition with its primary etiology.",
     matches: [
       {
@@ -199,7 +199,7 @@ const questions = [
     tags: ["Etiology", "Matching"],
   },
   {
-    id: "q13",
+    id: "qq13",
     question:
       "What are the characteristic signs and symptoms of Chronic atrophic gastritis?",
     options: [
@@ -213,7 +213,7 @@ const questions = [
     tags: ["Chronic atrophic gastritis", "Signs and Symptoms"],
   },
   {
-    id: "q14",
+    id: "qq14",
     question:
       "Which condition is characterized by a failure to absorb fats and fat-soluble vitamins, and failure to grow in children?",
     options: [
@@ -226,7 +226,7 @@ const questions = [
     tags: ["Malabsorption syndrome", "Signs and Symptoms"],
   },
   {
-    id: "q15",
+    id: "qq15",
     question:
       "What diagnostic tools are typically used for Cancer of the stomach?",
     options: [
@@ -240,7 +240,7 @@ const questions = [
     tags: ["Cancer of the stomach", "Diagnosis"],
   },
   {
-    id: "q16",
+    id: "qq16",
     question:
       "Match each liver or pancreatic condition with its primary etiology or risk factor.",
     matches: [
@@ -268,7 +268,7 @@ const questions = [
     tags: ["Etiology", "Matching"],
   },
   {
-    id: "q17",
+    id: "qq17",
     question:
       "What is the prevention strategy for Cancer of the colon and rectum?",
     options: [
@@ -281,7 +281,7 @@ const questions = [
     tags: ["Cancer of colon and rectum", "Prevention"],
   },
   {
-    id: "q18",
+    id: "qq18",
     question:
       "Which condition involves diverticula of the colon becoming impacted with fecal material and infected or inflamed?",
     options: [
@@ -294,7 +294,7 @@ const questions = [
     tags: ["Diverticulitis", "Etiology"],
   },
   {
-    id: "q19",
+    id: "qq19",
     question: "What is the primary treatment for Cancer of the liver?",
     options: [
       "Chemotherapy (prognosis poor)",
@@ -306,7 +306,7 @@ const questions = [
     tags: ["Cancer of the liver", "Treatment"],
   },
   {
-    id: "q20",
+    id: "qq20",
     question:
       "Match each remaining GI cancer or disorder with its key management/treatment feature.",
     matches: [
