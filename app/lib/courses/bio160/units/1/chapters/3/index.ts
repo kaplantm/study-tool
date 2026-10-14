@@ -1,4 +1,5 @@
 import { Chapter } from "@/app/types";
+import { ch3Practice } from "./sections/provided-practice-questions";
 
 export const bio160Chapter3: Chapter = {
   id: "bio160-3",
@@ -6,7 +7,7 @@ export const bio160Chapter3: Chapter = {
   description: "Week 2, Chapter 3: Infectious Diseases",
   number: 3,
   type: "chapter",
-  sections: [],
+  sections: [ch3Practice],
   questions: [
     {
       question:
