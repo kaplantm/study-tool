@@ -1,0 +1,17 @@
+{
+  "name": "Review Study App",
+  "short_name": "Review",
+  "description": "Study courses and practice questions offline.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
