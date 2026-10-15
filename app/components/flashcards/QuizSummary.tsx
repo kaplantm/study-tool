@@ -49,6 +49,10 @@ export default function QuizSummary({
   // Flagged = flagged in localStorage, but not failed in this session
   const failedIds = new Set(incorrectResponses.map((r) => r.questionId));
   const flaggedOnlyIds = flaggedIds.filter((id) => !failedIds.has(id));
+  const correctPercent =
+    totalQuestions === 0
+      ? 0
+      : Math.round((correctCount / totalQuestions) * 1000) / 10;
 
   return (
     <Paper component="section" sx={{ p: 3 }}>
@@ -56,7 +60,7 @@ export default function QuizSummary({
         <Box>
           <Typography variant="h5">Session summary</Typography>
           <Typography color="text.secondary">
-            You answered {correctCount} out of {totalQuestions} correctly.
+            You answered {correctCount} out of {totalQuestions} correctly ({correctPercent}%).
           </Typography>
         </Box>
 

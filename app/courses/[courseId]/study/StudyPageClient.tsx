@@ -184,6 +184,7 @@ export default function StudyPage() {
     if (startFresh) {
       const nextParams = new URLSearchParams(searchParams.toString());
       nextParams.delete("fresh");
+      nextParams.delete("questionId");
       router.push(`${pathname}?${nextParams.toString()}`, { scroll: false });
     }
   }, [
@@ -223,6 +224,9 @@ export default function StudyPage() {
 
   useEffect(() => {
     if (filteredQuizQuestions.length === 0) return;
+    // A fresh quiz must always begin at its first question. Ignore any stale
+    // questionId while the fresh-start URL is being normalized above.
+    if (startFresh) return;
 
     if (resetToken) {
       const nextParams = new URLSearchParams(searchParams.toString());
@@ -245,6 +249,7 @@ export default function StudyPage() {
     resetToken,
     router,
     searchParams,
+    startFresh,
   ]);
 
   const selectedCourse = useMemo(

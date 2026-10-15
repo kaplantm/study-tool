@@ -38,6 +38,10 @@ export default function QuizCard({
   }
 
   const hasHint = Boolean(currentQuestion.hint);
+  const correctPercent =
+    currentIndex === 0
+      ? 0
+      : Math.round((correctCount / currentIndex) * 1000) / 10;
   return (
     <Paper component="section" sx={{ p: 3 }}>
       <Stack spacing={3}>
@@ -51,7 +55,9 @@ export default function QuizCard({
           <Typography variant="body2">
             Question {currentIndex + 1} of {totalQuestions}
           </Typography>
-          <Typography variant="body2">{correctCount} correct</Typography>
+          <Typography variant="body2">
+            {correctCount} correct ({correctPercent}%)
+          </Typography>
         </Box>
 
         <Paper
